@@ -35,3 +35,12 @@ C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.Prop
 C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.csproj.GenerateResource.Cache
 C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.exe
 C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\bin\Debug\serverManage.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\bin\Debug\serverManage.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\bin\Debug\serverManage.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.FormMain.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.FormStartup.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.Properties.Resources.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.csproj.GenerateResource.Cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.pdb

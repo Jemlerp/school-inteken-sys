@@ -15,11 +15,11 @@ namespace loginLe0c {
             InitializeComponent();
         }
 
-        private List<TsubPersonInfo> elldata = new List<TsubPersonInfo>();
+        private List<TInfoOverEenPersoon> elldata = new List<TInfoOverEenPersoon>();
 
         private void getnewdata(object sender, EventArgs e) {
-            TAskCurrentStateForDisplay askion = new TAskCurrentStateForDisplay();
-            elldata = webbbz.wetmyweb(textBox1.Text, textBox2.Text, askion).iedereen;
+            TAskAanwezigheidsOverzigtVanVandaag askion = new TAskAanwezigheidsOverzigtVanVandaag();
+            elldata = functions.wetmyweb(textBox1.Text, textBox2.Text, askion).iedereen;
             updateWIthSeath(null,null);
         }
 
@@ -34,9 +34,9 @@ namespace loginLe0c {
             return dt;
         }
 
-        private void updateDataGridWithList(List<TsubPersonInfo> putt) {
+        private void updateDataGridWithList(List<TInfoOverEenPersoon> putt) {
             DataTable dt = newTable();
-            foreach (TsubPersonInfo test in putt) {
+            foreach (TInfoOverEenPersoon test in putt) {
                 DataRow dr = dt.NewRow();
                 dr[0] = test.naam;
                 dr[1] = test.achternaam;
@@ -51,7 +51,7 @@ namespace loginLe0c {
         }
 
         void updateWIthSeath(object een, object twee) {
-            List<TsubPersonInfo> toinput = new List<TsubPersonInfo>();
+            List<TInfoOverEenPersoon> toinput = new List<TInfoOverEenPersoon>();
             foreach (var ja in elldata) {
                 if (ja.naam.ToLower().Contains(textBox3.Text.ToLower()) || ja.achternaam.ToLower().Contains(textBox3.Text.ToLower())) {
                     toinput.Add(ja);

@@ -29,7 +29,7 @@ namespace toegangpunt {
 
         string getServerStatus() {
             TWrapWithPassword send = new TWrapWithPassword();
-            send.tSend = new funcZ.TPing();
+            //send.tSend = new funcZ.TPing();
             send.password = _Password;
 
 
@@ -60,7 +60,7 @@ namespace toegangpunt {
             string eetZelfEenUi = eetEenUi.TrimStart();
             Stopwatch stopwa = new Stopwatch();
             stopwa.Start();
-            TReturnInfoForDisplay awns = Web.sendNewRead(_ApiAdress, _Password, eetZelfEenUi);
+            TReturnDisplayInfoForJustReadNFCCard awns = Web.sendNewRead(_ApiAdress, _Password, eetZelfEenUi);
             stopwa.Stop();
             if (awns.error) {
                 textBox1.Text += "ERROR \r\n " + awns.errorText;

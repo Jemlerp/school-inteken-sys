@@ -4,53 +4,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace funcZ {
+namespace funcZ
+{
 
-    #region netz data types
-    public interface IKnowType {
-        string ThisType { get; }
+    public interface IKnow
+    {
+        SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get; }
     }
 
+    public enum SendAndRecieveTypesEnum
+    {
+        metWachtwoord,
+        errorReport,
+        vraagUurOverzichtVanEenPersoon,
+        returnUurOverzichtVanEenPersoon,
+        NFCCardScanInfo,
+        returnInfoAboutUserFromJustReadNFCCard,
+        vraagAanwezighijdsOverzichtVanVandaag,
+        returnAanwezighijdsOverZichtVanVandaag,
+    };
+
     //alles word verstuurd met dit
-    public class TWrapWithPassword : IKnowType {
-        public string ThisType { get { return "TWrapWithPassword"; } }
+    public class TWrapWithPassword : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.metWachtwoord; } }
         public string password { get; set; }
         public object tSend { get; set; }
     }
 
     //kijk altijd uit voor deze
-    public class TReturnError : IKnowType {
-        public string ThisType { get { return "TReturnError"; } }
-        public string waarom { get; set; }
+    public class TReturnError : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.errorReport; } }
+        public string errorText { get; set; }
     }
 
-    public class TPing : IKnowType {
-        public string ThisType { get { return "TPing"; } }
-    }
-
-    public class TPong : IKnowType {
-        public string ThisType { get { return "TPong"; } }
-        public string sqlConStats { get; set; }
-    }
-
-    public class TAskUurOverzight : IKnowType {
-        public string ThisType { get { return "TAskUurOverzight"; } }
+    //niet af
+    public class TAskUurOverzightVanEenPersoon : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.vraagUurOverzichtVanEenPersoon; } }
         public DateTime dezedag { get; set; }
         public DateTime totenmetdeze { get; set; }
         public int UserIdVanWieTeMaaken { get; set; }
 
         public int dagenSchoolGeweestTussenDeTweeDateTime { get; set; } // dit of auto
         //als ik er tijd voor over heb
-        public bool shouldDetectIfSchoolDay{ get; set; } = false;
+        public bool shouldDetectIfSchoolDay { get; set; } = false;
         public int aantalMensenDieOpSchoolMoetenKomenVoordatHetGeteltWordtAlsEenSchoolDag { get; set; } = 5;
     }
 
-    public class TAskCurrentStateForDisplay : IKnowType {
-        public string ThisType { get { return "TAskCurrentStateForDisplay"; } }
-        }
-
-    public class TReturnUurOverzight : IKnowType {
-        public string ThisType { get { return "TReturnUurOverzight"; } }
+    //niet af
+    public class TReturnUurOverzichtVanEenPersoon : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.returnUurOverzichtVanEenPersoon; } }
         public List<DateTime> dagenWaarUserZiekWas { get; set; }
         public List<DateTime> dagenFelxiebleVerlof { get; set; }
         public int uurenGekrijgenVanOverigeRedenen { get; set; } = 0;
@@ -61,15 +67,17 @@ namespace funcZ {
         public int efectiefTotaalaantalUuren { get; set; } = 0;
         public int efectiefTotaalaantalminuten { get; set; } = 0;
         public int efectiefTotaalaantalseconden { get; set; } = 0;
-        }
+    }
 
-    public class TSendNewIDRead : IKnowType {
-        public string ThisType { get { return "TSendnewIdRead"; } }
+    public class TNFCCardScan : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.NFCCardScanInfo; } }
         public string ID { get; set; }
     }
 
-    public class TReturnInfoForDisplay : IKnowType {
-        public string ThisType { get { return "TReturnInfoForDisplay"; } }
+    public class TReturnDisplayInfoForJustReadNFCCard : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.returnInfoAboutUserFromJustReadNFCCard; } }
         public string testText { get; set; }
         public string errorText { get; set; }
         public bool error { get; set; }
@@ -83,14 +91,19 @@ namespace funcZ {
         public DateTime tijdinofuitgetekend { get; set; }
     }
 
-    public class TReturnCurrentStateForDisplay : IKnowType {
-        public string ThisType { get { return "TReturnCurrentStateForDisplay"; } }
-        public List<TsubPersonInfo> iedereen { get; set; }
-        }
+    public class TAskAanwezigheidsOverzigtVanVandaag : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.vraagAanwezighijdsOverzichtVanVandaag; } }
+    }
 
-    #endregion
+    public class TReturnAanwezigheidsOverzigtVanVandaag : IKnow
+    {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.returnAanwezighijdsOverZichtVanVandaag; } }
+        public List<TInfoOverEenPersoon> iedereen { get; set; }
+    }
 
-    public class TsubPersonInfo {
+    public class TInfoOverEenPersoon
+    {
         public int userId { get; set; }
 
         public string naam { get; set; }
@@ -106,5 +119,5 @@ namespace funcZ {
         public int uutotopschoolgeweest { get; set; }
         public int minutetotaalopschoolgeweest { get; set; }
         public int secondetotaalopschoolgeweest { get; set; }
-        }
     }
+}

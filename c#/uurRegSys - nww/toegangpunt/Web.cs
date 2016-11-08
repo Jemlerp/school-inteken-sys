@@ -22,16 +22,16 @@ namespace toegangpunt {
                 }
             }
 
-        public static TReturnInfoForDisplay sendNewRead(string _address, string _password, string _Read) {
-            TSendNewIDRead sendInfo = new TSendNewIDRead();
+        public static TReturnDisplayInfoForJustReadNFCCard sendNewRead(string _address, string _password, string _Read) {
+            TNFCCardScan sendInfo = new TNFCCardScan();
             sendInfo.ID = _Read;
             TWrapWithPassword send = new TWrapWithPassword();
             send.password = _password;
             send.tSend = sendInfo;
             string webResponse = httpPostGetObject<string>(send, _address);
-            TReturnInfoForDisplay retuu = new TReturnInfoForDisplay();
+            TReturnDisplayInfoForJustReadNFCCard retuu = new TReturnDisplayInfoForJustReadNFCCard();
             try {
-                retuu = JsonConvert.DeserializeObject<TReturnInfoForDisplay>(webResponse);
+                retuu = JsonConvert.DeserializeObject<TReturnDisplayInfoForJustReadNFCCard>(webResponse);
                 } catch {
                 retuu.error = true;
                 retuu.errorText = "unexpected response from server";

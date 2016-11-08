@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace funcZ
 {
-    public class TEST
+    public class TESTwachtwoord
     {
         public static string testwachtwoord = "testwachtwoord";
     }
