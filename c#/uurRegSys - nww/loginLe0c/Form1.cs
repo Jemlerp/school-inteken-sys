@@ -52,11 +52,20 @@ namespace loginLe0c {
 
         void updateWIthSeath(object een, object twee) {
             List<TInfoOverEenPersoon> toinput = new List<TInfoOverEenPersoon>();
-            foreach (var ja in elldata) {
-                if (ja.naam.ToLower().Contains(textBox3.Text.ToLower()) || ja.achternaam.ToLower().Contains(textBox3.Text.ToLower())) {
-                    toinput.Add(ja);
+            if (elldata != null)
+            {
+                foreach (var ja in elldata)
+                {
+                    if (ja.naam.ToLower().Contains(textBox3.Text.ToLower()) || ja.achternaam.ToLower().Contains(textBox3.Text.ToLower()))
+                    {
+                        toinput.Add(ja);
+                    }
+                    updateDataGridWithList(toinput);
                 }
-                updateDataGridWithList(toinput);
+            }
+            else
+            {
+                MessageBox.Show("Cant connect to server");
             }
         }      
 

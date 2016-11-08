@@ -44,3 +44,4 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverMana
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.csproj.GenerateResource.Cache
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.exe
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\serverManage\obj\Debug\serverManage.csprojResolveAssemblyReference.cache

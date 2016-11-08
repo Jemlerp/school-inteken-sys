@@ -15,13 +15,14 @@ namespace Sever {
         //                   "Trusted_Connection=True;" +
         //                   "database=testnfcreg; ";
 
-        public static string connectionString = "Server=DESKTOP-27V2B6M; Database=testnfcreg; User Id=sa; password=kanker;";
+        public static string connectionString = "Server=DESKTOP-M1ICC4F\\GENERICNAME; Database=testnfcreg; User Id=sa; password=kanker;";
 
         public static string databaseName = "testnfcreg";
 
         //tableNames    
         public static string userTableName = "userTable";
         public static string regTableName = "regTable";
+
         public static string uitzonderingTableName = "uitzonderingTable";
         public static string aanwezigTableName = "aanwezigTable";
 
@@ -81,6 +82,7 @@ namespace Sever {
                 }
             }
         }
+
 
     }
 }

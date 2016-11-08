@@ -206,14 +206,11 @@ namespace Sever.Models
             return JsonConvert.SerializeObject(retuuuuuuuuurn);
         }
 
-
-        private static string returnInfoForDisplay(int _userID, string errorText)
+        //returnInfo
+        private static string returnInfoForDisplay(int _userID)
         {
             DateTime _serverDateTime = getSqlServerDateTime();
             TReturnDisplayInfoForJustReadNFCCard RtDisplayInfo = new TReturnDisplayInfoForJustReadNFCCard();
-            if (errorText == "")
-            {
-                RtDisplayInfo.testText = "Klaar Met: " + _userID;
                 SqlCommand command = new SqlCommand();
                 DataTable result = new DataTable();
 
@@ -222,14 +219,14 @@ namespace Sever.Models
                 command.CommandText = $"select {sql.aanwezig_isAanwezigCollumName} from {sql.aanwezigTableName} where {sql.aanwezig_relatedUserIDCollumName} = @eruser and {sql.aanwezig_datetimeCollumName} between CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 00:00:00' AS DATETIME) and CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 23:59:59' AS DATETIME)";
 
                 result = sql.SQLQuery(sql.connectionString, command);
-                if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
+               // if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
                 if (result.Rows.Count > 0)
                 {
                     RtDisplayInfo.isAanwezig = (bool)result.Rows[0][sql.aanwezig_isAanwezigCollumName];
                 }
                 else
                 {
-                    return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
+                    //return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
                 }
 
                 // get from user table
@@ -237,7 +234,7 @@ namespace Sever.Models
                 result = new DataTable();
                 command.CommandText = "select * from " + sql.userTableName + " where " + sql.user_idCollumName + " = " + _userID;
                 result = sql.SQLQuery(sql.connectionString, command);
-                if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
+                //if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
                 if (result.Rows.Count > 0)
                 {
                     RtDisplayInfo.voorNaam = (string)result.Rows[0][sql.user_voorNaamCollumName];
@@ -247,23 +244,15 @@ namespace Sever.Models
                 }
                 else
                 {
-                    return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
+                   // return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
                 }
 
-            }
-            else
-            {
-                RtDisplayInfo.error = true;
-                RtDisplayInfo.errorText = errorText;
-            }
             return JsonConvert.SerializeObject(RtDisplayInfo);
         }
 
         /// <summary>
         /// saves datetime with userid and nfc uid to database en zorgt ervoor dat aleen de eerste en laatste entrys in de database blijven
         /// </summary>
-        /// <param name="_inObject"></param>
-        /// <returns></returns>
         public static string nfc_scan(object _inObject)
         {
             string wertkWel = JsonConvert.SerializeObject(_inObject);
@@ -272,14 +261,13 @@ namespace Sever.Models
             SqlCommand command = new SqlCommand();
             DataTable result = new DataTable();
             int idOfPersonRelated;
-            object[] arg;
 
             // ---usertable
             // get person related to nfcCard ID
             command.Parameters.AddWithValue("@nfcCode", _READ.ID);
-            command.CommandText = string.Format("select {0} from {1} where {2} = @nfcCode", sql.user_idCollumName, sql.userTableName, sql.user_nfcCodeCollumName);
+            command.CommandText = $"select {sql.user_idCollumName} from {sql.userTableName} where {sql.user_nfcCodeCollumName} = @nfcCode";
             result = sql.SQLQuery(sql.connectionString, command);
-            if (result.Rows.Count == 0) { return returnErrorWithMessage("unknown card"); } // change this
+            if (result.Rows.Count == 0) { throw new Exception($"Unknown Card. Card ID = {_READ.ID}"); }
             idOfPersonRelated = (int)result.Rows[0][sql.user_idCollumName];
 
             // ---regtable
@@ -287,17 +275,10 @@ namespace Sever.Models
             command = new SqlCommand();
             result = new DataTable();
             command.Parameters.AddWithValue("@regggdid", idOfPersonRelated);
-            arg = new object[] {
-                sql.reg_idCollumName,
-                sql.regTableName,
-                sql.reg_dateTimeCollumName,
-                "CAST('" + _serverDateTime.Date.ToString("MM / dd / yyyy") + " 00:00:00' AS DATETIME)",
-                "CAST('" + _serverDateTime.Date.ToString("MM / dd / yyyy") + " 23:59:59' AS DATETIME)",
-                sql.reg_relatedUserIdCollumName };
-            command.CommandText = string.Format("select {0} from {1} where {2} between {3} and {4} and {5} = @regggdid ORDER BY datetime DESC", arg);
+            command.CommandText = $"select {sql.reg_idCollumName} from {sql.regTableName} where {sql.reg_dateTimeCollumName} between CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 00:00:00' AS DATETIME) and CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 23:59:59' AS DATETIME) and {sql.reg_relatedUserIdCollumName} = @regggdid ORDER BY datetime DESC";
             result = sql.SQLQuery(sql.connectionString, command);
             command = new SqlCommand();
-            if (result != null)
+            if (result != null) // 0 is niet null
             {
                 if (result.Rows.Count > 1)
                 { //delete een of meer entries
@@ -305,69 +286,47 @@ namespace Sever.Models
                     int change = sql.SQLNonQuery(sql.connectionString, command);
                     if (change != result.Rows.Count - 1)
                     {
-                        return returnInfoForDisplay(0, "sqlConnectionError");
+                        throw new Exception($"SQL Error While Trying To Find User ");
                     }
                 }
             }
             else
             {
-                return returnInfoForDisplay(0, "sqlConnectionError");
+                throw new Exception($"SQL Error While Trying To Find User Entry Form User:{idOfPersonRelated}");
             }
 
             // ---aanwezigTable
             // kijk of er een aanwezig entry is
             command = new SqlCommand();
             result = new DataTable();
-            arg = new object[] {
-                sql.aanwezig_IDCollumName,
-                sql.aanwezig_isAanwezigCollumName,
-                sql.aanwezigTableName ,
-                sql.aanwezig_datetimeCollumName,
-                "CAST('" + _serverDateTime.Date.ToString("MM / dd / yyyy") + " 00:00:00' AS DATETIME)",
-                "CAST('" + _serverDateTime.Date.ToString("MM / dd / yyyy") + " 23:59:59' AS DATETIME)",
-                sql.aanwezig_relatedUserIDCollumName };
             command.Parameters.AddWithValue("@relateduserid", idOfPersonRelated);
-            command.CommandText = string.Format("select {0}, {1} from {2} where {3} between {4} and {5} and {6} = @relateduserid", arg);
+            command.CommandText = $"select {sql.aanwezig_IDCollumName}, {sql.aanwezig_isAanwezigCollumName} from {sql.aanwezigTableName} where {sql.aanwezig_datetimeCollumName} between CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 00:00:00' AS DATETIME) and CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 23:59:59' AS DATETIME) and {sql.aanwezig_relatedUserIDCollumName} = @relateduserid";
             result = sql.SQLQuery(sql.connectionString, command);
             if (result != null)
             {
                 if (result.Rows.Count > 0)
                 { // update aanwezig entry
                     command = new SqlCommand();
-                    arg = new object[] {
-                    sql.aanwezigTableName ,
-                    sql.aanwezig_isAanwezigCollumName,
-                    sql.aanwezig_relatedUserIDCollumName,
-                    sql.aanwezig_datetimeCollumName,
-                    "CAST('" + _serverDateTime.Date.ToString("MM / dd / yyyy") + " 00:00:00' AS DATETIME)",
-                    "CAST('" + _serverDateTime.Date.ToString("MM / dd / yyyy") + " 23:59:59' AS DATETIME)"
-                    };
                     command.Parameters.AddWithValue("@value", !(bool)result.Rows[0][sql.aanwezig_isAanwezigCollumName]);
                     command.Parameters.AddWithValue("@relauser", idOfPersonRelated);
-                    command.CommandText = string.Format("update {0} set {1} = @value where {2} = @relauser and {3} between {4} and {5}", arg);
+                    command.CommandText = $"update {sql.aanwezigTableName} set {sql.aanwezig_isAanwezigCollumName} = @value where {sql.aanwezig_relatedUserIDCollumName} = @relauser and {sql.aanwezig_datetimeCollumName} between CAST('{ _serverDateTime.Date.ToString("MM / dd / yyyy")} 00:00:00' AS DATETIME) and CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 23:59:59' AS DATETIME)";
                     int xxx = sql.SQLNonQuery(sql.connectionString, command);
                     if (xxx != 1)
                     {
-                        // DOE IETS
+                        throw new Exception($"SQL Error While Trying To Update Aanwezig Table For User:{idOfPersonRelated}");
                     }
                 }
                 else
                 { // create new aanwezig entry
                     command = new SqlCommand();
                     result = new DataTable();
-                    arg = new object[] {
-                        sql.aanwezigTableName,
-                        sql.aanwezig_datetimeCollumName,
-                        sql.aanwezig_relatedUserIDCollumName,
-                        sql.aanwezig_isAanwezigCollumName
-                    };
                     command.Parameters.AddWithValue("@userid", idOfPersonRelated);
                     command.Parameters.AddWithValue("@value", 1);
-                    command.CommandText = string.Format("insert into {0} ({1}, {2}, {3}) values (getdate(), @userid, @value)", arg);
+                    command.CommandText = $"insert into {sql.aanwezigTableName} ({sql.aanwezig_datetimeCollumName}, {sql.aanwezig_relatedUserIDCollumName}, {sql.aanwezig_isAanwezigCollumName}) values (getdate(), @userid, @value)";
                     int rezoelt = sql.SQLNonQuery(sql.connectionString, command);
                     if (rezoelt != 1)
                     {
-                        //DOE IETS
+                        throw new Exception($"SQL Error While Trying To Update Aanwezig Table For User:{idOfPersonRelated}");
                     }
                 }
             }
@@ -376,19 +335,15 @@ namespace Sever.Models
             // add now to reg table
             command = new SqlCommand();
             result = new DataTable();
-            command.CommandText = "insert into " + sql.regTableName + " (" + sql.reg_dateTimeCollumName + ", " + sql.reg_relatedUserIdCollumName + ", " + sql.reg_usedNfcCardIdCollumName + ") values (getdate(), " + idOfPersonRelated + ", '" + _READ.ID + "')";
+            command.CommandText = $"insert into {sql.regTableName} ({sql.reg_dateTimeCollumName}, {sql.reg_relatedUserIdCollumName}, { sql.reg_usedNfcCardIdCollumName}) values (getdate(), {idOfPersonRelated}, '{_READ.ID}')";
             if (sql.SQLNonQuery(sql.connectionString, command) != 1)
             {
-                return returnErrorWithMessage("sqlError"); //IETS
+                throw new Exception($"SQL Error While Trying To Insert In/Uit Check To Reg Table For User:{idOfPersonRelated}");
             }
             else
             {
-                return returnInfoForDisplay(idOfPersonRelated, "");
+                return returnInfoForDisplay(idOfPersonRelated);
             }
         }
-
-        // even opnieuw -----------------------------------------
-
-
     }
 }

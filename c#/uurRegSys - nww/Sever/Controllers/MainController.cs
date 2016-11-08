@@ -37,15 +37,13 @@ namespace Sever.Controllers
             {
                 if (instruction.password == funcZ.TESTwachtwoord.testwachtwoord)
                 {
-                    /*
-                    JObject identifyInstruction = JObject.Parse(JsonConvert.SerializeObject(instruction.tSend));                    
-                    switch ((SendAndRecieveTypesEnum)Convert.ToInt32((string)identifyInstruction["SendAndRecieveTypesEnumValue"])){
-                        case SendAndRecieveTypesEnum.NFCCardScanInfo:
-                        */
-                    switch (instruction.SendAndRecieveTypesEnumValue)
+                    JObject getEnumFromObjectInInstruction = JObject.Parse(JsonConvert.SerializeObject(instruction.tSend));
+                    switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"]))
                     {
                         case SendAndRecieveTypesEnum.NFCCardScanInfo:
                             return functionsThatHaveToDoWithDataBase.nfc_scan(instruction.tSend);
+                        case SendAndRecieveTypesEnum.errorReport:
+                            break;
 
                     }
                     throw new Exception("No Instruction");
@@ -64,42 +62,6 @@ namespace Sever.Controllers
                 return JsonConvert.SerializeObject(ret);
             }
         }
-
-        /*
-[HttpPost]
-public string Post(TWrapWithPassword _inObject)
-{
-    if (_inObject.password == funcZ.TESTwachtwoord.testwachtwoord)
-    {
-        try
-        {
-            JObject obj = JObject.Parse(JsonConvert.SerializeObject(_inObject.tSend));
-            switch ((string)obj["ThisType"])
-            {
-                case "TSendnewIdRead":
-                    return muh.nfc_scan(_inObject.tSend);
-                case "TAskCurrentStateForDisplay":
-                    return muh.nuInfoEzOverzigt(_inObject);
-            }
-
-        }
-        catch (Exception ex)
-        {
-            string test = ex.Message;
-            TReturnError retu = new TReturnError();
-            retu.errorText = "ぜんぶ壊れた";
-            return JsonConvert.SerializeObject(retu);
-        }
-    }
-    else
-    {
-        TReturnError retu = new TReturnError();
-        retu.errorText = "Post: " + "アクセス きょひされました";
-        return JsonConvert.SerializeObject(retu);
-    }
-    return "";
-}
-*/
     }
 
 }
