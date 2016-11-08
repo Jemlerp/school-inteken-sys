@@ -1,0 +1,37 @@
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\bin\Debug\serverManage.exe.config
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\bin\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\bin\Debug\serverManage.pdb
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\obj\Debug\serverManage.FormMain.resources
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\obj\Debug\serverManage.FormStartup.resources
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\obj\Debug\serverManage.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\obj\Debug\serverManage.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\obj\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys\serverManage\obj\Debug\serverManage.pdb
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\bin\Debug\serverManage.exe.config
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\bin\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\bin\Debug\serverManage.pdb
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\obj\Debug\serverManage.FormMain.resources
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\obj\Debug\serverManage.FormStartup.resources
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\obj\Debug\serverManage.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\obj\Debug\serverManage.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\obj\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\obj\Debug\serverManage.pdb
+C:\Users\Jelmer\Desktop\uurRegSys - Copy\serverManage\obj\Debug\serverManage.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\bin\Debug\serverManage.exe.config
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\bin\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\bin\Debug\serverManage.pdb
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\obj\Debug\serverManage.FormMain.resources
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\obj\Debug\serverManage.FormStartup.resources
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\obj\Debug\serverManage.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\obj\Debug\serverManage.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\obj\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys - nw\serverManage\obj\Debug\serverManage.pdb
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\bin\Debug\serverManage.exe.config
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\bin\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\bin\Debug\serverManage.pdb
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.FormMain.resources
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.FormStartup.resources
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.exe
+C:\Users\Jelmer\Desktop\uurRegSys - nww\serverManage\obj\Debug\serverManage.pdb
