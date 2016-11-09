@@ -14,21 +14,23 @@ namespace Sever.Controllers
     public class MainController : ApiController
     {
 
-        /*
-        [HttpGet]
-        public string leave() {
-            funcZ.TSendNewIDRead neb = new TSendNewIDRead();
-            return "ServerTime = " + muh.getSqlServerDateTime().ToString();
-            }
-            */
-
         [HttpGet]
         public string test()
         {
-            return JsonConvert.SerializeObject(new funcZ.TReturnError());
+            return JsonConvert.SerializeObject(functions.GetSqlServerDateTime());
+            //return JsonConvert.SerializeObject(new funcZ.TReturnError());
         }
 
 
+        private static string serialise(object toSerialise)
+        {
+            return JsonConvert.SerializeObject(toSerialise);
+        }
+
+        private static T deserialise<T>(string toDeserialise)
+        {
+            return JsonConvert.DeserializeObject<T>(toDeserialise);
+        }
 
         [HttpPost]
         public string Post(TWrapWithPassword instruction)
@@ -38,21 +40,23 @@ namespace Sever.Controllers
                 if (instruction.password == funcZ.TESTwachtwoord.testwachtwoord)
                 {
                     JObject getEnumFromObjectInInstruction = JObject.Parse(JsonConvert.SerializeObject(instruction.tSend));
+                    string instructionArgumentsInJson = JsonConvert.SerializeObject(instruction.tSend);
                     switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"]))
                     {
                         case SendAndRecieveTypesEnum.NFCCardScanInfo:
-                            return functionsThatHaveToDoWithDataBase.nfc_scan(instruction.tSend);
+                            return serialise(functionsThatHaveToDoWithDataBase.nfc_scan(deserialise<TNFCCardScan>(instructionArgumentsInJson)));
                         case SendAndRecieveTypesEnum.errorReport:
                             break;
 
                     }
                     throw new Exception("No Instruction");
+                    
                 }
                 else
                 {
                     TReturnError ret = new TReturnError();
                     ret.errorText = "Bad Password";
-                    return JsonConvert.SerializeObject(ret);
+                    return JsonConvert.SerializeObject(ret); 
                 }
             }
             catch (Exception ex)

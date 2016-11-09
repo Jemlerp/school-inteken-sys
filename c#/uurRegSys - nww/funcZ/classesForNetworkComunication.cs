@@ -78,9 +78,6 @@ namespace funcZ
     public class TReturnDisplayInfoForJustReadNFCCard : IKnow
     {
         public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.returnInfoAboutUserFromJustReadNFCCard; } }
-        public string testText { get; set; }
-        public string errorText { get; set; }
-        public bool error { get; set; }
         public bool isAanwezig { get; set; }
         public string voorNaam { get; set; }
         public string achterNaam { get; set; }

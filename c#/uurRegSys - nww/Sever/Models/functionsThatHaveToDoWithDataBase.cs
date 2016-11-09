@@ -207,56 +207,56 @@ namespace Sever.Models
         }
 
         //returnInfo
-        private static string returnInfoForDisplay(int _userID)
+        private static TReturnDisplayInfoForJustReadNFCCard returnInfoForDisplay(int _userID)
         {
             DateTime _serverDateTime = getSqlServerDateTime();
             TReturnDisplayInfoForJustReadNFCCard RtDisplayInfo = new TReturnDisplayInfoForJustReadNFCCard();
-                SqlCommand command = new SqlCommand();
-                DataTable result = new DataTable();
+            SqlCommand command = new SqlCommand();
+            DataTable result = new DataTable();
 
-                // get from aanwezig table
-                command.Parameters.AddWithValue("@eruser", _userID);
-                command.CommandText = $"select {sql.aanwezig_isAanwezigCollumName} from {sql.aanwezigTableName} where {sql.aanwezig_relatedUserIDCollumName} = @eruser and {sql.aanwezig_datetimeCollumName} between CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 00:00:00' AS DATETIME) and CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 23:59:59' AS DATETIME)";
+            // get from aanwezig table
+            command.Parameters.AddWithValue("@eruser", _userID);
+            command.CommandText = $"select {sql.aanwezig_isAanwezigCollumName} from {sql.aanwezigTableName} where {sql.aanwezig_relatedUserIDCollumName} = @eruser and {sql.aanwezig_datetimeCollumName} between CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 00:00:00' AS DATETIME) and CAST('{_serverDateTime.Date.ToString("MM / dd / yyyy")} 23:59:59' AS DATETIME)";
 
-                result = sql.SQLQuery(sql.connectionString, command);
-               // if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
-                if (result.Rows.Count > 0)
-                {
-                    RtDisplayInfo.isAanwezig = (bool)result.Rows[0][sql.aanwezig_isAanwezigCollumName];
-                }
-                else
-                {
-                    //return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
-                }
+            result = sql.SQLQuery(sql.connectionString, command);
+            // if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
+            if (result.Rows.Count > 0)
+            {
+                RtDisplayInfo.isAanwezig = (bool)result.Rows[0][sql.aanwezig_isAanwezigCollumName];
+            }
+            else
+            {
+                //return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
+            }
 
-                // get from user table
-                command = new SqlCommand();
-                result = new DataTable();
-                command.CommandText = "select * from " + sql.userTableName + " where " + sql.user_idCollumName + " = " + _userID;
-                result = sql.SQLQuery(sql.connectionString, command);
-                //if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
-                if (result.Rows.Count > 0)
-                {
-                    RtDisplayInfo.voorNaam = (string)result.Rows[0][sql.user_voorNaamCollumName];
-                    RtDisplayInfo.achterNaam = (string)result.Rows[0][sql.user_achterNaamCollumName];
-                    RtDisplayInfo.ID = _userID;
-                    RtDisplayInfo.nfCode = (string)result.Rows[0][sql.user_nfcCodeCollumName];
-                }
-                else
-                {
-                   // return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
-                }
+            // get from user table
+            command = new SqlCommand();
+            result = new DataTable();
+            command.CommandText = "select * from " + sql.userTableName + " where " + sql.user_idCollumName + " = " + _userID;
+            result = sql.SQLQuery(sql.connectionString, command);
+            //if (result == null) { return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay"); }
+            if (result.Rows.Count > 0)
+            {
+                RtDisplayInfo.voorNaam = (string)result.Rows[0][sql.user_voorNaamCollumName];
+                RtDisplayInfo.achterNaam = (string)result.Rows[0][sql.user_achterNaamCollumName];
+                RtDisplayInfo.ID = _userID;
+                RtDisplayInfo.nfCode = (string)result.Rows[0][sql.user_nfcCodeCollumName];
+            }
+            else
+            {
+                // return returnInfoForDisplay(8008, "sql error at returnInfoForDisplay");
+            }
 
-            return JsonConvert.SerializeObject(RtDisplayInfo);
+            return RtDisplayInfo;
         }
 
         /// <summary>
         /// saves datetime with userid and nfc uid to database en zorgt ervoor dat aleen de eerste en laatste entrys in de database blijven
         /// </summary>
-        public static string nfc_scan(object _inObject)
+        public static TReturnDisplayInfoForJustReadNFCCard nfc_scan(TNFCCardScan _READ)
         {
-            string wertkWel = JsonConvert.SerializeObject(_inObject);
-            TNFCCardScan _READ = JsonConvert.DeserializeObject<TNFCCardScan>(wertkWel);
+            //string wertkWel = JsonConvert.SerializeObject(_inObject);
+            //TNFCCardScan _READ = JsonConvert.DeserializeObject<TNFCCardScan>(wertkWel);
             DateTime _serverDateTime = getSqlServerDateTime();
             SqlCommand command = new SqlCommand();
             DataTable result = new DataTable();
@@ -345,5 +345,7 @@ namespace Sever.Models
                 return returnInfoForDisplay(idOfPersonRelated);
             }
         }
+
+
     }
 }
