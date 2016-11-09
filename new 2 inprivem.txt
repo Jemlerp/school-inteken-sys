@@ -1,0 +1,77 @@
+
+mogilike langduuurige werking.
+overzigtelijk.
+compackt.
+makelijk?
+__________________
+TABLE USER: 
+Int ID
+String VoorNaam
+String AchterNaam
+String nfcId
+
+
+==================
+__________________
+TABLE AANWEZIGHIJD:
+Int ID
+Int ID of user related 
+Date day
+Time inteken
+Time uiteken
+bool aanwezig // makerlijker
+
+
+==================
+__________________
+TABLE LOG:
+//log alles dat er gebeurd zodat je dit kan zien: hariehufter tekent uit en een uur later tekent hij weer in
+Int ID
+Int ID of user related
+Date day
+Time time
+Bool doetInteken
+Bool doetUitteken
+Bool anuleerdUitteken
+
+
+==================
+
+__________________
+TABLE uizonderingen:
+Int ID
+Int ID of user related
+Date onwichthisApplys
+
+==================
+__________________
+TABLE settings:
+//welke dagen er school zijn
+
+
+
+__________________
+nfcscan:
+ get user 
+ 
+ check for existing entry today if there is non meake a new
+ 
+ flip aanwezig
+ 
+ log event
+ 
+__________________
+logevent to database:
+make do nonquery 
+
+
+
+
+
+
+
+
+
+
+
+
