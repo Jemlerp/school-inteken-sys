@@ -38,16 +38,24 @@ Bool anuleerdUitteken
 ==================
 
 __________________
-TABLE uizonderingen:
+TABLE afwezig:
 Int ID
 Int ID of user related
-Date onwichthisApplys
+Date date
+bool isziek
+bool isflexibelverlof
+bool isStudieVerlof
+bool isExursie
+
+bool other
+
+varchar andereRedenVoorAfwezighijd
 
 ==================
 __________________
 TABLE settings:
 //welke dagen er school zijn
-
+//wachtwoorden voor dingen
 
 
 __________________

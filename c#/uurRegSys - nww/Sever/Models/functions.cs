@@ -10,63 +10,115 @@ using funcZ;
 
 namespace Sever.Models {
     public class functions {
+        private static SQLPropertysAndFunc _Sqlfunc = new SQLPropertysAndFunc();
+
         public static DateTime GetSqlServerDateTime() {
-            SqlCommand command = new SqlCommand();
-            DataTable result = new DataTable();
-            command.CommandText="select datetime = SYSDATETIME()";
-            result=sql.SQLQuery(sql.connectionString, command);
+            return (DateTime)SQlOnlquery.SQLQuery("select datetime = SYSDATETIME()").Rows[0]["datetime"];
+        }
+
+        public static bool TestSqlConnetion() {
             try {
-                return (DateTime)result.Rows[0]["datetime"];
+                DateTime test = GetSqlServerDateTime();
+                return true;
             } catch {
-                return default(DateTime);
+                return false;
             }
         }
 
         private static void logEventToDatabase(int forUserId, bool wasInteken, bool wasUitteken, bool wasAnuleerLaatsteUitteken) {
             SqlCommand command = new SqlCommand();
-            command.CommandText=$"insert into {SQLNew.LogTableNames.LogTableName}({SQLNew.LogTableNames.IDOfUserRelated}, {SQLNew.LogTableNames.date}, {SQLNew.LogTableNames.time}, {SQLNew.LogTableNames.doetInteken}, {SQLNew.LogTableNames.doetUitteken}, {SQLNew.LogTableNames.anuleerdUitteken}) values ({forUserId}, cast(GETDATE() as date), cast(GETDATE() as time), {wasInteken}, {wasUitteken}, {wasAnuleerLaatsteUitteken})";
-            SQLNew.SQLNonQuery(command);
+            command.CommandText=$"insert into {SQLPropertysAndFunc.LogTableNames.LogTableName}({SQLPropertysAndFunc.LogTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.LogTableNames.date}, {SQLPropertysAndFunc.LogTableNames.time}, {SQLPropertysAndFunc.LogTableNames.doetInteken}, {SQLPropertysAndFunc.LogTableNames.doetUitteken}, {SQLPropertysAndFunc.LogTableNames.anuleerdUitteken}) values ({forUserId}, cast(GETDATE() as date), cast(GETDATE() as time), cast('{wasInteken}' as bit), cast('{wasUitteken}' as bit), cast('{wasAnuleerLaatsteUitteken}' as bit))";
+            SQlOnlquery.SQLNonQuery(command);
         }
 
-        public static TReturnDisplayInfoForJustReadNFCCard nfcScan(TNFCCardScan scanInfo) {
-            TReturnDisplayInfoForJustReadNFCCard _toReturn = new TReturnDisplayInfoForJustReadNFCCard();
-            SQLNew _sqlfunc = new SQLNew();
-            int _userID = 0;
+        public static TRespondChangeAfwezighijdTable changeAfwezighijdVoorEenIemand(TRequestChangeAfwezigTable request) {
+            TRespondChangeAfwezighijdTable toReturn = new TRespondChangeAfwezighijdTable();
 
+            SqlCommand command = new SqlCommand();
+            command.CommandText=$"delete from {SQLPropertysAndFunc.AfwezighijdTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezighijdTableNames.IDOfUserRelated} = {request.fromUserID} and {SQLPropertysAndFunc.AfwezighijdTableNames.Date} = cast(getdate() as date)";
+            try {
+                SQlOnlquery.SQLNonQuery(command);
+            } catch(Exception ex) { throw new Exception(ex.Message); }
+
+            if (!request.clearRecordOfAfwezigVandaag) {
+                if (request.AnderenRedenVoorAfwezigihijd!="") {
+                    command.Parameters.AddWithValue("@texty", request.AnderenRedenVoorAfwezigihijd);
+                } else {
+                    command.Parameters.AddWithValue("@texty", "");
+                }
+                command.CommandText=$"insert into {SQLPropertysAndFunc.AfwezighijdTableNames.AfwezighijdTableName} ({SQLPropertysAndFunc.AfwezighijdTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.AfwezighijdTableNames.Date}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsExcursie}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsFlexibelverlof}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsStudieverlof}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsZiek}, {SQLPropertysAndFunc.AfwezighijdTableNames.AnderenRedenVoorAfwezighijd}) values ('{request.fromUserID}' , cast(getdate() as date), '{request.IsExcurtie}', '{request.IsFlexiebelverlof}', '{request.IsStudieverlof}', '{request.IsZiek}', '@texty')";
+                try {
+                    if(SQlOnlquery.SQLNonQuery(command) !=1) {
+                        throw new Exception("Could Not Insert New Afwezig Entry To Database");
+                    }                    
+                }catch(Exception ex) {
+                    throw new Exception(ex.Message);
+                }
+            }
+            toReturn.success=true;
+            return toReturn;
+        }
+
+        public static TReturnDisplayInfoForJustReadNFCCard NFCScan(TNFCCardScan scanInfo) {
+            int _userID = 0;
             //get user id
-            List<SQLNew.UserTableTableEntry> resultForGetUserId = _sqlfunc.GetListUserTableEntriesFromDataTable(SQLNew.SQLQuery($"select {SQLNew.UserTableNames.ID} from {SQLNew.UserTableNames.userTableName} where {SQLNew.UserTableNames.NFCID} = {scanInfo.ID}"));
-            if (resultForGetUserId.Count!=1) {
+            List<SQLPropertysAndFunc.UserTableTableEntry> resultForGetUserId = _Sqlfunc.GetListUserTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select {SQLPropertysAndFunc.UserTableNames.ID},{SQLPropertysAndFunc.UserTableNames.voorNaam},{SQLPropertysAndFunc.UserTableNames.achterNaam} from {SQLPropertysAndFunc.UserTableNames.userTableName} where {SQLPropertysAndFunc.UserTableNames.NFCID} = '{scanInfo.ID}'"));
+            if (resultForGetUserId.Count==1) {
                 _userID=resultForGetUserId[0].ID;
             } else {
                 string idsWithSameNfcCode = "";
-                foreach (SQLNew.UserTableTableEntry x in resultForGetUserId) {
+                foreach (SQLPropertysAndFunc.UserTableTableEntry x in resultForGetUserId) {
                     idsWithSameNfcCode+=$" {x.ID}";
                 }
                 throw new Exception($"Found {resultForGetUserId.Count} User(s) ({idsWithSameNfcCode}) With Code {scanInfo.ID}");
             }
-
             //update or create entry from registratie table and log action
-            List<SQLNew.RegistratieTableTableEntry> result = _sqlfunc.GetListRegistratieTableEntrysFromDataTable(SQLNew.SQLQuery($"select {SQLNew.RegistratieTableNames.ID},{SQLNew.RegistratieTableNames.TimeInteken},{SQLNew.RegistratieTableNames.IsAanwezig} from {SQLNew.RegistratieTableNames.registratieTableName} where {SQLNew.RegistratieTableNames.Date} = CAST(getdate() as date) and {SQLNew.RegistratieTableNames.IDOfUserRelated} = {_userID}"));
+            List<SQLPropertysAndFunc.RegistratieTableTableEntry> result = _Sqlfunc.GetListRegistratieTableEntrysFromDataTable(SQlOnlquery.SQLQuery($"select {SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig} from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date) and {SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated} = {_userID}"));
+            bool doetUitteken = false;
+            bool doetInteken = false;
+            bool doetAnuleerdUiteken = false;
+            string erCommand = "";
             if (result.Count==0) {
-
-                // new entry met cur time als inteken tijd en log actie      
-                string erCommand = $"insert into {SQLNew.RegistratieTableNames.registratieTableName}({SQLNew.RegistratieTableNames.IDOfUserRelated}, {SQLNew.RegistratieTableNames.Date}, {SQLNew.RegistratieTableNames.TimeInteken}, {SQLNew.RegistratieTableNames.IsAanwezig}) values ({_userID}, cast(GETDATE() as date), cast)GETDATE() as time), 1)";
-                if (SQLNew.SQLNonQuery(erCommand)!=1) {
-                    throw new Exception($"SQL Error: Got Result 0 From {erCommand}");
-                } else { logEventToDatabase(_userID, true, false, false); }
-
+                // new entry
+                erCommand=$"insert into {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName}({SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.RegistratieTableNames.Date}, {SQLPropertysAndFunc.RegistratieTableNames.TimeInteken}, {SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig}) values ({_userID}, cast(GETDATE() as date), cast(GETDATE() as time), 1)";
+                doetInteken=true;
             } else if (result.Count==1) {
-
-                //update entry fill uitchek zet aanwezighijd 0 en log actiie 
-                //of zet aanwezig weer op 1 en log uitchek anuleer en keep uitcheck tijd want warom niet
                 if (result[0].IsAanwezig) {
-                    //doe uitchek
+                    //uitchek
+                    erCommand=$"update {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} set {SQLPropertysAndFunc.RegistratieTableNames.TimeUitteken} = CAST(getdate() as time), {SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig} = 0 where {SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated} = {_userID} and {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date)";
+                    doetUitteken=true;
                 } else {
-                    //doe anuleer uitcheck
+                    //anuleer uitcheck
+                    erCommand=$"update {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} set {SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig} = 1 where {SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated} = {_userID} and {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date)";
+                    doetAnuleerdUiteken=true;
                 }
-
             }
+            if (SQlOnlquery.SQLNonQuery(erCommand)!=1) {
+                throw new Exception($"SQL Error: Got Result 0 From {erCommand}");
+            } else { logEventToDatabase(_userID, doetInteken, doetUitteken, doetAnuleerdUiteken); }
+            //fill retunr info            
+            List<SQLPropertysAndFunc.RegistratieTableTableEntry> elntetry = _Sqlfunc.GetListRegistratieTableEntrysFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated} = {_userID} and {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date)"));
+            TReturnDisplayInfoForJustReadNFCCard _toReturn = new TReturnDisplayInfoForJustReadNFCCard();
+            _toReturn.voornaam=resultForGetUserId[0].voorNaam;
+            _toReturn.achternaam=resultForGetUserId[0].achterNaam;
+            _toReturn.ID=resultForGetUserId[0].ID;
+            _toReturn.NFCID=scanInfo.ID;
+            _toReturn.doetInteken=doetInteken;
+            _toReturn.doetUitteken=doetUitteken;
+            _toReturn.doetAnuleerUitteken=doetAnuleerdUiteken;
+            _toReturn.tijdInteken=elntetry[0].TimeInteken;
+            _toReturn.tijdUiteken=elntetry[0].TimeUitteken;
+            _toReturn.dateOfToday=elntetry[0].Date;
+            _toReturn.DateTimeNow=GetSqlServerDateTime();
+            return _toReturn;
+        }
 
+        public static TReturnOverviewOfAanwezige overzigt() {
+            TReturnOverviewOfAanwezige _toReturn = new TReturnOverviewOfAanwezige();
+            _toReturn.todayRegData=_Sqlfunc.GetListRegistratieTableEntrysFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date)"));
+            _toReturn.users=_Sqlfunc.GetListUserTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.UserTableNames.userTableName}"));
+            _toReturn.todayAfwezig=_Sqlfunc.GetListAfwezighijdTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.AfwezighijdTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezighijdTableNames.Date} = cast(GETDATE() as date)"));
+            _toReturn.dateTimeNow=GetSqlServerDateTime();
             return _toReturn;
         }
 

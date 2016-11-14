@@ -12,7 +12,7 @@ namespace Sever.Models
 {
     public static class functionsThatHaveToDoWithDataBase
     {
-
+        /*
         private static string returnErrorWithMessage(string message)
         {
             funcZ.TReturnError err = new TReturnError();
@@ -345,7 +345,7 @@ namespace Sever.Models
                 return returnInfoForDisplay(idOfPersonRelated);
             }
         }
-
+        */
 
     }
 }

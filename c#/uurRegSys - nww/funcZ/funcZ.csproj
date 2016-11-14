@@ -61,9 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TESTwachtwoord.cs" />
+    <Compile Include="readingFromNFCCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="classesForNetworkComunication.cs" />
+    <Compile Include="requestAndAwnserClassesForComunicarion.cs" />
+    <Compile Include="SQLPropertysAndFunc.cs" />
     <Compile Include="webFunction.cs" />
   </ItemGroup>
   <ItemGroup>

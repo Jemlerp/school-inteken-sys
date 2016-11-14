@@ -1,0 +1,16 @@
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\jsonYnowork.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\jsonYnowork.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\jsonYnowork.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\funcZ.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\funcZ.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\obj\Debug\jsonYnowork.csprojResolveAssemblyReference.cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\obj\Debug\jsonYnowork.csproj.jsonYnowork.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\obj\Debug\jsonYnowork.Form1.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\obj\Debug\jsonYnowork.Properties.Resources.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\obj\Debug\jsonYnowork.csproj.GenerateResource.Cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\obj\Debug\jsonYnowork.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\jsonYnowork\obj\Debug\jsonYnowork.pdb

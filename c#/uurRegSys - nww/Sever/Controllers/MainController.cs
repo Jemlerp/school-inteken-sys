@@ -17,14 +17,27 @@ namespace Sever.Controllers
         [HttpGet]
         public string test()
         {
-            return JsonConvert.SerializeObject(functions.GetSqlServerDateTime());
+            //return JsonConvert.SerializeObject(functions.GetSqlServerDateTime());
             //return JsonConvert.SerializeObject(new funcZ.TReturnError());
-        }
+            TNFCCardScan test = new TNFCCardScan();
+            test.ID="251 227 234 245";
 
+            return serialise(functions.overzigt());
+        }
 
         private static string serialise(object toSerialise)
         {
-            return JsonConvert.SerializeObject(toSerialise);
+            TResiveWithPosbleError retu = new TResiveWithPosbleError();
+            retu.isErrorOcured=false;
+            retu.expectedResponse=toSerialise;
+            return JsonConvert.SerializeObject(retu);
+        }
+
+        private static string serialise(TError toSerialise) {
+            TResiveWithPosbleError retu = new TResiveWithPosbleError();
+            retu.isErrorOcured=true;
+            retu.errorInfo=toSerialise;
+            return JsonConvert.SerializeObject(retu);
         }
 
         private static T deserialise<T>(string toDeserialise)
@@ -33,37 +46,38 @@ namespace Sever.Controllers
         }
 
         [HttpPost]
-        public string Post(TWrapWithPassword instruction)
+        public string Post(TSendWithPassword instruction)
         {
             try
             {
-                if (instruction.password == funcZ.TESTwachtwoord.testwachtwoord)
+                if (instruction.password == TestServerPassword.testWAchtwooed)
                 {
                     JObject getEnumFromObjectInInstruction = JObject.Parse(JsonConvert.SerializeObject(instruction.tSend));
                     string instructionArgumentsInJson = JsonConvert.SerializeObject(instruction.tSend);
                     switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"]))
                     {
                         case SendAndRecieveTypesEnum.NFCCardScanInfo:
-                            return serialise(functionsThatHaveToDoWithDataBase.nfc_scan(deserialise<TNFCCardScan>(instructionArgumentsInJson)));
-                        case SendAndRecieveTypesEnum.errorReport:
-                            break;
-
+                            return serialise(functions.NFCScan(deserialise<TNFCCardScan>(instructionArgumentsInJson)));
+                        case SendAndRecieveTypesEnum.testSeverConnetionRequest:
+                            return serialise(functions.TestSqlConnetion());
+                        case SendAndRecieveTypesEnum.requestOverviewAanwezige:
+                            return serialise(functions.overzigt());
+                        case SendAndRecieveTypesEnum.requestChangeAfwezigHijd:
+                            return serialise(functions.changeAfwezighijdVoorEenIemand(deserialise<TRequestChangeAfwezigTable>(instructionArgumentsInJson)));
+                            
                     }
-                    throw new Exception("No Instruction");
-                    
+                    throw new Exception("No Instruction");                    
                 }
                 else
                 {
-                    TReturnError ret = new TReturnError();
-                    ret.errorText = "Bad Password";
-                    return JsonConvert.SerializeObject(ret); 
+                    throw new Exception("Bad Password");
                 }
             }
             catch (Exception ex)
             {
-                TReturnError ret = new TReturnError();
-                ret.errorText = "(IN POST) " + ex.Message;
-                return JsonConvert.SerializeObject(ret);
+                TError ret = new TError();
+                ret.errorText=ex.Message;
+                return serialise(ret);
             }
         }
     }
