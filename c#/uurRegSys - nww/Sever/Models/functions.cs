@@ -35,24 +35,17 @@ namespace Sever.Models {
             TRespondChangeAfwezighijdTable toReturn = new TRespondChangeAfwezighijdTable();
 
             SqlCommand command = new SqlCommand();
-            command.CommandText=$"delete from {SQLPropertysAndFunc.AfwezighijdTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezighijdTableNames.IDOfUserRelated} = {request.fromUserID} and {SQLPropertysAndFunc.AfwezighijdTableNames.Date} = cast(getdate() as date)";
+            command.CommandText=$"delete from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated} = {request.fromUserID} and {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast(getdate() as date)";
             try {
                 SQlOnlquery.SQLNonQuery(command);
-            } catch(Exception ex) { throw new Exception(ex.Message); }
+            } catch (Exception ex) { throw new Exception(ex.Message); }
 
             if (!request.clearRecordOfAfwezigVandaag) {
-                if (request.AnderenRedenVoorAfwezigihijd!="") {
-                    command.Parameters.AddWithValue("@texty", request.AnderenRedenVoorAfwezigihijd);
-                } else {
-                    command.Parameters.AddWithValue("@texty", "");
-                }
-                command.CommandText=$"insert into {SQLPropertysAndFunc.AfwezighijdTableNames.AfwezighijdTableName} ({SQLPropertysAndFunc.AfwezighijdTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.AfwezighijdTableNames.Date}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsExcursie}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsFlexibelverlof}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsStudieverlof}, {SQLPropertysAndFunc.AfwezighijdTableNames.IsZiek}, {SQLPropertysAndFunc.AfwezighijdTableNames.AnderenRedenVoorAfwezighijd}) values ('{request.fromUserID}' , cast(getdate() as date), '{request.IsExcurtie}', '{request.IsFlexiebelverlof}', '{request.IsStudieverlof}', '{request.IsZiek}', '@texty')";
-                try {
-                    if(SQlOnlquery.SQLNonQuery(command) !=1) {
-                        throw new Exception("Could Not Insert New Afwezig Entry To Database");
-                    }                    
-                }catch(Exception ex) {
-                    throw new Exception(ex.Message);
+                command=new SqlCommand();
+                command.Parameters.AddWithValue("@texty", request.AnderenRedenVoorAfwezigihijd);
+                command.CommandText=$"insert into {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} ({SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.AfwezigTableNames.Date}, {SQLPropertysAndFunc.AfwezigTableNames.IsExcursie}, {SQLPropertysAndFunc.AfwezigTableNames.IsFlexibelverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsStudieverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsZiek}, {SQLPropertysAndFunc.AfwezigTableNames.IsAndereReden}, {SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd}) values ('{request.fromUserID}' , cast(getdate() as date), cast('{request.IsExcurtie}' as bit), cast('{request.IsFlexiebelverlof}'as  bit), cast('{request.IsStudieverlof}' as bit), cast('{request.IsZiek}' as bit),cast('{request.IsAnderereden}' as bit), @texty)";
+                if (SQlOnlquery.SQLNonQuery(command)!=1) {
+                    throw new Exception("Could Not Insert New Afwezig Entry To Database");
                 }
             }
             toReturn.success=true;
@@ -117,7 +110,7 @@ namespace Sever.Models {
             TReturnOverviewOfAanwezige _toReturn = new TReturnOverviewOfAanwezige();
             _toReturn.todayRegData=_Sqlfunc.GetListRegistratieTableEntrysFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date)"));
             _toReturn.users=_Sqlfunc.GetListUserTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.UserTableNames.userTableName}"));
-            _toReturn.todayAfwezig=_Sqlfunc.GetListAfwezighijdTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.AfwezighijdTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezighijdTableNames.Date} = cast(GETDATE() as date)"));
+            _toReturn.todayAfwezig=_Sqlfunc.GetListAfwezighijdTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast(GETDATE() as date)"));
             _toReturn.dateTimeNow=GetSqlServerDateTime();
             return _toReturn;
         }

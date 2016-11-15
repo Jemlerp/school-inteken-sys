@@ -130,8 +130,9 @@ namespace funcZ {
         #endregion
 
         #region AfwezigTable
-        public class AfwezighijdTableNames {
-            public static string AfwezighijdTableName = "afwezighijdTable";
+
+        public class AfwezigTableNames {
+            public static string AfwezighijdTableName = "afwezigTable";
             public static string ID = "ID";
             public static string IDOfUserRelated = "IDOfUserRelated";
             public static string Date = "Date";
@@ -139,35 +140,38 @@ namespace funcZ {
             public static string IsFlexibelverlof = "IsFlexibelverlof";
             public static string IsStudieverlof = "IsStudieverlof";
             public static string IsExcursie = "IsExursie";
-            public static string AnderenRedenVoorAfwezighijd = "AnderenRedenVoorAfwezighijd";
+            public static string IsAndereReden = "IsAndereReden";
+            public static string AnderenRedenVoorAfwezighijd = "OmshrijvingAnderenReden";
         }
 
-        public class AfwezighijdTableTableEntry {
+        public class AfwezigTableTableEntry {
             public int ID { get; set; }
             public int IDOfRelatedPerson { get; set; }
             public bool IsZiek { get; set; }
             public bool IsFlexiebelverlof { get; set; }
             public bool IsStudieverlof { get; set; }
             public bool IsExcurtie { get; set; }
+            public bool IsAndereReden { get; set; }
             public string AnderenRedenVoorAfwezigihijd { get; set; }
         }
 
-        public AfwezighijdTableTableEntry GetAfwezighijdTableEntryFromDataRow(DataRow row) {
-            AfwezighijdTableTableEntry toReturn = new AfwezighijdTableTableEntry();
-            if (row.Table.Columns.Contains(AfwezighijdTableNames.ID)) { if (row[AfwezighijdTableNames.ID]!=DBNull.Value) toReturn.ID=(int)row[AfwezighijdTableNames.ID]; }
-            if (row.Table.Columns.Contains(AfwezighijdTableNames.IDOfUserRelated)) { if (row[AfwezighijdTableNames.IDOfUserRelated]!=DBNull.Value) toReturn.IDOfRelatedPerson=(int)row[AfwezighijdTableNames.IDOfUserRelated]; }
-            if (row.Table.Columns.Contains(AfwezighijdTableNames.IsExcursie)) { if (row[AfwezighijdTableNames.IsExcursie]!=DBNull.Value) toReturn.IsExcurtie=(bool)row[AfwezighijdTableNames.IsExcursie]; }
-            if (row.Table.Columns.Contains(AfwezighijdTableNames.IsFlexibelverlof)) { if (row[AfwezighijdTableNames.IsFlexibelverlof]!=DBNull.Value) toReturn.IsFlexiebelverlof=(bool)row[AfwezighijdTableNames.IsFlexibelverlof]; }
-            if (row.Table.Columns.Contains(AfwezighijdTableNames.IsStudieverlof)) { if (row[AfwezighijdTableNames.IsStudieverlof]!=DBNull.Value) toReturn.IsStudieverlof=(bool)row[AfwezighijdTableNames.IsStudieverlof]; }
-            if (row.Table.Columns.Contains(AfwezighijdTableNames.IsZiek)) { if (row[AfwezighijdTableNames.IsZiek]!=DBNull.Value) toReturn.IsZiek=(bool)row[AfwezighijdTableNames.IsZiek]; }
-            if (row.Table.Columns.Contains(AfwezighijdTableNames.AnderenRedenVoorAfwezighijd)) { if (row[AfwezighijdTableNames.AnderenRedenVoorAfwezighijd]!=DBNull.Value) toReturn.AnderenRedenVoorAfwezigihijd=(string)row[AfwezighijdTableNames.AnderenRedenVoorAfwezighijd]; }
+        public AfwezigTableTableEntry GetAfwezigTableEntryFromDataRow(DataRow row) {
+            AfwezigTableTableEntry toReturn = new AfwezigTableTableEntry();
+            if (row.Table.Columns.Contains(AfwezigTableNames.ID)) { if (row[AfwezigTableNames.ID]!=DBNull.Value) toReturn.ID=(int)row[AfwezigTableNames.ID]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IDOfUserRelated)) { if (row[AfwezigTableNames.IDOfUserRelated]!=DBNull.Value) toReturn.IDOfRelatedPerson=(int)row[AfwezigTableNames.IDOfUserRelated]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsExcursie)) { if (row[AfwezigTableNames.IsExcursie]!=DBNull.Value) toReturn.IsExcurtie=(bool)row[AfwezigTableNames.IsExcursie]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsFlexibelverlof)) { if (row[AfwezigTableNames.IsFlexibelverlof]!=DBNull.Value) toReturn.IsFlexiebelverlof=(bool)row[AfwezigTableNames.IsFlexibelverlof]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsStudieverlof)) { if (row[AfwezigTableNames.IsStudieverlof]!=DBNull.Value) toReturn.IsStudieverlof=(bool)row[AfwezigTableNames.IsStudieverlof]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsZiek)) { if (row[AfwezigTableNames.IsZiek]!=DBNull.Value) toReturn.IsZiek=(bool)row[AfwezigTableNames.IsZiek]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsAndereReden)) { if (row[AfwezigTableNames.IsAndereReden]!=DBNull.Value) toReturn.IsAndereReden=(bool)row[AfwezigTableNames.IsAndereReden]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.AnderenRedenVoorAfwezighijd)) { if (row[AfwezigTableNames.AnderenRedenVoorAfwezighijd]!=DBNull.Value) toReturn.AnderenRedenVoorAfwezigihijd=(string)row[AfwezigTableNames.AnderenRedenVoorAfwezighijd]; }
             return toReturn;
         }
 
-        public List<AfwezighijdTableTableEntry> GetListAfwezighijdTableEntriesFromDataTable(DataTable table) {
-            List<AfwezighijdTableTableEntry> toReturn = new List<AfwezighijdTableTableEntry>();
-            foreach(DataRow x in table.Rows) {
-                toReturn.Add(GetAfwezighijdTableEntryFromDataRow(x));
+        public List<AfwezigTableTableEntry> GetListAfwezighijdTableEntriesFromDataTable(DataTable table) {
+            List<AfwezigTableTableEntry> toReturn = new List<AfwezigTableTableEntry>();
+            foreach (DataRow x in table.Rows) {
+                toReturn.Add(GetAfwezigTableEntryFromDataRow(x));
             }
             return toReturn;
         }

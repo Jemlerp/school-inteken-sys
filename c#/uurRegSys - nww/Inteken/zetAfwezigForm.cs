@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 namespace Inteken {
     public partial class zetAfwezigForm : Form {
 
-        public zetAfwezigForm(SQLPropertysAndFunc.UserTableTableEntry userEntry, SQLPropertysAndFunc.AfwezighijdTableTableEntry afwezigEntry, string password, string apiaddres) {
+        public zetAfwezigForm(SQLPropertysAndFunc.UserTableTableEntry userEntry, SQLPropertysAndFunc.AfwezigTableTableEntry afwezigEntry, string password, string apiaddres) {
             InitializeComponent();
             _GotAfwezigEntry=true;
             _UserEntry=userEntry;
@@ -24,7 +24,7 @@ namespace Inteken {
 
         public zetAfwezigForm(SQLPropertysAndFunc.UserTableTableEntry userEntry, string password, string apiadress) {
             InitializeComponent();
-            _GotAfwezigEntry=false;
+            _GotAfwezigEntry=false; 
             _UserEntry=userEntry;
             _Password=password;
             _Address=apiadress;
@@ -34,18 +34,19 @@ namespace Inteken {
         string _Address;
         bool _GotAfwezigEntry;
         SQLPropertysAndFunc.UserTableTableEntry _UserEntry;
-        SQLPropertysAndFunc.AfwezighijdTableTableEntry _AfwezigEntry;
+        SQLPropertysAndFunc.AfwezigTableTableEntry _AfwezigEntry;
+        string andereRedenVoorAfwezighijdBackUpForJeWeet = "";
 
         private void zetAfwezigForm_Load(object sender, EventArgs e) {
             label3.Text=_UserEntry.voorNaam+" "+_UserEntry.achterNaam;
             if (_GotAfwezigEntry) {
-                if (_AfwezigEntry.AnderenRedenVoorAfwezigihijd!="") { comboBox1.SelectedIndex=5; }
-                if (_AfwezigEntry.IsExcurtie) { comboBox1.SelectedIndex=4; }
-                if (_AfwezigEntry.IsFlexiebelverlof) { comboBox1.SelectedIndex=3; }
-                if (_AfwezigEntry.IsStudieverlof) { comboBox1.SelectedIndex=2; }
-                if (_AfwezigEntry.IsZiek) { comboBox1.SelectedIndex=1; }
+                if (_AfwezigEntry.IsAndereReden) { comboBox1.SelectedItem=comboBox1.Items[5]; textBox1.Text+=_AfwezigEntry.AnderenRedenVoorAfwezigihijd; }
+                if (_AfwezigEntry.IsExcurtie) { comboBox1.SelectedItem=comboBox1.Items[4]; }
+                if (_AfwezigEntry.IsFlexiebelverlof) { comboBox1.SelectedItem=comboBox1.Items[3]; }
+                if (_AfwezigEntry.IsStudieverlof) { comboBox1.SelectedItem=comboBox1.Items[2]; }
+                if (_AfwezigEntry.IsZiek) { comboBox1.SelectedItem=comboBox1.Items[1]; }
             } else {
-                comboBox1.SelectedIndex=0;
+                comboBox1.SelectedItem=comboBox1.Items[0];
             }
         }
 
@@ -55,6 +56,7 @@ namespace Inteken {
 
         private void button2_Click(object sender, EventArgs e) {
             TRequestChangeAfwezigTable request = new TRequestChangeAfwezigTable();
+            request.AnderenRedenVoorAfwezigihijd="";
             try {
                 switch (comboBox1.SelectedIndex) {
                     case 0:
@@ -65,16 +67,17 @@ namespace Inteken {
                     case 1:
                         request.IsZiek=true;
                         break;
-                    case 2:
+                    case 3:
                         request.IsFlexiebelverlof=true;
                         break;
-                    case 3:
+                    case 2:
                         request.IsStudieverlof=true;
                         break;
                     case 4:
                         request.IsExcurtie=true;
                         break;
                     case 5:
+                        request.IsAnderereden= true;
                         if (textBox1.Text=="") {
                             throw new Exception("Provide Descripton");
                         } else {
@@ -82,6 +85,7 @@ namespace Inteken {
                         }
                         break;
                 }
+                request.fromUserID=_UserEntry.ID;
                 TResiveWithPosbleError response = webFunction.httpPostWithPassword(request, _Address, _Password);
                 if (response.isErrorOcured) {
                     throw new Exception(response.errorInfo.errorText);
@@ -95,6 +99,17 @@ namespace Inteken {
                 }
             } catch(Exception ex) {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            if(comboBox1.SelectedItem.ToString()!="Anders") {
+                textBox1.Enabled=false;
+                andereRedenVoorAfwezighijdBackUpForJeWeet=textBox1.Text;
+                textBox1.Text="";
+            } else {
+                textBox1.Enabled=true;
+                textBox1.Text=andereRedenVoorAfwezighijdBackUpForJeWeet;
             }
         }
     }

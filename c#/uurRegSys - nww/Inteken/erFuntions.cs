@@ -13,7 +13,7 @@ namespace Inteken {
         public DateTime _SERVERDATETIME = new DateTime();
 
         public class combineerUserEntryRegEntryAndAfwezigEntry {
-            public SQLPropertysAndFunc.AfwezighijdTableTableEntry afwE { get; set; }
+            public SQLPropertysAndFunc.AfwezigTableTableEntry afwE { get; set; }
             public SQLPropertysAndFunc.RegistratieTableTableEntry regE { get; set; }
             public SQLPropertysAndFunc.UserTableTableEntry userN { get; set; }
             public bool hasTodayRegEntry { get; set; } = false;
@@ -74,14 +74,25 @@ namespace Inteken {
                 DataRow row = ToReturn.NewRow();
                 row["voornaam"]=entry.userN.voorNaam;
                 row["achternaam"]=entry.userN.achterNaam;
-                if (entry.hasTodayRegEntry) {
-
-                    row["tijdIn"]=entry.regE.TimeInteken.ToString("hh\\:mm");
-                    if (entry.regE.TimeUitteken!=null && !entry.regE.IsAanwezig) {
-                        row["tijdUit"]=entry.regE.TimeUitteken.ToString("hh\\:mm");
-                        row["Totaal"]=entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString();
-                    } else {
-                        row["Totaal"]=_SERVERDATETIME.TimeOfDay.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
+                if (entry.hasTodayAfwEntry) {
+                    string warom = "";
+                    if (entry.afwE.IsAndereReden) { warom=entry.afwE.AnderenRedenVoorAfwezigihijd; }
+                    if (entry.afwE.IsExcurtie) { warom="EX"; }
+                    if (entry.afwE.IsFlexiebelverlof) { warom="FV"; }
+                    if (entry.afwE.IsStudieverlof) { warom="SV"; }
+                    if (entry.afwE.IsZiek) { warom="Z"; }
+                    row["tijdIn"]=warom;
+                    row["tijdUit"]=warom;
+                    row["Totaal"]=warom;
+                } else {
+                    if (entry.hasTodayRegEntry) {
+                        row["tijdIn"]=entry.regE.TimeInteken.ToString("hh\\:mm");
+                        if (entry.regE.TimeUitteken!=null&&!entry.regE.IsAanwezig) {
+                            row["tijdUit"]=entry.regE.TimeUitteken.ToString("hh\\:mm");
+                            row["Totaal"]=entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString();
+                        } else {
+                            row["Totaal"]=_SERVERDATETIME.TimeOfDay.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
+                        }
                     }
                 }
                 ToReturn.Rows.Add(row);

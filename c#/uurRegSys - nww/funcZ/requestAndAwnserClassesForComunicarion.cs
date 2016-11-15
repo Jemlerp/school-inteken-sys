@@ -67,6 +67,7 @@ namespace funcZ {
         public bool IsFlexiebelverlof { get; set; } = false;
         public bool IsStudieverlof { get; set; } = false;
         public bool IsExcurtie { get; set; } = false;
+        public bool IsAnderereden { get; set; }
         public string AnderenRedenVoorAfwezigihijd { get; set; }
     }
 
@@ -106,7 +107,7 @@ namespace funcZ {
         public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.returnOverviewAanwezige; } }
         public List<SQLPropertysAndFunc.RegistratieTableTableEntry> todayRegData { get; set; }
         public List<SQLPropertysAndFunc.UserTableTableEntry> users { get; set; }
-        public List<SQLPropertysAndFunc.AfwezighijdTableTableEntry> todayAfwezig { get; set; }
+        public List<SQLPropertysAndFunc.AfwezigTableTableEntry> todayAfwezig { get; set; }
         public DateTime dateTimeNow { get; set; }
     }
 
