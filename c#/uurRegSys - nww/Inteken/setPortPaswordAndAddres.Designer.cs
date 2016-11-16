@@ -35,9 +35,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(196, 56);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(229, 54);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 66);
+            this.button1.Size = new System.Drawing.Size(118, 86);
             this.button1.TabIndex = 0;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
@@ -45,58 +46,66 @@
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 34);
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(17, 45);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(155, 108);
+            this.listBox1.Size = new System.Drawing.Size(155, 104);
             this.listBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 15);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "SerialPorts";
             // 
             // textBoxAddr
             // 
-            this.textBoxAddr.Location = new System.Drawing.Point(12, 175);
+            this.textBoxAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAddr.Location = new System.Drawing.Point(17, 193);
             this.textBoxAddr.Name = "textBoxAddr";
-            this.textBoxAddr.Size = new System.Drawing.Size(146, 20);
+            this.textBoxAddr.Size = new System.Drawing.Size(250, 26);
             this.textBoxAddr.TabIndex = 3;
             this.textBoxAddr.Text = "http://localhost:58159/api/main";
             // 
             // textBoxPW
             // 
-            this.textBoxPW.Location = new System.Drawing.Point(12, 201);
+            this.textBoxPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPW.Location = new System.Drawing.Point(17, 225);
             this.textBoxPW.Name = "textBoxPW";
-            this.textBoxPW.Size = new System.Drawing.Size(146, 20);
+            this.textBoxPW.Size = new System.Drawing.Size(250, 26);
             this.textBoxPW.TabIndex = 4;
             this.textBoxPW.Text = "testwachtwoord";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 182);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(287, 196);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Addres";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(164, 205);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(287, 228);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Password";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(90, 8);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(104, 21);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 27);
             this.button2.TabIndex = 7;
@@ -108,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 255);
+            this.ClientSize = new System.Drawing.Size(422, 287);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

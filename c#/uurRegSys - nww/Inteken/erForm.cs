@@ -60,8 +60,8 @@ namespace Inteken {
 
         private void clearNFCScanInfo() {
             _TimerCleanUserInfoScreen.Stop();
-            labelNaam.Text="refreshed";
-            labelInOfUitGetekend.Text="refreshed";
+            labelNaam.Text="Naam";
+            labelInOfUitGetekend.Text="In/Uit";
         }
 
         private void timerEventReloadOverzicht(object een, object twee) {
@@ -69,6 +69,7 @@ namespace Inteken {
         }
 
         private void handleNFCScan(string read) {
+            _TimerCleanUserInfoScreen.Stop();
             TNFCCardScan scan = new TNFCCardScan();
             scan.ID=read;
             TResiveWithPosbleError awns = webFunction.httpPostWithPassword(scan, _Address, _Password);
@@ -77,7 +78,7 @@ namespace Inteken {
             } else {
                 TReturnDisplayInfoForJustReadNFCCard displayInfo = JsonConvert.DeserializeObject<TReturnDisplayInfoForJustReadNFCCard>(JsonConvert.SerializeObject(awns.expectedResponse));
                 labelNaam.Text=displayInfo.voornaam+" "+displayInfo.achternaam;
-                if (displayInfo.doetAnuleerUitteken) { labelInOfUitGetekend.Text="Je Bent Nu Niet Meer Uitgetekend"; }
+                if (displayInfo.doetAnuleerUitteken) { labelInOfUitGetekend.Text="Uitekenen Geanuleerd"; }
                 if (displayInfo.doetInteken) { labelInOfUitGetekend.Text="Je Bent Nu Ingetekend"; }
                 if (displayInfo.doetUitteken) { labelInOfUitGetekend.Text="Je Bent Nu Uitgetekend"; }
             }

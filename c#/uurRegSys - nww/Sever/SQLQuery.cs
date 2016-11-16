@@ -8,7 +8,9 @@ using System.Data.SqlClient;
 namespace Sever {
     public class SQlOnlquery {
 
-        public static string _ConnectionString = "Server=DESKTOP-M1ICC4F\\GENERICNAME; Database=inprovedreg; User Id=sa; password=kanker;";
+        //public static string _ConnectionString = "Server=DESKTOP-M1ICC4F\\GENERICNAME; Database=inprovedreg; User Id=sa; password=kanker;";
+        public static string _ConnectionString = "Server=DESKTOP-27V2B6M; Database=inprovedreg; User Id=sa; password=kanker;";
+        
 
         public static int SQLNonQuery(string _Command) {
             SqlCommand command = new SqlCommand();
