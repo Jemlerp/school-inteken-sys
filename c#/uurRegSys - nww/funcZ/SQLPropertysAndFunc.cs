@@ -140,8 +140,10 @@ namespace funcZ {
             public static string IsFlexibelverlof = "IsFlexibelverlof";
             public static string IsStudieverlof = "IsStudieverlof";
             public static string IsExcursie = "IsExursie";
+            public static string IsLaat = "IsLaat";
             public static string IsAndereReden = "IsAndereReden";
             public static string AnderenRedenVoorAfwezighijd = "OmshrijvingAnderenReden";
+            public static string Verwachtetijdvanaanwezighijd = "verwachtetijdvanaanwezighijd";
         }
 
         public class AfwezigTableTableEntry {
@@ -151,8 +153,10 @@ namespace funcZ {
             public bool IsFlexiebelverlof { get; set; }
             public bool IsStudieverlof { get; set; }
             public bool IsExcurtie { get; set; }
+            public bool IsLaat { get; set; }
             public bool IsAndereReden { get; set; }
             public string AnderenRedenVoorAfwezigihijd { get; set; }
+            public string Verwachtetijdvanaanwezighijd { get; set; }
         }
 
         public AfwezigTableTableEntry GetAfwezigTableEntryFromDataRow(DataRow row) {
@@ -163,8 +167,10 @@ namespace funcZ {
             if (row.Table.Columns.Contains(AfwezigTableNames.IsFlexibelverlof)) { if (row[AfwezigTableNames.IsFlexibelverlof]!=DBNull.Value) toReturn.IsFlexiebelverlof=(bool)row[AfwezigTableNames.IsFlexibelverlof]; }
             if (row.Table.Columns.Contains(AfwezigTableNames.IsStudieverlof)) { if (row[AfwezigTableNames.IsStudieverlof]!=DBNull.Value) toReturn.IsStudieverlof=(bool)row[AfwezigTableNames.IsStudieverlof]; }
             if (row.Table.Columns.Contains(AfwezigTableNames.IsZiek)) { if (row[AfwezigTableNames.IsZiek]!=DBNull.Value) toReturn.IsZiek=(bool)row[AfwezigTableNames.IsZiek]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsLaat)) { if (row[AfwezigTableNames.IsLaat]!=DBNull.Value) toReturn.IsLaat=(bool)row[AfwezigTableNames.IsLaat]; }
             if (row.Table.Columns.Contains(AfwezigTableNames.IsAndereReden)) { if (row[AfwezigTableNames.IsAndereReden]!=DBNull.Value) toReturn.IsAndereReden=(bool)row[AfwezigTableNames.IsAndereReden]; }
             if (row.Table.Columns.Contains(AfwezigTableNames.AnderenRedenVoorAfwezighijd)) { if (row[AfwezigTableNames.AnderenRedenVoorAfwezighijd]!=DBNull.Value) toReturn.AnderenRedenVoorAfwezigihijd=(string)row[AfwezigTableNames.AnderenRedenVoorAfwezighijd]; }
+            if(row.Table.Columns.Contains(AfwezigTableNames.Verwachtetijdvanaanwezighijd)) { if (row[AfwezigTableNames.Verwachtetijdvanaanwezighijd]!=DBNull.Value) toReturn.Verwachtetijdvanaanwezighijd=(string)row[AfwezigTableNames.Verwachtetijdvanaanwezighijd]; }
             return toReturn;
         }
 

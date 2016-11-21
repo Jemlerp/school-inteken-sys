@@ -1,0 +1,11 @@
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\Admin.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\Admin.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\Admin.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.Properties.Resources.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.csproj.GenerateResource.Cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.Form1.resources

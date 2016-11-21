@@ -34,6 +34,7 @@ Bool doetInteken
 Bool doetUitteken
 Bool anuleerdUitteken
 
+// add aleenaderen dingen die je kan doen
 
 ==================
 
@@ -46,9 +47,10 @@ bool isziek
 bool isflexibelverlof
 bool isStudieVerlof
 bool isExursie
-
+bool isLaat
 bool other
 
+varchar verwachtetijdvanaanwezighijd
 varchar andereRedenVoorAfwezighijd
 
 ==================
@@ -72,6 +74,9 @@ __________________
 logevent to database:
 make do nonquery 
 
+
+d5rood  d6geel leds ground
+d3 buzzer + d2 buzzer ground
 
 
 

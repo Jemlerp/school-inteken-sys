@@ -11,38 +11,32 @@ namespace funcZ {
     }
 
     public enum SendAndRecieveTypesEnum {
-        metMogilikeError,
-        metWachtwoord,
+        SendTestAdminPassword,
+        ReturnTestAdminPassword,
+
+        ReturnmetMogilikeError,
+        SendmetWachtwoord,
         errorReport,
-        NFCCardScanInfo,
-        returnInfoAboutUserFromJustReadNFCCard,
-        requestOverviewAanwezige,
-        returnOverviewAanwezige,
-        testSeverConnetionRequest,
-        testSeverConnetionAwnser,
-        requestChangeAfwezigHijd,
-        respondChangeAfwezighijd
+        SendNFCCardScanInfo,
+        ReturnInfoAboutUserFromJustReadNFCCard,
+        RequestOverviewAanwezige,
+        ReturnOverviewAanwezige,
+        SendChangeAfwezigHijd,
+        ReturnChangeAfwezighijd
     };
-
-    public class TTestServerConnenction : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.testSeverConnetionRequest; } }
-    }
-
-    public class TRespondServerConnection : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.testSeverConnetionAwnser; } }
-    }
-
-
+    
+    //common
     public class TResiveWithPosbleError : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.metMogilikeError; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.ReturnmetMogilikeError; } }
         public TError errorInfo { get; set; }
         public bool isErrorOcured { get; set; } = false;
         public object expectedResponse { get; set; }
     }
 
     public class TSendWithPassword : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.metWachtwoord; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.SendmetWachtwoord; } }
         public string password { get; set; }
+        public bool isAdminInstrucion { get; set; } = false;
         public object tSend { get; set; }
     }
 
@@ -50,41 +44,50 @@ namespace funcZ {
         public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.errorReport; } }
         public string errorText { get; set; }
     }
-    
-    public class TRequestIfPasswordsAreCorrect {
 
+    //admin contorls
+    public class TSendTestAdminPassword : IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.SendTestAdminPassword; } }
+        public string Paswword { get; set; }
     }
 
-    public class TReturnIfPassordsAreCorrect {
-
+    public class TReturnTestAdminPassword : IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.ReturnTestAdminPassword; } }
+        public bool isGoed { get; set; } = false;
     }
 
+
+
+
+    //aanspreekpunt 
     public class TRequestChangeAfwezigTable:IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.requestChangeAfwezigHijd; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.SendChangeAfwezigHijd; } }
         public int fromUserID { get; set; }
-        public bool clearRecordOfAfwezigVandaag { get; set; }
+        public bool clearRecordOfAfwezigVandaag { get; set; } = false;
         public bool IsZiek { get; set; } = false;
         public bool IsFlexiebelverlof { get; set; } = false;
         public bool IsStudieverlof { get; set; } = false;
         public bool IsExcurtie { get; set; } = false;
-        public bool IsAnderereden { get; set; }
-        public string AnderenRedenVoorAfwezigihijd { get; set; }
+        public bool IsLaat { get; set; } = false;
+        public bool IsAnderereden { get; set; } = false;
+        public string AnderenRedenVoorAfwezigihijd { get; set; } = "";
+        public string VerwachteTijdVanAanwezighijd { get; set; } = "";
     }
 
     public class TRespondChangeAfwezighijdTable : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.respondChangeAfwezighijd; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.ReturnChangeAfwezighijd; } }
         public bool success { get; set; } = false;
     }
 
 
     //scan
     public class TNFCCardScan : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.NFCCardScanInfo; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.SendNFCCardScanInfo; } }
         public string ID { get; set; }
     }
 
     public class TReturnDisplayInfoForJustReadNFCCard : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.returnInfoAboutUserFromJustReadNFCCard; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.ReturnInfoAboutUserFromJustReadNFCCard; } }
         public bool doetUitteken { get; set; } = false;
         public bool doetInteken { get; set; } = false;
         public bool doetAnuleerUitteken { get; set; } = false;
@@ -100,11 +103,11 @@ namespace funcZ {
 
     //overview
     public class TRequestOverviewOfAanwezige : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.requestOverviewAanwezige; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.RequestOverviewAanwezige; } }
     }
 
     public class TReturnOverviewOfAanwezige : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.returnOverviewAanwezige; } }
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.ReturnOverviewAanwezige; } }
         public List<SQLPropertysAndFunc.RegistratieTableTableEntry> todayRegData { get; set; }
         public List<SQLPropertysAndFunc.UserTableTableEntry> users { get; set; }
         public List<SQLPropertysAndFunc.AfwezigTableTableEntry> todayAfwezig { get; set; }

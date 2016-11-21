@@ -19,9 +19,8 @@ namespace Sever.Controllers
         {
             //return JsonConvert.SerializeObject(functions.GetSqlServerDateTime());
             //return JsonConvert.SerializeObject(new funcZ.TReturnError());
-            TNFCCardScan test = new TNFCCardScan();
-            test.ID="251 227 234 245";
-
+            //TNFCCardScan test = new TNFCCardScan();
+            //test.ID="251 227 234 245";
             return serialise(functions.overzigt());
         }
 
@@ -56,13 +55,11 @@ namespace Sever.Controllers
                     string instructionArgumentsInJson = JsonConvert.SerializeObject(instruction.tSend);
                     switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"]))
                     {
-                        case SendAndRecieveTypesEnum.NFCCardScanInfo:
+                        case SendAndRecieveTypesEnum.SendNFCCardScanInfo:
                             return serialise(functions.NFCScan(deserialise<TNFCCardScan>(instructionArgumentsInJson)));
-                        case SendAndRecieveTypesEnum.testSeverConnetionRequest:
-                            return serialise(functions.TestSqlConnetion());
-                        case SendAndRecieveTypesEnum.requestOverviewAanwezige:
+                        case SendAndRecieveTypesEnum.RequestOverviewAanwezige:
                             return serialise(functions.overzigt());
-                        case SendAndRecieveTypesEnum.requestChangeAfwezigHijd:
+                        case SendAndRecieveTypesEnum.SendChangeAfwezigHijd:
                             return serialise(functions.changeAfwezighijdVoorEenIemand(deserialise<TRequestChangeAfwezigTable>(instructionArgumentsInJson)));
                             
                     }

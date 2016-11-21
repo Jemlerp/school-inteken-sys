@@ -28,9 +28,9 @@ namespace Inteken {
         string _Password;
         string _Address;
         SerialPort _SerialPort;
-        erFuntions _ErFunc = new erFuntions();
-        List<erFuntions.combineerUserEntryRegEntryAndAfwezigEntry> _Datalist = new List<erFuntions.combineerUserEntryRegEntryAndAfwezigEntry>();
-        List<erFuntions.combineerUserEntryRegEntryAndAfwezigEntry> _DatalistSearchResults = new List<erFuntions.combineerUserEntryRegEntryAndAfwezigEntry>();
+        dataTableHelpFunc _ErFunc = new funcZ.dataTableHelpFunc();
+        List<dataTableHelpFunc.combineerUserEntryRegEntryAndAfwezigEntry> _Datalist = new List<dataTableHelpFunc.combineerUserEntryRegEntryAndAfwezigEntry>();
+        List<dataTableHelpFunc.combineerUserEntryRegEntryAndAfwezigEntry> _DatalistSearchResults = new List<dataTableHelpFunc.combineerUserEntryRegEntryAndAfwezigEntry>();
         private delegate void handelTextDelegate(string read);
         private delegate void updateOverzichtDelegate(bool reloadData);
 
@@ -46,6 +46,9 @@ namespace Inteken {
                 _TimerReloadOverzicht.Tick+=new EventHandler(timerEventReloadOverzicht);
 
                 _TimerReloadOverzicht.Start();
+
+                FormBorderStyle=FormBorderStyle.None;
+                WindowState=FormWindowState.Maximized;
 
                 UpdateOverzichtLists(true);
             } catch (Exception ex) {
@@ -72,7 +75,7 @@ namespace Inteken {
             _TimerCleanUserInfoScreen.Stop();
             TNFCCardScan scan = new TNFCCardScan();
             scan.ID=read;
-            TResiveWithPosbleError awns = webFunction.httpPostWithPassword(scan, _Address, _Password);
+            TResiveWithPosbleError awns = webFunc.httpPostWithPassword(scan, _Address, _Password);
             if (awns.isErrorOcured) {
                 MessageBox.Show(awns.errorInfo.errorText);
             } else {

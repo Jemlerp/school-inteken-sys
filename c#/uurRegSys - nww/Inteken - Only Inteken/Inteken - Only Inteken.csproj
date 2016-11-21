@@ -84,7 +84,6 @@
     <Compile Include="erForm.Designer.cs">
       <DependentUpon>erForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="erFuntions.cs" />
     <Compile Include="setPortPaswordAndAddres.cs">
       <SubType>Form</SubType>
     </Compile>

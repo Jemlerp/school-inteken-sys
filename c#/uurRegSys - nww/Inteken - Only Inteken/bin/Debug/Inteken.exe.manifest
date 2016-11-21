@@ -42,26 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="funcZ.dll" size="22016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="funcZ.dll" size="26112">
       <assemblyIdentity name="funcZ" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1ybPN7k2ai3HbB8sErZL8eQxMFmmRiFngZ34qpmI3lw=</dsig:DigestValue>
+        <dsig:DigestValue>S1BtJxz3Wyy0E1DXzK6cg9IVBYbAuDCEpvYMN8gr4MA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inteken.exe" size="28648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inteken.exe" size="18920">
       <assemblyIdentity name="Inteken" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JNq4a5DB3TK3fCZKgObeTiL975xRfSxndzobAjrsOlw=</dsig:DigestValue>
+        <dsig:DigestValue>NcC3iVoqQ79I6ib6j1N7pIASWCpFXAFN23QZEB46kys=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

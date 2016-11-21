@@ -33,7 +33,6 @@ namespace Sever.Models {
 
         public static TRespondChangeAfwezighijdTable changeAfwezighijdVoorEenIemand(TRequestChangeAfwezigTable request) {
             TRespondChangeAfwezighijdTable toReturn = new TRespondChangeAfwezighijdTable();
-
             SqlCommand command = new SqlCommand();
             command.CommandText=$"delete from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated} = {request.fromUserID} and {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast(getdate() as date)";
             try {
@@ -43,7 +42,8 @@ namespace Sever.Models {
             if (!request.clearRecordOfAfwezigVandaag) {
                 command=new SqlCommand();
                 command.Parameters.AddWithValue("@texty", request.AnderenRedenVoorAfwezigihijd);
-                command.CommandText=$"insert into {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} ({SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.AfwezigTableNames.Date}, {SQLPropertysAndFunc.AfwezigTableNames.IsExcursie}, {SQLPropertysAndFunc.AfwezigTableNames.IsFlexibelverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsStudieverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsZiek}, {SQLPropertysAndFunc.AfwezigTableNames.IsAndereReden}, {SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd}) values ('{request.fromUserID}' , cast(getdate() as date), cast('{request.IsExcurtie}' as bit), cast('{request.IsFlexiebelverlof}'as  bit), cast('{request.IsStudieverlof}' as bit), cast('{request.IsZiek}' as bit),cast('{request.IsAnderereden}' as bit), @texty)";
+                command.Parameters.AddWithValue("@tijdjetexty", request.VerwachteTijdVanAanwezighijd);
+                command.CommandText=$"insert into {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} ({SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.AfwezigTableNames.Date}, {SQLPropertysAndFunc.AfwezigTableNames.IsExcursie}, {SQLPropertysAndFunc.AfwezigTableNames.IsFlexibelverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsStudieverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsZiek},{SQLPropertysAndFunc.AfwezigTableNames.IsLaat}, {SQLPropertysAndFunc.AfwezigTableNames.IsAndereReden}, {SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd}, {SQLPropertysAndFunc.AfwezigTableNames.Verwachtetijdvanaanwezighijd}) values ('{request.fromUserID}' , cast(getdate() as date), cast('{request.IsExcurtie}' as bit), cast('{request.IsFlexiebelverlof}'as  bit), cast('{request.IsStudieverlof}' as bit), cast('{request.IsZiek}' as bit),cast('{request.IsLaat}' as bit), cast('{request.IsAnderereden}' as bit), @texty, @tijdjetexty)";
                 if (SQlOnlquery.SQLNonQuery(command)!=1) {
                     throw new Exception("Could Not Insert New Afwezig Entry To Database");
                 }
@@ -89,6 +89,10 @@ namespace Sever.Models {
             if (SQlOnlquery.SQLNonQuery(erCommand)!=1) {
                 throw new Exception($"SQL Error: Got Result 0 From {erCommand}");
             } else { logEventToDatabase(_userID, doetInteken, doetUitteken, doetAnuleerdUiteken); }
+            //delete afwezigtable entry als je als laat staat
+            SQlOnlquery.SQLNonQuery($"delete from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated} = {_userID} and {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast(getdate() as date) and {SQLPropertysAndFunc.AfwezigTableNames.IsLaat} = 1");
+
+
             //fill retunr info            
             List<SQLPropertysAndFunc.RegistratieTableTableEntry> elntetry = _Sqlfunc.GetListRegistratieTableEntrysFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated} = {_userID} and {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date)"));
             TReturnDisplayInfoForJustReadNFCCard _toReturn = new TReturnDisplayInfoForJustReadNFCCard();

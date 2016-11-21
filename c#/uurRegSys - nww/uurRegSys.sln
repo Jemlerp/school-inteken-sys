@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "funcZ", "funcZ\funcZ.csproj", "{2379B142-AE8B-4E9E-B4E5-CFF8D85D455E}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inteken - AanspreekPunt", "Inteken\Inteken - AanspreekPunt.csproj", "{FEDBE24A-C45B-4A21-9B88-54A5AAFC03A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inteken - Only Inteken", "Inteken - Only Inteken\Inteken - Only Inteken.csproj", "{C7788B8C-82F1-456E-9CF8-AAAF4247D882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C7788B8C-82F1-456E-9CF8-AAAF4247D882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7788B8C-82F1-456E-9CF8-AAAF4247D882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7788B8C-82F1-456E-9CF8-AAAF4247D882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
