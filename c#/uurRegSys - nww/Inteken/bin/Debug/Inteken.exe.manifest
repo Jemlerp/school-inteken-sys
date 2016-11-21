@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="funcZ.dll" size="26112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="funcZ.dll" size="26624">
       <assemblyIdentity name="funcZ" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>S1BtJxz3Wyy0E1DXzK6cg9IVBYbAuDCEpvYMN8gr4MA=</dsig:DigestValue>
+        <dsig:DigestValue>6FaraXfY19VZO61TtDANg1QSKuKkATZVflwQ+TK2jbE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Rriou1rUsrKlXrEgdPus8Hb5iSbx3n2KwTSt7N6yif4=</dsig:DigestValue>
+        <dsig:DigestValue>kc/GEPP/aRGKDRKbq7pyaxbVcR94IOs2EUchJPHjrUM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -3,15 +3,14 @@ mogilike langduuurige werking.
 overzigtelijk.
 compackt.
 makelijk?
+
 __________________
 TABLE USER: 
 Int ID
 String VoorNaam
 String AchterNaam
 String nfcId
-
-
-==================
+bool isStudentDieOpSchoolZit //new
 __________________
 TABLE AANWEZIGHIJD:
 Int ID
@@ -20,24 +19,6 @@ Date day
 Time inteken
 Time uiteken
 bool aanwezig // makerlijker
-
-
-==================
-__________________
-TABLE LOG:
-//log alles dat er gebeurd zodat je dit kan zien: hariehufter tekent uit en een uur later tekent hij weer in
-Int ID
-Int ID of user related
-Date day
-Time time
-Bool doetInteken
-Bool doetUitteken
-Bool anuleerdUitteken
-
-// add aleenaderen dingen die je kan doen
-
-==================
-
 __________________
 TABLE afwezig:
 Int ID
@@ -52,14 +33,64 @@ bool other
 
 varchar verwachtetijdvanaanwezighijd
 varchar andereRedenVoorAfwezighijd
-
-==================
 __________________
-TABLE settings:
+TABLE LOG nfc scan
+//log alles dat er gebeurd zodat je dit kan zien: hariehufter tekent uit en een uur later tekent hij weer in
+Int ID
+Int ID of user related
+Date day
+Time time
+Bool doetInteken
+Bool doetUitteken
+Bool anuleerdUitteken
+__________________
+Table LOG aanspreekputdingus 
+//
+int id
+int related user id
+Date date
+time time
+
+bool zet afwezighijd 
+int(enum) afwezig typen gezet
+bool met meeromschrijving
+varcharMAX omscrjiing
+
+bool doet inteken
+bool doet uitteken
+bool anuleerd uittekenx
+__________________
+table log admin 	
+int id
+date date 
+time time 
+
+bool doetLogin
+string 
+
+
+
+__________________
+table passwords-logins
+
+
+
+
+
+
+
+__________________
+TABLE settings: //json
 //welke dagen er school zijn
-//wachtwoorden voor dingen
+//wachtwoorden voor dingen/alle persoonnenn
 
 
+
+
+
+
+
+////////////////////////////////
 __________________
 nfcscan:
  get user 
