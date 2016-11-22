@@ -23,37 +23,37 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxAdress = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelSerial = new System.Windows.Forms.Panel();
-            this.checkBoxUserSerialPort = new System.Windows.Forms.CheckBox();
-            this.buttonRefreshSerial = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.buttonTestSerial = new System.Windows.Forms.Button();
             this.buttonTestWpAndAddres = new System.Windows.Forms.Button();
+            this.panelSerial = new System.Windows.Forms.Panel();
+            this.buttonTestSerial = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonRefreshSerial = new System.Windows.Forms.Button();
+            this.checkBoxUserSerialPort = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelSerial.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxAdress
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "http://192.168.0.10/api/main";
+            this.textBoxAdress.Location = new System.Drawing.Point(85, 21);
+            this.textBoxAdress.Name = "textBoxAdress";
+            this.textBoxAdress.Size = new System.Drawing.Size(164, 20);
+            this.textBoxAdress.TabIndex = 0;
+            this.textBoxAdress.Text = "http://192.168.0.10/api/main";
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "testwachtwoord";
+            this.textBoxPassword.Location = new System.Drawing.Point(85, 47);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(164, 20);
+            this.textBoxPassword.TabIndex = 1;
+            this.textBoxPassword.Text = "testwachtwoord";
             // 
             // label1
             // 
@@ -79,12 +79,23 @@
             this.panel1.Controls.Add(this.buttonTestWpAndAddres);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBoxAdress);
+            this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Location = new System.Drawing.Point(25, 194);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 88);
             this.panel1.TabIndex = 4;
+            // 
+            // buttonTestWpAndAddres
+            // 
+            this.buttonTestWpAndAddres.Enabled = false;
+            this.buttonTestWpAndAddres.Location = new System.Drawing.Point(255, 21);
+            this.buttonTestWpAndAddres.Name = "buttonTestWpAndAddres";
+            this.buttonTestWpAndAddres.Size = new System.Drawing.Size(75, 46);
+            this.buttonTestWpAndAddres.TabIndex = 4;
+            this.buttonTestWpAndAddres.Text = "Test";
+            this.buttonTestWpAndAddres.UseVisualStyleBackColor = true;
+            this.buttonTestWpAndAddres.Click += new System.EventHandler(this.testServerConnection);
             // 
             // panelSerial
             // 
@@ -98,26 +109,15 @@
             this.panelSerial.Size = new System.Drawing.Size(176, 137);
             this.panelSerial.TabIndex = 5;
             // 
-            // checkBoxUserSerialPort
+            // buttonTestSerial
             // 
-            this.checkBoxUserSerialPort.AutoSize = true;
-            this.checkBoxUserSerialPort.Location = new System.Drawing.Point(25, 22);
-            this.checkBoxUserSerialPort.Name = "checkBoxUserSerialPort";
-            this.checkBoxUserSerialPort.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxUserSerialPort.TabIndex = 6;
-            this.checkBoxUserSerialPort.Text = "Use Serial";
-            this.checkBoxUserSerialPort.UseVisualStyleBackColor = true;
-            this.checkBoxUserSerialPort.CheckedChanged += new System.EventHandler(this.checkBoxUserSerialPort_CheckedChanged);
-            // 
-            // buttonRefreshSerial
-            // 
-            this.buttonRefreshSerial.Location = new System.Drawing.Point(9, 14);
-            this.buttonRefreshSerial.Name = "buttonRefreshSerial";
-            this.buttonRefreshSerial.Size = new System.Drawing.Size(75, 23);
-            this.buttonRefreshSerial.TabIndex = 0;
-            this.buttonRefreshSerial.Text = "Refresh";
-            this.buttonRefreshSerial.UseVisualStyleBackColor = true;
-            this.buttonRefreshSerial.Click += new System.EventHandler(this.refreshSerialportsList);
+            this.buttonTestSerial.Location = new System.Drawing.Point(89, 14);
+            this.buttonTestSerial.Name = "buttonTestSerial";
+            this.buttonTestSerial.Size = new System.Drawing.Size(75, 23);
+            this.buttonTestSerial.TabIndex = 3;
+            this.buttonTestSerial.Text = "Test";
+            this.buttonTestSerial.UseVisualStyleBackColor = true;
+            this.buttonTestSerial.Click += new System.EventHandler(this.testSerialPort);
             // 
             // listBox1
             // 
@@ -130,34 +130,36 @@
             this.listBox1.TabIndex = 2;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // buttonTestSerial
+            // buttonRefreshSerial
             // 
-            this.buttonTestSerial.Location = new System.Drawing.Point(89, 14);
-            this.buttonTestSerial.Name = "buttonTestSerial";
-            this.buttonTestSerial.Size = new System.Drawing.Size(75, 23);
-            this.buttonTestSerial.TabIndex = 3;
-            this.buttonTestSerial.Text = "Test";
-            this.buttonTestSerial.UseVisualStyleBackColor = true;
-            this.buttonTestSerial.Click += new System.EventHandler(this.testSerialPort);
+            this.buttonRefreshSerial.Location = new System.Drawing.Point(9, 14);
+            this.buttonRefreshSerial.Name = "buttonRefreshSerial";
+            this.buttonRefreshSerial.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefreshSerial.TabIndex = 0;
+            this.buttonRefreshSerial.Text = "Refresh";
+            this.buttonRefreshSerial.UseVisualStyleBackColor = true;
+            this.buttonRefreshSerial.Click += new System.EventHandler(this.refreshSerialportsList);
             // 
-            // buttonTestWpAndAddres
+            // checkBoxUserSerialPort
             // 
-            this.buttonTestWpAndAddres.Location = new System.Drawing.Point(255, 21);
-            this.buttonTestWpAndAddres.Name = "buttonTestWpAndAddres";
-            this.buttonTestWpAndAddres.Size = new System.Drawing.Size(75, 46);
-            this.buttonTestWpAndAddres.TabIndex = 4;
-            this.buttonTestWpAndAddres.Text = "Test";
-            this.buttonTestWpAndAddres.UseVisualStyleBackColor = true;
-            this.buttonTestWpAndAddres.Click += new System.EventHandler(this.testServerConnection);
+            this.checkBoxUserSerialPort.AutoSize = true;
+            this.checkBoxUserSerialPort.Location = new System.Drawing.Point(25, 22);
+            this.checkBoxUserSerialPort.Name = "checkBoxUserSerialPort";
+            this.checkBoxUserSerialPort.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxUserSerialPort.TabIndex = 6;
+            this.checkBoxUserSerialPort.Text = "Use Serial";
+            this.checkBoxUserSerialPort.UseVisualStyleBackColor = true;
+            this.checkBoxUserSerialPort.CheckedChanged += new System.EventHandler(this.checkBoxUserSerialPort_CheckedChanged);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(267, 74);
+            this.button3.Location = new System.Drawing.Point(252, 74);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(118, 70);
             this.button3.TabIndex = 7;
             this.button3.Text = "Continue";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -180,8 +182,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxAdress;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace funcZ {
 
@@ -11,16 +12,22 @@ namespace funcZ {
     }
 
     public enum SendAndRecieveTypesEnum {
-        SendTestAdminPassword,
-        ReturnTestAdminPassword,
+
+        AdminAskUsersDataTable,
+        AdminReturnUsersDataTable,
+
+        AdminAskChangeUserTable,
+        AdminReturnChangeUsersTable,
 
         ReturnmetMogilikeError,
         SendmetWachtwoord,
         errorReport,
         SendNFCCardScanInfo,
         ReturnInfoAboutUserFromJustReadNFCCard,
+
         RequestOverviewAanwezige,
         ReturnOverviewAanwezige,
+
         SendChangeAfwezigHijd,
         ReturnChangeAfwezighijd
     };
@@ -45,19 +52,42 @@ namespace funcZ {
         public string errorText { get; set; }
     }
 
+    //overlord contorls
     //admin contorls
-    public class TSendTestAdminPassword : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.SendTestAdminPassword; } }
-        public string Paswword { get; set; }
+
+    public class TAdminSendAskAllUsersDataTable : IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminAskUsersDataTable; } }
     }
 
-    public class TReturnTestAdminPassword : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.ReturnTestAdminPassword; } }
-        public bool isGoed { get; set; } = false;
+    public class TAdminReturnAllUsersDataTable : IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminReturnUsersDataTable; } }
+        public DataTable userDataTable { get; set; }
+    }
+
+    public class TAdminSendChangeUsersTable : IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminAskChangeUserTable; } }
+        public bool isNewUser { get; set; } = false;
+        public int toEditUserId { get; set; }
+
+        public bool isVanSchoolAf { get; set; }
+
+        public string voornaam { get; set; }
+        public string achternaam { get; set; }
+        public string NFCID { get; set; }
+    }
+
+    public class TAdminReturnChangeUsersTable : IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminReturnChangeUsersTable; } }
+        public bool gelukt { get; set; }
     }
 
 
 
+
+
+
+
+    //pleb conntorls
 
     //aanspreekpunt 
     public class TRequestChangeAfwezigTable:IKnow {
@@ -74,7 +104,7 @@ namespace funcZ {
         public string VerwachteTijdVanAanwezighijd { get; set; } = "";
     }
 
-    public class TRespondChangeAfwezighijdTable : IKnow {
+    public class TReturnChangeAfwezighijdTable : IKnow {
         public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.ReturnChangeAfwezighijd; } }
         public bool success { get; set; } = false;
     }

@@ -19,34 +19,38 @@ namespace funcZ {
             public bool hasTodayAfwEntry { get; set; } = false;
         }
 
+        public List<combineerUserEntryRegEntryAndAfwezigEntry> loadEnfoFromApiSub(TReturnOverviewOfAanwezige erData) {
+            List<combineerUserEntryRegEntryAndAfwezigEntry> toReturn = new List<combineerUserEntryRegEntryAndAfwezigEntry>();
+            _SERVERDATETIME=erData.dateTimeNow;
+            foreach (var user in erData.users) {
+                combineerUserEntryRegEntryAndAfwezigEntry forReturnlist = new combineerUserEntryRegEntryAndAfwezigEntry();
+                forReturnlist.userN=user;
+                foreach (var regEntry in erData.todayRegData) {
+                    if (regEntry.IDOfUserRelated==user.ID) {
+                        forReturnlist.regE=regEntry;
+                        forReturnlist.hasTodayRegEntry=true;
+                        break;
+                    }
+                }
+                foreach (var afwEntry in erData.todayAfwezig) {
+                    if (afwEntry.IDOfRelatedPerson==user.ID) {
+                        forReturnlist.afwE=afwEntry;
+                        forReturnlist.hasTodayAfwEntry=true;
+                        break;
+                    }
+                }
+                toReturn.Add(forReturnlist);
+            }
+            return toReturn;
+        }
+
         public List<combineerUserEntryRegEntryAndAfwezigEntry> loadEnfoFromApi(string _addres, string _password) {
             List<combineerUserEntryRegEntryAndAfwezigEntry> toReturn = new List<combineerUserEntryRegEntryAndAfwezigEntry>();
             TResiveWithPosbleError resp = webFunc.httpPostWithPassword(new TRequestOverviewOfAanwezige(), _addres, _password);
             if (resp.isErrorOcured) {
                 throw new Exception(resp.errorInfo.errorText);
             } else {
-                TReturnOverviewOfAanwezige lists = JsonConvert.DeserializeObject<TReturnOverviewOfAanwezige>(JsonConvert.SerializeObject(resp.expectedResponse));
-                _SERVERDATETIME = lists.dateTimeNow;
-                foreach (var user in lists.users) {
-                    combineerUserEntryRegEntryAndAfwezigEntry forReturnlist = new combineerUserEntryRegEntryAndAfwezigEntry();
-                    forReturnlist.userN = user;
-                    foreach (var regEntry in lists.todayRegData) {
-                        if (regEntry.IDOfUserRelated == user.ID) {
-                            forReturnlist.regE = regEntry;
-                            forReturnlist.hasTodayRegEntry = true;
-                            break;
-                        }
-                    }
-                    foreach (var afwEntry in lists.todayAfwezig) {
-                        if (afwEntry.IDOfRelatedPerson == user.ID) {
-                            forReturnlist.afwE = afwEntry;
-                            forReturnlist.hasTodayAfwEntry = true;
-                            break;
-                        }
-                    }
-                    toReturn.Add(forReturnlist);
-                }
-                return toReturn;
+                return loadEnfoFromApiSub(JsonConvert.DeserializeObject<TReturnOverviewOfAanwezige>(JsonConvert.SerializeObject(resp.expectedResponse)));
             }
         }
 

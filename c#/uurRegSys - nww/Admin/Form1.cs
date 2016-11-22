@@ -21,6 +21,7 @@ namespace Admin {
                 listBox1.Items.Clear();
             } else {
                 panelSerial.Enabled=true;
+                refreshSerialportsList(null,null);
             }
         }
 
@@ -38,10 +39,10 @@ namespace Admin {
                 SerialPort testPort = new SerialPort((string)listBox1.SelectedItem, 9600);
                 testPort.Open();
                 testPort.Close();
+                MessageBox.Show("successful");
             }catch(Exception ex) {
                 MessageBox.Show("Connection Failed");
             }
-
         }
 
         private void testServerConnection(object sender, EventArgs e) {
@@ -56,5 +57,16 @@ namespace Admin {
             }
         }
 
+        private void button3_Click(object sender, EventArgs e) {
+            SelectionForm form;
+            if (checkBoxUserSerialPort.Checked) {
+                form=new SelectionForm(textBoxAdress.Text, textBoxPassword.Text, (string)listBox1.SelectedItem);
+            } else {
+               form = new SelectionForm(textBoxAdress.Text, textBoxPassword.Text);
+            }
+            this.Visible=false;
+            form.ShowDialog();
+            this.Close();
+        }
     }
 }

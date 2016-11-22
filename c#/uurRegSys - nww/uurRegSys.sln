@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inteken - Only Inteken", "I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdministratieOverzightTool", "AdministratieOverzightTool\AdministratieOverzightTool.csproj", "{D10176A5-C149-4CB5-BD71-26873D89510D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C5E5323-ED2C-4772-B20E-1A2F0B6D0BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D10176A5-C149-4CB5-BD71-26873D89510D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D10176A5-C149-4CB5-BD71-26873D89510D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D10176A5-C149-4CB5-BD71-26873D89510D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D10176A5-C149-4CB5-BD71-26873D89510D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

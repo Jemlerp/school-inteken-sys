@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using funcZ;
 
 namespace Sever.Models {
-    public class functions {
+    public static class functions {
         private static SQLPropertysAndFunc _Sqlfunc = new SQLPropertysAndFunc();
 
         public static DateTime GetSqlServerDateTime() {
@@ -25,14 +25,45 @@ namespace Sever.Models {
             }
         }
 
+        //admin
+        public static TAdminReturnAllUsersDataTable adminGetAllUserInDataTable() {
+            TAdminReturnAllUsersDataTable returnDingus = new TAdminReturnAllUsersDataTable();
+            returnDingus.userDataTable=SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.UserTableNames.userTableName}");
+            return returnDingus;
+        }
+
+        public static TAdminReturnChangeUsersTable adminChangeUsersTable(TAdminSendChangeUsersTable request) {
+            TAdminReturnChangeUsersTable toReturn = new TAdminReturnChangeUsersTable();
+            SqlCommand command = new SqlCommand();
+            command.Parameters.AddWithValue("@vNaam", request.voornaam);
+            command.Parameters.AddWithValue("@aNaam", request.achternaam);
+            command.Parameters.AddWithValue("@NFCC", request.NFCID);
+            if (request.isNewUser) {
+                command.CommandText=$"insert into {SQLPropertysAndFunc.UserTableNames.userTableName} ({SQLPropertysAndFunc.UserTableNames.voorNaam},{SQLPropertysAndFunc.UserTableNames.achterNaam},{SQLPropertysAndFunc.UserTableNames.NFCID}) values (@vNaam, @aNaam, @nfcc)";                
+            } else {
+                command.CommandText=$"update {SQLPropertysAndFunc.UserTableNames.userTableName} set {SQLPropertysAndFunc.UserTableNames.voorNaam} = @vNaam, {SQLPropertysAndFunc.UserTableNames.achterNaam} = @aNaam, {SQLPropertysAndFunc.UserTableNames.NFCID} = @nfcc where {SQLPropertysAndFunc.UserTableNames.ID} = {request.toEditUserId}";
+            }
+            if (SQlOnlquery.SQLNonQuery(command)>0) {
+                toReturn.gelukt=true;
+            } else {
+                throw new Exception($"query did not change anything || query : {command.CommandText}");
+            }
+            return toReturn;
+        }
+
+
+
+
+        //other
+
         private static void logEventToDatabase(int forUserId, bool wasInteken, bool wasUitteken, bool wasAnuleerLaatsteUitteken) {
             SqlCommand command = new SqlCommand();
             command.CommandText=$"insert into {SQLPropertysAndFunc.LogTableNames.LogTableName}({SQLPropertysAndFunc.LogTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.LogTableNames.date}, {SQLPropertysAndFunc.LogTableNames.time}, {SQLPropertysAndFunc.LogTableNames.doetInteken}, {SQLPropertysAndFunc.LogTableNames.doetUitteken}, {SQLPropertysAndFunc.LogTableNames.anuleerdUitteken}) values ({forUserId}, cast(GETDATE() as date), cast(GETDATE() as time), cast('{wasInteken}' as bit), cast('{wasUitteken}' as bit), cast('{wasAnuleerLaatsteUitteken}' as bit))";
             SQlOnlquery.SQLNonQuery(command);
         }
 
-        public static TRespondChangeAfwezighijdTable changeAfwezighijdVoorEenIemand(TRequestChangeAfwezigTable request) {
-            TRespondChangeAfwezighijdTable toReturn = new TRespondChangeAfwezighijdTable();
+        public static TReturnChangeAfwezighijdTable changeAfwezighijdVoorEenIemand(TRequestChangeAfwezigTable request) {
+            TReturnChangeAfwezighijdTable toReturn = new TReturnChangeAfwezighijdTable();
             SqlCommand command = new SqlCommand();
             command.CommandText=$"delete from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated} = {request.fromUserID} and {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast(getdate() as date)";
             try {
