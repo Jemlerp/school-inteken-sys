@@ -34,13 +34,13 @@ namespace funcZ {
 
         public LogTableTableEntry GetLogTableEntryFromDataRow(DataRow row) {
             LogTableTableEntry toReturn = new LogTableTableEntry();
-            if (row.Table.Columns.Contains(LogTableNames.ID)) { if(row[LogTableNames.ID] != DBNull.Value) toReturn.ID=(int)row[LogTableNames.ID]; }
-            if (row.Table.Columns.Contains(LogTableNames.IDOfUserRelated)) { if (row[LogTableNames.IDOfUserRelated]!=DBNull.Value) toReturn.IDOfUserRelated=(int)row[LogTableNames.IDOfUserRelated]; }
-            if (row.Table.Columns.Contains(LogTableNames.date)) { if (row[LogTableNames.date]!=DBNull.Value) toReturn.dateOfEntry=(DateTime)row[LogTableNames.date]; }
-            if (row.Table.Columns.Contains(LogTableNames.time)) { if (row[LogTableNames.time]!=DBNull.Value) toReturn.timeOFEntry=(TimeSpan)row[LogTableNames.time]; }
-            if (row.Table.Columns.Contains(LogTableNames.doetInteken)) { if (row[LogTableNames.doetInteken]!=DBNull.Value) toReturn.doetInteken=(bool)row[LogTableNames.doetInteken]; }
-            if (row.Table.Columns.Contains(LogTableNames.doetUitteken)) { if (row[LogTableNames.doetUitteken]!=DBNull.Value) toReturn.doetUiteken=(bool)row[LogTableNames.doetUitteken]; }
-            if (row.Table.Columns.Contains(LogTableNames.anuleerdUitteken)) { if (row[LogTableNames.anuleerdUitteken]!=DBNull.Value) toReturn.anuleerdUitTeken=(bool)row[LogTableNames.anuleerdUitteken]; }
+            if (row.Table.Columns.Contains(LogTableNames.ID)) { if (row[LogTableNames.ID] != DBNull.Value) toReturn.ID = (int)row[LogTableNames.ID]; }
+            if (row.Table.Columns.Contains(LogTableNames.IDOfUserRelated)) { if (row[LogTableNames.IDOfUserRelated] != DBNull.Value) toReturn.IDOfUserRelated = (int)row[LogTableNames.IDOfUserRelated]; }
+            if (row.Table.Columns.Contains(LogTableNames.date)) { if (row[LogTableNames.date] != DBNull.Value) toReturn.dateOfEntry = (DateTime)row[LogTableNames.date]; }
+            if (row.Table.Columns.Contains(LogTableNames.time)) { if (row[LogTableNames.time] != DBNull.Value) toReturn.timeOFEntry = (TimeSpan)row[LogTableNames.time]; }
+            if (row.Table.Columns.Contains(LogTableNames.doetInteken)) { if (row[LogTableNames.doetInteken] != DBNull.Value) toReturn.doetInteken = (bool)row[LogTableNames.doetInteken]; }
+            if (row.Table.Columns.Contains(LogTableNames.doetUitteken)) { if (row[LogTableNames.doetUitteken] != DBNull.Value) toReturn.doetUiteken = (bool)row[LogTableNames.doetUitteken]; }
+            if (row.Table.Columns.Contains(LogTableNames.anuleerdUitteken)) { if (row[LogTableNames.anuleerdUitteken] != DBNull.Value) toReturn.anuleerdUitTeken = (bool)row[LogTableNames.anuleerdUitteken]; }
             return toReturn;
         }
 
@@ -76,12 +76,12 @@ namespace funcZ {
 
         public RegistratieTableTableEntry GetRegistratieTableEntryFromDataRow(DataRow row) {
             RegistratieTableTableEntry toReturn = new RegistratieTableTableEntry();
-            if (row.Table.Columns.Contains(RegistratieTableNames.ID)) { if (row[RegistratieTableNames.ID]!=DBNull.Value) toReturn.ID=(int)row[RegistratieTableNames.ID]; }
-            if (row.Table.Columns.Contains(RegistratieTableNames.IDOfUserRelated)) { if (row[RegistratieTableNames.IDOfUserRelated]!=DBNull.Value) toReturn.IDOfUserRelated=(int)row[RegistratieTableNames.IDOfUserRelated]; }
-            if (row.Table.Columns.Contains(RegistratieTableNames.Date)) { if (row[RegistratieTableNames.Date]!=DBNull.Value) toReturn.Date=(DateTime)row[RegistratieTableNames.Date]; }
-            if (row.Table.Columns.Contains(RegistratieTableNames.TimeInteken)) { if (row[RegistratieTableNames.TimeInteken]!=DBNull.Value) toReturn.TimeInteken=(TimeSpan)row[RegistratieTableNames.TimeInteken]; }
-            if (row.Table.Columns.Contains(RegistratieTableNames.TimeUitteken)) { if (row[RegistratieTableNames.TimeUitteken]!=DBNull.Value) toReturn.TimeUitteken=(TimeSpan)row[RegistratieTableNames.TimeUitteken]; }
-            if(row.Table.Columns.Contains(RegistratieTableNames.IsAanwezig)) { if (row[RegistratieTableNames.IsAanwezig]!=DBNull.Value) toReturn.IsAanwezig=(bool)row[RegistratieTableNames.IsAanwezig]; }
+            if (row.Table.Columns.Contains(RegistratieTableNames.ID)) { if (row[RegistratieTableNames.ID] != DBNull.Value) toReturn.ID = (int)row[RegistratieTableNames.ID]; }
+            if (row.Table.Columns.Contains(RegistratieTableNames.IDOfUserRelated)) { if (row[RegistratieTableNames.IDOfUserRelated] != DBNull.Value) toReturn.IDOfUserRelated = (int)row[RegistratieTableNames.IDOfUserRelated]; }
+            if (row.Table.Columns.Contains(RegistratieTableNames.Date)) { if (row[RegistratieTableNames.Date] != DBNull.Value) toReturn.Date = (DateTime)row[RegistratieTableNames.Date]; }
+            if (row.Table.Columns.Contains(RegistratieTableNames.TimeInteken)) { if (row[RegistratieTableNames.TimeInteken] != DBNull.Value) toReturn.TimeInteken = (TimeSpan)row[RegistratieTableNames.TimeInteken]; }
+            if (row.Table.Columns.Contains(RegistratieTableNames.TimeUitteken)) { if (row[RegistratieTableNames.TimeUitteken] != DBNull.Value) toReturn.TimeUitteken = (TimeSpan)row[RegistratieTableNames.TimeUitteken]; }
+            if (row.Table.Columns.Contains(RegistratieTableNames.IsAanwezig)) { if (row[RegistratieTableNames.IsAanwezig] != DBNull.Value) toReturn.IsAanwezig = (bool)row[RegistratieTableNames.IsAanwezig]; }
             return toReturn;
         }
 
@@ -102,6 +102,7 @@ namespace funcZ {
             public static string voorNaam = "voorNaam";
             public static string achterNaam = "achterNaam";
             public static string NFCID = "NFCID";
+            public static string isVanSchoolAf = "isVanSchoolAf";
         }
 
         public class UserTableTableEntry {
@@ -109,14 +110,16 @@ namespace funcZ {
             public string voorNaam { get; set; }
             public string achterNaam { get; set; }
             public string NFCID { get; set; }
+            public bool isVanSchoolAf { get; set; }
         }
 
         public UserTableTableEntry GetUserTableEntryFromDataRow(DataRow row) {
             UserTableTableEntry toReturn = new UserTableTableEntry();
-            if (row.Table.Columns.Contains(UserTableNames.ID)) { if (row[UserTableNames.ID]!=DBNull.Value) toReturn.ID=(int)row[UserTableNames.ID]; }
-            if (row.Table.Columns.Contains(UserTableNames.voorNaam)) { if (row[UserTableNames.voorNaam]!=DBNull.Value) toReturn.voorNaam=(string)row[UserTableNames.voorNaam]; }
-            if (row.Table.Columns.Contains(UserTableNames.achterNaam)) { if (row[UserTableNames.achterNaam]!=DBNull.Value) toReturn.achterNaam=(string)row[UserTableNames.achterNaam]; }
-            if (row.Table.Columns.Contains(UserTableNames.NFCID)) { if (row[UserTableNames.NFCID]!=DBNull.Value) toReturn.NFCID=(string)row[UserTableNames.NFCID]; }
+            if (row.Table.Columns.Contains(UserTableNames.ID)) { if (row[UserTableNames.ID] != DBNull.Value) toReturn.ID = (int)row[UserTableNames.ID]; }
+            if (row.Table.Columns.Contains(UserTableNames.voorNaam)) { if (row[UserTableNames.voorNaam] != DBNull.Value) toReturn.voorNaam = (string)row[UserTableNames.voorNaam]; }
+            if (row.Table.Columns.Contains(UserTableNames.achterNaam)) { if (row[UserTableNames.achterNaam] != DBNull.Value) toReturn.achterNaam = (string)row[UserTableNames.achterNaam]; }
+            if (row.Table.Columns.Contains(UserTableNames.NFCID)) { if (row[UserTableNames.NFCID] != DBNull.Value) toReturn.NFCID = (string)row[UserTableNames.NFCID]; }
+            if (row.Table.Columns.Contains(UserTableNames.isVanSchoolAf)) { if (row[UserTableNames.isVanSchoolAf] != DBNull.Value) toReturn.isVanSchoolAf = (bool)row[UserTableNames.isVanSchoolAf]; }
             return toReturn;
         }
 
@@ -161,16 +164,16 @@ namespace funcZ {
 
         public AfwezigTableTableEntry GetAfwezigTableEntryFromDataRow(DataRow row) {
             AfwezigTableTableEntry toReturn = new AfwezigTableTableEntry();
-            if (row.Table.Columns.Contains(AfwezigTableNames.ID)) { if (row[AfwezigTableNames.ID]!=DBNull.Value) toReturn.ID=(int)row[AfwezigTableNames.ID]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.IDOfUserRelated)) { if (row[AfwezigTableNames.IDOfUserRelated]!=DBNull.Value) toReturn.IDOfRelatedPerson=(int)row[AfwezigTableNames.IDOfUserRelated]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.IsExcursie)) { if (row[AfwezigTableNames.IsExcursie]!=DBNull.Value) toReturn.IsExcurtie=(bool)row[AfwezigTableNames.IsExcursie]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.IsFlexibelverlof)) { if (row[AfwezigTableNames.IsFlexibelverlof]!=DBNull.Value) toReturn.IsFlexiebelverlof=(bool)row[AfwezigTableNames.IsFlexibelverlof]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.IsStudieverlof)) { if (row[AfwezigTableNames.IsStudieverlof]!=DBNull.Value) toReturn.IsStudieverlof=(bool)row[AfwezigTableNames.IsStudieverlof]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.IsZiek)) { if (row[AfwezigTableNames.IsZiek]!=DBNull.Value) toReturn.IsZiek=(bool)row[AfwezigTableNames.IsZiek]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.IsLaat)) { if (row[AfwezigTableNames.IsLaat]!=DBNull.Value) toReturn.IsLaat=(bool)row[AfwezigTableNames.IsLaat]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.IsAndereReden)) { if (row[AfwezigTableNames.IsAndereReden]!=DBNull.Value) toReturn.IsAndereReden=(bool)row[AfwezigTableNames.IsAndereReden]; }
-            if (row.Table.Columns.Contains(AfwezigTableNames.AnderenRedenVoorAfwezighijd)) { if (row[AfwezigTableNames.AnderenRedenVoorAfwezighijd]!=DBNull.Value) toReturn.AnderenRedenVoorAfwezigihijd=(string)row[AfwezigTableNames.AnderenRedenVoorAfwezighijd]; }
-            if(row.Table.Columns.Contains(AfwezigTableNames.Verwachtetijdvanaanwezighijd)) { if (row[AfwezigTableNames.Verwachtetijdvanaanwezighijd]!=DBNull.Value) toReturn.Verwachtetijdvanaanwezighijd=(string)row[AfwezigTableNames.Verwachtetijdvanaanwezighijd]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.ID)) { if (row[AfwezigTableNames.ID] != DBNull.Value) toReturn.ID = (int)row[AfwezigTableNames.ID]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IDOfUserRelated)) { if (row[AfwezigTableNames.IDOfUserRelated] != DBNull.Value) toReturn.IDOfRelatedPerson = (int)row[AfwezigTableNames.IDOfUserRelated]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsExcursie)) { if (row[AfwezigTableNames.IsExcursie] != DBNull.Value) toReturn.IsExcurtie = (bool)row[AfwezigTableNames.IsExcursie]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsFlexibelverlof)) { if (row[AfwezigTableNames.IsFlexibelverlof] != DBNull.Value) toReturn.IsFlexiebelverlof = (bool)row[AfwezigTableNames.IsFlexibelverlof]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsStudieverlof)) { if (row[AfwezigTableNames.IsStudieverlof] != DBNull.Value) toReturn.IsStudieverlof = (bool)row[AfwezigTableNames.IsStudieverlof]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsZiek)) { if (row[AfwezigTableNames.IsZiek] != DBNull.Value) toReturn.IsZiek = (bool)row[AfwezigTableNames.IsZiek]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsLaat)) { if (row[AfwezigTableNames.IsLaat] != DBNull.Value) toReturn.IsLaat = (bool)row[AfwezigTableNames.IsLaat]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.IsAndereReden)) { if (row[AfwezigTableNames.IsAndereReden] != DBNull.Value) toReturn.IsAndereReden = (bool)row[AfwezigTableNames.IsAndereReden]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.AnderenRedenVoorAfwezighijd)) { if (row[AfwezigTableNames.AnderenRedenVoorAfwezighijd] != DBNull.Value) toReturn.AnderenRedenVoorAfwezigihijd = (string)row[AfwezigTableNames.AnderenRedenVoorAfwezighijd]; }
+            if (row.Table.Columns.Contains(AfwezigTableNames.Verwachtetijdvanaanwezighijd)) { if (row[AfwezigTableNames.Verwachtetijdvanaanwezighijd] != DBNull.Value) toReturn.Verwachtetijdvanaanwezighijd = (string)row[AfwezigTableNames.Verwachtetijdvanaanwezighijd]; }
             return toReturn;
         }
 

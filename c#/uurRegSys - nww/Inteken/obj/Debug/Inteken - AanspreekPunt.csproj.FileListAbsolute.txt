@@ -29,7 +29,6 @@ C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\b
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\bin\Debug\funcZ.pdb
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken - AanspreekPunt.csprojResolveAssemblyReference.cache
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken.erForm.resources
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken.setPortPaswordAndAddres.resources
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken.Properties.Resources.resources
@@ -38,3 +37,4 @@ C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\o
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken.application
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken.exe
 C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken.pdb
+C:\Users\Jelmer\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Inteken\obj\Debug\Inteken - AanspreekPunt.csprojResolveAssemblyReference.cache

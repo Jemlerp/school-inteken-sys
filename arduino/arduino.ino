@@ -40,7 +40,9 @@ void setup() {
   }
   
   digitalWrite(ledgpin, LOW);
-  //startup(); // geluidje
+  //startup2();
+  //startup1();
+ // startup(); // geluidje
 }
 
 void ledDontScan(){

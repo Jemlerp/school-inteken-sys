@@ -41,7 +41,7 @@ namespace Sever.Models {
             if (request.isNewUser) {
                 command.CommandText=$"insert into {SQLPropertysAndFunc.UserTableNames.userTableName} ({SQLPropertysAndFunc.UserTableNames.voorNaam},{SQLPropertysAndFunc.UserTableNames.achterNaam},{SQLPropertysAndFunc.UserTableNames.NFCID}) values (@vNaam, @aNaam, @nfcc)";                
             } else {
-                command.CommandText=$"update {SQLPropertysAndFunc.UserTableNames.userTableName} set {SQLPropertysAndFunc.UserTableNames.voorNaam} = @vNaam, {SQLPropertysAndFunc.UserTableNames.achterNaam} = @aNaam, {SQLPropertysAndFunc.UserTableNames.NFCID} = @nfcc where {SQLPropertysAndFunc.UserTableNames.ID} = {request.toEditUserId}";
+                command.CommandText=$"update {SQLPropertysAndFunc.UserTableNames.userTableName} set {SQLPropertysAndFunc.UserTableNames.voorNaam} = @vNaam, {SQLPropertysAndFunc.UserTableNames.achterNaam} = @aNaam, {SQLPropertysAndFunc.UserTableNames.NFCID} = @nfcc, {SQLPropertysAndFunc.UserTableNames.isVanSchoolAf} = cast('{request.isVanSchoolAf}' as bit) where {SQLPropertysAndFunc.UserTableNames.ID} = {request.toEditUserId}";
             }
             if (SQlOnlquery.SQLNonQuery(command)>0) {
                 toReturn.gelukt=true;
