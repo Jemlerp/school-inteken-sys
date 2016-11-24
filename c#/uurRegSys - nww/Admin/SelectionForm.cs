@@ -41,5 +41,12 @@ namespace Admin {
             form.ShowDialog();
             this.Visible=true;
         }
+
+        private void buttonManageAfEnAanWezighijd_Click(object sender, EventArgs e) {
+            MangeAanEnAfWezighijdTable form = new MangeAanEnAfWezighijdTable(_Adress, _Password);
+            Visible=false;
+            form.ShowDialog();
+            Visible=true;
+        }
     }
 }

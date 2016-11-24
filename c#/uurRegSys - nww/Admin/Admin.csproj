@@ -56,6 +56,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="getNFCIDFromSerial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="getNFCIDFromSerial.Designer.cs">
+      <DependentUpon>getNFCIDFromSerial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MangeAanEnAfWezighijdTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MangeAanEnAfWezighijdTable.Designer.cs">
+      <DependentUpon>MangeAanEnAfWezighijdTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="MangeStudents.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +84,12 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="getNFCIDFromSerial.resx">
+      <DependentUpon>getNFCIDFromSerial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MangeAanEnAfWezighijdTable.resx">
+      <DependentUpon>MangeAanEnAfWezighijdTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MangeStudents.resx">
       <DependentUpon>MangeStudents.cs</DependentUpon>

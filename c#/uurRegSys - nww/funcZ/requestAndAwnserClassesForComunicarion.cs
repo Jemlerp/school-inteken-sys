@@ -17,7 +17,9 @@ namespace funcZ {
         AdminReturnUsersDataTable,
 
         AdminAskChangeUserTable,
-        AdminReturnChangeUsersTable,
+        AdminAskChangeRegistratieTable,
+        AdminAskChangeAfwerzigTable,
+        AdminReturnChangedATable,
 
         ReturnmetMogilikeError,
         SendmetWachtwoord,
@@ -55,13 +57,24 @@ namespace funcZ {
     //overlord contorls
     //admin contorls
 
-    public class TAdminSendAskAllUsersDataTable : IKnow {
+    public class TAdminSendAskADataTable : IKnow {
         public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminAskUsersDataTable; } }
+        public bool userTable { get; set; } = false;
+        public bool aanwezighijdTable { get; set; } = false;
+        public bool afwezighijdTable { get; set; } = false;
+
+        public DateTime dateOf { get; set; }
+
+        public bool useBetweenDates { get; set; } = false;
+        public DateTime dataTotEnMet { get; set; }
+
+        public bool getForSpecificUsers { get; set; } = false;
+        public List<string> listOfUsersToGetFrom { get; set; }
     }
 
-    public class TAdminReturnAllUsersDataTable : IKnow {
+    public class TAdminReturnADataTable : IKnow {
         public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminReturnUsersDataTable; } }
-        public DataTable userDataTable { get; set; }
+        public DataTable DataTable { get; set; }
     }
 
     public class TAdminSendChangeUsersTable : IKnow {
@@ -76,13 +89,42 @@ namespace funcZ {
         public string NFCID { get; set; }
     }
 
-    public class TAdminReturnChangeUsersTable : IKnow {
-        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminReturnChangeUsersTable; } }
-        public bool gelukt { get; set; }
+    public class TAdminSendChangeRegistratieTable :IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminAskChangeRegistratieTable; } }
+        public bool IsNewEntry { get; set; } = false;
+        public bool DELETE { get; set; } = false;
+
+        public int IDToChange { get; set; }
+        public int IDUserRelated { get; set; }
+        public bool HeeftGeenUiteken { get; set; } = false;
+        public DateTime Date { get; set; }
+        public TimeSpan TimeIn { get; set; }
+        public TimeSpan TimeUit { get; set; }
+        public bool IsAanwezig { get; set; } = false;
     }
 
+    public class TAdminSendChangeAfwezigTable : IKnow  {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminAskChangeAfwerzigTable; } }
+        public bool DELETE { get; set; } = false;
+        public bool IsNewEntry { get; set; } = false;
 
+        public DateTime Date { get; set; }
+        public int IDToChage { get; set; }
+        public int IDUserRelated { get; set; }
+        public bool IsZiek { get; set; } = false;
+        public bool IsFleciebleverlof { get; set; } = false;
+        public bool IsStudioverlof { get; set; } = false;
+        public bool IsExurie { get; set; } = false;
+        public bool IsLaat { get; set; } = false;
+        public bool ISAndereReden { get; set; } = false;
+        public string AndrenRedenVanAfwezighijd { get; set; } = "";
+        public string VerwachteTijdVanAanwezighijd { get; set; } = "";
+    }
 
+    public class TAdminReturnChangedATable : IKnow {
+        public SendAndRecieveTypesEnum SendAndRecieveTypesEnumValue { get { return SendAndRecieveTypesEnum.AdminReturnChangedATable; } }
+        public bool gelukt { get; set; } = false; // throw gewoon
+    }
 
 
 

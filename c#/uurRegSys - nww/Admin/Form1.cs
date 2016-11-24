@@ -17,11 +17,11 @@ namespace Admin {
 
         private void checkBoxUserSerialPort_CheckedChanged(object sender, EventArgs e) {
             if (checkBoxUserSerialPort.Checked) {
+                panelSerial.Enabled=true;
+                refreshSerialportsList(null, null);                
+            } else {
                 panelSerial.Enabled=false;
                 listBox1.Items.Clear();
-            } else {
-                panelSerial.Enabled=true;
-                refreshSerialportsList(null,null);
             }
         }
 
@@ -40,7 +40,7 @@ namespace Admin {
                 testPort.Open();
                 testPort.Close();
                 MessageBox.Show("successful");
-            }catch(Exception ex) {
+            }catch {
                 MessageBox.Show("Connection Failed");
             }
         }

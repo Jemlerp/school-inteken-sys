@@ -26,20 +26,59 @@ namespace Sever.Models {
         }
 
         //admin
-        public static TAdminReturnAllUsersDataTable adminGetAllUserInDataTable() {
-            TAdminReturnAllUsersDataTable returnDingus = new TAdminReturnAllUsersDataTable();
-            returnDingus.userDataTable=SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.UserTableNames.userTableName}");
+
+        public static TAdminReturnADataTable adminGetADataTable(TAdminSendAskADataTable request) {
+            TAdminReturnADataTable returnDingus = new TAdminReturnADataTable();
+            if (request.userTable) {
+                returnDingus.DataTable=SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.UserTableNames.userTableName}");
+            } else {
+                string command = "";
+                string IDColumnName = "";
+                if (request.afwezighijdTable) { command=$"select * from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.Date}"; IDColumnName=SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated; }
+                if (request.aanwezighijdTable) { command=$"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.Date}"; IDColumnName=SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated; }
+
+                if (request.aanwezighijdTable||request.afwezighijdTable) {
+                    if (request.useBetweenDates) {
+                        command+=$" between cast('{request.dateOf.ToString("yyyy-MM-dd HH:mm:ss")}' as date) and cast('{request.dataTotEnMet.ToString("yyyy-MM-dd HH:mm:ss")}' as date)";
+                    } else {
+                        command+=$" = cast('{request.dateOf.ToString("yyyy-MM-dd HH:mm:ss")}' as date)";
+                    }
+
+                    if (request.getForSpecificUsers) {
+                        command+=$" and {IDColumnName} in ({string.Join(",", request.listOfUsersToGetFrom.ToArray())})";
+                    }
+                } else {
+                    throw new Exception("adminGetDateTable: no table selected");
+                }
+
+                //if (request.afwezighijdTable) {
+                //    if (request.useBetweenDates) {
+                //        returnDingus.DataTable=SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast('{request.dateOf.ToString("yyyy-MM-dd HH:mm:ss")}' as date)");
+                //    } else {
+                //        returnDingus.DataTable=SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.Date} between cast('{request.dateOf.ToString("yyyy-MM-dd HH:mm:ss")}' as date) and cast('{request.dataTotEnMet.ToString("yyyy-MM-dd HH:mm:ss")}' as date)");
+                //    }
+                //}
+                //if (request.aanwezighijdTable) {
+                //    if (request.useBetweenDates) {
+                //        returnDingus.DataTable=SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.Date} = cast('{request.dateOf.ToString("yyyy-MM-dd HH:mm:ss")}' as date)");
+                //    } else {
+                //        returnDingus.DataTable=SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.Date} between cast('{request.dateOf.ToString("yyyy-MM-dd HH:mm:ss")}' as date) and cast('{request.dataTotEnMet.ToString("yyyy-MM-dd HH:mm:ss")}' as date)");
+                //    }
+                //}
+
+                returnDingus.DataTable=SQlOnlquery.SQLQuery(command);
+            }
             return returnDingus;
         }
 
-        public static TAdminReturnChangeUsersTable adminChangeUsersTable(TAdminSendChangeUsersTable request) {
-            TAdminReturnChangeUsersTable toReturn = new TAdminReturnChangeUsersTable();
+        public static TAdminReturnChangedATable adminChangeUsersTable(TAdminSendChangeUsersTable request) {
+            TAdminReturnChangedATable toReturn = new TAdminReturnChangedATable();
             SqlCommand command = new SqlCommand();
             command.Parameters.AddWithValue("@vNaam", request.voornaam);
             command.Parameters.AddWithValue("@aNaam", request.achternaam);
             command.Parameters.AddWithValue("@NFCC", request.NFCID);
             if (request.isNewUser) {
-                command.CommandText=$"insert into {SQLPropertysAndFunc.UserTableNames.userTableName} ({SQLPropertysAndFunc.UserTableNames.voorNaam},{SQLPropertysAndFunc.UserTableNames.achterNaam},{SQLPropertysAndFunc.UserTableNames.NFCID}) values (@vNaam, @aNaam, @nfcc)";                
+                command.CommandText=$"insert into {SQLPropertysAndFunc.UserTableNames.userTableName} ({SQLPropertysAndFunc.UserTableNames.voorNaam},{SQLPropertysAndFunc.UserTableNames.achterNaam},{SQLPropertysAndFunc.UserTableNames.NFCID}) values (@vNaam, @aNaam, @nfcc)";
             } else {
                 command.CommandText=$"update {SQLPropertysAndFunc.UserTableNames.userTableName} set {SQLPropertysAndFunc.UserTableNames.voorNaam} = @vNaam, {SQLPropertysAndFunc.UserTableNames.achterNaam} = @aNaam, {SQLPropertysAndFunc.UserTableNames.NFCID} = @nfcc, {SQLPropertysAndFunc.UserTableNames.isVanSchoolAf} = cast('{request.isVanSchoolAf}' as bit) where {SQLPropertysAndFunc.UserTableNames.ID} = {request.toEditUserId}";
             }
@@ -51,8 +90,51 @@ namespace Sever.Models {
             return toReturn;
         }
 
+        public static TAdminReturnChangedATable adminChangeRegistratieTable(TAdminSendChangeRegistratieTable request) {
+            TAdminReturnChangedATable toReturn = new TAdminReturnChangedATable();
+            SqlCommand command = new SqlCommand();
+            if (request.DELETE) {
+                command.CommandText=$"delete from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.ID} = {request.IDToChange}";
+            } else {
+                if (request.IsNewEntry) {
+                    if (request.HeeftGeenUiteken) {
+                        command.CommandText=$"insert into {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} ({SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.RegistratieTableNames.Date}, {SQLPropertysAndFunc.RegistratieTableNames.TimeInteken},{SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig}) values ({request.IDUserRelated}, cast('{request.Date.ToString("yyyy-MM-dd")}' as date), cast('{request.TimeIn}' as time), cast('{request.IsAanwezig}' as bit))";
+                    } else {
+                        command.CommandText=$"insert into {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} ({SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated}, {SQLPropertysAndFunc.RegistratieTableNames.Date}, {SQLPropertysAndFunc.RegistratieTableNames.TimeInteken}, {SQLPropertysAndFunc.RegistratieTableNames.TimeUitteken},{SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig}) values ({request.IDUserRelated}, cast('{request.Date.ToString("yyyy-MM-dd")}' as date), cast('{request.TimeIn}' as time), cast('{request.TimeUit}' as time), cast('{request.IsAanwezig}' as bit))";
+                    }
+                } else {
+                    if (request.HeeftGeenUiteken) {
+                        command.CommandText=$"update {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} set {SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated} = {request.IDUserRelated}, {SQLPropertysAndFunc.RegistratieTableNames.Date} = cast('{request.Date.ToString("yyyy-MM-dd")}' as date), {SQLPropertysAndFunc.RegistratieTableNames.TimeInteken} = cast('{request.TimeIn}' as time), {SQLPropertysAndFunc.RegistratieTableNames.TimeUitteken} = null, {SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig} = cast('{request.IsAanwezig}' as bit) where {SQLPropertysAndFunc.RegistratieTableNames.ID} = {request.IDToChange}";
+                    } else {
+                        command.CommandText=$"update {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} set {SQLPropertysAndFunc.RegistratieTableNames.IDOfUserRelated} = {request.IDUserRelated}, {SQLPropertysAndFunc.RegistratieTableNames.Date} = cast('{request.Date.ToString("yyyy-MM-dd")}' as date), {SQLPropertysAndFunc.RegistratieTableNames.TimeInteken} = cast('{request.TimeIn}' as time), {SQLPropertysAndFunc.RegistratieTableNames.TimeUitteken} = cast('{request.TimeUit}' as time), {SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig} = cast('{request.IsAanwezig}' as bit) where {SQLPropertysAndFunc.RegistratieTableNames.ID} = {request.IDToChange}";
+                    }
+                }
+            }
+            int rowsChanged = SQlOnlquery.SQLNonQuery(command);
+            if (rowsChanged==1) {
+                toReturn.gelukt=true;
+            }
+            return toReturn;
+        }
 
-
+        public static TAdminReturnChangedATable adminChageAfwezigTable(TAdminSendChangeAfwezigTable request) {
+            TAdminReturnChangedATable toReturn = new TAdminReturnChangedATable();
+            SqlCommand command = new SqlCommand();
+            if (request.DELETE) {
+                command.CommandText=$"delete from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.ID} = {request.IDToChage}";
+            } else {
+                if (request.IsNewEntry) {
+                    command.CommandText=$"insert into {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName}  ({SQLPropertysAndFunc.AfwezigTableNames.Date}, {SQLPropertysAndFunc.AfwezigTableNames.IsZiek}, {SQLPropertysAndFunc.AfwezigTableNames.IsFlexibelverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsStudieverlof}, {SQLPropertysAndFunc.AfwezigTableNames.IsExcursie}, {SQLPropertysAndFunc.AfwezigTableNames.IsLaat}, {SQLPropertysAndFunc.AfwezigTableNames.IsAndereReden}, {SQLPropertysAndFunc.AfwezigTableNames.Verwachtetijdvanaanwezighijd}, {SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd}) values (cast('{request.Date}' as date), cast('{request.IsZiek}' as bit), cast('{request.IsFleciebleverlof}' as bit), cast('{request.IsStudioverlof}' as bit), cast('{request.IsExurie}' as bit), cast('{request.IsLaat}' as bit), cast('{request.ISAndereReden}' as bit), '{request.VerwachteTijdVanAanwezighijd}', {request.AndrenRedenVanAfwezighijd}) where {SQLPropertysAndFunc.AfwezigTableNames.ID} = {request.IDToChage}";
+                } else {
+                    command.CommandText=$"update {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} set {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast('{request.Date}' as date), {SQLPropertysAndFunc.AfwezigTableNames.IsZiek} = cast('{request.IsZiek}' as bit), {SQLPropertysAndFunc.AfwezigTableNames.IsFlexibelverlof} = cast('{request.IsFleciebleverlof}' as bit), {SQLPropertysAndFunc.AfwezigTableNames.IsStudieverlof} = cast('{request.IsStudioverlof}' as bit), {SQLPropertysAndFunc.AfwezigTableNames.IsExcursie} = cast('{request.IsExurie}' as bit), {SQLPropertysAndFunc.AfwezigTableNames.IsLaat} = cast('{request.IsLaat}' as bit), {SQLPropertysAndFunc.AfwezigTableNames.IsAndereReden} = cast('{request.ISAndereReden}' as bit), {SQLPropertysAndFunc.AfwezigTableNames.Verwachtetijdvanaanwezighijd} = {request.VerwachteTijdVanAanwezighijd}, {SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd} = {request.AndrenRedenVanAfwezighijd} where {SQLPropertysAndFunc.AfwezigTableNames.ID} = {request.IDToChage}";
+                }
+            }
+            int rowsChanged = SQlOnlquery.SQLNonQuery(command);
+            if (rowsChanged==1) {
+                toReturn.gelukt=true;
+            }
+            return toReturn;
+        }
 
         //other
 
@@ -144,7 +226,7 @@ namespace Sever.Models {
         public static TReturnOverviewOfAanwezige overzigt() {
             TReturnOverviewOfAanwezige _toReturn = new TReturnOverviewOfAanwezige();
             _toReturn.todayRegData=_Sqlfunc.GetListRegistratieTableEntrysFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.RegistratieTableNames.registratieTableName} where {SQLPropertysAndFunc.RegistratieTableNames.Date} = CAST(getdate() as date)"));
-            _toReturn.users=_Sqlfunc.GetListUserTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.UserTableNames.userTableName}"));
+            _toReturn.users=_Sqlfunc.GetListUserTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.UserTableNames.userTableName} where {SQLPropertysAndFunc.UserTableNames.isVanSchoolAf} = cast('false' as bit)"));
             _toReturn.todayAfwezig=_Sqlfunc.GetListAfwezighijdTableEntriesFromDataTable(SQlOnlquery.SQLQuery($"select * from {SQLPropertysAndFunc.AfwezigTableNames.AfwezighijdTableName} where {SQLPropertysAndFunc.AfwezigTableNames.Date} = cast(GETDATE() as date)"));
             _toReturn.dateTimeNow=GetSqlServerDateTime();
             return _toReturn;

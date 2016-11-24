@@ -32,10 +32,9 @@
             // buttonZetDagenDatErSchoolIs
             // 
             this.buttonZetDagenDatErSchoolIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonZetDagenDatErSchoolIs.Location = new System.Drawing.Point(308, 42);
-            this.buttonZetDagenDatErSchoolIs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonZetDagenDatErSchoolIs.Location = new System.Drawing.Point(231, 34);
             this.buttonZetDagenDatErSchoolIs.Name = "buttonZetDagenDatErSchoolIs";
-            this.buttonZetDagenDatErSchoolIs.Size = new System.Drawing.Size(199, 112);
+            this.buttonZetDagenDatErSchoolIs.Size = new System.Drawing.Size(149, 91);
             this.buttonZetDagenDatErSchoolIs.TabIndex = 4;
             this.buttonZetDagenDatErSchoolIs.Text = "ZET DAGEN DAT ER SCHOOL IS";
             this.buttonZetDagenDatErSchoolIs.UseVisualStyleBackColor = true;
@@ -43,10 +42,9 @@
             // buttonViewLogs
             // 
             this.buttonViewLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonViewLogs.Location = new System.Drawing.Point(308, 213);
-            this.buttonViewLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonViewLogs.Location = new System.Drawing.Point(231, 173);
             this.buttonViewLogs.Name = "buttonViewLogs";
-            this.buttonViewLogs.Size = new System.Drawing.Size(199, 112);
+            this.buttonViewLogs.Size = new System.Drawing.Size(149, 91);
             this.buttonViewLogs.TabIndex = 6;
             this.buttonViewLogs.Text = "Inspect Logs";
             this.buttonViewLogs.UseVisualStyleBackColor = true;
@@ -54,10 +52,9 @@
             // buttonManageStudents
             // 
             this.buttonManageStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonManageStudents.Location = new System.Drawing.Point(43, 42);
-            this.buttonManageStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonManageStudents.Location = new System.Drawing.Point(32, 34);
             this.buttonManageStudents.Name = "buttonManageStudents";
-            this.buttonManageStudents.Size = new System.Drawing.Size(199, 112);
+            this.buttonManageStudents.Size = new System.Drawing.Size(149, 91);
             this.buttonManageStudents.TabIndex = 5;
             this.buttonManageStudents.Text = "MANAGE STUDENT TABLE";
             this.buttonManageStudents.UseVisualStyleBackColor = true;
@@ -66,24 +63,23 @@
             // buttonManageAfEnAanWezighijd
             // 
             this.buttonManageAfEnAanWezighijd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonManageAfEnAanWezighijd.Location = new System.Drawing.Point(43, 213);
-            this.buttonManageAfEnAanWezighijd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonManageAfEnAanWezighijd.Location = new System.Drawing.Point(32, 173);
             this.buttonManageAfEnAanWezighijd.Name = "buttonManageAfEnAanWezighijd";
-            this.buttonManageAfEnAanWezighijd.Size = new System.Drawing.Size(199, 112);
+            this.buttonManageAfEnAanWezighijd.Size = new System.Drawing.Size(149, 91);
             this.buttonManageAfEnAanWezighijd.TabIndex = 7;
             this.buttonManageAfEnAanWezighijd.Text = "MANAGE AAN/AF WEZIGHIJD TABLE";
             this.buttonManageAfEnAanWezighijd.UseVisualStyleBackColor = true;
+            this.buttonManageAfEnAanWezighijd.Click += new System.EventHandler(this.buttonManageAfEnAanWezighijd_Click);
             // 
             // SelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 388);
+            this.ClientSize = new System.Drawing.Size(424, 315);
             this.Controls.Add(this.buttonZetDagenDatErSchoolIs);
             this.Controls.Add(this.buttonViewLogs);
             this.Controls.Add(this.buttonManageStudents);
             this.Controls.Add(this.buttonManageAfEnAanWezighijd);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SelectionForm";
             this.Text = "SelectionForm";
             this.ResumeLayout(false);

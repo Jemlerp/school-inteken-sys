@@ -73,9 +73,11 @@ namespace Sever.Controllers {
                 if (instruction.password==TestServerPassword.testWAchtwooed) {
                     switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"])) {
                         case SendAndRecieveTypesEnum.AdminAskUsersDataTable:
-                            return serialise(functions.adminGetAllUserInDataTable());
+                            return serialise(functions.adminGetADataTable(JsonConvert.DeserializeObject<TAdminSendAskADataTable>(instructionArgumentsInJson)));
                         case SendAndRecieveTypesEnum.AdminAskChangeUserTable:
                             return serialise(functions.adminChangeUsersTable(JsonConvert.DeserializeObject<TAdminSendChangeUsersTable>(instructionArgumentsInJson)));
+                        case SendAndRecieveTypesEnum.AdminAskChangeRegistratieTable:
+                            return serialise(functions.adminChangeRegistratieTable(JsonConvert.DeserializeObject<TAdminSendChangeRegistratieTable>(instructionArgumentsInJson)));
 
                     }
                     //throw new Exception("No Instruction");
