@@ -23,14 +23,15 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewEr = new System.Windows.Forms.DataGridView();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.panelaanwezigcontorls = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonAANUpdateDelete = new System.Windows.Forms.Button();
             this.checkBoxAANUpdateZetNietsOpUIteken = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxAANUpdateID = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@
             this.textBoxAANUpdateUserID = new System.Windows.Forms.TextBox();
             this.buttonAANUpdateUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkBoxAANNewZetNietsOpUitekene = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -58,49 +60,47 @@
             this.textBoxAANNewUserID = new System.Windows.Forms.TextBox();
             this.buttonAANNewSave = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelafwezigControlls = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.checkBoxUseAllBetweenDates = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonAANUpdateDelete = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.comboBoxAFUpdateRedenAfdwezighijd = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxAFUpdateOmschrijving = new System.Windows.Forms.TextBox();
-            this.labelAFUpdateOmschijvinf = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.buttonAfNewSave = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.dateTimePickerAfNewDate = new System.Windows.Forms.DateTimePicker();
+            this.textBoxAFNewUserID = new System.Windows.Forms.TextBox();
             this.comboBoxAfNewRedenAfwezighijd = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBoxAfNewOmschrijvingafwezighijs = new System.Windows.Forms.TextBox();
             this.labelAfNewRedenAfwezig = new System.Windows.Forms.Label();
-            this.textBoxAFUpdateID = new System.Windows.Forms.TextBox();
-            this.textBoxAfUpdateUserID = new System.Windows.Forms.TextBox();
-            this.textBoxAFNewUserID = new System.Windows.Forms.TextBox();
-            this.dateTimePickerAFUpdateDate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerAfNewDate = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.buttonAfNewSave = new System.Windows.Forms.Button();
-            this.buttonAfUpdateUpdate = new System.Windows.Forms.Button();
-            this.buttonAfUpdateDelete = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
+            this.buttonAfUpdateDelete = new System.Windows.Forms.Button();
+            this.buttonAfUpdateUpdate = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dateTimePickerAFUpdateDate = new System.Windows.Forms.DateTimePicker();
+            this.textBoxAfUpdateUserID = new System.Windows.Forms.TextBox();
+            this.textBoxAFUpdateID = new System.Windows.Forms.TextBox();
+            this.comboBoxAFUpdateRedenAfdwezighijd = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxAFUpdateOmschrijving = new System.Windows.Forms.TextBox();
+            this.labelAFUpdateOmschijvinf = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBoxUseAllBetweenDates = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.panelaanwezigcontorls.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelafwezigControlls.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -133,14 +133,14 @@
             this.dataGridViewEr.AllowUserToAddRows = false;
             this.dataGridViewEr.AllowUserToDeleteRows = false;
             this.dataGridViewEr.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewEr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEr.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewEr.Location = new System.Drawing.Point(0, 0);
@@ -162,14 +162,14 @@
             this.dataGridViewUsers.AllowUserToDeleteRows = false;
             this.dataGridViewUsers.AllowUserToResizeColumns = false;
             this.dataGridViewUsers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.Dock = System.Windows.Forms.DockStyle.Right;
             this.dataGridViewUsers.Location = new System.Drawing.Point(253, 0);
@@ -216,6 +216,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 233);
             this.panel3.TabIndex = 2;
+            // 
+            // buttonAANUpdateDelete
+            // 
+            this.buttonAANUpdateDelete.Location = new System.Drawing.Point(147, 4);
+            this.buttonAANUpdateDelete.Name = "buttonAANUpdateDelete";
+            this.buttonAANUpdateDelete.Size = new System.Drawing.Size(50, 32);
+            this.buttonAANUpdateDelete.TabIndex = 24;
+            this.buttonAANUpdateDelete.Text = "Delete";
+            this.buttonAANUpdateDelete.UseVisualStyleBackColor = true;
+            this.buttonAANUpdateDelete.Click += new System.EventHandler(this.buttonAANUpdateDelete_Click);
             // 
             // checkBoxAANUpdateZetNietsOpUIteken
             // 
@@ -346,6 +356,15 @@
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Update entry";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "aanwezig controls";
             // 
             // panel2
             // 
@@ -480,15 +499,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "new entry";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "aanwezig controls";
-            // 
             // panelafwezigControlls
             // 
             this.panelafwezigControlls.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -499,93 +509,6 @@
             this.panelafwezigControlls.Name = "panelafwezigControlls";
             this.panelafwezigControlls.Size = new System.Drawing.Size(237, 502);
             this.panelafwezigControlls.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "afwezig controls";
-            // 
-            // checkBoxUseAllBetweenDates
-            // 
-            this.checkBoxUseAllBetweenDates.AutoSize = true;
-            this.checkBoxUseAllBetweenDates.Location = new System.Drawing.Point(19, 114);
-            this.checkBoxUseAllBetweenDates.Name = "checkBoxUseAllBetweenDates";
-            this.checkBoxUseAllBetweenDates.Size = new System.Drawing.Size(76, 17);
-            this.checkBoxUseAllBetweenDates.TabIndex = 9;
-            this.checkBoxUseAllBetweenDates.Text = "gebruik tot";
-            this.checkBoxUseAllBetweenDates.UseVisualStyleBackColor = true;
-            this.checkBoxUseAllBetweenDates.CheckedChanged += new System.EventHandler(this.checkBoxUseAllBetweenDates_CheckedChanged);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Location = new System.Drawing.Point(19, 137);
-            this.dateTimePicker2.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePicker2.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(201, 20);
-            this.dateTimePicker2.TabIndex = 10;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridViewUsers);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panelafwezigControlls);
-            this.panel1.Controls.Add(this.panelaanwezigcontorls);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(615, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(580, 807);
-            this.panel1.TabIndex = 12;
-            // 
-            // buttonAANUpdateDelete
-            // 
-            this.buttonAANUpdateDelete.Location = new System.Drawing.Point(147, 4);
-            this.buttonAANUpdateDelete.Name = "buttonAANUpdateDelete";
-            this.buttonAANUpdateDelete.Size = new System.Drawing.Size(50, 32);
-            this.buttonAANUpdateDelete.TabIndex = 24;
-            this.buttonAANUpdateDelete.Text = "Delete";
-            this.buttonAANUpdateDelete.UseVisualStyleBackColor = true;
-            this.buttonAANUpdateDelete.Click += new System.EventHandler(this.buttonAANUpdateDelete_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Info;
-            this.panel4.Controls.Add(this.listBox1);
-            this.panel4.Controls.Add(this.dateTimePicker1);
-            this.panel4.Controls.Add(this.checkBoxUseAllBetweenDates);
-            this.panel4.Controls.Add(this.dateTimePicker2);
-            this.panel4.Location = new System.Drawing.Point(10, 6);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(247, 174);
-            this.panel4.TabIndex = 11;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.Info;
-            this.panel5.Controls.Add(this.label22);
-            this.panel5.Controls.Add(this.buttonAfUpdateDelete);
-            this.panel5.Controls.Add(this.buttonAfUpdateUpdate);
-            this.panel5.Controls.Add(this.label20);
-            this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.dateTimePickerAFUpdateDate);
-            this.panel5.Controls.Add(this.textBoxAfUpdateUserID);
-            this.panel5.Controls.Add(this.textBoxAFUpdateID);
-            this.panel5.Controls.Add(this.comboBoxAFUpdateRedenAfdwezighijd);
-            this.panel5.Controls.Add(this.label16);
-            this.panel5.Controls.Add(this.textBoxAFUpdateOmschrijving);
-            this.panel5.Controls.Add(this.labelAFUpdateOmschijvinf);
-            this.panel5.Controls.Add(this.label14);
-            this.panel5.Location = new System.Drawing.Point(19, 16);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 242);
-            this.panel5.TabIndex = 1;
             // 
             // panel6
             // 
@@ -605,78 +528,52 @@
             this.panel6.Size = new System.Drawing.Size(200, 223);
             this.panel6.TabIndex = 2;
             // 
-            // label14
+            // label18
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(4, 4);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Update Entry";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(15, 46);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(28, 13);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "date";
             // 
-            // label15
+            // buttonAfNewSave
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 5);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "New Entry";
+            this.buttonAfNewSave.Location = new System.Drawing.Point(109, 184);
+            this.buttonAfNewSave.Name = "buttonAfNewSave";
+            this.buttonAfNewSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonAfNewSave.TabIndex = 32;
+            this.buttonAfNewSave.Text = "Save";
+            this.buttonAfNewSave.UseVisualStyleBackColor = true;
+            this.buttonAfNewSave.Click += new System.EventHandler(this.buttonAfNewSave_Click);
             // 
-            // comboBoxAFUpdateRedenAfdwezighijd
+            // label21
             // 
-            this.comboBoxAFUpdateRedenAfdwezighijd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAFUpdateRedenAfdwezighijd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxAFUpdateRedenAfdwezighijd.FormattingEnabled = true;
-            this.comboBoxAFUpdateRedenAfdwezighijd.Items.AddRange(new object[] {
-            "Niets",
-            "Ziek",
-            "StudieVerlof",
-            "FlexibelVerlof",
-            "Excursie",
-            "Anders",
-            "Laat"});
-            this.comboBoxAFUpdateRedenAfdwezighijd.Location = new System.Drawing.Point(18, 120);
-            this.comboBoxAFUpdateRedenAfdwezighijd.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxAFUpdateRedenAfdwezighijd.Name = "comboBoxAFUpdateRedenAfdwezighijd";
-            this.comboBoxAFUpdateRedenAfdwezighijd.Size = new System.Drawing.Size(154, 23);
-            this.comboBoxAFUpdateRedenAfdwezighijd.TabIndex = 21;
-            this.comboBoxAFUpdateRedenAfdwezighijd.SelectedIndexChanged += new System.EventHandler(this.comboBoxAF_SelectedIndexChanged);
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(123, 25);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(43, 13);
+            this.label21.TabIndex = 31;
+            this.label21.Text = "User ID";
             // 
-            // label16
+            // dateTimePickerAfNewDate
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(14, 105);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(117, 13);
-            this.label16.TabIndex = 24;
-            this.label16.Text = "Reden Van Afwezighijd";
+            this.dateTimePickerAfNewDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerAfNewDate.Location = new System.Drawing.Point(18, 62);
+            this.dateTimePickerAfNewDate.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePickerAfNewDate.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerAfNewDate.Name = "dateTimePickerAfNewDate";
+            this.dateTimePickerAfNewDate.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePickerAfNewDate.TabIndex = 30;
             // 
-            // textBoxAFUpdateOmschrijving
+            // textBoxAFNewUserID
             // 
-            this.textBoxAFUpdateOmschrijving.Enabled = false;
-            this.textBoxAFUpdateOmschrijving.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAFUpdateOmschrijving.Location = new System.Drawing.Point(18, 161);
-            this.textBoxAFUpdateOmschrijving.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxAFUpdateOmschrijving.Multiline = true;
-            this.textBoxAFUpdateOmschrijving.Name = "textBoxAFUpdateOmschrijving";
-            this.textBoxAFUpdateOmschrijving.Size = new System.Drawing.Size(154, 40);
-            this.textBoxAFUpdateOmschrijving.TabIndex = 22;
-            this.textBoxAFUpdateOmschrijving.Visible = false;
-            // 
-            // labelAFUpdateOmschijvinf
-            // 
-            this.labelAFUpdateOmschijvinf.AutoSize = true;
-            this.labelAFUpdateOmschijvinf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAFUpdateOmschijvinf.Location = new System.Drawing.Point(15, 145);
-            this.labelAFUpdateOmschijvinf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelAFUpdateOmschijvinf.Name = "labelAFUpdateOmschijvinf";
-            this.labelAFUpdateOmschijvinf.Size = new System.Drawing.Size(62, 13);
-            this.labelAFUpdateOmschijvinf.TabIndex = 23;
-            this.labelAFUpdateOmschijvinf.Text = "omschijving";
-            this.labelAFUpdateOmschijvinf.Visible = false;
+            this.textBoxAFNewUserID.Location = new System.Drawing.Point(18, 21);
+            this.textBoxAFNewUserID.Name = "textBoxAFNewUserID";
+            this.textBoxAFNewUserID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAFNewUserID.TabIndex = 29;
             // 
             // comboBoxAfNewRedenAfwezighijd
             // 
@@ -719,7 +616,6 @@
             this.textBoxAfNewOmschrijvingafwezighijs.Name = "textBoxAfNewOmschrijvingafwezighijs";
             this.textBoxAfNewOmschrijvingafwezighijs.Size = new System.Drawing.Size(154, 40);
             this.textBoxAfNewOmschrijvingafwezighijs.TabIndex = 26;
-            this.textBoxAfNewOmschrijvingafwezighijs.Visible = false;
             // 
             // labelAfNewRedenAfwezig
             // 
@@ -731,117 +627,45 @@
             this.labelAfNewRedenAfwezig.Size = new System.Drawing.Size(62, 13);
             this.labelAfNewRedenAfwezig.TabIndex = 27;
             this.labelAfNewRedenAfwezig.Text = "omschijving";
-            this.labelAfNewRedenAfwezig.Visible = false;
             // 
-            // textBoxAFUpdateID
+            // label15
             // 
-            this.textBoxAFUpdateID.Enabled = false;
-            this.textBoxAFUpdateID.Location = new System.Drawing.Point(18, 20);
-            this.textBoxAFUpdateID.Name = "textBoxAFUpdateID";
-            this.textBoxAFUpdateID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxAFUpdateID.TabIndex = 25;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 5);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "New Entry";
             // 
-            // textBoxAfUpdateUserID
+            // label2
             // 
-            this.textBoxAfUpdateUserID.Location = new System.Drawing.Point(18, 42);
-            this.textBoxAfUpdateUserID.Name = "textBoxAfUpdateUserID";
-            this.textBoxAfUpdateUserID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxAfUpdateUserID.TabIndex = 26;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "afwezig controls";
             // 
-            // textBoxAFNewUserID
+            // panel5
             // 
-            this.textBoxAFNewUserID.Location = new System.Drawing.Point(18, 21);
-            this.textBoxAFNewUserID.Name = "textBoxAFNewUserID";
-            this.textBoxAFNewUserID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxAFNewUserID.TabIndex = 29;
-            // 
-            // dateTimePickerAFUpdateDate
-            // 
-            this.dateTimePickerAFUpdateDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerAFUpdateDate.Location = new System.Drawing.Point(18, 82);
-            this.dateTimePickerAFUpdateDate.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerAFUpdateDate.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
-            this.dateTimePickerAFUpdateDate.Name = "dateTimePickerAFUpdateDate";
-            this.dateTimePickerAFUpdateDate.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePickerAFUpdateDate.TabIndex = 27;
-            // 
-            // dateTimePickerAfNewDate
-            // 
-            this.dateTimePickerAfNewDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerAfNewDate.Location = new System.Drawing.Point(18, 62);
-            this.dateTimePickerAfNewDate.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerAfNewDate.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
-            this.dateTimePickerAfNewDate.Name = "dateTimePickerAfNewDate";
-            this.dateTimePickerAfNewDate.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePickerAfNewDate.TabIndex = 30;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(123, 23);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(18, 13);
-            this.label19.TabIndex = 28;
-            this.label19.Text = "ID";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(121, 45);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(43, 13);
-            this.label20.TabIndex = 29;
-            this.label20.Text = "User ID";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(123, 25);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(43, 13);
-            this.label21.TabIndex = 31;
-            this.label21.Text = "User ID";
-            // 
-            // buttonAfNewSave
-            // 
-            this.buttonAfNewSave.Location = new System.Drawing.Point(109, 184);
-            this.buttonAfNewSave.Name = "buttonAfNewSave";
-            this.buttonAfNewSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonAfNewSave.TabIndex = 32;
-            this.buttonAfNewSave.Text = "Save";
-            this.buttonAfNewSave.UseVisualStyleBackColor = true;
-            this.buttonAfNewSave.Click += new System.EventHandler(this.buttonAfNewSave_Click);
-            // 
-            // buttonAfUpdateUpdate
-            // 
-            this.buttonAfUpdateUpdate.Location = new System.Drawing.Point(109, 206);
-            this.buttonAfUpdateUpdate.Name = "buttonAfUpdateUpdate";
-            this.buttonAfUpdateUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonAfUpdateUpdate.TabIndex = 33;
-            this.buttonAfUpdateUpdate.Text = "Update";
-            this.buttonAfUpdateUpdate.UseVisualStyleBackColor = true;
-            this.buttonAfUpdateUpdate.Click += new System.EventHandler(this.buttonAfUpdateUpdate_Click);
-            // 
-            // buttonAfUpdateDelete
-            // 
-            this.buttonAfUpdateDelete.Location = new System.Drawing.Point(147, 4);
-            this.buttonAfUpdateDelete.Name = "buttonAfUpdateDelete";
-            this.buttonAfUpdateDelete.Size = new System.Drawing.Size(50, 32);
-            this.buttonAfUpdateDelete.TabIndex = 25;
-            this.buttonAfUpdateDelete.Text = "Delete";
-            this.buttonAfUpdateDelete.UseVisualStyleBackColor = true;
-            this.buttonAfUpdateDelete.Click += new System.EventHandler(this.buttonAfUpdateDelete_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(15, 46);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(28, 13);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "date";
+            this.panel5.BackColor = System.Drawing.SystemColors.Info;
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.buttonAfUpdateDelete);
+            this.panel5.Controls.Add(this.buttonAfUpdateUpdate);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.dateTimePickerAFUpdateDate);
+            this.panel5.Controls.Add(this.textBoxAfUpdateUserID);
+            this.panel5.Controls.Add(this.textBoxAFUpdateID);
+            this.panel5.Controls.Add(this.comboBoxAFUpdateRedenAfdwezighijd);
+            this.panel5.Controls.Add(this.label16);
+            this.panel5.Controls.Add(this.textBoxAFUpdateOmschrijving);
+            this.panel5.Controls.Add(this.labelAFUpdateOmschijvinf);
+            this.panel5.Controls.Add(this.label14);
+            this.panel5.Location = new System.Drawing.Point(19, 16);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 242);
+            this.panel5.TabIndex = 1;
             // 
             // label22
             // 
@@ -853,6 +677,178 @@
             this.label22.Size = new System.Drawing.Size(28, 13);
             this.label22.TabIndex = 34;
             this.label22.Text = "date";
+            // 
+            // buttonAfUpdateDelete
+            // 
+            this.buttonAfUpdateDelete.Location = new System.Drawing.Point(147, 4);
+            this.buttonAfUpdateDelete.Name = "buttonAfUpdateDelete";
+            this.buttonAfUpdateDelete.Size = new System.Drawing.Size(50, 32);
+            this.buttonAfUpdateDelete.TabIndex = 25;
+            this.buttonAfUpdateDelete.Text = "Delete";
+            this.buttonAfUpdateDelete.UseVisualStyleBackColor = true;
+            this.buttonAfUpdateDelete.Click += new System.EventHandler(this.buttonAfUpdateDelete_Click);
+            // 
+            // buttonAfUpdateUpdate
+            // 
+            this.buttonAfUpdateUpdate.Location = new System.Drawing.Point(109, 206);
+            this.buttonAfUpdateUpdate.Name = "buttonAfUpdateUpdate";
+            this.buttonAfUpdateUpdate.Size = new System.Drawing.Size(75, 23);
+            this.buttonAfUpdateUpdate.TabIndex = 33;
+            this.buttonAfUpdateUpdate.Text = "Update";
+            this.buttonAfUpdateUpdate.UseVisualStyleBackColor = true;
+            this.buttonAfUpdateUpdate.Click += new System.EventHandler(this.buttonAfUpdateUpdate_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(121, 45);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(43, 13);
+            this.label20.TabIndex = 29;
+            this.label20.Text = "User ID";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(123, 23);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(18, 13);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "ID";
+            // 
+            // dateTimePickerAFUpdateDate
+            // 
+            this.dateTimePickerAFUpdateDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerAFUpdateDate.Location = new System.Drawing.Point(18, 82);
+            this.dateTimePickerAFUpdateDate.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePickerAFUpdateDate.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerAFUpdateDate.Name = "dateTimePickerAFUpdateDate";
+            this.dateTimePickerAFUpdateDate.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePickerAFUpdateDate.TabIndex = 27;
+            // 
+            // textBoxAfUpdateUserID
+            // 
+            this.textBoxAfUpdateUserID.Location = new System.Drawing.Point(18, 42);
+            this.textBoxAfUpdateUserID.Name = "textBoxAfUpdateUserID";
+            this.textBoxAfUpdateUserID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAfUpdateUserID.TabIndex = 26;
+            // 
+            // textBoxAFUpdateID
+            // 
+            this.textBoxAFUpdateID.Enabled = false;
+            this.textBoxAFUpdateID.Location = new System.Drawing.Point(18, 20);
+            this.textBoxAFUpdateID.Name = "textBoxAFUpdateID";
+            this.textBoxAFUpdateID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAFUpdateID.TabIndex = 25;
+            // 
+            // comboBoxAFUpdateRedenAfdwezighijd
+            // 
+            this.comboBoxAFUpdateRedenAfdwezighijd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAFUpdateRedenAfdwezighijd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxAFUpdateRedenAfdwezighijd.FormattingEnabled = true;
+            this.comboBoxAFUpdateRedenAfdwezighijd.Items.AddRange(new object[] {
+            "Niets",
+            "Ziek",
+            "StudieVerlof",
+            "FlexibelVerlof",
+            "Excursie",
+            "Anders",
+            "Laat"});
+            this.comboBoxAFUpdateRedenAfdwezighijd.Location = new System.Drawing.Point(18, 120);
+            this.comboBoxAFUpdateRedenAfdwezighijd.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxAFUpdateRedenAfdwezighijd.Name = "comboBoxAFUpdateRedenAfdwezighijd";
+            this.comboBoxAFUpdateRedenAfdwezighijd.Size = new System.Drawing.Size(154, 23);
+            this.comboBoxAFUpdateRedenAfdwezighijd.TabIndex = 21;
+            this.comboBoxAFUpdateRedenAfdwezighijd.SelectedIndexChanged += new System.EventHandler(this.comboBoxAfNewRedenAfwezighijd_SelectedIndexChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(14, 105);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(117, 13);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Reden Van Afwezighijd";
+            // 
+            // textBoxAFUpdateOmschrijving
+            // 
+            this.textBoxAFUpdateOmschrijving.Enabled = false;
+            this.textBoxAFUpdateOmschrijving.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAFUpdateOmschrijving.Location = new System.Drawing.Point(18, 161);
+            this.textBoxAFUpdateOmschrijving.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxAFUpdateOmschrijving.Multiline = true;
+            this.textBoxAFUpdateOmschrijving.Name = "textBoxAFUpdateOmschrijving";
+            this.textBoxAFUpdateOmschrijving.Size = new System.Drawing.Size(154, 40);
+            this.textBoxAFUpdateOmschrijving.TabIndex = 22;
+            // 
+            // labelAFUpdateOmschijvinf
+            // 
+            this.labelAFUpdateOmschijvinf.AutoSize = true;
+            this.labelAFUpdateOmschijvinf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAFUpdateOmschijvinf.Location = new System.Drawing.Point(15, 145);
+            this.labelAFUpdateOmschijvinf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAFUpdateOmschijvinf.Name = "labelAFUpdateOmschijvinf";
+            this.labelAFUpdateOmschijvinf.Size = new System.Drawing.Size(62, 13);
+            this.labelAFUpdateOmschijvinf.TabIndex = 23;
+            this.labelAFUpdateOmschijvinf.Text = "omschijving";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(4, 4);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(69, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Update Entry";
+            // 
+            // checkBoxUseAllBetweenDates
+            // 
+            this.checkBoxUseAllBetweenDates.AutoSize = true;
+            this.checkBoxUseAllBetweenDates.Location = new System.Drawing.Point(19, 114);
+            this.checkBoxUseAllBetweenDates.Name = "checkBoxUseAllBetweenDates";
+            this.checkBoxUseAllBetweenDates.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxUseAllBetweenDates.TabIndex = 9;
+            this.checkBoxUseAllBetweenDates.Text = "gebruik tot";
+            this.checkBoxUseAllBetweenDates.UseVisualStyleBackColor = true;
+            this.checkBoxUseAllBetweenDates.CheckedChanged += new System.EventHandler(this.checkBoxUseAllBetweenDates_CheckedChanged);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Enabled = false;
+            this.dateTimePicker2.Location = new System.Drawing.Point(19, 137);
+            this.dateTimePicker2.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePicker2.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(201, 20);
+            this.dateTimePicker2.TabIndex = 10;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridViewUsers);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panelafwezigControlls);
+            this.panel1.Controls.Add(this.panelaanwezigcontorls);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(615, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(580, 807);
+            this.panel1.TabIndex = 12;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Info;
+            this.panel4.Controls.Add(this.listBox1);
+            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this.checkBoxUseAllBetweenDates);
+            this.panel4.Controls.Add(this.dateTimePicker2);
+            this.panel4.Location = new System.Drawing.Point(10, 6);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(247, 174);
+            this.panel4.TabIndex = 11;
             // 
             // MangeAanEnAfWezighijdTable
             // 
@@ -875,13 +871,13 @@
             this.panel2.PerformLayout();
             this.panelafwezigControlls.ResumeLayout(false);
             this.panelafwezigControlls.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -35,6 +35,14 @@ namespace Inteken {
 
         private void erForm_Load(object sender, EventArgs e) {
             try {
+                dateTimePickerTijdIn.ShowUpDown=true;
+                dateTimePickerTijdIn.CustomFormat="HH:mm:ss tt";
+                dateTimePickerTijdIn.Format=System.Windows.Forms.DateTimePickerFormat.Custom;
+
+                dateTimePickerTimeUit.ShowUpDown=true;
+                dateTimePickerTimeUit.CustomFormat="HH:mm:ss tt";
+                dateTimePickerTimeUit.Format=System.Windows.Forms.DateTimePickerFormat.Custom;
+
                 _TimerReloadOverzicht.Interval=42000;
                 _TimerReloadOverzicht.Tick+=new EventHandler(timerEventReloadOverzicht);
                 _TimerReloadOverzicht.Start();
@@ -109,6 +117,10 @@ namespace Inteken {
             }
             labelVoorNaam.Text=usersData.userN.voorNaam;
             labelAchterNaam.Text=usersData.userN.achterNaam;
+
+            if (usersData.regE.IsAanwezig) {
+                dateTimePickerTijdIn.Value=Convert.ToDateTime(usersData.regE.TimeInteken);
+            }
 
             _CurrentlySelectedUser=usersData;
 

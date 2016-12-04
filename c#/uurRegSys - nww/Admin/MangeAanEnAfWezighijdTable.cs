@@ -98,6 +98,7 @@ namespace Admin {
                 dataGridViewUsers.DataSource=JsonConvert.DeserializeObject<TAdminReturnADataTable>(JsonConvert.SerializeObject(response.expectedResponse)).DataTable;
                 listBox1.SelectedIndex=listBox1.FindString("AanwezighijdTable");
             }
+            comboBoxAfNewRedenAfwezighijd.SelectedItem=comboBoxAfNewRedenAfwezighijd.Items[1];
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -124,7 +125,7 @@ namespace Admin {
                 textBoxAANNewUserID.Text=_SelectEdUsersIDs[0].ToString();
                 textBoxAFNewUserID.Text=_SelectEdUsersIDs[0].ToString();
             }
-            relaodErDataGrid(); // --------------------------- te langzaam dan?
+            relaodErDataGrid(); // --------------------------- te langzaam dan? ?
         }
 
         private void MangeAanEnAfWezighijdTable_Resize(object sender, EventArgs e) {
@@ -155,6 +156,7 @@ namespace Admin {
                     } catch { checkBoxAANUpdateZetNietsOpUIteken.Checked=true; }
                     checkBoxAANUpdateIsAanwezig.Checked=Convert.ToBoolean(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.RegistratieTableNames.IsAanwezig].Value);
                 } else {
+
                     textBoxAFUpdateID.Text=dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.ID].Value.ToString();
                     textBoxAfUpdateUserID.Text=dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.IDOfUserRelated].Value.ToString();
                     dateTimePickerAFUpdateDate.Value=Convert.ToDateTime(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.Date].Value.ToString());
@@ -180,6 +182,7 @@ namespace Admin {
                         textBoxAFUpdateOmschrijving.Text=dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd].ToString();
                     }
                     comboBoxAFUpdateRedenAfdwezighijd.SelectedItem=comboBoxAFUpdateRedenAfdwezighijd.Items[watIsSelected];
+
                 }
             }
         }
@@ -188,7 +191,11 @@ namespace Admin {
             try {
                 TAdminSendChangeRegistratieTable request = new TAdminSendChangeRegistratieTable();
                 request.IDToChange=Convert.ToInt32(textBoxAANUpdateID.Text);
-                request.IDUserRelated=Convert.ToInt32(textBoxAANUpdateUserID.Text);
+                try {
+                    request.IDUserRelated=Convert.ToInt32(textBoxAANUpdateUserID.Text);
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
                 request.Date=dateTimePickerAANUpdateDate.Value;
                 request.TimeIn=Convert.ToDateTime(dateTimePickerAANUpdateTimeIn.Value).TimeOfDay;
 
@@ -214,7 +221,11 @@ namespace Admin {
             try {
                 TAdminSendChangeRegistratieTable request = new TAdminSendChangeRegistratieTable();
                 request.IsNewEntry=true;
-                request.IDUserRelated=Convert.ToInt32(textBoxAANNewUserID.Text);
+                try {
+                    request.IDUserRelated=Convert.ToInt32(textBoxAANNewUserID.Text);
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
                 request.Date=dateTimePickerAANNewDate.Value;
                 request.IsAanwezig=checkBoxAANNewIsAanwezig.Checked;
                 request.TimeIn=Convert.ToDateTime(dateTimePickerAANNewTimeIn.Value).TimeOfDay;
@@ -281,23 +292,30 @@ namespace Admin {
             }
         }
 
-        private void comboBoxAF_SelectedIndexChanged(object sender, EventArgs e) {
+        private void comboBoxAfNewRedenAfwezighijd_SelectedIndexChanged(object sender, EventArgs e) { // alebij roepen ze deze
             var butt = sender as ComboBox;
-            if (butt.SelectedItem.ToString()=="Laat") {
-                labelAFUpdateOmschijvinf.Text="verwachte tijd aanwezighijd";
+            TextBox texty;
+            Label labll;
+            if (sender==comboBoxAfNewRedenAfwezighijd) {
+                texty=textBoxAfNewOmschrijvingafwezighijs;
+                labll=labelAfNewRedenAfwezig;
+            } else {
+                texty=textBoxAFUpdateOmschrijving;
+                labll=labelAFUpdateOmschijvinf;
             }
-            if (butt.SelectedItem.ToString()=="Anders") {
-                labelAFUpdateOmschijvinf.Text="omschijving";
-            }
-        }
 
-        private void comboBoxAfNewRedenAfwezighijd_SelectedIndexChanged(object sender, EventArgs e) {
-            var butt = sender as ComboBox;
             if (butt.SelectedItem.ToString()=="Laat") {
-                labelAfNewRedenAfwezig.Text="verwachte tijd aanwezig";
-            }
-            if (butt.SelectedItem.ToString()=="Anders") {
-                labelAfNewRedenAfwezig.Text="omschijving";
+                labll.Text="verwachte tijd aanwezig";
+                texty.Enabled=true;
+            } else {
+                string kanker = butt.SelectedItem.ToString();
+                if (butt.SelectedItem.ToString()=="Anders") {
+                    labll.Text="omschijving";
+                    texty.Enabled=true;
+                } else {
+                    labll.Text="%";
+                    texty.Enabled=false;
+                }
             }
         }
 
@@ -318,17 +336,117 @@ namespace Admin {
                         relaodErDataGrid();
                     }
                 } else {
-                    MessageBox.Show("none selected");
+                    MessageBox.Show("niets te verwijderen geselecteerd");
                 }
             }
         }
 
-        private void buttonAfUpdateUpdate_Click(object sender, EventArgs e) {
 
+        /*
+        if (Convert.ToBoolean(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.IsZiek].Value.ToString())) {
+                        watIsSelected=1;
+                    }
+                    if (Convert.ToBoolean(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.IsFlexibelverlof].Value.ToString())) {
+                        watIsSelected=3;
+                    }
+                    if (Convert.ToBoolean(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.IsStudieverlof].Value.ToString())) {
+                        watIsSelected=2;
+                    }
+                    if (Convert.ToBoolean(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.IsExcursie].Value.ToString())) {
+                        watIsSelected=4;
+                    }
+                    if (Convert.ToBoolean(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.IsLaat].Value.ToString())) {
+                        watIsSelected=6;
+                        textBoxAFUpdateOmschrijving.Text=dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd].ToString();
+                    }
+                    if (Convert.ToBoolean(dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.IsAndereReden].Value.ToString())) {
+                        watIsSelected=5;
+                        textBoxAFUpdateOmschrijving.Text=dataGridViewEr.SelectedRows[0].Cells[SQLPropertysAndFunc.AfwezigTableNames.AnderenRedenVoorAfwezighijd].ToString();
+                    }
+
+            Niets
+
+
+
+
+Anders
+Laat
+          */
+        private void buttonAfUpdateUpdate_Click(object sender, EventArgs e) {
+            TAdminSendChangeAfwezigTable request = new TAdminSendChangeAfwezigTable();
+            request.IDToChage=Convert.ToInt32(textBoxAFUpdateID.Text);
+            try {
+                request.IDUserRelated=Convert.ToInt32(textBoxAfUpdateUserID.Text);
+            } catch {
+                MessageBox.Show("user id is niet een nummer");
+                return;
+            }
+            request.Date=dateTimePickerAFUpdateDate.Value;
+            switch (comboBoxAFUpdateRedenAfdwezighijd.SelectedItem.ToString()) {
+                case "Ziek":
+                    request.IsZiek=true;
+                    break;
+                case "StudieVerlof":
+                    request.IsStudioverlof=true;
+                    break;
+                case "FlexibelVerlof":
+                    request.IsFleciebleverlof=true;
+                    break;
+                case "Excursie":
+                    request.IsFleciebleverlof=true;
+                    break;
+                case "Anders":
+                    request.ISAndereReden=true;
+                    request.AndrenRedenVanAfwezighijd=textBoxAFUpdateOmschrijving.Text;
+                    break;
+                case "Laat":
+                    request.IsLaat=true;
+                    request.VerwachteTijdVanAanwezighijd=textBoxAFUpdateOmschrijving.Text;
+                    break;
+            }
+            TResiveWithPosbleError resp = webFunc.httpPostWithPassword(request, _Address, _Password);
+            if (resp.isErrorOcured) {
+                MessageBox.Show(resp.errorInfo.errorText);
+            }
+            relaodErDataGrid();
         }
 
         private void buttonAfNewSave_Click(object sender, EventArgs e) {
-
+            TAdminSendChangeAfwezigTable request = new TAdminSendChangeAfwezigTable();            
+            try {
+                request.IDUserRelated=Convert.ToInt32(textBoxAFNewUserID.Text);
+            } catch {
+                MessageBox.Show("user id is niet een getal");
+                return;
+            }
+            request.Date=dateTimePickerAfNewDate.Value;
+            switch (comboBoxAfNewRedenAfwezighijd.SelectedItem.ToString()) {
+                case "Ziek":
+                    request.IsZiek=true;
+                    break;
+                case "StudieVerlof":
+                    request.IsStudioverlof=true;
+                    break;
+                case "FlexibelVerlof":
+                    request.IsFleciebleverlof=true;
+                    break;
+                case "Excursie":
+                    request.IsFleciebleverlof=true;
+                    break;
+                case "Anders":
+                    request.ISAndereReden=true;
+                    request.AndrenRedenVanAfwezighijd=textBoxAFUpdateOmschrijving.Text;
+                    break;
+                case "Laat":
+                    request.IsLaat=true;
+                    request.VerwachteTijdVanAanwezighijd=textBoxAFUpdateOmschrijving.Text;
+                    break;
+            }
+            TResiveWithPosbleError resp = webFunc.httpPostWithPassword(request, _Address, _Password);
+            if (resp.isErrorOcured) {
+                MessageBox.Show(resp.errorInfo.errorText);
+            }
+            relaodErDataGrid();
         }
     }
 }

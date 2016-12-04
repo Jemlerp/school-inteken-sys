@@ -44,6 +44,10 @@
             this.buttonAnuleeruiteken = new System.Windows.Forms.Button();
             this.buttonTekenIn = new System.Windows.Forms.Button();
             this.buttonTekenUit = new System.Windows.Forms.Button();
+            this.dateTimePickerTijdIn = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTimeUit = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -145,7 +149,7 @@
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(15, 162);
+            this.buttonSave.Location = new System.Drawing.Point(15, 256);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(100, 54);
@@ -227,22 +231,26 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labelVoorNaam);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(573, 182);
+            this.panel1.Location = new System.Drawing.Point(573, 106);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(443, 363);
+            this.panel1.Size = new System.Drawing.Size(443, 428);
             this.panel1.TabIndex = 19;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Info;
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.dateTimePickerTimeUit);
+            this.panel3.Controls.Add(this.dateTimePickerTijdIn);
             this.panel3.Controls.Add(this.comboBox1);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.buttonSave);
             this.panel3.Controls.Add(this.textBoxOmschrijving);
             this.panel3.Controls.Add(this.labelOmschrijving);
-            this.panel3.Location = new System.Drawing.Point(14, 88);
+            this.panel3.Location = new System.Drawing.Point(14, 77);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 252);
+            this.panel3.Size = new System.Drawing.Size(250, 329);
             this.panel3.TabIndex = 20;
             // 
             // label6
@@ -262,7 +270,7 @@
             this.panel2.Controls.Add(this.buttonAnuleeruiteken);
             this.panel2.Controls.Add(this.buttonTekenIn);
             this.panel2.Controls.Add(this.buttonTekenUit);
-            this.panel2.Location = new System.Drawing.Point(280, 88);
+            this.panel2.Location = new System.Drawing.Point(279, 77);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(143, 252);
             this.panel2.TabIndex = 19;
@@ -298,6 +306,50 @@
             this.buttonTekenUit.Text = "Teken uit";
             this.buttonTekenUit.UseVisualStyleBackColor = true;
             this.buttonTekenUit.Click += new System.EventHandler(this.buttonTekenInOFUit_Click);
+            // 
+            // dateTimePickerTijdIn
+            // 
+            this.dateTimePickerTijdIn.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTijdIn.Location = new System.Drawing.Point(17, 178);
+            this.dateTimePickerTijdIn.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePickerTijdIn.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerTijdIn.Name = "dateTimePickerTijdIn";
+            this.dateTimePickerTijdIn.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePickerTijdIn.TabIndex = 21;
+            // 
+            // dateTimePickerTimeUit
+            // 
+            this.dateTimePickerTimeUit.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTimeUit.Location = new System.Drawing.Point(15, 222);
+            this.dateTimePickerTimeUit.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePickerTimeUit.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerTimeUit.Name = "dateTimePickerTimeUit";
+            this.dateTimePickerTimeUit.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePickerTimeUit.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(14, 158);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 18);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Tijd In";
+            this.label4.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 201);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 18);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Tijd Uit";
+            this.label7.Visible = false;
             // 
             // erForm
             // 
@@ -347,5 +399,9 @@
         private System.Windows.Forms.Button buttonAnuleeruiteken;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTimeUit;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTijdIn;
     }
 }
