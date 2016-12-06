@@ -45,33 +45,13 @@ namespace Sever.Controllers {
                 JObject getEnumFromObjectInInstruction = JObject.Parse(JsonConvert.SerializeObject(instruction.tSend));
                 string instructionArgumentsInJson = JsonConvert.SerializeObject(instruction.tSend);
 
-                //for noruse and aanwezig editor
-                if (instruction.password==TestServerPassword.testWAchtwooed||instruction.password==TestServerPassword.testWAchtwooed) {
+                if (instruction.password==TestServerPassword.testWAchtwooed) {
                     switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"])) {
                         case SendAndRecieveTypesEnum.SendNFCCardScanInfo:
                             return serialise(functions.NFCScan(deserialise<TNFCCardScan>(instructionArgumentsInJson)));
                         case SendAndRecieveTypesEnum.RequestOverviewAanwezige:
                             return serialise(functions.overzigt());
 
-
-                    }
-                    //throw new Exception("No Instruction");
-                }
-
-                //aanwezig
-                if (instruction.password==TestServerPassword.testWAchtwooed) {
-                    switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"])) {
-
-                        case SendAndRecieveTypesEnum.SendChangeAfwezigHijd:
-                            return serialise(functions.changeAfwezighijdVoorEenIemand(deserialise<TRequestChangeAfwezigTable>(instructionArgumentsInJson)));
-
-
-                    }
-                   // throw new Exception("No Instruction");
-                }
-
-                if (instruction.password==TestServerPassword.testWAchtwooed) {
-                    switch ((SendAndRecieveTypesEnum)Enum.Parse(typeof(SendAndRecieveTypesEnum), (string)getEnumFromObjectInInstruction["SendAndRecieveTypesEnumValue"])) {
                         case SendAndRecieveTypesEnum.AdminAskUsersDataTable:
                             return serialise(functions.adminGetADataTable(JsonConvert.DeserializeObject<TAdminSendAskADataTable>(instructionArgumentsInJson)));
                         case SendAndRecieveTypesEnum.AdminAskChangeUserTable:
@@ -79,10 +59,15 @@ namespace Sever.Controllers {
                         case SendAndRecieveTypesEnum.AdminAskChangeRegistratieTable:
                             return serialise(functions.adminChangeRegistratieTable(JsonConvert.DeserializeObject<TAdminSendChangeRegistratieTable>(instructionArgumentsInJson)));
 
+                        case SendAndRecieveTypesEnum.SendChangeAfwezigHijd:
+                            return serialise(functions.changeAfwezighijdVoorEenIemand(deserialise<TRequestChangeAfwezigTable>(instructionArgumentsInJson)));
+
+
                     }
                     //throw new Exception("No Instruction");
+                } else {
+                    throw new Exception("Bad Password");
                 }
-
 
                 if (instruction.password=="ikbenopen") {
                     return serialise(functions.overzigt());
