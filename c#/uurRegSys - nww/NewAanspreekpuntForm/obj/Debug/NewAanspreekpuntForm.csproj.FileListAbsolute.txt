@@ -1,0 +1,9 @@
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewAanspreekpuntForm.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewAanspreekpuntForm.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewAanspreekpuntForm.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.Properties.Resources.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.csproj.GenerateResource.Cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.pdb

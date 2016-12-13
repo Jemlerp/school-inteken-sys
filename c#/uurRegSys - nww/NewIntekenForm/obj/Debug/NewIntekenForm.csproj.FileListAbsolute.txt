@@ -1,0 +1,15 @@
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.Properties.Resources.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.csproj.GenerateResource.Cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.csprojResolveAssemblyReference.cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.ArrrrFormcs.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.Form1.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewCrossFunctions.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewCrossFunctions.pdb

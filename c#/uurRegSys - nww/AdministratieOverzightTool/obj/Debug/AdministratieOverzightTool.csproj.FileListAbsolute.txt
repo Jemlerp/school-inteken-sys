@@ -18,4 +18,3 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Administra
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\AdministratieOverzightTool\obj\Debug\AdministratieOverzightTool.csproj.GenerateResource.Cache
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\AdministratieOverzightTool\obj\Debug\AdministratieOverzightTool.exe
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\AdministratieOverzightTool\obj\Debug\AdministratieOverzightTool.pdb
-C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\AdministratieOverzightTool\obj\Debug\AdministratieOverzightTool.csprojResolveAssemblyReference.cache
