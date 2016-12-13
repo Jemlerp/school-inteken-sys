@@ -23,10 +23,7 @@ namespace NewIntekenForm {
                 NetComunicationTypesAndFunctions.ServerResponse response = NetComunicationTypesAndFunctions.WebRequest(new NetComunicationTypesAndFunctions.ServerRequestSqlDateTime(),textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
                 if (response.IsErrorOcurred) {
                     throw new Exception(response.ErrorInfo.ErrorMessage);
-                }
-                if(JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.serverResponseSqlDateTime>(JsonConvert.SerializeObject(response.Response)).SqlDateTime == new DateTime()) {
-                    throw new Exception("Server Can't Connect To SQL Database"); //of gooit server een exeptie als.....
-                }
+                }                
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
                 return;

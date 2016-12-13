@@ -69,8 +69,6 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\bin\
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\bin\Debug\System.Net.Http.Extensions.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\bin\Debug\System.Net.Http.Primitives.dll
-C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\bin\Debug\System.Net.Http.WebRequest.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\bin\Debug\Newtonsoft.Json.xml
-C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\bin\Debug\System.Net.Http.WebRequest.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\obj\Debug\funcZ.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\funcZ\obj\Debug\funcZ.pdb

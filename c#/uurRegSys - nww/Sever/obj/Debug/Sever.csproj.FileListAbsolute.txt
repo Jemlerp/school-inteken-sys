@@ -297,7 +297,6 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Net.Http.Extensions.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Net.Http.Formatting.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Net.Http.Primitives.dll
-C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Net.Http.WebRequest.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Web.Http.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Web.Http.WebHost.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\funcZ.pdb
@@ -308,7 +307,6 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\Microsoft.ApplicationInsights.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\Newtonsoft.Json.xml
-C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Net.Http.WebRequest.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Web.Http.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Web.Http.WebHost.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\obj\Debug\Sever.csprojResolveAssemblyReference.cache
@@ -332,3 +330,17 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Web.WebPages.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Web.WebPages.Deployment.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\System.Web.WebPages.Razor.xml
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\csc.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\csc.rsp
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\csi.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\csi.rsp
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\System.AppContext.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\vbc.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Sever\bin\roslyn\vbc.rsp

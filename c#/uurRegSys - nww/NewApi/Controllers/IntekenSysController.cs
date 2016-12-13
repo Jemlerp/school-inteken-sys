@@ -17,9 +17,9 @@ namespace NewApi.Controllers
         DatabaseTypesAndFunctions _DatabaseTypesAndFunctions = new DatabaseTypesAndFunctions();
 
         [HttpGet]
-        public string Indax()
+        public NetComunicationTypesAndFunctions.ServerResponse Indax()
         {
-            return Serilalise(IntekenSysFunctions.GetDateTimeFromSqlDatabase());
+            return returnMetStr(IntekenSysFunctions.GetDateTimeFromSqlDatabase());
         }
 
         private T Deserialise<T>(string todeserialie) {
@@ -30,14 +30,14 @@ namespace NewApi.Controllers
             return JsonConvert.SerializeObject(toSerialise);
         }
 
-        private string returnMetStr(object returnObject) {
+        private NetComunicationTypesAndFunctions.ServerResponse returnMetStr(object returnObject) {
             NetComunicationTypesAndFunctions.ServerResponse toReturn = new NetComunicationTypesAndFunctions.ServerResponse();
             toReturn.Response=returnObject;
-            return Serilalise(toReturn);
+            return toReturn;
         }
 
         [HttpPost]
-        public string doHetDan(NetComunicationTypesAndFunctions.ServerRequest request) {
+        public NetComunicationTypesAndFunctions.ServerResponse doHetDan(NetComunicationTypesAndFunctions.ServerRequest request) {
             try {
                 SqlCommand command = new SqlCommand();
                 command.Parameters.AddWithValue("@username", request.UserName);
@@ -67,7 +67,7 @@ namespace NewApi.Controllers
                 NetComunicationTypesAndFunctions.ServerResponse toReturn = new NetComunicationTypesAndFunctions.ServerResponse();
                 toReturn.IsErrorOcurred=true;
                 toReturn.ErrorInfo.ErrorMessage=ex.Message;
-                return Serilalise(toReturn);
+                return toReturn;
             }            
         }
     }
