@@ -79,12 +79,22 @@ namespace NewApi.Models {
         //overview
         public static NetComunicationTypesAndFunctions.ServerResponseUsersOverzightFromOneDate overzight(DatabaseTypesAndFunctions.AcountTableEntry _MasterRightsEntry, NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate _Request) {
             NetComunicationTypesAndFunctions.ServerResponseUsersOverzightFromOneDate toReturn = new NetComunicationTypesAndFunctions.ServerResponseUsersOverzightFromOneDate();
+            SqlCommand command = new SqlCommand();
+            if (_Request.useToday) {
+                command.CommandText=$"select * from";
+            }
             return toReturn;
         }
 
         //update reg table
         public static NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable ChangeRegistatieTable(DatabaseTypesAndFunctions.AcountTableEntry _MasterRightsEntry, NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable _Request) {
             NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable toReturn = new NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable();
+            SqlCommand commamd = new SqlCommand();
+            if (_Request.isNieuwEntry) {
+
+            } else {
+
+            }
             return toReturn;
         }
     }
