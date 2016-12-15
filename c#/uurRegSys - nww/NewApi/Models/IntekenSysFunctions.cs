@@ -10,12 +10,12 @@ namespace NewApi.Models {
     public class IntekenSysFunctions {
 
         public static DatabaseTypesAndFunctions _DatabaseTypesAndFunctions = new DatabaseTypesAndFunctions();
-         
+
 
         public static DateTime GetDateTimeFromSqlDatabase() {
             return (DateTime)SqlDingusEnUserRechten.SQLQuery("select getdate() ji").Rows[0]["ji"];
         }
-         
+
         //inteken
         public static NetComunicationTypesAndFunctions.ServerResponseInteken inteken(DatabaseTypesAndFunctions.AcountTableEntry _MasterRightsEntry, NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit _Request) {
             NetComunicationTypesAndFunctions.ServerResponseInteken toReturn = new NetComunicationTypesAndFunctions.ServerResponseInteken();
@@ -25,8 +25,8 @@ namespace NewApi.Models {
             command=new SqlCommand();
             command.Parameters.AddWithValue("@nfcode", _Request.NFCCode);
             command.CommandText=$"select * from {DatabaseTypesAndFunctions.UserTableNames.UserTableName} where {DatabaseTypesAndFunctions.UserTableNames.NFCID} = @nfcode";
-            List<DatabaseTypesAndFunctions.UserTableTableEntry> foundUsersList =_DatabaseTypesAndFunctions.GetListUserTableEntriesFromDataTable(SqlDingusEnUserRechten.SQLQuery(command));
-            if(foundUsersList.Count > 0) {
+            List<DatabaseTypesAndFunctions.UserTableTableEntry> foundUsersList = _DatabaseTypesAndFunctions.GetListUserTableEntriesFromDataTable(SqlDingusEnUserRechten.SQLQuery(command));
+            if (foundUsersList.Count>0) {
                 userInfo.userN=foundUsersList[0];
             } else {
                 throw new Exception("nfc card unknown");
@@ -38,9 +38,9 @@ namespace NewApi.Models {
             List<DatabaseTypesAndFunctions.RegistratieTableTableEntry> foundRegistratieEntrys = _DatabaseTypesAndFunctions.GetListRegistratieTableEntrysFromDataTable(SqlDingusEnUserRechten.SQLQuery(command));
             DatabaseTypesAndFunctions.RegistratieTableTableEntry deEntry;
             command=new SqlCommand();
-            if (foundRegistratieEntrys.Count >0) {
+            if (foundRegistratieEntrys.Count>0) {
                 // edit
-                deEntry = foundRegistratieEntrys[0];
+                deEntry=foundRegistratieEntrys[0];
                 deEntry.IsLaat=false;
                 deEntry.Verwachtetijdvanaanwezighijd="";
                 command.Parameters.AddWithValue("@id", deEntry.ID);
@@ -81,19 +81,25 @@ namespace NewApi.Models {
         public static NetComunicationTypesAndFunctions.ServerResponseUsersOverzightFromOneDate overzight(DatabaseTypesAndFunctions.AcountTableEntry _MasterRightsEntry, NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate _Request) {
             NetComunicationTypesAndFunctions.ServerResponseUsersOverzightFromOneDate toReturn = new NetComunicationTypesAndFunctions.ServerResponseUsersOverzightFromOneDate();
             SqlCommand command = new SqlCommand();
-            if (_Request.useToday) {
-                command.CommandText=$"select * from";
-            }
+
+            //sqlings
             List<DatabaseTypesAndFunctions.UserTableTableEntry> UserEntrys = _DatabaseTypesAndFunctions.GetListUserTableEntriesFromDataTable(SqlDingusEnUserRechten.SQLQuery($"select * from {DatabaseTypesAndFunctions.UserTableNames.UserTableName}"));
-            List<DatabaseTypesAndFunctions.RegistratieTableTableEntry> RegEntrys = _DatabaseTypesAndFunctions.GetListRegistratieTableEntrysFromDataTable(SqlDingusEnUserRechten.SQLQuery($"select * from {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date)"));
-            
-            //pak alle mensen die niet verschoold zijn 
-            foreach(var User in UserEntrys) {
+            List<DatabaseTypesAndFunctions.RegistratieTableTableEntry> RegEntrys = new List<DatabaseTypesAndFunctions.RegistratieTableTableEntry>();
+            command.CommandText = $"select * from {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} where {DatabaseTypesAndFunctions.RegistratieTableNames.Date}";
+            if (_Request.useToday) {
+                command.CommandText+=" = cast(getdate() as date)";
+            } else {
+                command.CommandText+=$" = cast('{_Request.dateToGetOverzightFrom.Date.ToString("yyyy-MM-dd")}' as date)";
+            }
+            RegEntrys=_DatabaseTypesAndFunctions.GetListRegistratieTableEntrysFromDataTable(SqlDingusEnUserRechten.SQLQuery(command));
+
+            //kruis sort user by een regentry
+            foreach (var User in UserEntrys) {
                 if (User.IsActiveUser) {
                     DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry toPutInList = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
                     toPutInList.userN=User;
-                    foreach(var Entry in RegEntrys) {
-                        if(Entry.IDOfUserRelated ==User.ID) {
+                    foreach (var Entry in RegEntrys) {
+                        if (Entry.IDOfUserRelated==User.ID) {
                             toPutInList.hasTodayRegEntry=true;
                             toPutInList.regE=Entry;
                             break;
@@ -101,20 +107,31 @@ namespace NewApi.Models {
                     }
                     toReturn.EtList.Add(toPutInList);
                 }
-            } 
+            }
             return toReturn;
         }
 
         //update reg table
         public static NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable ChangeRegistatieTable(DatabaseTypesAndFunctions.AcountTableEntry _MasterRightsEntry, NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable _Request) {
             NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable toReturn = new NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable();
-            SqlCommand commamd = new SqlCommand();            
+            SqlCommand commamd = new SqlCommand();
             commamd.Parameters.AddWithValue("@andered", _Request.deEntry.AnderenRedenVoorAfwezigihijd);
             commamd.Parameters.AddWithValue("@verwachtetijdvana", _Request.deEntry.Verwachtetijdvanaanwezighijd);
             if (_Request.isNieuwEntry) {
                 commamd.CommandText=$"insert into {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} ({DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated}, {DatabaseTypesAndFunctions.RegistratieTableNames.Date}, {DatabaseTypesAndFunctions.RegistratieTableNames.TimeInteken}, {DatabaseTypesAndFunctions.RegistratieTableNames.TimeUitteken}, {DatabaseTypesAndFunctions.RegistratieTableNames.HeeftIngetekend}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsZiek}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsFlexibelverlof}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsStudieverlof}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsExcursie},{DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsAndereReden}, {DatabaseTypesAndFunctions.RegistratieTableNames.Verwachtetijdvanaanwezighijd}) values ({_Request.deEntry.IDOfUserRelated}, cast('{_Request.deEntry.Date}' as date), cast('{_Request.deEntry.TimeInteken}' as time), cast('{_Request.deEntry.TimeUitteken}' as time), cast('{_Request.deEntry.HeeftIngetekend}' as bit), cast('{_Request.deEntry.IsAanwezig}' as bit), cast('{_Request.deEntry.IsZiek}' as bit),cast('{_Request.deEntry.IsFlexiebelverlof}' as bit), cast('{_Request.deEntry.IsStudieverlof}' as bit), cast('{_Request.deEntry.IsExcurtie}' as bit), cast('{_Request.deEntry.IsLaat}' as bit), cast('{_Request.deEntry.IsAanwezig}' as bit),@andered,@verwachtetijdvana)";
+                if (SqlDingusEnUserRechten.SQLNonQuery(commamd)>0) {
+                    toReturn.deEntry=_Request.deEntry;
+                    toReturn.deEntry.ID=(int)SqlDingusEnUserRechten.SQLQuery("select SCOPE_IDENTITY() as [yui]").Rows[0]["yui"]; //returns last ID generated for any table in current session and current scope
+                } else {
+                    throw new Exception("SQL COM ERROR AT: "+commamd.CommandText);
+                }
             } else {
                 commamd.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_Request.deEntry.IDOfUserRelated}, {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast('{_Request.deEntry.Date}' as date), {DatabaseTypesAndFunctions.RegistratieTableNames.TimeInteken} = cast('{_Request.deEntry.TimeInteken}' as time), {DatabaseTypesAndFunctions.RegistratieTableNames.TimeUitteken} = cast('{_Request.deEntry.TimeUitteken}' as time), {DatabaseTypesAndFunctions.RegistratieTableNames.HeeftIngetekend} = cast('{_Request.deEntry.HeeftIngetekend}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsZiek} = cast('{_Request.deEntry.IsZiek}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsFlexibelverlof} = cast('{_Request.deEntry.IsFlexiebelverlof}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsStudieverlof} = cast('{_Request.deEntry.IsStudieverlof}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsExcursie} = cast('{_Request.deEntry.IsExcurtie}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = cast('{_Request.deEntry.IsLaat}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.AnderenRedenVoorAfwezighijd} = @andered, {DatabaseTypesAndFunctions.RegistratieTableNames.Verwachtetijdvanaanwezighijd} = @verwachtetijdvana where {DatabaseTypesAndFunctions.RegistratieTableNames.ID} = {_Request.deEntry.ID}";
+                if (SqlDingusEnUserRechten.SQLNonQuery(commamd)>0) {
+                    toReturn.deEntry=_Request.deEntry;
+                } else {
+                    throw new Exception("SQL COM ERROR AT: "+commamd.CommandText);
+                }
             }
             return toReturn;
         }

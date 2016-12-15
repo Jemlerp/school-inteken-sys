@@ -32,6 +32,8 @@ namespace NewIntekenForm {
         private delegate void handelTextDelegate(string read);
         private delegate void updateOverzichtDelegate();
 
+        List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> _LastRecivedOverzight = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
+
         private NetComunicationTypesAndFunctions.ServerResponse webbbbrrrrrry(object request) {
             return NetComunicationTypesAndFunctions.WebRequest(request, _Username, _Password, _ApiAddres);
         }
@@ -60,6 +62,12 @@ namespace NewIntekenForm {
             NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate request = new NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate();
             request.useToday=true;
             NetComunicationTypesAndFunctions.ServerResponse response = webbbbrrrrrry(request);
+            if (response.IsErrorOcurred) {
+                MessageBox.Show(response.ErrorInfo.ErrorMessage);
+            } else {
+                _LastRecivedOverzight=JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.ServerResponseUsersOverzightFromOneDate>(JsonConvert.SerializeObject(response.Response)).EtList;
+            }
+            //list to datagrid
 
         }
 
