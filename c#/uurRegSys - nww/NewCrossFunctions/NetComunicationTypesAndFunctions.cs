@@ -85,7 +85,7 @@ namespace NewCrossFunctions {
         }
 
         public class ServerResponseUsersOverzightFromOneDate {
-            List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; }
+           public List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; }
         }
 
 

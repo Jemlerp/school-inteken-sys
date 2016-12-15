@@ -10,6 +10,7 @@ namespace NewApi.Models {
     public class IntekenSysFunctions {
 
         public static DatabaseTypesAndFunctions _DatabaseTypesAndFunctions = new DatabaseTypesAndFunctions();
+         
 
         public static DateTime GetDateTimeFromSqlDatabase() {
             return (DateTime)SqlDingusEnUserRechten.SQLQuery("select getdate() ji").Rows[0]["ji"];
@@ -83,17 +84,37 @@ namespace NewApi.Models {
             if (_Request.useToday) {
                 command.CommandText=$"select * from";
             }
+            List<DatabaseTypesAndFunctions.UserTableTableEntry> UserEntrys = _DatabaseTypesAndFunctions.GetListUserTableEntriesFromDataTable(SqlDingusEnUserRechten.SQLQuery($"select * from {DatabaseTypesAndFunctions.UserTableNames.UserTableName}"));
+            List<DatabaseTypesAndFunctions.RegistratieTableTableEntry> RegEntrys = _DatabaseTypesAndFunctions.GetListRegistratieTableEntrysFromDataTable(SqlDingusEnUserRechten.SQLQuery($"select * from {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date)"));
+            
+            //pak alle mensen die niet verschoold zijn 
+            foreach(var User in UserEntrys) {
+                if (User.IsActiveUser) {
+                    DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry toPutInList = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
+                    toPutInList.userN=User;
+                    foreach(var Entry in RegEntrys) {
+                        if(Entry.IDOfUserRelated ==User.ID) {
+                            toPutInList.hasTodayRegEntry=true;
+                            toPutInList.regE=Entry;
+                            break;
+                        }
+                    }
+                    toReturn.EtList.Add(toPutInList);
+                }
+            } 
             return toReturn;
         }
 
         //update reg table
         public static NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable ChangeRegistatieTable(DatabaseTypesAndFunctions.AcountTableEntry _MasterRightsEntry, NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable _Request) {
             NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable toReturn = new NetComunicationTypesAndFunctions.ServerResponseChangeRegistratieTable();
-            SqlCommand commamd = new SqlCommand();
+            SqlCommand commamd = new SqlCommand();            
+            commamd.Parameters.AddWithValue("@andered", _Request.deEntry.AnderenRedenVoorAfwezigihijd);
+            commamd.Parameters.AddWithValue("@verwachtetijdvana", _Request.deEntry.Verwachtetijdvanaanwezighijd);
             if (_Request.isNieuwEntry) {
-
+                commamd.CommandText=$"insert into {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} ({DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated}, {DatabaseTypesAndFunctions.RegistratieTableNames.Date}, {DatabaseTypesAndFunctions.RegistratieTableNames.TimeInteken}, {DatabaseTypesAndFunctions.RegistratieTableNames.TimeUitteken}, {DatabaseTypesAndFunctions.RegistratieTableNames.HeeftIngetekend}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsZiek}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsFlexibelverlof}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsStudieverlof}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsExcursie},{DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat}, {DatabaseTypesAndFunctions.RegistratieTableNames.IsAndereReden}, {DatabaseTypesAndFunctions.RegistratieTableNames.Verwachtetijdvanaanwezighijd}) values ({_Request.deEntry.IDOfUserRelated}, cast('{_Request.deEntry.Date}' as date), cast('{_Request.deEntry.TimeInteken}' as time), cast('{_Request.deEntry.TimeUitteken}' as time), cast('{_Request.deEntry.HeeftIngetekend}' as bit), cast('{_Request.deEntry.IsAanwezig}' as bit), cast('{_Request.deEntry.IsZiek}' as bit),cast('{_Request.deEntry.IsFlexiebelverlof}' as bit), cast('{_Request.deEntry.IsStudieverlof}' as bit), cast('{_Request.deEntry.IsExcurtie}' as bit), cast('{_Request.deEntry.IsLaat}' as bit), cast('{_Request.deEntry.IsAanwezig}' as bit),@andered,@verwachtetijdvana)";
             } else {
-
+                commamd.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_Request.deEntry.IDOfUserRelated}, {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast('{_Request.deEntry.Date}' as date), {DatabaseTypesAndFunctions.RegistratieTableNames.TimeInteken} = cast('{_Request.deEntry.TimeInteken}' as time), {DatabaseTypesAndFunctions.RegistratieTableNames.TimeUitteken} = cast('{_Request.deEntry.TimeUitteken}' as time), {DatabaseTypesAndFunctions.RegistratieTableNames.HeeftIngetekend} = cast('{_Request.deEntry.HeeftIngetekend}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsZiek} = cast('{_Request.deEntry.IsZiek}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsFlexibelverlof} = cast('{_Request.deEntry.IsFlexiebelverlof}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsStudieverlof} = cast('{_Request.deEntry.IsStudieverlof}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsExcursie} = cast('{_Request.deEntry.IsExcurtie}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = cast('{_Request.deEntry.IsLaat}' as bit), {DatabaseTypesAndFunctions.RegistratieTableNames.AnderenRedenVoorAfwezighijd} = @andered, {DatabaseTypesAndFunctions.RegistratieTableNames.Verwachtetijdvanaanwezighijd} = @verwachtetijdvana where {DatabaseTypesAndFunctions.RegistratieTableNames.ID} = {_Request.deEntry.ID}";
             }
             return toReturn;
         }
