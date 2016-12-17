@@ -9,8 +9,8 @@ namespace NewCrossFunctions {
     public class DatabaseTypesAndFunctions {
 
         public class CombineerUserEntryRegEntryAndAfwezigEntry {
-            public RegistratieTableTableEntry regE { get; set; }
-            public UserTableTableEntry userN { get; set; }
+            public RegistratieTableTableEntry regE { get; set; } = new RegistratieTableTableEntry();
+            public UserTableTableEntry userN { get; set; } = new UserTableTableEntry();
             public bool hasTodayRegEntry { get; set; } = false;
         }
 

@@ -9,16 +9,13 @@ using Newtonsoft.Json.Linq;
 using NewApi.Models;
 using System.Data.SqlClient;
 
-namespace NewApi.Controllers
-{
-    public class IntekenSysController : ApiController
-    {//jaja client krijgt json sting in een json......
+namespace NewApi.Controllers {
+    public class IntekenSysController : ApiController {
 
         DatabaseTypesAndFunctions _DatabaseTypesAndFunctions = new DatabaseTypesAndFunctions();
 
         [HttpGet]
-        public NetComunicationTypesAndFunctions.ServerResponse Indax()
-        {
+        public NetComunicationTypesAndFunctions.ServerResponse Indax() {
             return returnMetStr(IntekenSysFunctions.GetDateTimeFromSqlDatabase());
         }
 
@@ -44,15 +41,13 @@ namespace NewApi.Controllers
                 command.Parameters.AddWithValue("@password", request.Password);
                 command.CommandText=$"select * from {DatabaseTypesAndFunctions.AcountsTableNames.AcountsTableName} where {DatabaseTypesAndFunctions.AcountsTableNames.inlogNaam} = @username and {DatabaseTypesAndFunctions.AcountsTableNames.inlogWachtwoord} = @password";
                 List<DatabaseTypesAndFunctions.AcountTableEntry> verifyMaster = _DatabaseTypesAndFunctions.GetListAcountTableEntriesFromDataTable(SqlDingusEnUserRechten.SQLQuery(command));
-                if(!(verifyMaster.Count>0)) {
+                if (!(verifyMaster.Count>0)) {
                     throw new Exception("Incorrect Username/Password");
                 }
-
                 DatabaseTypesAndFunctions.AcountTableEntry MasterRightsEntry = verifyMaster[0];
-                JObject baylife = JObject.Parse(Serilalise(request.Request)); //nandake>
+                JObject baylife = JObject.Parse(Serilalise(request.Request)); //nandakke>
                 string instructions = Serilalise(request.Request);
-                
-                switch((NetComunicationTypesAndFunctions.WhatIsThisEnum)Enum.Parse(typeof(NetComunicationTypesAndFunctions.WhatIsThisEnum), (string)baylife["WatIsDit"])) {
+                switch ((NetComunicationTypesAndFunctions.WhatIsThisEnum)Enum.Parse(typeof(NetComunicationTypesAndFunctions.WhatIsThisEnum), (string)baylife["WatIsDit"])) {
                     case NetComunicationTypesAndFunctions.WhatIsThisEnum.RSqlServerDateTime:
                         return returnMetStr(IntekenSysFunctions.GetDateTimeFromSqlDatabase());
                     case NetComunicationTypesAndFunctions.WhatIsThisEnum.RInteken:
@@ -60,15 +55,15 @@ namespace NewApi.Controllers
                     case NetComunicationTypesAndFunctions.WhatIsThisEnum.ROneDateRegiOverzight:
                         return returnMetStr(IntekenSysFunctions.overzight(MasterRightsEntry, Deserialise<NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate>(instructions)));
                     case NetComunicationTypesAndFunctions.WhatIsThisEnum.RChangeRegTable:
-                        return returnMetStr(IntekenSysFunctions.ChangeRegistatieTable(MasterRightsEntry, Deserialise<NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable>(instructions)));   
+                        return returnMetStr(IntekenSysFunctions.ChangeRegistatieTable(MasterRightsEntry, Deserialise<NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable>(instructions)));
                 }
                 throw new Exception("no instruction");
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 NetComunicationTypesAndFunctions.ServerResponse toReturn = new NetComunicationTypesAndFunctions.ServerResponse();
                 toReturn.IsErrorOcurred=true;
                 toReturn.ErrorInfo.ErrorMessage=ex.Message;
                 return toReturn;
-            }            
+            }
         }
     }
 }

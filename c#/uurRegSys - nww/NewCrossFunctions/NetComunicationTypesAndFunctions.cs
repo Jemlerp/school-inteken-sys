@@ -70,13 +70,12 @@ namespace NewCrossFunctions {
         }
 
         public class ServerResponseInteken {
-            public DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry TheUserWithEntryInfo { get; set; }
-            public bool ingetekened { get; set; } = false;
-            public bool uitgetekened { get; set; } = false;
-            public bool uitekenengeanuleerd { get; set; } = false;
+            public DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry TheUserWithEntryInfo { get; set; } = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
+            public bool ingetekened { get; set; } // is nu 3
+            public bool uitgetekened { get; set; } // is nu 1
+            public bool uitekenengeanuleerd { get; set; } // in nu 2
             // deze week uur (tekort:D) overzight>?
         }
-
 
         public class ServerRequestOverzightFromOneDate : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ROneDateRegiOverzight; } }
@@ -84,8 +83,9 @@ namespace NewCrossFunctions {
             public DateTime dateToGetOverzightFrom { get; set; } = new DateTime();
         }
 
-        public class ServerResponseUsersOverzightFromOneDate {
-           public List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; }
+        public class ServerResponseOverzightFromOneDate {
+            public List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; } = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
+           public DateTime SQlDateTime { get;set; }
         }
 
 

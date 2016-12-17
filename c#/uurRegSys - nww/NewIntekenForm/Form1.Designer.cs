@@ -36,6 +36,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxApiAddres = new System.Windows.Forms.TextBox();
+            this.checkBoxStartWindowed = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -44,9 +45,9 @@
             // buttonStart
             // 
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStart.Location = new System.Drawing.Point(12, 163);
+            this.buttonStart.Location = new System.Drawing.Point(12, 156);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(211, 63);
+            this.buttonStart.Size = new System.Drawing.Size(222, 51);
             this.buttonStart.TabIndex = 0;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
@@ -89,7 +90,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 145);
+            this.panel1.Size = new System.Drawing.Size(222, 138);
             this.panel1.TabIndex = 4;
             // 
             // panel2
@@ -167,11 +168,22 @@
             this.textBoxApiAddres.TabIndex = 0;
             this.textBoxApiAddres.Text = "http://localhost:52484/api/intekensys";
             // 
+            // checkBoxStartWindowed
+            // 
+            this.checkBoxStartWindowed.AutoSize = true;
+            this.checkBoxStartWindowed.Location = new System.Drawing.Point(12, 213);
+            this.checkBoxStartWindowed.Name = "checkBoxStartWindowed";
+            this.checkBoxStartWindowed.Size = new System.Drawing.Size(132, 17);
+            this.checkBoxStartWindowed.TabIndex = 7;
+            this.checkBoxStartWindowed.Text = "Start In Window Mode";
+            this.checkBoxStartWindowed.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 262);
+            this.ClientSize = new System.Drawing.Size(602, 237);
+            this.Controls.Add(this.checkBoxStartWindowed);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -187,6 +199,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,6 +218,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxApiAddres;
+        private System.Windows.Forms.CheckBox checkBoxStartWindowed;
     }
 }
 

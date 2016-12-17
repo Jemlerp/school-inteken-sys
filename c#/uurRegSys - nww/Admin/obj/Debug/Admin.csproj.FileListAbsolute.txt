@@ -25,7 +25,6 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\funcZ.pdb
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\Newtonsoft.Json.xml
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.Form1.resources
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.getNFCIDFromSerial.resources
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.MangeAanEnAfWezighijdTable.resources
@@ -35,3 +34,4 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.csproj.GenerateResource.Cache
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.exe
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache

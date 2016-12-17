@@ -16,23 +16,26 @@ namespace NewCrossFunctions {
                     if (y==x) { eetEenUi+=x; break; }
                 }
             }
-            return eetEenUi.TrimStart();
+            return eetEenUi.Trim();
         }
 
-        public DataTable listToDataTableForDisplay(List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> _UserAndRegEntrys, DateTime _CurrentSQlDateTime) {
+        public static DataTable UserInfoListToDataTableForDataGridDisplay(List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> _UserAndRegEntrys, DateTime _CurrentSQlDateTime) {
             DataTable ToReturn = new DataTable();
             ToReturn.Columns.Add("Voornaam");
             ToReturn.Columns.Add("Achternaam");
             ToReturn.Columns.Add("TijdIn");
             ToReturn.Columns.Add("TijdUit");
             ToReturn.Columns.Add("Totaal");
+            string Voornaam = "Voornaam";
+            string Achternaam = "Achternaam";
+            string TijdIn = "TijdIn";
+            string TijdUit = "TijdUit";
+            string Totaal = "Totaal";
             foreach (var entry in _UserAndRegEntrys) {
                 DataRow row = ToReturn.NewRow();
-                row["VoorNaam"]=entry.userN.VoorNaam;
-                row["AchterNaam"]=entry.userN.AchterNaam;
-                if (entry.hasTodayRegEntry) {                   
-
-                    //laat zien dat je in sys staat dat je afwezig bent
+                row[Voornaam]=entry.userN.VoorNaam;
+                row[Achternaam]=entry.userN.AchterNaam;
+                if (entry.hasTodayRegEntry) {
                     string watAfwezig = "";
                     bool erIsEenAfwezigNotatie = false;
                     if (entry.regE.IsZiek) {
@@ -42,106 +45,38 @@ namespace NewCrossFunctions {
                         watAfwezig="FV";
                     }
                     if (entry.regE.IsStudieverlof) {
-
+                        watAfwezig="SF";
                     }
                     if (entry.regE.IsExcurtie) {
-
+                        watAfwezig="EX";
                     }
                     if (entry.regE.IsLaat) {
-
+                        watAfwezig="Laat : "+entry.regE.Verwachtetijdvanaanwezighijd;
                     }
                     if (entry.regE.IsAndereReden) {
-
+                        watAfwezig="x : "+entry.regE.AnderenRedenVoorAfwezigihijd;
                     }
-                    if(watAfwezig !="") { erIsEenAfwezigNotatie=true; } else {
-                        row["TijdIn"]=watAfwezig;
-                        row["tijdUit"]=watAfwezig;
-                        row["Totaal"]=watAfwezig;
+                    if (watAfwezig!="") {
+                        erIsEenAfwezigNotatie=true;
+                        row[TijdIn]=watAfwezig;
+                        row[TijdUit]=watAfwezig;
+                        row[Totaal]=watAfwezig;
                     }
-
-                    
-                    
-
-
-                }
-
-
-
-                if (entry.hasTodayRegEntry) {
                     if (entry.regE.HeeftIngetekend) {
+                        row[TijdIn]=entry.regE.TimeInteken.ToString("hh\\:mm");
                         if (entry.regE.IsAanwezig) {
-                            //totaal = in tot nu
-                            row["TijdIn"]=entry.regE.TimeInteken.ToString("hh\\:mm");
-                            row["Totaal"]=_CurrentSQlDateTime.TimeOfDay.Subtract(entry.regE.TimeInteken);
+                            if (!erIsEenAfwezigNotatie) {
+                                row[Totaal]=_CurrentSQlDateTime.TimeOfDay.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
+                            }
                         } else {
-                            //totaal= in tot uiteken
-                            row["TijdIn"]=entry.regE.TimeInteken.ToString("hh\\:mm");
-                            row["TijdUit"]=entry.regE.TimeUitteken.ToString("hh\\:mm");
-                            row["Totaal"]=entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
+                            row[TijdUit]=entry.regE.TimeUitteken.ToString("hh\\:mm");
+                            if (!erIsEenAfwezigNotatie) {
+                                row[Totaal]=entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
+                            }
                         }
-                    } else {
-                        //show afwezig reden
-                        string redenToShow = "";
-                        if (entry.regE.IsZiek) {
-                            redenToShow="Z";
-                        }
-                        if (entry.regE.IsFlexiebelverlof) {
-                            redenToShow="FV";
-                        }
-                        if (entry.regE.IsStudieverlof) {
-                            
-                        }
-                        if (entry.regE.IsExcurtie) {
-
-                        }
-                        if (entry.regE.IsLaat) {
-
-                        }
-                        if (entry.regE.IsAndereReden) {
-
-                        }
-
-                    }                    
+                    }
                 }
-                         
-                //DataRow row = ToReturn.NewRow();
-                //row["voornaam"]=entry.userN.VoorNaam;
-                //row["achternaam"]=entry.userN.AchterNaam;
-                //if (entry.hasTodayRegEntry) {
-                //    string warom = "";
-                //    if (entry.regE.IsAndereReden) { warom="xxx : "+entry.regE.AnderenRedenVoorAfwezigihijd; }
-                //    if (entry.regE.IsExcurtie) { warom="EX"; }
-                //    if (entry.regE.IsFlexiebelverlof) { warom="FV"; }
-                //    if (entry.regE.IsStudieverlof) { warom="SV"; }
-                //    if (entry.regE.IsZiek) { warom="Z"; }
-                //    if (entry.regE.IsLaat) { warom="L : "+entry.regE.Verwachtetijdvanaanwezighijd; }
-
-                //    row["tijdIn"]=warom;
-                //    row["tijdUit"]=warom;
-                //    row["Totaal"]=warom;
-
-                //    if (entry.hasTodayRegEntry) {
-                //        row["tijdIn"]+=" "+entry.regE.TimeInteken.ToString("hh\\:mm");
-                //        if (entry.regE.TimeUitteken!=null&&!entry.regE.IsAanwezig) {
-                //            row["tijdUit"]+=" "+entry.regE.TimeUitteken.ToString("hh\\:mm");
-                //            row["Totaal"]+=" "+entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString();
-                //        } else {
-                //            row["Totaal"]+=" "+_SERVERDATETIME.TimeOfDay.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
-                //        }
-                //    }
-
-                //} else {
-                //    if (entry.hasTodayRegEntry) {
-                //        row["tijdIn"]=entry.regE.TimeInteken.ToString("hh\\:mm");
-                //        if (entry.regE.TimeUitteken!=null&&!entry.regE.IsAanwezig) {
-                //            row["tijdUit"]=entry.regE.TimeUitteken.ToString("hh\\:mm");
-                //            row["Totaal"]=entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString();
-                //        } else {
-                //            row["Totaal"]=_SERVERDATETIME.TimeOfDay.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
-                //        }
-                //    }
-                // }
-                //ToReturn.Rows.Add(row);
+                ToReturn.Rows.Add(row);
             }
             return ToReturn;
         }

@@ -20,21 +20,29 @@ namespace NewIntekenForm {
         private void buttonStart_Click(object sender, EventArgs e) {
             //test server connection/login gegevens
             try {
-                NetComunicationTypesAndFunctions.ServerResponse response = NetComunicationTypesAndFunctions.WebRequest(new NetComunicationTypesAndFunctions.ServerRequestSqlDateTime(),textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
+                NetComunicationTypesAndFunctions.ServerResponse response = NetComunicationTypesAndFunctions.WebRequest(new NetComunicationTypesAndFunctions.ServerRequestSqlDateTime(), textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
                 if (response.IsErrorOcurred) {
-                    throw new Exception(response.ErrorInfo.ErrorMessage);
-                }                
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                    if (MessageBox.Show(response.ErrorInfo.ErrorMessage, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop)==DialogResult.Retry) {
+                        buttonStart_Click(null, null);
+                    } else {
+                        return;
+                    }
+                }
+            } catch {
+                if (MessageBox.Show("Kan Niet Met Server Verbinden", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop)==DialogResult.Retry) {
+                    buttonStart_Click(null, null);
+                } else {
+                    return;
+                }
                 return;
             }
 
             //do
             try {
-                ArrrrFormcs form = new ArrrrFormcs((string)listBox1.SelectedItem, textBoxApiAddres.Text,textBoxUserName.Text, textBoxPassword.Text);
+                ArrrrFormcs form = new ArrrrFormcs((string)listBox1.SelectedItem, textBoxApiAddres.Text, textBoxUserName.Text, textBoxPassword.Text,checkBoxStartWindowed.Checked);
                 Visible=false;
                 form.ShowDialog();
-            }catch(Exception ex) {
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
 
