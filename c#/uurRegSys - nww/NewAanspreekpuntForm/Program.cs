@@ -13,7 +13,7 @@ namespace NewAanspreekpuntForm {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ErrrrForm());
+            Application.Run(new Form1());
         }
     }
 }

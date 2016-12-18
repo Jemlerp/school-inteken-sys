@@ -51,10 +51,10 @@ namespace NewCrossFunctions {
                         watAfwezig="EX";
                     }
                     if (entry.regE.IsLaat) {
-                        watAfwezig="Laat : "+entry.regE.Verwachtetijdvanaanwezighijd;
+                        watAfwezig="Laat : "+entry.regE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss");
                     }
                     if (entry.regE.IsAndereReden) {
-                        watAfwezig="x : "+entry.regE.AnderenRedenVoorAfwezigihijd;
+                        watAfwezig="x : "+entry.regE.Opmerking;
                     }
                     if (watAfwezig!="") {
                         erIsEenAfwezigNotatie=true;
@@ -66,12 +66,12 @@ namespace NewCrossFunctions {
                         row[TijdIn]=entry.regE.TimeInteken.ToString("hh\\:mm");
                         if (entry.regE.IsAanwezig) {
                             if (!erIsEenAfwezigNotatie) {
-                                row[Totaal]=_CurrentSQlDateTime.TimeOfDay.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
+                                row[Totaal]=_CurrentSQlDateTime.TimeOfDay.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm\\:ss\\.fff");
                             }
                         } else {
                             row[TijdUit]=entry.regE.TimeUitteken.ToString("hh\\:mm");
                             if (!erIsEenAfwezigNotatie) {
-                                row[Totaal]=entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm");
+                                row[Totaal]=entry.regE.TimeUitteken.Subtract(entry.regE.TimeInteken).ToString("hh\\:mm\\:ss\\.fff");
                             }
                         }
                     }

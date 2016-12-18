@@ -1,9 +1,0 @@
-c:\users\jelmer\documents\visual studio 2015\Projects\uurRegSys\toegangpunt\bin\Debug\toegangpunt.exe.config
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\bin\Debug\toegangpunt.exe
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\bin\Debug\toegangpunt.pdb
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\obj\Debug\toegangpunt.csprojResolveAssemblyReference.cache
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\obj\Debug\toegangpunt.Form1.resources
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\obj\Debug\toegangpunt.Properties.Resources.resources
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\obj\Debug\toegangpunt.csproj.GenerateResource.Cache
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\obj\Debug\toegangpunt.exe
-C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\uurRegSys\toegangpunt\obj\Debug\toegangpunt.pdb

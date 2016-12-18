@@ -88,7 +88,6 @@ namespace NewCrossFunctions {
            public DateTime SQlDateTime { get;set; }
         }
 
-
         public class ServerRequestChangeRegistratieTable : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RChangeRegTable; } }
             public bool isNieuwEntry { get; set; } = false; //als true ignore DatabaseTypesAndFunctions.RegistratieTableTableEntry.ID

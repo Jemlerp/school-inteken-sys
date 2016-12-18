@@ -130,6 +130,7 @@ namespace NewIntekenForm {
 
                         returnedValue=JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate>(JsonConvert.SerializeObject(response.Response));
                         dataGridView1.DataSource=ForFormHelperFunctions.UserInfoListToDataTableForDataGridDisplay(returnedValue.EtList, returnedValue.SQlDateTime);
+                        dataGridView1.Refresh();
                         _LastRecivedOverzight=returnedValue.EtList;
 
                         //--

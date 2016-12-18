@@ -7,4 +7,9 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspre
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.csproj.GenerateResource.Cache
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.exe
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.ErrrrForm.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.Form1.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewCrossFunctions.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewCrossFunctions.pdb
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.csprojResolveAssemblyReference.cache
