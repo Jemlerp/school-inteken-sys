@@ -108,7 +108,6 @@ namespace NewCrossFunctions {
             public static string IsStudieverlof = "IsStudieverlof";
             public static string IsExcursie = "IsExursie";
             public static string IsLaat = "IsLaat";
-            public static string IsAndereReden = "IsAndereReden";
             public static string Opmerking = "Opmerking";
             public static string Verwachtetijdvanaanwezighijd = "VerwachtetijdVanaanwezighijd";
         }
@@ -125,7 +124,6 @@ namespace NewCrossFunctions {
             public bool IsStudieverlof { get; set; } = false;
             public bool IsExcurtie { get; set; } = false;
             public bool IsLaat { get; set; } = false;
-            public bool IsAndereReden { get; set; } = false;
             public string Opmerking { get; set; } = "";
             public TimeSpan Verwachtetijdvanaanwezighijd { get; set; }
         }
@@ -142,8 +140,7 @@ namespace NewCrossFunctions {
             if (row.Table.Columns.Contains(RegistratieTableNames.IsFlexibelverlof)) { if (row[RegistratieTableNames.IsFlexibelverlof]!=DBNull.Value) toReturn.IsFlexiebelverlof=(bool)row[RegistratieTableNames.IsFlexibelverlof]; }
             if (row.Table.Columns.Contains(RegistratieTableNames.IsStudieverlof)) { if (row[RegistratieTableNames.IsStudieverlof]!=DBNull.Value) toReturn.IsStudieverlof=(bool)row[RegistratieTableNames.IsStudieverlof]; }
             if (row.Table.Columns.Contains(RegistratieTableNames.IsZiek)) { if (row[RegistratieTableNames.IsZiek]!=DBNull.Value) toReturn.IsZiek=(bool)row[RegistratieTableNames.IsZiek]; }
-            if (row.Table.Columns.Contains(RegistratieTableNames.IsLaat)) { if (row[RegistratieTableNames.IsLaat]!=DBNull.Value) toReturn.IsLaat=(bool)row[RegistratieTableNames.IsLaat]; }
-            if (row.Table.Columns.Contains(RegistratieTableNames.IsAndereReden)) { if (row[RegistratieTableNames.IsAndereReden]!=DBNull.Value) toReturn.IsAndereReden=(bool)row[RegistratieTableNames.IsAndereReden]; }
+            if (row.Table.Columns.Contains(RegistratieTableNames.IsLaat)) { if (row[RegistratieTableNames.IsLaat]!=DBNull.Value) toReturn.IsLaat=(bool)row[RegistratieTableNames.IsLaat]; }           
             if (row.Table.Columns.Contains(RegistratieTableNames.Opmerking)) { if (row[RegistratieTableNames.Opmerking]!=DBNull.Value) toReturn.Opmerking=(string)row[RegistratieTableNames.Opmerking]; }
             if (row.Table.Columns.Contains(RegistratieTableNames.Verwachtetijdvanaanwezighijd)) { if (row[RegistratieTableNames.Verwachtetijdvanaanwezighijd]!=DBNull.Value) toReturn.Verwachtetijdvanaanwezighijd=(TimeSpan)row[RegistratieTableNames.Verwachtetijdvanaanwezighijd]; }
             return toReturn;

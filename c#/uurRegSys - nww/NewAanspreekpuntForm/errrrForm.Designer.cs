@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerTimeUit = new System.Windows.Forms.DateTimePicker();
@@ -49,12 +49,13 @@
             this.dateTimePickerSeDateToListTo = new System.Windows.Forms.DateTimePicker();
             this.checkBoxHeefAfwezigReden = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePickerVerwachteTijdVanAankomst = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonDisableNoodMode = new System.Windows.Forms.Button();
-            this.dateTimePickerVerwachteTijdVanAankomst = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
+            this.buttonClearInEnUitTeken = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -183,14 +184,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -236,8 +237,7 @@
             "Ziek",
             "StudieVerlof",
             "FlexibelVerlof",
-            "Excursie",
-            "Andere Reden"});
+            "Excursie"});
             this.comboBoxRedenAfwezig.Location = new System.Drawing.Point(12, 192);
             this.comboBoxRedenAfwezig.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxRedenAfwezig.Name = "comboBoxRedenAfwezig";
@@ -298,7 +298,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.dateTimePickerSeDateToListTo);
             this.panel1.Controls.Add(this.checkBoxSeUserTodayAsDate);
-            this.panel1.Location = new System.Drawing.Point(132, 3);
+            this.panel1.Location = new System.Drawing.Point(145, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(197, 135);
             this.panel1.TabIndex = 28;
@@ -332,6 +332,7 @@
             this.dateTimePickerSeDateToListTo.Name = "dateTimePickerSeDateToListTo";
             this.dateTimePickerSeDateToListTo.Size = new System.Drawing.Size(181, 26);
             this.dateTimePickerSeDateToListTo.TabIndex = 28;
+            this.dateTimePickerSeDateToListTo.ValueChanged += new System.EventHandler(this.dateTimePickerSeDateToListTo_ValueChanged);
             // 
             // checkBoxHeefAfwezigReden
             // 
@@ -348,6 +349,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.Info;
+            this.panel7.Controls.Add(this.buttonClearInEnUitTeken);
             this.panel7.Controls.Add(this.label10);
             this.panel7.Controls.Add(this.dateTimePickerVerwachteTijdVanAankomst);
             this.panel7.Controls.Add(this.buttonSave);
@@ -362,8 +364,30 @@
             this.panel7.Controls.Add(this.dateTimePickerTimeUit);
             this.panel7.Location = new System.Drawing.Point(16, 351);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(252, 447);
+            this.panel7.Size = new System.Drawing.Size(326, 447);
             this.panel7.TabIndex = 26;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 231);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(204, 18);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Verwachte Tijd Van Aankomst";
+            // 
+            // dateTimePickerVerwachteTijdVanAankomst
+            // 
+            this.dateTimePickerVerwachteTijdVanAankomst.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerVerwachteTijdVanAankomst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerVerwachteTijdVanAankomst.Location = new System.Drawing.Point(12, 252);
+            this.dateTimePickerVerwachteTijdVanAankomst.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePickerVerwachteTijdVanAankomst.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerVerwachteTijdVanAankomst.Name = "dateTimePickerVerwachteTijdVanAankomst";
+            this.dateTimePickerVerwachteTijdVanAankomst.Size = new System.Drawing.Size(201, 29);
+            this.dateTimePickerVerwachteTijdVanAankomst.TabIndex = 28;
             // 
             // buttonSave
             // 
@@ -373,6 +397,7 @@
             this.buttonSave.TabIndex = 27;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // button4
             // 
@@ -405,41 +430,31 @@
             // 
             // buttonDisableNoodMode
             // 
-            this.buttonDisableNoodMode.Location = new System.Drawing.Point(1055, 217);
+            this.buttonDisableNoodMode.Location = new System.Drawing.Point(656, 249);
             this.buttonDisableNoodMode.Name = "buttonDisableNoodMode";
-            this.buttonDisableNoodMode.Size = new System.Drawing.Size(165, 166);
+            this.buttonDisableNoodMode.Size = new System.Drawing.Size(294, 166);
             this.buttonDisableNoodMode.TabIndex = 31;
             this.buttonDisableNoodMode.Text = "Disable Nood Mode";
             this.buttonDisableNoodMode.UseVisualStyleBackColor = true;
             this.buttonDisableNoodMode.Visible = false;
+            this.buttonDisableNoodMode.Click += new System.EventHandler(this.buttonDisableNoodMode_Click);
             // 
-            // dateTimePickerVerwachteTijdVanAankomst
+            // buttonClearInEnUitTeken
             // 
-            this.dateTimePickerVerwachteTijdVanAankomst.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerVerwachteTijdVanAankomst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerVerwachteTijdVanAankomst.Location = new System.Drawing.Point(12, 252);
-            this.dateTimePickerVerwachteTijdVanAankomst.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerVerwachteTijdVanAankomst.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
-            this.dateTimePickerVerwachteTijdVanAankomst.Name = "dateTimePickerVerwachteTijdVanAankomst";
-            this.dateTimePickerVerwachteTijdVanAankomst.Size = new System.Drawing.Size(201, 29);
-            this.dateTimePickerVerwachteTijdVanAankomst.TabIndex = 28;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 231);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(204, 18);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Verwachte Tijd Van Aankomst";
+            this.buttonClearInEnUitTeken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClearInEnUitTeken.Location = new System.Drawing.Point(235, 31);
+            this.buttonClearInEnUitTeken.Name = "buttonClearInEnUitTeken";
+            this.buttonClearInEnUitTeken.Size = new System.Drawing.Size(75, 86);
+            this.buttonClearInEnUitTeken.TabIndex = 30;
+            this.buttonClearInEnUitTeken.Text = "Clear In/Uitteken";
+            this.buttonClearInEnUitTeken.UseVisualStyleBackColor = true;
+            this.buttonClearInEnUitTeken.Click += new System.EventHandler(this.buttonClearInEnUitTeken_Click);
             // 
             // ErrrrForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 827);
+            this.ClientSize = new System.Drawing.Size(998, 827);
             this.Controls.Add(this.buttonDisableNoodMode);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
@@ -489,6 +504,7 @@
         private System.Windows.Forms.Button buttonDisableNoodMode;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePickerVerwachteTijdVanAankomst;
+        private System.Windows.Forms.Button buttonClearInEnUitTeken;
     }
 }
 

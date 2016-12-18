@@ -53,14 +53,17 @@ namespace NewCrossFunctions {
                     if (entry.regE.IsLaat) {
                         watAfwezig="Laat : "+entry.regE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss");
                     }
-                    if (entry.regE.IsAndereReden) {
-                        watAfwezig="x : "+entry.regE.Opmerking;
-                    }
                     if (watAfwezig!="") {
                         erIsEenAfwezigNotatie=true;
                         row[TijdIn]=watAfwezig;
                         row[TijdUit]=watAfwezig;
                         row[Totaal]=watAfwezig;
+                    } else {
+                        if (!entry.regE.HeeftIngetekend) {
+                            row[TijdIn]=entry.regE.Opmerking;
+                            row[TijdUit]=entry.regE.Opmerking;
+                            row[Totaal]=entry.regE.Opmerking;
+                        }
                     }
                     if (entry.regE.HeeftIngetekend) {
                         row[TijdIn]=entry.regE.TimeInteken.ToString("hh\\:mm");
@@ -82,3 +85,4 @@ namespace NewCrossFunctions {
         }
     }
 }
+

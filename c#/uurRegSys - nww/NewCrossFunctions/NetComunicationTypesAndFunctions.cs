@@ -80,7 +80,8 @@ namespace NewCrossFunctions {
         public class ServerRequestOverzightFromOneDate : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ROneDateRegiOverzight; } }
             public bool useToday { get; set; } = false;
-            public DateTime dateToGetOverzightFrom { get; set; } = new DateTime();
+            public bool alsoReturnExUsers { get; set; } = false;
+            public DateTime dateToGetOverzightFrom { get; set; }
         }
 
         public class ServerResponseOverzightFromOneDate {
@@ -91,11 +92,12 @@ namespace NewCrossFunctions {
         public class ServerRequestChangeRegistratieTable : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RChangeRegTable; } }
             public bool isNieuwEntry { get; set; } = false; //als true ignore DatabaseTypesAndFunctions.RegistratieTableTableEntry.ID
-            public DatabaseTypesAndFunctions.RegistratieTableTableEntry deEntry { get; set; }
+            public bool newEntryDateIsToday { get; set; } = true;
+            public DatabaseTypesAndFunctions.RegistratieTableTableEntry deEntry { get; set; } = new DatabaseTypesAndFunctions.RegistratieTableTableEntry();
         }
 
         public class ServerResponseChangeRegistratieTable {
-            public DatabaseTypesAndFunctions.RegistratieTableTableEntry deEntry { get; set; } // voor DatabaseTypesAndFunctions.RegistratieTableTableEntry.ID als het nietuw as
+            //public DatabaseTypesAndFunctions.RegistratieTableTableEntry deEntry { get; set; } // voor DatabaseTypesAndFunctions.RegistratieTableTableEntry.ID als het nietuw as //SCOPE_IDENTITY() wwerrk nie
         }
 
     }

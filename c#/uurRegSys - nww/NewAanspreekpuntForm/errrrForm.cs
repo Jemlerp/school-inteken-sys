@@ -44,6 +44,7 @@ namespace NewAanspreekpuntForm {
             buttonDisableNoodMode.Visible=false;
             panel2.Visible=true;
             this.BackColor=Color.Yellow; //times are outdated
+            panel2.BackColor=Color.Yellow;
             _TimerReloadOverzicht.Start();
             ReloadOverzight();
         }
@@ -59,6 +60,7 @@ namespace NewAanspreekpuntForm {
             textBoxOpmerking.Enabled=false;
             checkBoxHeefAfwezigReden.Checked=false;
             dateTimePickerVerwachteTijdVanAankomst.Enabled=false;
+            buttonClearInEnUitTeken.Enabled=false;
         }
 
         private void ErrrrForm_Load(object sender, EventArgs e) {
@@ -77,6 +79,7 @@ namespace NewAanspreekpuntForm {
             dateTimePickerVerwachteTijdVanAankomst.CustomFormat="HH:mm:ss";
             dateTimePickerVerwachteTijdVanAankomst.Format=System.Windows.Forms.DateTimePickerFormat.Custom;
 
+            comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[1];
             ReloadOverzight();
         }
 
@@ -85,9 +88,13 @@ namespace NewAanspreekpuntForm {
         }
 
         void ReloadOverzight_Event(object ja, object nee) {
-            _IsInUpdateDontClearEditScreen=true;
-            BeginInvoke(new updateOverzichtDelegate(ReloadOverzight));
-            _IsInUpdateDontClearEditScreen=false;
+            try {
+                _IsInUpdateDontClearEditScreen=true;
+                BeginInvoke(new updateOverzichtDelegate(ReloadOverzight));
+                _IsInUpdateDontClearEditScreen=false;
+            } catch {
+                try { _IsInUpdateDontClearEditScreen=false; } catch { }
+            }
         }
 
         void ReloadOverzight() {
@@ -105,6 +112,9 @@ namespace NewAanspreekpuntForm {
                         request.useToday=false;
                         request.dateToGetOverzightFrom=dateTimePickerSeDateToListTo.Value;
                     }
+                    if (checkBoxSeShowExUsers.Checked) {
+                        request.alsoReturnExUsers=true;
+                    }
                     NetComunicationTypesAndFunctions.ServerResponse response;
                     try {
                         Stopwatch sw = new Stopwatch();
@@ -116,11 +126,11 @@ namespace NewAanspreekpuntForm {
                             enableNoodModus();
                         } else {
                             this.BackColor=Color.Yellow;//times are outdated
+                            panel2.BackColor=Color.Yellow;
                         }
                         _TimerReloadOverzicht.Start();
                         return;
                     }
-                    this.BackColor=SystemColors.Control;
                     NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate returnedValue;
                     if (response.IsErrorOcurred) {
                         throw new Exception(response.ErrorInfo.ErrorMessage);
@@ -156,6 +166,8 @@ namespace NewAanspreekpuntForm {
                             dataGridView1.DataSource=ForFormHelperFunctions.UserInfoListToDataTableForDataGridDisplay(sortedList, returnedValue.SQlDateTime);
                             dataGridView1.Refresh();
                         }
+                        this.BackColor=SystemColors.Control; // times are uptodate
+                        panel2.BackColor=SystemColors.Control;
                         //--
                         if (_oldSortCol!=null) {
                             DataGridViewColumn newCol = dataGridView1.Columns[_oldSortCol.Name];
@@ -200,42 +212,39 @@ namespace NewAanspreekpuntForm {
                 buttonSave.Enabled=true;
                 textBoxOpmerking.Enabled=true;
                 //enable buttons / set values
-               
 
                 if (selectedUserData.hasTodayRegEntry) {
                     buttonSave.Enabled=true;
+                    textBoxOpmerking.Text=selectedUserData.regE.Opmerking;
+                    textBoxOpmerking.Enabled=true;
 
                     //select item in dropdown
                     bool erIsEenAfwezigNotatie = true;
                     if (selectedUserData.regE.IsZiek) {
-                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[2];
+                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[1];
                     } else
                     if (selectedUserData.regE.IsFlexiebelverlof) {
-                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[4];
-                    } else
-                    if (selectedUserData.regE.IsStudieverlof) {
                         comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[3];
                     } else
+                    if (selectedUserData.regE.IsStudieverlof) {
+                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[2];
+                    } else
                     if (selectedUserData.regE.IsExcurtie) {
-                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[5];
+                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[4];
                     } else
                     if (selectedUserData.regE.IsLaat) {
-                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[1];
+                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[0];
                         dateTimePickerVerwachteTijdVanAankomst.Value=Convert.ToDateTime(selectedUserData.regE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss"));
-                    } else
-                    if (selectedUserData.regE.IsAndereReden) {
-                        comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[6];
-                        textBoxOpmerking.Text=selectedUserData.regE.Opmerking;
                     } else {
                         erIsEenAfwezigNotatie=false;
                     }
 
                     if (erIsEenAfwezigNotatie) {
                         checkBoxHeefAfwezigReden.Checked=true;
-                        textBoxOpmerking.Enabled=true;
                     }
 
                     if (selectedUserData.regE.HeeftIngetekend) {
+                        buttonClearInEnUitTeken.Enabled=true;
                         dateTimePickerTijdIn.Enabled=true;
                         dateTimePickerTijdIn.Value=Convert.ToDateTime(selectedUserData.regE.TimeInteken.ToString("hh\\:mm\\:ss"));
                         if (selectedUserData.regE.IsAanwezig) {
@@ -245,6 +254,8 @@ namespace NewAanspreekpuntForm {
                             dateTimePickerTimeUit.Value=Convert.ToDateTime(selectedUserData.regE.TimeUitteken.ToString("hh\\:mm\\:ss"));
                             buttonTekenIn.Enabled=true; // anulleer uitteken
                         }
+                    } else {
+                        buttonTekenIn.Enabled=true;
                     }
                 } else {
                     buttonTekenIn.Enabled=true;
@@ -266,30 +277,150 @@ namespace NewAanspreekpuntForm {
             } else {
                 dateTimePickerSeDateToListTo.Enabled=true;
             }
+            ReloadOverzight();            
         }
 
         private void tekenInOfUit(object sender, EventArgs e) {
-            NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit request = new NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit();
-            request.NFCCode=_CurrentlySelectedUser.userN.NFCID;
-            NetComunicationTypesAndFunctions.ServerResponse response = webbbbrrrrrry(request);
-            if (response.IsErrorOcurred) {
-                MessageBox.Show(response.ErrorInfo.ErrorMessage);
-            } else {
-                ReloadOverzight();
+            if (!_NOODMODUSENABLED) {
+                NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit request = new NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit();
+                request.NFCCode=_CurrentlySelectedUser.userN.NFCID;
+                NetComunicationTypesAndFunctions.ServerResponse response;
+                try {
+                    response=webbbbrrrrrry(request);
+                } catch {
+                    if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
+                        enableNoodModus();
+                    }
+                    return;
+                }
+                if (response.IsErrorOcurred) {
+                    MessageBox.Show(response.ErrorInfo.ErrorMessage);
+                } else {
+                    ReloadOverzight();
+                }
             }
         }
 
         private void checkBoxHeefAfwezigReden_CheckedChanged(object sender, EventArgs e) {
-            comboBoxRedenAfwezig.Enabled=true;
+            if (checkBoxHeefAfwezigReden.Checked) {
+                comboBoxRedenAfwezig.Enabled=true;
+            } else {
+                comboBoxRedenAfwezig.Enabled=false;
+            }
+            comboBoxRedenAfwezig_SelectedIndexChanged(comboBoxRedenAfwezig, new EventArgs());
         }
 
         private void comboBoxRedenAfwezig_SelectedIndexChanged(object sender, EventArgs e) {
-            if (comboBoxRedenAfwezig.SelectedItem.ToString()=="Laat"&&comboBoxRedenAfwezig.Enabled==true) {
+            if (comboBoxRedenAfwezig.Text=="Laat"&&comboBoxRedenAfwezig.Enabled==true) {
                 dateTimePickerVerwachteTijdVanAankomst.Enabled=true;
             } else {
                 dateTimePickerVerwachteTijdVanAankomst.Enabled=false;
             }
 
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e) {
+            if (!_NOODMODUSENABLED) {
+                NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
+                //set all control values back in errr object
+                if (_CurrentlySelectedUser.hasTodayRegEntry) {
+                    request.isNieuwEntry=false;
+                    request.deEntry=_CurrentlySelectedUser.regE;
+                } else {
+                    request.isNieuwEntry=true;
+                    request.deEntry=new DatabaseTypesAndFunctions.RegistratieTableTableEntry();
+                    request.deEntry.IDOfUserRelated=_CurrentlySelectedUser.userN.ID;
+                    request.newEntryDateIsToday=true;
+                }
+                request.deEntry.Opmerking=textBoxOpmerking.Text;
+                if (dateTimePickerTijdIn.Enabled) {
+                    request.deEntry.TimeInteken=dateTimePickerTijdIn.Value.TimeOfDay;
+                }
+                if (dateTimePickerTimeUit.Enabled) {
+                    request.deEntry.TimeUitteken=dateTimePickerTimeUit.Value.TimeOfDay;
+                }
+                request.deEntry.IsLaat=false;
+                request.deEntry.IsZiek=false;
+                request.deEntry.IsStudieverlof=false;
+                request.deEntry.IsFlexiebelverlof=false;
+                request.deEntry.IsExcurtie=false;
+                if (checkBoxHeefAfwezigReden.Checked) {
+                    switch (comboBoxRedenAfwezig.SelectedItem.ToString()) {
+                        case "Laat":
+                            request.deEntry.IsLaat=true;
+                            request.deEntry.Verwachtetijdvanaanwezighijd=dateTimePickerVerwachteTijdVanAankomst.Value.TimeOfDay;
+                            break;
+                        case "Ziek":
+                            request.deEntry.IsZiek=true;
+                            break;
+                        case "StudieVerlof":
+                            request.deEntry.IsStudieverlof=true;
+                            break;
+                        case "FlexibelVerlof":
+                            request.deEntry.IsFlexiebelverlof=true;
+                            break;
+                        case "Excursie":
+                            request.deEntry.IsExcurtie=true;
+                            break;
+                    }
+                }
+                //put in trycatch for noodmodus
+                NetComunicationTypesAndFunctions.ServerResponse response;
+
+                try {
+                    response=webbbbrrrrrry(request);
+                } catch {
+                    if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
+                        enableNoodModus();
+                    }
+                    return;
+                }
+
+                if (response.IsErrorOcurred) {
+                    MessageBox.Show(response.ErrorInfo.ErrorMessage);
+                }
+                ReloadOverzight();
+            }
+        }
+
+        private void dateTimePickerSeDateToListTo_ValueChanged(object sender, EventArgs e) {
+            ReloadOverzight();
+        }
+
+        private void buttonClearInEnUitTeken_Click(object sender, EventArgs e) {
+            if (!_NOODMODUSENABLED) {
+                DialogResult dialogResult = MessageBox.Show("Verwijder In En Uit Tijden", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult==DialogResult.Yes) {
+                    NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
+                    request.isNieuwEntry=false;
+                    request.deEntry=_CurrentlySelectedUser.regE;
+                    request.deEntry.HeeftIngetekend=false;
+                    request.deEntry.IsAanwezig=false;
+                    request.deEntry.TimeInteken=new TimeSpan();
+                    request.deEntry.TimeUitteken=new TimeSpan();
+                    NetComunicationTypesAndFunctions.ServerResponse response;
+
+                    try {
+                        response=webbbbrrrrrry(request);
+                    } catch {
+                        if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
+                            enableNoodModus();
+                        }
+                        return;
+                    }
+
+                    if (response.IsErrorOcurred) {
+                        MessageBox.Show(response.ErrorInfo.ErrorMessage);
+                    }
+                    ReloadOverzight();
+                } else if (dialogResult==DialogResult.No) {
+
+                }
+            }
+        }
+
+        private void buttonDisableNoodMode_Click(object sender, EventArgs e) {
+            disableNoodModus();
         }
     }
 }
