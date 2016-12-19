@@ -74,7 +74,7 @@ namespace NewApi.Models {
             _toReturn.TheUserWithEntryInfo.regE=endResult[0];
             return _toReturn;
         }
-
+        
         //overview
         public static NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate overzight(DatabaseTypesAndFunctions.AcountTableEntry _MasterRightsEntry, NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate _Request) {
             NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate toReturn = new NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate();
