@@ -165,6 +165,7 @@ namespace NewIntekenForm {
 
         void HandelNfcScan(string _read) {
             if (!_NOODMODUSENABLED) {
+                _TimerCleanUserInfoScreen.Stop();
                 NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit request = new NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit();
                 request.NFCCode=_read;
 

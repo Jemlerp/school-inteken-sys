@@ -8,3 +8,4 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFu
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\System.Net.Http.Primitives.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\obj\Debug\NewCrossFunctions.csprojResolveAssemblyReference.cache

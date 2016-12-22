@@ -1,0 +1,10 @@
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.exe.config
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.pdb
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.csprojResolveAssemblyReference.cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.Form1.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.IrrrrForm.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.Properties.Resources.resources
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.csproj.GenerateResource.Cache
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.exe
+C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.pdb
