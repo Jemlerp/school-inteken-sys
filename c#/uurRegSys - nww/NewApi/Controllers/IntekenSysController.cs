@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using NewApi.Models;
 using System.Data.SqlClient;
 using System.Data;
+using NetComunicationTypesAndFunction;
 
 namespace NewApi.Controllers {
     public class IntekenSysController : ApiController {
