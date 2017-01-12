@@ -12,7 +12,7 @@ namespace NewCrossFunctions {
 
         private static ServerResponse WebRequest(ServerRequest _Request, string _APIAddres) {
             using (HttpClient httpClient = new HttpClient()) {
-                httpClient.DefaultRequestHeaders.Add("X-Accept", "application/Json");
+                httpClient.DefaultRequestHeaders.Add("X-Accept", "application/Json");                
                 Task<HttpResponseMessage> response = httpClient.PostAsJsonAsync(_APIAddres, _Request);
                 response.Wait();
                 Task<string> result = response.Result.Content.ReadAsStringAsync();

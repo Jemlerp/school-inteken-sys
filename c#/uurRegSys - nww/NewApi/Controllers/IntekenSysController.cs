@@ -9,7 +9,6 @@ using Newtonsoft.Json.Linq;
 using NewApi.Models;
 using System.Data.SqlClient;
 using System.Data;
-using NetComunicationTypesAndFunction;
 
 namespace NewApi.Controllers {
     public class IntekenSysController : ApiController {
@@ -100,7 +99,7 @@ namespace NewApi.Controllers {
                         return returnMetStr(IntekenSysFunctions.overzight(MasterRightsEntry, Deserialise<NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate>(instructions)));
                     case NetComunicationTypesAndFunctions.WhatIsThisEnum.RChangeRegTable:
                         return returnMetStr(IntekenSysFunctions.ChangeRegistatieTable(MasterRightsEntry, Deserialise<NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable>(instructions)));
-                }
+                }                
                 throw new Exception("no instruction");
             } catch (Exception ex) {
                 NetComunicationTypesAndFunctions.ServerResponse toReturn = new NetComunicationTypesAndFunctions.ServerResponse();
