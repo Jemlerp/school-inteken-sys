@@ -23,7 +23,7 @@ namespace NewAanspreekpuntForm {
                     if (MessageBox.Show(response.ErrorInfo.ErrorMessage, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop)==DialogResult.Retry) {
                         buttonStart_Click(null, null);
                     } else {
-                        return;
+                        //ga door?
                     }
                 }
             } catch {

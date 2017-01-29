@@ -12,39 +12,6 @@ namespace NewApi.NETCore.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        /*
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-       }
-       */
 
         [HttpGet]
         public NetComObjects.ServerResponse tieME()
@@ -52,12 +19,6 @@ namespace NewApi.NETCore.Controllers
             NetComObjects.ServerResponse toReturn = new NetComObjects.ServerResponse();
             toReturn.Response = FuncsVController.GetDateTimeFromSqlDatabase();
             return toReturn;
-        }
-
-        [HttpGet("{id}")]
-        public string kankerhoer(int id)
-        {
-            return id.ToString() + "  rsgngkjbhdsrilouhjgkloi ";
         }
 
         private T Deserialise<T>(string _toDeserialie)
@@ -74,20 +35,12 @@ namespace NewApi.NETCore.Controllers
         {
             return default(DatabaseObjects.AcountTableEntry);
         }
-
+    
         [HttpPost]
-        public void Post([FromBody]string value)
+        public NetComObjects.ServerResponse tokidokiaru([FromBody]NetComObjects.ServerRequest _request)
         {
-
-        }
-
-        /*
-        [HttpPost]
-        public NetComObjects.ServerResponse tokidokiaru(string _BLINrequest)
-        {
-            int x = 8;
-            NetComObjects.ServerRequest _request = new NetComObjects.ServerRequest();
             NetComObjects.ServerResponse toReturn = new NetComObjects.ServerResponse();
+            toReturn.IsErrorOcurred = false;
             try
             {
                 DatabaseObjects.AcountTableEntry usingUser = GetUser(_request.UserName, _request.Password);
@@ -97,17 +50,18 @@ namespace NewApi.NETCore.Controllers
                 {
                     case NetComObjects.WhatIsThisEnum.RSqlServerDateTime:
                         toReturn.Response = FuncsVController.GetDateTimeFromSqlDatabase();
-                        return toReturn;
+                        break;
                     case NetComObjects.WhatIsThisEnum.RInteken:
                         toReturn.Response = FuncsVController.inteken(usingUser, Deserialise<NetComObjects.ServerRequestTekenInOfUit>(param));
-                        return toReturn;
+                        break;
                     case NetComObjects.WhatIsThisEnum.ROneDateRegiOverzight:
                         toReturn.Response = FuncsVController.overzight(usingUser, Deserialise<NetComObjects.ServerRequestOverzightFromOneDate>(param));
-                        return toReturn;
+                        break;
                     case NetComObjects.WhatIsThisEnum.RChangeRegTable:
                         toReturn.Response = FuncsVController.ChangeRegistatieTable(usingUser, Deserialise<NetComObjects.ServerRequestChangeRegistratieTable>(param));
-                        return toReturn;
+                        break;
                 }
+                return toReturn;
                 throw new Exception("ahodashi");
             }
             catch (Exception ex)
@@ -117,9 +71,7 @@ namespace NewApi.NETCore.Controllers
                 return toReturn;
             }
         }
-        */
 
     }
-
 
 }

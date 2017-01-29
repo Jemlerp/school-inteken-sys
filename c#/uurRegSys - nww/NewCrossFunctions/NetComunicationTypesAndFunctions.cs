@@ -5,11 +5,19 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using System.Net.Http.Formatting;
 
 namespace NewCrossFunctions {
     public class NetComunicationTypesAndFunctions {
 
+        private static ServerResponse WebRequest(ServerRequest _request, string _apiAddres) {
+            using (HttpClient client = new HttpClient()) {
+                HttpResponseMessage response = client.PostAsync(_apiAddres, new StringContent(JsonConvert.SerializeObject(_request), Encoding.UTF8, "application/json")).Result;
+                Task<string> result = response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<ServerResponse>(result.Result);
+            }
+        }
+
+        /* bleh
         private static ServerResponse WebRequest(ServerRequest _Request, string _APIAddres) {
             using (HttpClient httpClient = new HttpClient()) {
                 httpClient.DefaultRequestHeaders.Add("X-Accept", "application/Json");                
@@ -19,6 +27,7 @@ namespace NewCrossFunctions {
                 return JsonConvert.DeserializeObject<ServerResponse>(result.Result);
             }
         }
+        */
 
         public static ServerResponse WebRequest(object request, string _Username, string _Password, string _ApiAddres) {
             ServerRequest reques = new ServerRequest();

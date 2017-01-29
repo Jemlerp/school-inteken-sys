@@ -11,10 +11,10 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\o
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.exe.config
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.exe
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.pdb
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.csprojResolveAssemblyReference.cache
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.Form1.resources
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.IrrrrForm.resources
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.Properties.Resources.resources
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.csproj.GenerateResource.Cache
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.exe
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.pdb
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.csprojResolveAssemblyReference.cache

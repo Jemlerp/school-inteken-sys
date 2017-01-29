@@ -127,7 +127,6 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bi
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\System.Web.WebPages.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\System.Web.WebPages.Razor.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\WebGrease.dll
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\System.Net.Http.Formatting.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\NewCrossFunctions.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\Antlr3.Runtime.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\Microsoft.AI.DependencyCollector.xml

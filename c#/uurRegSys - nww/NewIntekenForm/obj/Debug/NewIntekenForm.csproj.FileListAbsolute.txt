@@ -18,7 +18,6 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewInteke
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewCrossFunctions.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewCrossFunctions.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.csprojResolveAssemblyReference.cache

@@ -18,7 +18,6 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspr
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewAanspreekpuntForm.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewCrossFunctions.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewCrossFunctions.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.csprojResolveAssemblyReference.cache

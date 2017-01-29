@@ -35,7 +35,7 @@ namespace NewApi.NETCore
             //get userID of scan
             command = new SqlCommand();
             command.Parameters.AddWithValue("@nfcode", _request.NFCCode);
-            command.CommandText = "select * from";
+            command.CommandText = $"select * from {DatabaseObjects.UserTableNames.UserTableName} where {DatabaseObjects.UserTableNames.NFCID} = @nfcode";
             List<DatabaseObjects.UserTableTableEntry> foundUsers = _DatabaseObjects.GetListUTFromReader(FuncsVSQL.SQLQuery(command));
             if (foundUsers.Count > 0)
             {

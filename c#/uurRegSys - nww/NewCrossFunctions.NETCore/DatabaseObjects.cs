@@ -110,7 +110,7 @@ namespace NewCrossFunctions.NETCore
             public DateTime DateLeft { get; set; }
         }
 
-        public List<UserTableTableEntry> GetListUTFromReader(SqlDataReader _reader)
+        public List<UserTableTableEntry> GetListUTFromReader(SqlDataReader _reader) // als er niets is pak hij alsnog een 
         {
             List<UserTableTableEntry> toReturn = new List<UserTableTableEntry>();
             List<string> fields = new List<string>();

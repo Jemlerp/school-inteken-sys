@@ -13,9 +13,7 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossF
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\NewCrossFunctions.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\NewCrossFunctions.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\System.Net.Http.Extensions.dll
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\System.Net.Http.Formatting.dll
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\System.Net.Http.Primitives.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\obj\Debug\NewCrossFunctions.dll
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\obj\Debug\NewCrossFunctions.pdb
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\obj\Debug\NewCrossFunctions.csprojResolveAssemblyReference.cache
