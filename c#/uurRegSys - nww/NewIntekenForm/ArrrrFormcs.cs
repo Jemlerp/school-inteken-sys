@@ -11,6 +11,7 @@ using NewCrossFunctions;
 using Newtonsoft.Json;
 using System.IO.Ports;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace NewIntekenForm {
     public partial class ArrrrFormcs : Form {
@@ -92,12 +93,15 @@ namespace NewIntekenForm {
                     _TimerReloadOverzicht.Stop();
                     NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate request = new NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate();
                     request.useToday=true;
+
                     NetComunicationTypesAndFunctions.ServerResponse response;
 
                     try {
                         Stopwatch sw = new Stopwatch();
                         sw.Start();
+
                         response=webbbbrrrrrry(request);
+
                         label2.Text=sw.ElapsedMilliseconds.ToString();
                     } catch { // als server down is (als school in brand staat...)
                         if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
@@ -109,7 +113,7 @@ namespace NewIntekenForm {
                         return;
                     }
 
-                    this.BackColor=SystemColors.Control;
+                    this.BackColor=SystemColors.Control; // all OK color
 
                     NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate returnedValue;
                     if (response.IsErrorOcurred) {
@@ -127,8 +131,8 @@ namespace NewIntekenForm {
                          ListSortDirection.Ascending : ListSortDirection.Descending;
                         _oldSortCol=dataGridView1.SortedColumn;
                         ///--
-
-                        returnedValue=JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate>(JsonConvert.SerializeObject(response.Response));
+                        ///
+                        returnedValue = JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate>(JsonConvert.SerializeObject(response.Response));
                         dataGridView1.DataSource=ForFormHelperFunctions.UserInfoListToDataTableForDataGridDisplay(returnedValue.EtList, returnedValue.SQlDateTime);
                         dataGridView1.Refresh();
                         _LastRecivedOverzight=returnedValue.EtList;
@@ -188,7 +192,7 @@ namespace NewIntekenForm {
                     MessageBox.Show(response.ErrorInfo.ErrorMessage);
                 } else {
                     NetComunicationTypesAndFunctions.ServerResponseInteken intekenResponse = JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.ServerResponseInteken>(JsonConvert.SerializeObject(response.Response));
-                    labelNaam.Text=intekenResponse.TheUserWithEntryInfo.userN.VoorNaam+" "+intekenResponse.TheUserWithEntryInfo.userN.AchterNaam;
+                    labelNaam.Text=intekenResponse.TheUserWithEntryInfo.UsE.VoorNaam+" "+intekenResponse.TheUserWithEntryInfo.UsE.AchterNaam;
                     if (intekenResponse.uitekenengeanuleerd) { labelInOfUitGetekend.Text="Uitekenen Geanuleerd"; }
                     if (intekenResponse.ingetekened) { labelInOfUitGetekend.Text="Je Bent Nu Ingetekend"; }
                     if (intekenResponse.uitgetekened) { labelInOfUitGetekend.Text="Je Bent Nu Uitgetekend"; }

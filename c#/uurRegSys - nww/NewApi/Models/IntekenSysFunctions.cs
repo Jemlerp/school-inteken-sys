@@ -26,13 +26,13 @@ namespace NewApi.Models {
             _command.CommandText=$"select * from {DatabaseTypesAndFunctions.UserTableNames.UserTableName} where {DatabaseTypesAndFunctions.UserTableNames.NFCID} = @nfcode";
             List<DatabaseTypesAndFunctions.UserTableTableEntry> foundUsersList = _DatabaseTypesAndFunctions.GetListUserTableEntriesFromDataTable(SqlDingusEnUserRechten.SQLQuery(_command));
             if (foundUsersList.Count>0) {
-                _toReturn.TheUserWithEntryInfo.userN=foundUsersList[0];                
+                _toReturn.TheUserWithEntryInfo.UsE=foundUsersList[0];                
             } else {
                 throw new Exception("nfc card unknown");
             }
             //update regEntry(niet meer laat als inteken....etc?) or create one  
             _command=new SqlCommand();
-            _command.Parameters.AddWithValue("@userid", _toReturn.TheUserWithEntryInfo.userN.ID);
+            _command.Parameters.AddWithValue("@userid", _toReturn.TheUserWithEntryInfo.UsE.ID);
             _command.CommandText=$"select * from {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} where {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = @userid and {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date)";
             List<DatabaseTypesAndFunctions.RegistratieTableTableEntry> foundRegistratieEntrys = _DatabaseTypesAndFunctions.GetListRegistratieTableEntrysFromDataTable(SqlDingusEnUserRechten.SQLQuery(_command));
             DatabaseTypesAndFunctions.RegistratieTableTableEntry deEntry;
@@ -47,16 +47,16 @@ namespace NewApi.Models {
                     if (deEntry.IsAanwezig) {
                         //update teken uit
                         _toReturn.uitgetekened=true;
-                        _command.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.TimeUitteken} = cast(getdate() as time), {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig} = 0 ,{DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = 0 where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date) and {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_toReturn.TheUserWithEntryInfo.userN.ID}";
+                        _command.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.TimeUitteken} = cast(getdate() as time), {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig} = 0 ,{DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = 0 where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date) and {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_toReturn.TheUserWithEntryInfo.UsE.ID}";
                     } else {
                         //update anuleer uitteken
                         _toReturn.uitekenengeanuleerd=true;
-                        _command.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig} = 1, {DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = 0  where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date) and {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_toReturn.TheUserWithEntryInfo.userN.ID}";
+                        _command.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig} = 1, {DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = 0  where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date) and {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_toReturn.TheUserWithEntryInfo.UsE.ID}";
                     }
                 } else {
                     //update inteken
                     _toReturn.ingetekened=true;
-                    _command.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.HeeftIngetekend} = 1, {DatabaseTypesAndFunctions.RegistratieTableNames.TimeInteken} = cast(getdate() as time), {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig} = 1, {DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = 0  where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date) and {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_toReturn.TheUserWithEntryInfo.userN.ID}";
+                    _command.CommandText=$"update {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} set {DatabaseTypesAndFunctions.RegistratieTableNames.HeeftIngetekend} = 1, {DatabaseTypesAndFunctions.RegistratieTableNames.TimeInteken} = cast(getdate() as time), {DatabaseTypesAndFunctions.RegistratieTableNames.IsAanwezig} = 1, {DatabaseTypesAndFunctions.RegistratieTableNames.IsLaat} = 0  where {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date) and {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = {_toReturn.TheUserWithEntryInfo.UsE.ID}";
                 }
             } else {
                 //new
@@ -67,11 +67,11 @@ namespace NewApi.Models {
             }
             SqlDingusEnUserRechten.SQLNonQuery(_command);
             _command=new SqlCommand();
-            _command.Parameters.AddWithValue("@userid", _toReturn.TheUserWithEntryInfo.userN.ID);
+            _command.Parameters.AddWithValue("@userid", _toReturn.TheUserWithEntryInfo.UsE.ID);
             _command.CommandText=$"select * from {DatabaseTypesAndFunctions.RegistratieTableNames.RegistratieTableName} where {DatabaseTypesAndFunctions.RegistratieTableNames.IDOfUserRelated} = @userid and {DatabaseTypesAndFunctions.RegistratieTableNames.Date} = cast(getdate() as date)";
             List<DatabaseTypesAndFunctions.RegistratieTableTableEntry> endResult = _DatabaseTypesAndFunctions.GetListRegistratieTableEntrysFromDataTable(SqlDingusEnUserRechten.SQLQuery(_command));
             _toReturn.TheUserWithEntryInfo.hasTodayRegEntry=true;
-            _toReturn.TheUserWithEntryInfo.regE=endResult[0];
+            _toReturn.TheUserWithEntryInfo.RegE=endResult[0];
             return _toReturn;
         }
         
@@ -97,11 +97,11 @@ namespace NewApi.Models {
             foreach (var User in _userEntrys) {
                 if (User.IsActiveUser) {
                     DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry toPutInList = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
-                    toPutInList.userN=User;
+                    toPutInList.UsE=User;
                     foreach (var Entry in _regEntrys) {
                         if (Entry.IDOfUserRelated==User.ID) {
                             toPutInList.hasTodayRegEntry=true;
-                            toPutInList.regE=Entry;
+                            toPutInList.RegE=Entry;
                             break;
                         }
                     }

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace NewCrossFunctions {
     public class NetComunicationTypesAndFunctions {
@@ -13,6 +14,7 @@ namespace NewCrossFunctions {
             using (HttpClient client = new HttpClient()) {
                 HttpResponseMessage response = client.PostAsync(_apiAddres, new StringContent(JsonConvert.SerializeObject(_request), Encoding.UTF8, "application/json")).Result;
                 Task<string> result = response.Content.ReadAsStringAsync();
+                //string banana = JsonConvert.DeserializeObject<string>(result.Result);
                 return JsonConvert.DeserializeObject<ServerResponse>(result.Result);
             }
         }
@@ -94,7 +96,7 @@ namespace NewCrossFunctions {
         }
 
         public class ServerResponseOverzightFromOneDate {
-            public List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; } = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
+           public List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; } = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
            public DateTime SQlDateTime { get;set; }
         }
 

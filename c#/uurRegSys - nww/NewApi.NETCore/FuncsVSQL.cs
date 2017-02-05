@@ -53,6 +53,7 @@ namespace NewApi.NETCore
             }
             catch (Exception ex)
             {
+                sqlConnection.Dispose();
                 throw new Exception($"ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
             }
         }

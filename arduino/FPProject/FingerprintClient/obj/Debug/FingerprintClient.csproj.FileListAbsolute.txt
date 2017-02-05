@@ -1,0 +1,54 @@
+c:\users\jelmer\documents\visual studio 2015\Projects\FingerprintClient\FingerprintClient\bin\Debug\FingerprintClient.exe.config
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\FingerprintClient.exe.config
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\obj\Debug\FingerprintClient.csproj.FingerprintClient.exe.config
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\obj\Debug\FingerprintClient.MainForm.resources
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\obj\Debug\FingerprintClient.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\obj\Debug\FingerprintClient.StartupForm.resources
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\obj\Debug\FingerprintClient.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\FingerprintClient.exe
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\FingerprintClient.pdb
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\FuntionsForFingerSys.dll
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\FuntionsForFingerSys.pdb
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\obj\Debug\FingerprintClient.exe
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\c#\FingerprintClient\FingerprintClient\obj\Debug\FingerprintClient.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\FingerprintClient.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\FingerprintClient.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\FingerprintClient.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.MainForm.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.Properties.Resources.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.StartupForm.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintClient\obj\Debug\FingerprintClient.csproj.FingerprintClient.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\FingerprintClient.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\FingerprintClient.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\FingerprintClient.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.csproj.FingerprintClient.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.MainForm.resources
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.StartupForm.resources
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintClient\obj\Debug\FingerprintClient.pdb

@@ -1,0 +1,165 @@
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\ApplicationInsights.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\csc.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\vbc.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\FingerprintWebApi.dll.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\FingerprintWebApi.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\FingerprintWebApi.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.Web.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Newtonsoft.Json.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\System.Web.Http.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\SourceAFIS.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\FingerprintFunctions.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.Web.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\Newtonsoft.Json.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\System.Web.Http.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\bin\SourceAFIS.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\obj\Debug\FingerprintWebApi.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\obj\Debug\FingerprintWebApi.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintWebApi\obj\Debug\FingerprintWebApi.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\obj\Debug\FingerprintWebApi.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\obj\Debug\FingerprintWebApi.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\obj\Debug\FingerprintWebApi.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\ApplicationInsights.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\csc.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\vbc.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\FingerprintWebApi.dll.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\FingerprintWebApi.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\FingerprintWebApi.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\FuntionsForFingerSys.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.Web.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Newtonsoft.Json.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\SourceAFIS.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\System.Web.Http.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\FingerprintFunctions.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\FuntionsForFingerSys.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.Web.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\Newtonsoft.Json.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\SourceAFIS.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\System.Web.Http.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\csc.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\csc.rsp
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\csi.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\csi.rsp
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\System.AppContext.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\vbc.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintWebApi\bin\roslyn\vbc.rsp
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\ApplicationInsights.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\csc.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\csc.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\csc.rsp
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\csi.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\csi.rsp
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\System.AppContext.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\vbc.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\vbc.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\vbc.rsp
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\VBCSCompiler.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\FingerprintWebApi.dll.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\FingerprintWebApi.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\FingerprintWebApi.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\FingerprintFunctions.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.Web.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Newtonsoft.Json.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\SourceAFIS.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\System.Web.Http.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\FingerprintFunctions.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.Web.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\Newtonsoft.Json.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\SourceAFIS.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\System.Web.Http.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\bin\System.Web.Http.WebHost.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\obj\Debug\FingerprintWebApi.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\obj\Debug\FingerprintWebApi.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintWebApi\obj\Debug\FingerprintWebApi.pdb

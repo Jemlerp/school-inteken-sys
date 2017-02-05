@@ -57,11 +57,11 @@ namespace NewApi.Controllers {
                 foreach (var User in _userEntrys) {
                     if (User.IsActiveUser) {
                         DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry toPutInList = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
-                        toPutInList.userN=User;
+                        toPutInList.UsE=User;
                         foreach (var Entry in _regEntrys) {
                             if (Entry.IDOfUserRelated==User.ID) {
                                 toPutInList.hasTodayRegEntry=true;
-                                toPutInList.regE=Entry;
+                                toPutInList.RegE=Entry;
                                 break;
                             }
                         }

@@ -1,0 +1,61 @@
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\webApiTester.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\webApiTester.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\webApiTester.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\FuntionsForFingerSys.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\System.Net.Http.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\System.Net.Http.WebRequest.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\FuntionsForFingerSys.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\System.Net.Http.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\System.Net.Http.WebRequest.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\obj\Debug\webApiTester.Form1.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\obj\Debug\webApiTester.Properties.Resources.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\obj\Debug\webApiTester.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\obj\Debug\webApiTester.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\obj\Debug\webApiTester.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\webApiTester\webApiTester\obj\Debug\webApiTester.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\webApiTester\webApiTester\bin\Debug\webApiTester.exe.config
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\webApiTester\webApiTester\obj\Debug\webApiTester.exe
+C:\Users\Jelmer\Desktop\schoolFingerprintSysCode\webApiTester\webApiTester\obj\Debug\webApiTester.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\obj\Debug\webApiTester.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\obj\Debug\webApiTester.Form1.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\obj\Debug\webApiTester.Properties.Resources.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\obj\Debug\webApiTester.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\obj\Debug\webApiTester.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\obj\Debug\webApiTester.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\webApiTester.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\webApiTester.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\webApiTester.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\webApiTester\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\webApiTester.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\webApiTester.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\webApiTester.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\obj\Debug\webApiTester.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\obj\Debug\webApiTester.Form1.resources
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\obj\Debug\webApiTester.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\obj\Debug\webApiTester.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\obj\Debug\webApiTester.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\webApiTester\obj\Debug\webApiTester.pdb

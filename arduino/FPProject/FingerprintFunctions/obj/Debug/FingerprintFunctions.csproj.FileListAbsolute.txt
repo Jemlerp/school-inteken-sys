@@ -1,0 +1,40 @@
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\obj\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\obj\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\FingerprintFunctions.dll.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\System.Net.Http.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\System.Net.Http.WebRequest.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\System.Net.Http.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FINGERPRINTPROJECT\FingerprintFunctions\bin\Debug\System.Net.Http.WebRequest.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\FingerprintFunctions.dll.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\obj\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\FingerprintFunctions\obj\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\FingerprintFunctions.dll.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\FingerprintFunctions.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\SourceAFIS.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\bin\Debug\SourceAFIS.xml
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\obj\Debug\FingerprintFunctions.dll
+C:\Users\Jelmer\Desktop\pgam\FPProject\FingerprintFunctions\obj\Debug\FingerprintFunctions.pdb

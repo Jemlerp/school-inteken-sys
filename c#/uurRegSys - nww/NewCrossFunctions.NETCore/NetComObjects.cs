@@ -75,8 +75,7 @@ namespace NewCrossFunctions.NETCore
             public DateTime dateToGetOverzightFrom { get; set; }
         }
 
-        public class ServerResponseOverzightFromOneDate
-        {
+        public class ServerResponseOverzightFromOneDate {
             public List<DatabaseObjects.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; } = new List<DatabaseObjects.CombineerUserEntryRegEntryAndAfwezigEntry>();
             public DateTime SQlDateTime { get; set; }
         }

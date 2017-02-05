@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FingerprintFunctions", "FingerprintFunctions\FingerprintFunctions.csproj", "{9633B7AD-72C0-41C0-8F4B-D0B7517E04B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FingerprintWebApi", "FingerprintWebApi\FingerprintWebApi.csproj", "{0B8CE13B-ED7B-4362-92A0-8A67DDC4C9DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webApiTester", "webApiTester\webApiTester.csproj", "{DD40C936-7E05-471A-BED4-FB0E90577345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "getImageFromzmf-20Test", "getImageFromzmf-20Test\getImageFromzmf-20Test.csproj", "{BB963D8E-B979-4F0E-9C4D-DA325CDAD3E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vingerPrintTest", "vingerPrintTest\vingerPrintTest.csproj", "{5378C395-AE76-43A8-922F-71676D0BF948}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FingerprintClient", "FingerprintClient\FingerprintClient.csproj", "{8B198A02-4589-4243-9432-F5E2B37103E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{140B1F87-DE82-4DC9-B265-D2FDC0F82885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeChangesToDB", "MakeChangesToDB\MakeChangesToDB.csproj", "{3040B3AB-626A-4273-A01F-7C2D724187B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9633B7AD-72C0-41C0-8F4B-D0B7517E04B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9633B7AD-72C0-41C0-8F4B-D0B7517E04B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9633B7AD-72C0-41C0-8F4B-D0B7517E04B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9633B7AD-72C0-41C0-8F4B-D0B7517E04B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B8CE13B-ED7B-4362-92A0-8A67DDC4C9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B8CE13B-ED7B-4362-92A0-8A67DDC4C9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B8CE13B-ED7B-4362-92A0-8A67DDC4C9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B8CE13B-ED7B-4362-92A0-8A67DDC4C9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD40C936-7E05-471A-BED4-FB0E90577345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD40C936-7E05-471A-BED4-FB0E90577345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD40C936-7E05-471A-BED4-FB0E90577345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD40C936-7E05-471A-BED4-FB0E90577345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB963D8E-B979-4F0E-9C4D-DA325CDAD3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB963D8E-B979-4F0E-9C4D-DA325CDAD3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB963D8E-B979-4F0E-9C4D-DA325CDAD3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB963D8E-B979-4F0E-9C4D-DA325CDAD3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5378C395-AE76-43A8-922F-71676D0BF948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5378C395-AE76-43A8-922F-71676D0BF948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5378C395-AE76-43A8-922F-71676D0BF948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5378C395-AE76-43A8-922F-71676D0BF948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B198A02-4589-4243-9432-F5E2B37103E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B198A02-4589-4243-9432-F5E2B37103E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B198A02-4589-4243-9432-F5E2B37103E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B198A02-4589-4243-9432-F5E2B37103E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3040B3AB-626A-4273-A01F-7C2D724187B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3040B3AB-626A-4273-A01F-7C2D724187B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3040B3AB-626A-4273-A01F-7C2D724187B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3040B3AB-626A-4273-A01F-7C2D724187B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DD40C936-7E05-471A-BED4-FB0E90577345} = {140B1F87-DE82-4DC9-B265-D2FDC0F82885}
+		{BB963D8E-B979-4F0E-9C4D-DA325CDAD3E4} = {140B1F87-DE82-4DC9-B265-D2FDC0F82885}
+		{5378C395-AE76-43A8-922F-71676D0BF948} = {140B1F87-DE82-4DC9-B265-D2FDC0F82885}
+	EndGlobalSection
+EndGlobal

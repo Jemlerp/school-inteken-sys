@@ -1,0 +1,34 @@
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\bin\Debug\vingerPrintTest.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\bin\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\bin\Debug\vingerPrintTest.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.Form1.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.Properties.Resources.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.pdb
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\bin\Debug\vingerPrintTest.exe.config
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.pdb
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\bin\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\bin\Debug\vingerPrintTest.pdb
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.Form1.resources
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\ナンデモナイ\c c++ c# .net asp\Projects van desctopPc 06-04-2016\vingerPrintTest\vingerPrintTest\obj\Debug\vingerPrintTest.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\bin\Debug\vingerPrintTest.exe.config
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\bin\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\bin\Debug\vingerPrintTest.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.Form1.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.Properties.Resources.resources
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.pdb
+C:\Users\Jelmer\Documents\Visual Studio 2015\Projects\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.csprojResolveAssemblyReference.cache
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\bin\Debug\vingerPrintTest.exe.config
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\bin\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\bin\Debug\vingerPrintTest.pdb
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.Form1.resources
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.Properties.Resources.resources
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.csproj.GenerateResource.Cache
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.exe
+C:\Users\Jelmer\Desktop\pgam\FPProject\vingerPrintTest\obj\Debug\vingerPrintTest.pdb

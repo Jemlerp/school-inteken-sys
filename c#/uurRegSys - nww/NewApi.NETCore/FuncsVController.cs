@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using NewCrossFunctions.NETCore;
 using System.Data.SqlClient;
-using System.Data.SqlClient;
 using System.Data;
 
 

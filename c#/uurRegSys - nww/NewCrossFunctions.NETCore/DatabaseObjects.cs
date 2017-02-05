@@ -24,11 +24,17 @@ namespace NewCrossFunctions.NETCore
                 Type i = typeof(T);
                 if (i == typeof(DateTime))
                 {
-                    return (T)(object)_recoord.GetDateTime(_recoord.GetOrdinal(_readProp));
+                    DateTime read = _recoord.GetDateTime(_recoord.GetOrdinal(_readProp));
+                    object toReturn = read;
+                    return (T)toReturn;
+                    //return (T)(object)_recoord.GetDateTime(_recoord.GetOrdinal(_readProp));
                 }
                 if (i == typeof(TimeSpan))
                 {
-                    return (T)(object)_recoord.GetDateTime(_recoord.GetOrdinal(_readProp)).TimeOfDay;
+                    DateTime read = _recoord.GetDateTime(_recoord.GetOrdinal(_readProp));
+                    object toReturn = read.TimeOfDay;
+                    return (T)toReturn;
+                    //return (T)((object)_recoord.GetDateTime(_recoord.GetOrdinal(_readProp)).TimeOfDay);
                 }
                 return (T)_recoord.GetValue(_recoord.GetOrdinal(_readProp));
             }
@@ -71,14 +77,14 @@ namespace NewCrossFunctions.NETCore
             while (_reader.Read())
             {
                 AcountTableEntry entry = new AcountTableEntry();
-                if (fields.Contains(AcountsTableNames.ID)) { ReadFromReader<int>((IDataRecord)_reader, AcountsTableNames.ID); }
-                if (fields.Contains(AcountsTableNames.Naam)) { ReadFromReader<string>((IDataRecord)_reader, AcountsTableNames.Naam); }
-                if (fields.Contains(AcountsTableNames.InlogNaam)) { ReadFromReader<string>((IDataRecord)_reader, AcountsTableNames.InlogNaam); }
-                if (fields.Contains(AcountsTableNames.InlogWachtwoord)) { ReadFromReader<string>((IDataRecord)_reader, AcountsTableNames.InlogWachtwoord); }
-                if (fields.Contains(AcountsTableNames.AanspreekpuntBevoegthijdLvl)) { ReadFromReader<int>((IDataRecord)_reader, AcountsTableNames.AanspreekpuntBevoegthijdLvl); }
-                if (fields.Contains(AcountsTableNames.AdminBevoegdhijd)) { ReadFromReader<int>((IDataRecord)_reader, AcountsTableNames.AdminBevoegdhijd); }
+                if (fields.Contains(AcountsTableNames.ID)) { entry.ID = ReadFromReader<Int32>((IDataRecord)_reader, AcountsTableNames.ID); }
+                if (fields.Contains(AcountsTableNames.Naam)) { entry.Naam = ReadFromReader<string>((IDataRecord)_reader, AcountsTableNames.Naam); }
+                if (fields.Contains(AcountsTableNames.InlogNaam)) { entry.InlogNaam = ReadFromReader<string>((IDataRecord)_reader, AcountsTableNames.InlogNaam); }
+                if (fields.Contains(AcountsTableNames.InlogWachtwoord)) { entry.InlogWachtwoord = ReadFromReader<string>((IDataRecord)_reader, AcountsTableNames.InlogWachtwoord); }
+                if (fields.Contains(AcountsTableNames.AanspreekpuntBevoegthijdLvl)) { entry.AanspreekpuntBevoegdhijd = ReadFromReader<Int32>((IDataRecord)_reader, AcountsTableNames.AanspreekpuntBevoegthijdLvl); }
+                if (fields.Contains(AcountsTableNames.AdminBevoegdhijd)) { entry.AdminBevoegdhijd = ReadFromReader<Int32>((IDataRecord)_reader, AcountsTableNames.AdminBevoegdhijd); }
                 toReturn.Add(entry);
-            }
+            }            
             _reader.Dispose();
             return toReturn;
         }
@@ -121,13 +127,13 @@ namespace NewCrossFunctions.NETCore
             while (_reader.Read())
             {
                 UserTableTableEntry entry = new UserTableTableEntry();
-                if (fields.Contains(UserTableNames.ID)) { ReadFromReader<int>((IDataRecord)_reader, UserTableNames.ID); }
-                if (fields.Contains(UserTableNames.VoorNaam)) { ReadFromReader<string>((IDataRecord)_reader, UserTableNames.VoorNaam); }
-                if (fields.Contains(UserTableNames.AchterNaam)) { ReadFromReader<string>((IDataRecord)_reader, UserTableNames.AchterNaam); }
-                if (fields.Contains(UserTableNames.NFCID)) { ReadFromReader<string>((IDataRecord)_reader, UserTableNames.NFCID); }
-                if (fields.Contains(UserTableNames.DateJoined)) { ReadFromReader<DateTime>((IDataRecord)_reader, UserTableNames.DateJoined); }
-                if (fields.Contains(UserTableNames.DateLeft)) { ReadFromReader<DateTime>((IDataRecord)_reader, UserTableNames.DateLeft); }
-                if (fields.Contains(UserTableNames.IsActiveUser)) { ReadFromReader<bool>((IDataRecord)_reader, UserTableNames.IsActiveUser); }
+                if (fields.Contains(UserTableNames.ID)) { entry.ID = ReadFromReader<int>((IDataRecord)_reader, UserTableNames.ID); }
+                if (fields.Contains(UserTableNames.VoorNaam)) { entry.VoorNaam = ReadFromReader<string>((IDataRecord)_reader, UserTableNames.VoorNaam); }
+                if (fields.Contains(UserTableNames.AchterNaam)) { entry.AchterNaam = ReadFromReader<string>((IDataRecord)_reader, UserTableNames.AchterNaam); }
+                if (fields.Contains(UserTableNames.NFCID)) { entry.NFCID = ReadFromReader<string>((IDataRecord)_reader, UserTableNames.NFCID); }
+                if (fields.Contains(UserTableNames.DateJoined)) { entry.DateJoined = ReadFromReader<DateTime>((IDataRecord)_reader, UserTableNames.DateJoined); }
+                if (fields.Contains(UserTableNames.DateLeft)) { entry.DateLeft = ReadFromReader<DateTime>((IDataRecord)_reader, UserTableNames.DateLeft); }
+                if (fields.Contains(UserTableNames.IsActiveUser)) { entry.IsActiveUser = ReadFromReader<bool>((IDataRecord)_reader, UserTableNames.IsActiveUser); }
                 toReturn.Add(entry);
             }
             _reader.Dispose();
@@ -185,20 +191,48 @@ namespace NewCrossFunctions.NETCore
             while (_reader.Read())
             {
                 RegistratieTableTableEntry entry = new RegistratieTableTableEntry();
-                if (fields.Contains(RegistratieTableNames.ID)) { ReadFromReader<int>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.IDOfUserRelated)) { ReadFromReader<int>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.Date)) { ReadFromReader<DateTime>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.TimeInteken)) { ReadFromReader<TimeSpan>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.TimeUitteken)) { ReadFromReader<TimeSpan>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.HeeftIngetekend)) { ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.IsAanwezig)) { ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.IsZiek)) { ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.IsFlexibelverlof)) { ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.IsStudieverlof)) { ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.IsExcursie)) { ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.IsLaat)) { ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.Opmerking)) { ReadFromReader<string>((IDataRecord)_reader, RegistratieTableNames.ID); }
-                if (fields.Contains(RegistratieTableNames.Verwachtetijdvanaanwezighijd)) { ReadFromReader<TimeSpan>((IDataRecord)_reader, RegistratieTableNames.ID); }
+                if (fields.Contains(RegistratieTableNames.ID)) {
+                    entry.ID = ReadFromReader<int>((IDataRecord)_reader, RegistratieTableNames.ID); }
+
+                if (fields.Contains(RegistratieTableNames.IDOfUserRelated)) {
+                    entry.IDOfUserRelated = ReadFromReader<int>((IDataRecord)_reader, RegistratieTableNames.IDOfUserRelated); }
+
+                if (fields.Contains(RegistratieTableNames.Date)) {
+                    entry.Date = ReadFromReader<DateTime>((IDataRecord)_reader, RegistratieTableNames.Date); }
+
+                if (fields.Contains(RegistratieTableNames.TimeInteken)) {
+                    entry.TimeInteken = ReadFromReader<TimeSpan>((IDataRecord)_reader, RegistratieTableNames.TimeInteken); }
+
+                if (fields.Contains(RegistratieTableNames.TimeUitteken)) {
+                    entry.TimeUitteken = ReadFromReader<TimeSpan>((IDataRecord)_reader, RegistratieTableNames.TimeUitteken); }
+
+                if (fields.Contains(RegistratieTableNames.HeeftIngetekend)) {
+                    entry.HeeftIngetekend = ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.HeeftIngetekend); }
+
+                if (fields.Contains(RegistratieTableNames.IsAanwezig)) {
+                    entry.IsAanwezig = ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.IsAanwezig); }
+
+                if (fields.Contains(RegistratieTableNames.IsZiek)) {
+                    entry.IsZiek = ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.IsZiek); }
+
+                if (fields.Contains(RegistratieTableNames.IsFlexibelverlof)) {
+                    entry.IsFlexiebelverlof = ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.IsFlexibelverlof); }
+
+                if (fields.Contains(RegistratieTableNames.IsStudieverlof)) {
+                    entry.IsStudieverlof = ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.IsStudieverlof); }
+
+                if (fields.Contains(RegistratieTableNames.IsExcursie)) {
+                    entry.IsExcurtie = ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.IsExcursie); }
+
+                if (fields.Contains(RegistratieTableNames.IsLaat)) {
+                    entry.IsLaat = ReadFromReader<bool>((IDataRecord)_reader, RegistratieTableNames.IsLaat); }
+
+                if (fields.Contains(RegistratieTableNames.Opmerking)) {
+                    entry.Opmerking = ReadFromReader<string>((IDataRecord)_reader, RegistratieTableNames.Opmerking); }
+
+                if (fields.Contains(RegistratieTableNames.Verwachtetijdvanaanwezighijd)) {
+                    entry.Verwachtetijdvanaanwezighijd = ReadFromReader<TimeSpan>((IDataRecord)_reader, RegistratieTableNames.Verwachtetijdvanaanwezighijd); }
+
                 toReturn.Add(entry);
             }
             _reader.Dispose();

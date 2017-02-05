@@ -159,7 +159,7 @@ namespace NewAanspreekpuntForm {
                         } else { //zoek op
                             List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> sortedList = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
                             foreach (DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry perso in returnedValue.EtList) {
-                                if (perso.userN.VoorNaam.Contains(textBoxZoekOp.Text.Trim())||perso.userN.AchterNaam.Contains(textBoxZoekOp.Text.Trim())) {
+                                if (perso.UsE.VoorNaam.Contains(textBoxZoekOp.Text.Trim())||perso.UsE.AchterNaam.Contains(textBoxZoekOp.Text.Trim())) {
                                     sortedList.Add(perso);
                                 }
                             }
@@ -202,12 +202,12 @@ namespace NewAanspreekpuntForm {
                 string _achterNaam = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 bool found = false;
                 foreach (DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry entry in _LastRecivedOverzight) {
-                    if (entry.userN.VoorNaam==_voorNaam&&entry.userN.AchterNaam==_achterNaam) { selectedUserData=entry; found=true; break; }
+                    if (entry.UsE.VoorNaam==_voorNaam&&entry.UsE.AchterNaam==_achterNaam) { selectedUserData=entry; found=true; break; }
                 }
                 if (!found) { MessageBox.Show("Cant Find Selected User"); return; } //bleh            
                 _CurrentlySelectedUser=selectedUserData;
-                labelVoorNaam.Text=selectedUserData.userN.VoorNaam;
-                labelAchterNaam.Text=selectedUserData.userN.AchterNaam;
+                labelVoorNaam.Text=selectedUserData.UsE.VoorNaam;
+                labelAchterNaam.Text=selectedUserData.UsE.AchterNaam;
 
                 buttonSave.Enabled=true;
                 textBoxOpmerking.Enabled=true;
@@ -215,26 +215,26 @@ namespace NewAanspreekpuntForm {
 
                 if (selectedUserData.hasTodayRegEntry) {
                     buttonSave.Enabled=true;
-                    textBoxOpmerking.Text=selectedUserData.regE.Opmerking;
+                    textBoxOpmerking.Text=selectedUserData.RegE.Opmerking;
                     textBoxOpmerking.Enabled=true;
 
                     //select item in dropdown
                     bool erIsEenAfwezigNotatie = true;
-                    if (selectedUserData.regE.IsZiek) {
+                    if (selectedUserData.RegE.IsZiek) {
                         comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[1];
                     } else
-                    if (selectedUserData.regE.IsFlexiebelverlof) {
+                    if (selectedUserData.RegE.IsFlexiebelverlof) {
                         comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[3];
                     } else
-                    if (selectedUserData.regE.IsStudieverlof) {
+                    if (selectedUserData.RegE.IsStudieverlof) {
                         comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[2];
                     } else
-                    if (selectedUserData.regE.IsExcurtie) {
+                    if (selectedUserData.RegE.IsExcurtie) {
                         comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[4];
                     } else
-                    if (selectedUserData.regE.IsLaat) {
+                    if (selectedUserData.RegE.IsLaat) {
                         comboBoxRedenAfwezig.SelectedItem=comboBoxRedenAfwezig.Items[0];
-                        dateTimePickerVerwachteTijdVanAankomst.Value=Convert.ToDateTime(selectedUserData.regE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss"));
+                        dateTimePickerVerwachteTijdVanAankomst.Value=Convert.ToDateTime(selectedUserData.RegE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss"));
                     } else {
                         erIsEenAfwezigNotatie=false;
                     }
@@ -243,15 +243,15 @@ namespace NewAanspreekpuntForm {
                         checkBoxHeefAfwezigReden.Checked=true;
                     }
 
-                    if (selectedUserData.regE.HeeftIngetekend) {
+                    if (selectedUserData.RegE.HeeftIngetekend) {
                         buttonClearInEnUitTeken.Enabled=true;
                         dateTimePickerTijdIn.Enabled=true;
-                        dateTimePickerTijdIn.Value=Convert.ToDateTime(selectedUserData.regE.TimeInteken.ToString("hh\\:mm\\:ss"));
-                        if (selectedUserData.regE.IsAanwezig) {
+                        dateTimePickerTijdIn.Value=Convert.ToDateTime(selectedUserData.RegE.TimeInteken.ToString("hh\\:mm\\:ss"));
+                        if (selectedUserData.RegE.IsAanwezig) {
                             buttonTekenUit.Enabled=true;
                         } else {
                             dateTimePickerTimeUit.Enabled=true;
-                            dateTimePickerTimeUit.Value=Convert.ToDateTime(selectedUserData.regE.TimeUitteken.ToString("hh\\:mm\\:ss"));
+                            dateTimePickerTimeUit.Value=Convert.ToDateTime(selectedUserData.RegE.TimeUitteken.ToString("hh\\:mm\\:ss"));
                             buttonTekenIn.Enabled=true; // anulleer uitteken
                         }
                     } else {
@@ -283,7 +283,7 @@ namespace NewAanspreekpuntForm {
         private void tekenInOfUit(object sender, EventArgs e) {
             if (!_NOODMODUSENABLED) {
                 NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit request = new NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit();
-                request.NFCCode=_CurrentlySelectedUser.userN.NFCID;
+                request.NFCCode=_CurrentlySelectedUser.UsE.NFCID;
                 NetComunicationTypesAndFunctions.ServerResponse response;
                 try {
                     response=webbbbrrrrrry(request);
@@ -325,11 +325,11 @@ namespace NewAanspreekpuntForm {
                 //set all control values back in errr object
                 if (_CurrentlySelectedUser.hasTodayRegEntry) {
                     request.isNieuwEntry=false;
-                    request.deEntry=_CurrentlySelectedUser.regE;
+                    request.deEntry=_CurrentlySelectedUser.RegE;
                 } else {
                     request.isNieuwEntry=true;
                     request.deEntry=new DatabaseTypesAndFunctions.RegistratieTableTableEntry();
-                    request.deEntry.IDOfUserRelated=_CurrentlySelectedUser.userN.ID;
+                    request.deEntry.IDOfUserRelated=_CurrentlySelectedUser.UsE.ID;
                     request.newEntryDateIsToday=true;
                 }
                 request.deEntry.Opmerking=textBoxOpmerking.Text;
@@ -393,7 +393,7 @@ namespace NewAanspreekpuntForm {
                 if (dialogResult==DialogResult.Yes) {
                     NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
                     request.isNieuwEntry=false;
-                    request.deEntry=_CurrentlySelectedUser.regE;
+                    request.deEntry=_CurrentlySelectedUser.RegE;
                     request.deEntry.HeeftIngetekend=false;
                     request.deEntry.IsAanwezig=false;
                     request.deEntry.TimeInteken=new TimeSpan();
