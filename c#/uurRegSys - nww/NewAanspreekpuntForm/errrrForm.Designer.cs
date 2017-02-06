@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerTimeUit = new System.Windows.Forms.DateTimePicker();
@@ -49,13 +49,14 @@
             this.dateTimePickerSeDateToListTo = new System.Windows.Forms.DateTimePicker();
             this.checkBoxHeefAfwezigReden = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.buttonClearInEnUitTeken = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePickerVerwachteTijdVanAankomst = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonDisableNoodMode = new System.Windows.Forms.Button();
-            this.buttonClearInEnUitTeken = new System.Windows.Forms.Button();
+            this.labelTimeToNextUpdate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -184,14 +185,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -367,6 +368,17 @@
             this.panel7.Size = new System.Drawing.Size(326, 447);
             this.panel7.TabIndex = 26;
             // 
+            // buttonClearInEnUitTeken
+            // 
+            this.buttonClearInEnUitTeken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClearInEnUitTeken.Location = new System.Drawing.Point(235, 31);
+            this.buttonClearInEnUitTeken.Name = "buttonClearInEnUitTeken";
+            this.buttonClearInEnUitTeken.Size = new System.Drawing.Size(75, 86);
+            this.buttonClearInEnUitTeken.TabIndex = 30;
+            this.buttonClearInEnUitTeken.Text = "Clear In/Uitteken";
+            this.buttonClearInEnUitTeken.UseVisualStyleBackColor = true;
+            this.buttonClearInEnUitTeken.Click += new System.EventHandler(this.buttonClearInEnUitTeken_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -411,6 +423,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.labelTimeToNextUpdate);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
@@ -439,16 +452,14 @@
             this.buttonDisableNoodMode.Visible = false;
             this.buttonDisableNoodMode.Click += new System.EventHandler(this.buttonDisableNoodMode_Click);
             // 
-            // buttonClearInEnUitTeken
+            // labelTimeToNextUpdate
             // 
-            this.buttonClearInEnUitTeken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClearInEnUitTeken.Location = new System.Drawing.Point(235, 31);
-            this.buttonClearInEnUitTeken.Name = "buttonClearInEnUitTeken";
-            this.buttonClearInEnUitTeken.Size = new System.Drawing.Size(75, 86);
-            this.buttonClearInEnUitTeken.TabIndex = 30;
-            this.buttonClearInEnUitTeken.Text = "Clear In/Uitteken";
-            this.buttonClearInEnUitTeken.UseVisualStyleBackColor = true;
-            this.buttonClearInEnUitTeken.Click += new System.EventHandler(this.buttonClearInEnUitTeken_Click);
+            this.labelTimeToNextUpdate.AutoSize = true;
+            this.labelTimeToNextUpdate.Location = new System.Drawing.Point(173, 801);
+            this.labelTimeToNextUpdate.Name = "labelTimeToNextUpdate";
+            this.labelTimeToNextUpdate.Size = new System.Drawing.Size(134, 13);
+            this.labelTimeToNextUpdate.TabIndex = 30;
+            this.labelTimeToNextUpdate.Text = "label Time To Next Update";
             // 
             // ErrrrForm
             // 
@@ -505,6 +516,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePickerVerwachteTijdVanAankomst;
         private System.Windows.Forms.Button buttonClearInEnUitTeken;
+        private System.Windows.Forms.Label labelTimeToNextUpdate;
     }
 }
 

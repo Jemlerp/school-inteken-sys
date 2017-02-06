@@ -46,7 +46,7 @@ namespace NewCrossFunctions {
         }
 
         public class ServerResponse {
-            public bool IsErrorOcurred { get; set; } = false;
+            public bool IsErrorOccurred { get; set; } = false;
             public ERRORINFO ErrorInfo { get; set; } = new ERRORINFO();
             public object Response { get; set; }
         }

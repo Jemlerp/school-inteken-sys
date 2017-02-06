@@ -21,7 +21,7 @@ namespace NewIntekenForm {
             //test server connection/login gegevens
             try {
                 NetComunicationTypesAndFunctions.ServerResponse response = NetComunicationTypesAndFunctions.WebRequest(new NetComunicationTypesAndFunctions.ServerRequestSqlDateTime(), textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
-                if (response.IsErrorOcurred) {
+                if (response.IsErrorOccurred) {
                     if (MessageBox.Show(response.ErrorInfo.ErrorMessage, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop)==DialogResult.Retry) {
                         buttonStart_Click(null, null);
                     } else {

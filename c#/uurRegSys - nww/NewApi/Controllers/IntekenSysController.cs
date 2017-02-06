@@ -103,7 +103,7 @@ namespace NewApi.Controllers {
                 throw new Exception("no instruction");
             } catch (Exception ex) {
                 NetComunicationTypesAndFunctions.ServerResponse toReturn = new NetComunicationTypesAndFunctions.ServerResponse();
-                toReturn.IsErrorOcurred=true;
+                toReturn.IsErrorOccurred=true;
                 toReturn.ErrorInfo.ErrorMessage=ex.Message;
                 return toReturn;
             }

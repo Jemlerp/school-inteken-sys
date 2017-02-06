@@ -71,7 +71,7 @@ namespace NewIntekenForm {
                 _Serialport.Open();
                 _Serialport.DataReceived+=new SerialDataReceivedEventHandler(readReadFromSerial);
                 _TimerCleanUserInfoScreen.Interval=4200;
-                _TimerReloadOverzicht.Interval=42000;
+                _TimerReloadOverzicht.Interval=4000;
                 _TimerCleanUserInfoScreen.Tick+=new EventHandler(ClearUserInfo_Event);
                 _TimerReloadOverzicht.Tick+=new EventHandler(ReloadEtOverzicht_Event);
                 updateOverzight();
@@ -116,7 +116,7 @@ namespace NewIntekenForm {
                     this.BackColor=SystemColors.Control; // all OK color
 
                     NetComunicationTypesAndFunctions.ServerResponseOverzightFromOneDate returnedValue;
-                    if (response.IsErrorOcurred) {
+                    if (response.IsErrorOccurred) {
                         throw new Exception(response.ErrorInfo.ErrorMessage);
                     } else {
 
@@ -188,7 +188,7 @@ namespace NewIntekenForm {
 
                 this.BackColor=SystemColors.Control;
 
-                if (response.IsErrorOcurred) {
+                if (response.IsErrorOccurred) {
                     MessageBox.Show(response.ErrorInfo.ErrorMessage);
                 } else {
                     NetComunicationTypesAndFunctions.ServerResponseInteken intekenResponse = JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.ServerResponseInteken>(JsonConvert.SerializeObject(response.Response));

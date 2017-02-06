@@ -12,18 +12,13 @@ namespace NewApi.NETCore
     public class FuncsVController
     {
 
+        public 
+
         static DatabaseObjects _DatabaseObjects = new DatabaseObjects();
 
         public static DateTime GetDateTimeFromSqlDatabase()
         {
-            using (SqlDataReader reader = FuncsVSQL.SQLQuery("select getdate() jikan"))
-            {
-                while (reader.Read())
-                {
-                    return ((IDataRecord)reader).GetDateTime(reader.GetOrdinal("jikan"));
-                }
-            }
-            return default(DateTime);
+            return FuncsVSQL.GetDateTimeFromSQLServer();
         }
 
         public static NetComObjects.ServerResponseInteken inteken(DatabaseObjects.AcountTableEntry _userAcount, NetComObjects.ServerRequestTekenInOfUit _request)
@@ -35,7 +30,7 @@ namespace NewApi.NETCore
             command = new SqlCommand();
             command.Parameters.AddWithValue("@nfcode", _request.NFCCode);
             command.CommandText = $"select * from {DatabaseObjects.UserTableNames.UserTableName} where {DatabaseObjects.UserTableNames.NFCID} = @nfcode";
-            List<DatabaseObjects.UserTableTableEntry> foundUsers = _DatabaseObjects.GetListUTFromReader(FuncsVSQL.SQLQuery(command));
+            List<DatabaseObjects.UserTableTableEntry> foundUsers = FuncsVSQL.GetListUTFromReader(command); //_DatabaseObjects.GetListUTFromReader(FuncsVSQL.SQLQuery(command));
             if (foundUsers.Count > 0)
             {
                 toReturn.TheUserWithEntryInfo.UsE = foundUsers[0];
@@ -49,7 +44,7 @@ namespace NewApi.NETCore
             command = new SqlCommand();
             command.Parameters.AddWithValue("@userid", toReturn.TheUserWithEntryInfo.UsE.ID);
             command.CommandText = $"select * from {DatabaseObjects.RegistratieTableNames.RegistratieTableName} where {DatabaseObjects.RegistratieTableNames.IDOfUserRelated} = @userid and {DatabaseObjects.RegistratieTableNames.Date} = cast(getdate() as date)";
-            List<DatabaseObjects.RegistratieTableTableEntry> _existingRegEntry = _DatabaseObjects.GetListRTFromReader(FuncsVSQL.SQLQuery(command));
+            List<DatabaseObjects.RegistratieTableTableEntry> _existingRegEntry = FuncsVSQL.GetListRTFromReader(command); //_DatabaseObjects.GetListRTFromReader(FuncsVSQL.SQLQuery(command));
             DatabaseObjects.RegistratieTableTableEntry existingRegEntry;
             command = new SqlCommand();
             if (_existingRegEntry.Count > 0)
@@ -94,7 +89,7 @@ namespace NewApi.NETCore
             command = new SqlCommand();
             command.Parameters.AddWithValue("@userid", toReturn.TheUserWithEntryInfo.UsE.ID);
             command.CommandText = $"select * from {DatabaseObjects.RegistratieTableNames.RegistratieTableName} where {DatabaseObjects.RegistratieTableNames.IDOfUserRelated} = @userid and {DatabaseObjects.RegistratieTableNames.Date} = cast(getdate() as date)";
-            List<DatabaseObjects.RegistratieTableTableEntry> endResult = _DatabaseObjects.GetListRTFromReader(FuncsVSQL.SQLQuery(command));
+            List<DatabaseObjects.RegistratieTableTableEntry> endResult = FuncsVSQL.GetListRTFromReader(command); //_DatabaseObjects.GetListRTFromReader(FuncsVSQL.SQLQuery(command));
             toReturn.TheUserWithEntryInfo.hasTodayRegEntry = true;
             toReturn.TheUserWithEntryInfo.RegE = endResult[0];
             return toReturn;
@@ -109,7 +104,7 @@ namespace NewApi.NETCore
             {
                 command.CommandText += $" where {DatabaseObjects.UserTableNames.IsActiveUser} = 1";
             }
-            List<DatabaseObjects.UserTableTableEntry> userEntrys = _DatabaseObjects.GetListUTFromReader(FuncsVSQL.SQLQuery(command));
+            List<DatabaseObjects.UserTableTableEntry> userEntrys = FuncsVSQL.GetListUTFromReader(command); //_DatabaseObjects.GetListUTFromReader(FuncsVSQL.SQLQuery(command));
             List<DatabaseObjects.RegistratieTableTableEntry> regEntrys = new List<DatabaseObjects.RegistratieTableTableEntry>();
 
             command = new SqlCommand();
@@ -122,7 +117,8 @@ namespace NewApi.NETCore
             {
                 command.CommandText += $" = cast('{_request.dateToGetOverzightFrom.Date.ToString("yyyy-MM-dd")}' as date)";
             }
-            regEntrys = _DatabaseObjects.GetListRTFromReader(FuncsVSQL.SQLQuery(command));
+
+            regEntrys = FuncsVSQL.GetListRTFromReader(command); //_DatabaseObjects.GetListRTFromReader(FuncsVSQL.SQLQuery(command));
             foreach (var User in userEntrys)
             {
                 if (User.IsActiveUser)

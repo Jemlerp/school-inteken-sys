@@ -40,7 +40,7 @@ namespace NewApi.NETCore.Controllers
         public NetComObjects.ServerResponse tokidokiaru([FromBody]NetComObjects.ServerRequest _request)
         {
             NetComObjects.ServerResponse toReturn = new NetComObjects.ServerResponse();
-            toReturn.IsErrorOcurred = false;
+            toReturn.IsErrorOccurred = false;
             try
             {
                 DatabaseObjects.AcountTableEntry usingUser = GetUser(_request.UserName, _request.Password);
@@ -66,7 +66,7 @@ namespace NewApi.NETCore.Controllers
             }
             catch (Exception ex)
             {
-                toReturn.IsErrorOcurred = true;
+                toReturn.IsErrorOccurred = true;
                 toReturn.ErrorInfo.ErrorMessage = ex.Message;
                 return toReturn;
             }

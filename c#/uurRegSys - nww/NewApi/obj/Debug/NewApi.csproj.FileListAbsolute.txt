@@ -72,9 +72,6 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\roslyn\vbc.exe.config
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\roslyn\vbc.rsp
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\obj\Debug\NewApi.csprojResolveAssemblyReference.cache
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\obj\Debug\NewApi.dll
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\obj\Debug\NewApi.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\ApplicationInsights.config
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\roslyn\csc.exe
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\roslyn\csc.exe.config
@@ -145,3 +142,6 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bi
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\System.Web.WebPages.Razor.xml
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\System.Web.Http.xml
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\bin\System.Web.Http.WebHost.xml
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\obj\Debug\NewApi.csprojResolveAssemblyReference.cache
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\obj\Debug\NewApi.dll
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi\obj\Debug\NewApi.pdb
