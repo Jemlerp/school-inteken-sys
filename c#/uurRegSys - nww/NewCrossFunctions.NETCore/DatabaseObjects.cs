@@ -159,7 +159,7 @@ namespace NewCrossFunctions.NETCore {
             public static string RegistratieTableName = "registratieTable";
             public static string ID = "ID";
             public static string IDOfUserRelated = "IDOfUserRelated";
-            public static string Date = "date";
+            public static string Date = "Date";
             public static string TimeInteken = "TimeInteken";
             public static string TimeUitteken = "TimeUitteken";
             public static string HeeftIngetekend = "HeeftIngetekend";

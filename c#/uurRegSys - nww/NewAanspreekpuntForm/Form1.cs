@@ -20,14 +20,12 @@ namespace NewAanspreekpuntForm {
             try {
                 NetComunicationTypesAndFunctions.ServerResponse response = NetComunicationTypesAndFunctions.WebRequest(new NetComunicationTypesAndFunctions.ServerRequestSqlDateTime(), textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
                 if (response.IsErrorOccurred) {
-                    if (MessageBox.Show(response.ErrorInfo.ErrorMessage, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop)==DialogResult.Retry) {
-                        buttonStart_Click(null, null);
-                    } else {
-                        //ga door?
+                    if (MessageBox.Show(response.ErrorInfo.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop) == DialogResult.OK) {
+                        //buttonStart_Click(null, null); nee
                     }
                 }
             } catch {
-                if (MessageBox.Show("Kan Niet Met Server Verbinden", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop)==DialogResult.Retry) {
+                if (MessageBox.Show("Kan Niet Met Server Verbinden", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop) == DialogResult.Retry) {
                     buttonStart_Click(null, null);
                 } else {
                     return;

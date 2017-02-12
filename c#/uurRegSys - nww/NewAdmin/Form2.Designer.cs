@@ -1,5 +1,5 @@
 ﻿namespace NewAdmin {
-    partial class Form1 {
+    partial class Form2 {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing) {
-            if (disposing&&(components!=null)) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -42,9 +42,10 @@
             this.buttonStart.Location = new System.Drawing.Point(347, 113);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(119, 94);
-            this.buttonStart.TabIndex = 12;
+            this.buttonStart.TabIndex = 15;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // panel3
             // 
@@ -55,7 +56,7 @@
             this.panel3.Location = new System.Drawing.Point(12, 113);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(329, 94);
-            this.panel3.TabIndex = 11;
+            this.panel3.TabIndex = 14;
             // 
             // label4
             // 
@@ -85,7 +86,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(329, 95);
-            this.panel2.TabIndex = 10;
+            this.panel2.TabIndex = 13;
             // 
             // label3
             // 
@@ -121,16 +122,16 @@
             this.textBoxUserName.TabIndex = 0;
             this.textBoxUserName.Text = "test";
             // 
-            // Form1
+            // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 223);
+            this.ClientSize = new System.Drawing.Size(490, 229);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Form2";
+            this.Text = "Form2";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -152,4 +153,3 @@
         private System.Windows.Forms.TextBox textBoxUserName;
     }
 }
-

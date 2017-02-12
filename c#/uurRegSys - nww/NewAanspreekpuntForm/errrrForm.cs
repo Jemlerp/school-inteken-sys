@@ -162,6 +162,7 @@ namespace NewAanspreekpuntForm {
                             if (_LastRecivedOverzight != null && _CurrentlySelectedUser.UsE != null) {
                                 _ALLOWCLEARINPUTSONRELOAD = true;
 
+                                #region try 1
                                 try {
                                     foreach (var entry in returnedValue.EtList) {
                                         if (entry.UsE.ID == _CurrentlySelectedUser.UsE.ID) {
@@ -200,7 +201,9 @@ namespace NewAanspreekpuntForm {
                                             break;
                                         }
                                     }
-                                } catch (Exception ex) { string kanker = ex.Message; _ALLOWCLEARINPUTSONRELOAD = true; }
+                                } 
+                                catch (Exception ex) { string kanker = ex.Message; _ALLOWCLEARINPUTSONRELOAD = true; }
+                                #endregion
 
                             }
 
@@ -211,7 +214,9 @@ namespace NewAanspreekpuntForm {
                             returnedValue.EtList = _LastRecivedOverzight;
                         }
                         if (textBoxZoekOp.Text.Trim() == "") {
+                            dataGridView1.SelectionChanged -= dataGridView1_SelectionChanged;
                             dataGridView1.DataSource = ForFormHelperFunctions.UserInfoListToDataTableForDataGridDisplay(returnedValue.EtList, returnedValue.SQlDateTime);
+                            dataGridView1.SelectionChanged += new EventHandler(dataGridView1_SelectionChanged);
                             dataGridView1.Refresh();
                         } else { //zoek op
                             List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> sortedList = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
@@ -220,7 +225,9 @@ namespace NewAanspreekpuntForm {
                                     sortedList.Add(perso);
                                 }
                             }
+                            dataGridView1.SelectionChanged -= dataGridView1_SelectionChanged;
                             dataGridView1.DataSource = ForFormHelperFunctions.UserInfoListToDataTableForDataGridDisplay(sortedList, returnedValue.SQlDateTime);
+                            dataGridView1.SelectionChanged += new EventHandler(dataGridView1_SelectionChanged);
                             dataGridView1.Refresh();
                         }
                         this.BackColor = SystemColors.Control; // times are uptodate
@@ -379,6 +386,7 @@ namespace NewAanspreekpuntForm {
         }
 
         private void buttonSave_Click(object sender, EventArgs e) {
+            if(_CurrentlySelectedUser.UsE == null) { return; }
             if (!_NOODMODUSENABLED) {
                 NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
                 //set all control values back in errr object

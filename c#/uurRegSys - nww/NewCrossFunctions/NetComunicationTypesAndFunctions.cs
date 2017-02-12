@@ -82,10 +82,9 @@ namespace NewCrossFunctions {
 
         public class ServerResponseInteken {
             public DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry TheUserWithEntryInfo { get; set; } = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
-            public bool ingetekened { get; set; } // is nu 3
-            public bool uitgetekened { get; set; } // is nu 1
-            public bool uitekenengeanuleerd { get; set; } // in nu 2
-            // deze week uur (tekort:D) overzight>?
+            public bool ingetekened { get; set; }
+            public bool uitgetekened { get; set; }
+            public bool uitekenengeanuleerd { get; set; }
         }
 
         public class ServerRequestOverzightFromOneDate : IKnow {
