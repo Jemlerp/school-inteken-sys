@@ -4,7 +4,7 @@
 -nowarn:CS1701
 -nowarn:CS1702
 -nowarn:CS1705
--debug:full
+-debug:portable
 -nostdlib
 -nologo
 "C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewApi.NETCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"

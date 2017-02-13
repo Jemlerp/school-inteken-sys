@@ -18,11 +18,9 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "NewCrossFunctions.NETCore": "1.0.0-*"
   },
-
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
   },
-
   "frameworks": {
     "netcoreapp1.0": {
       "imports": [
@@ -31,28 +29,30 @@
       ]
     }
   },
-
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "debugType": "portable"
   },
-
   "runtimeOptions": {
     "configProperties": {
       "System.GC.Server": true
     }
   },
-
   "publishOptions": {
     "include": [
       "wwwroot",
       "**/*.cshtml",
       "appsettings.json",
-      "web.config"
+      "web.config",
+      "docker-compose.yml",
+      "Dockerfile",
+      ".dockerignore"
     ]
   },
-
   "scripts": {
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+    "postpublish": [
+      "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%"
+    ]
   }
 }
