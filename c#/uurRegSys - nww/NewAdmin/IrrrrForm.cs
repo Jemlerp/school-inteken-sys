@@ -57,6 +57,15 @@ namespace NewAdmin {
         }
 
         private void IrrrrForm_Load(object sender, EventArgs e) {
+
+            dateTimePickerUurenTijdIn.ShowUpDown = true;
+            dateTimePickerUurenTijdIn.CustomFormat = "HH:mm:ss";
+            dateTimePickerUurenTijdIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+
+            dateTimePickerUurenTijdUit.ShowUpDown = true;
+            dateTimePickerUurenTijdUit.CustomFormat = "HH:mm:ss";
+            dateTimePickerUurenTijdUit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+
             MakeUurenTabUseable();
         }
 
@@ -75,6 +84,9 @@ namespace NewAdmin {
         }
 
         #region uuren
+        // dateTimePickerTimeUit.Value = Convert.ToDateTime(selectedUserData.RegE.TimeUitteken.ToString("hh\\:mm\\:ss"));
+
+
         void MakeUurenTabUseable() {
             updateUurenDataGrid();
         }
@@ -106,6 +118,30 @@ namespace NewAdmin {
             dataGridViewUuren.Refresh();
         }
 
+        void enableOrDisableInputs() {
+
+            if (checkBoxUurenHeeftIngetekend.Checked) {
+                dateTimePickerUurenTijdIn.Enabled = true;
+                checkBoxUurenIsAanwezig.Enabled = true;
+            } else {
+                dateTimePickerUurenTijdUit.Enabled = false;
+                checkBoxUurenIsAanwezig.Enabled = false;
+            }
+
+            dateTimePickerUurenTijdUit.Enabled = !checkBoxUurenIsAanwezig.Checked;
+
+            comboBoxUurenAfwezighijdreden.Enabled = checkBoxUurenVermeldAfwezig.Checked;
+
+        }
+
+        private void dateTimePickerUurenDatumVList_ValueChanged(object sender, EventArgs e) {
+            updateUurenDataGrid();
+        }
+
+        private void checkBoxUurenShowExUsers_CheckedChanged(object sender, EventArgs e) {
+            updateUurenDataGrid();
+        }
+
         private void dataGridViewUuren_SelectionChanged(object sender, EventArgs e) {
             if (dataGridViewUuren.SelectedRows.Count == 0) { return; }
 
@@ -128,6 +164,8 @@ namespace NewAdmin {
             labelUurenRID.Text = "";
             labelUurenUID.Text = "";
             textBoxUurenOpmerking.Text = "";
+            dateTimePickerUurenTijdIn.Value = Convert.ToDateTime((new DateTime()).ToString("hh\\:mm\\:ss"));
+            dateTimePickerUurenTijdUit.Value = Convert.ToDateTime((new DateTime()).ToString("hh\\:mm\\:ss"));
 
             //output to inputs
             if (_CurrentlySelectedUurensUser.hasTodayRegEntry) {
@@ -138,10 +176,12 @@ namespace NewAdmin {
                     checkBoxUurenIsAanwezig.Checked = _CurrentlySelectedUurensUser.RegE.IsAanwezig;
                 } catch { }
                 try {
-                    dateTimePickerUurenTijdIn.Value = (new DateTime()) + _CurrentlySelectedUurensUser.RegE.TimeInteken;
+                    DateTime datetime = new DateTime();
+                    datetime.TimeOfDay = _CurrentlySelectedUurensUser.RegE.TimeInteken;
+                    dateTimePickerUurenTijdIn.Value = datetime;
                 } catch { }
                 try {
-                    dateTimePickerUurenTijdUit.Value = (new DateTime()) + _CurrentlySelectedUurensUser.RegE.TimeUitteken;
+                    dateTimePickerUurenTijdUit.Value = _CurrentlySelectedUurensUser.RegE.TimeUitteken;
                 } catch { }
                 try {
                     textBoxUurenOpmerking.Text = _CurrentlySelectedUurensUser.RegE.Opmerking;
@@ -173,6 +213,73 @@ namespace NewAdmin {
 
 
         }
+
+        private void checkBoxUurenHeeftIngetekend_CheckedChanged(object sender, EventArgs e) {
+            enableOrDisableInputs();
+        }
+
+        private void checkBoxUurenVermeldAfwezig_CheckedChanged(object sender, EventArgs e) {
+            enableOrDisableInputs();
+        }
+
+        private void checkBoxUurenIsAanwezig_CheckedChanged(object sender, EventArgs e) {
+            enableOrDisableInputs();
+        }
+
+        private void buttonUurenUpdateOrSaveNew_Click(object sender, EventArgs e) {
+            NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
+
+            if (_CurrentlySelectedUurensUser.hasTodayRegEntry) {
+                request.deEntry = _CurrentlySelectedUurensUser.RegE;
+                request.isNieuwEntry = false;
+            } else {
+                request.isNieuwEntry = true;
+                request.newEntryDateIsToday = false;
+                request.deEntry.Date = dateTimePickerUurenDatumVList.Value;
+            }
+
+            request.deEntry.IsAanwezig = checkBoxUurenIsAanwezig.Checked;
+            request.deEntry.HeeftIngetekend = checkBoxUurenHeeftIngetekend.Checked;
+            request.deEntry.TimeInteken = dateTimePickerUurenTijdIn.Value.TimeOfDay;
+            request.deEntry.TimeUitteken = dateTimePickerUurenTijdUit.Value.TimeOfDay;
+            request.deEntry.Opmerking = textBoxUurenOpmerking.Text;
+
+            if (checkBoxUurenVermeldAfwezig.Checked) {
+                switch (comboBoxUurenAfwezighijdreden.SelectedItem.ToString()) {
+                    case "Ziek":
+                        request.deEntry.IsZiek = true;
+                        break;
+                    case "StudieVerlof":
+                        request.deEntry.IsStudieverlof = true;
+                        break;
+                    case "FlexibelVerlof ":
+                        request.deEntry.IsFlexiebelverlof = true;
+                        break;
+                    case "Excursie":
+                        request.deEntry.IsExcurtie = true;
+                        break;
+                }
+            }
+
+            try {
+                NetComunicationTypesAndFunctions.ServerResponse response = webbbbrrrrrry(request);
+
+                if (response.IsErrorOccurred) {
+                    MessageBox.Show(response.ErrorInfo.ErrorMessage);
+                } else {
+                    updateUurenDataGrid();
+                }
+
+
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, "error");
+            }
+        }
+
+        private void buttonUurenRefresh_Click(object sender, EventArgs e) {
+            updateUurenDataGrid();
+        }
+
         #endregion
 
         // edit user
