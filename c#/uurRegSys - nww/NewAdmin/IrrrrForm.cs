@@ -27,6 +27,8 @@ namespace NewAdmin {
         string _Address = "";
         string _UserName = "";
 
+        bool _InUpdate = false;
+
         //uuren - edit users
         List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> _ResievedUserListWithRegEntrys = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
         DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry _CurrentlySelectedUurensUser = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
@@ -119,19 +121,15 @@ namespace NewAdmin {
         }
 
         void enableOrDisableInputs() {
+            if (!_InUpdate) {
+                //disable
 
-            if (checkBoxUurenHeeftIngetekend.Checked) {
-                dateTimePickerUurenTijdIn.Enabled = true;
-                checkBoxUurenIsAanwezig.Enabled = true;
-            } else {
-                dateTimePickerUurenTijdUit.Enabled = false;
+                checkBoxUurenHeeftIngetekend.Enabled = false;
                 checkBoxUurenIsAanwezig.Enabled = false;
+                dateTimePickerUurenTijdIn.Enabled = false;
+                dateTimePickerUurenTijdUit.Enabled = false;
+
             }
-
-            dateTimePickerUurenTijdUit.Enabled = !checkBoxUurenIsAanwezig.Checked;
-
-            comboBoxUurenAfwezighijdreden.Enabled = checkBoxUurenVermeldAfwezig.Checked;
-
         }
 
         private void dateTimePickerUurenDatumVList_ValueChanged(object sender, EventArgs e) {
@@ -144,6 +142,7 @@ namespace NewAdmin {
 
         private void dataGridViewUuren_SelectionChanged(object sender, EventArgs e) {
             if (dataGridViewUuren.SelectedRows.Count == 0) { return; }
+            _InUpdate = true;
 
             //get idfiers
             string voorNaam = dataGridViewUuren.SelectedRows[0].Cells[0].Value.ToString();
@@ -175,13 +174,11 @@ namespace NewAdmin {
                 try {
                     checkBoxUurenIsAanwezig.Checked = _CurrentlySelectedUurensUser.RegE.IsAanwezig;
                 } catch { }
-                try {
-                    DateTime datetime = new DateTime();
-                    datetime.TimeOfDay = _CurrentlySelectedUurensUser.RegE.TimeInteken;
-                    dateTimePickerUurenTijdIn.Value = datetime;
+                try {                  
+                    dateTimePickerUurenTijdIn.Value = new DateTime() + _CurrentlySelectedUurensUser.RegE.TimeInteken;
                 } catch { }
                 try {
-                    dateTimePickerUurenTijdUit.Value = _CurrentlySelectedUurensUser.RegE.TimeUitteken;
+                    dateTimePickerUurenTijdUit.Value = new DateTime() + _CurrentlySelectedUurensUser.RegE.TimeUitteken;
                 } catch { }
                 try {
                     textBoxUurenOpmerking.Text = _CurrentlySelectedUurensUser.RegE.Opmerking;
@@ -211,7 +208,8 @@ namespace NewAdmin {
                 }
             }
 
-
+            _InUpdate = false;
+            enableOrDisableInputs();
         }
 
         private void checkBoxUurenHeeftIngetekend_CheckedChanged(object sender, EventArgs e) {
