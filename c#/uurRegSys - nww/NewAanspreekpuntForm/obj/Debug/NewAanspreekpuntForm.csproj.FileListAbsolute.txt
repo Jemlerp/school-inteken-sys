@@ -27,3 +27,7 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspr
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.csproj.GenerateResource.Cache
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.exe
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.pdb
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewAanspreekpuntForm.exe.manifest
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\bin\Debug\NewAanspreekpuntForm.application
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.exe.manifest
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAanspreekpuntForm\obj\Debug\NewAanspreekpuntForm.application

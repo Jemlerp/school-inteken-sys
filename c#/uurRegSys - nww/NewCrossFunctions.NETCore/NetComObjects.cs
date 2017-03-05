@@ -38,6 +38,7 @@ namespace NewCrossFunctions.NETCore
             RSqlServerDateTime,
             RInteken,
             ROneDateRegiOverzight,
+            RMultiDateRegiOverzight,
             RChangeRegTable,
         }
 
@@ -51,6 +52,22 @@ namespace NewCrossFunctions.NETCore
             public DateTime SqlDateTime { get; set; }
         }
 
+        public class ServerRequestOverzightFromMultipleDates : IKnow {
+            public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RMultiDateRegiOverzight; } }
+            public DateTime FromAndWithThisDate { get; set; }
+            public DateTime TotEnMetDezeDatum { get; set; }
+            public bool getForExUsers { get; set; }
+        }
+
+        public class ServerResponseOverzightFromMultipleDates {
+            //baylife
+            public List<ServerResponseOverzightFromMultipleDatesSubType> allesDatJeNodigHebt { get; set; } = new List<ServerResponseOverzightFromMultipleDatesSubType>();
+        }
+        
+        public class ServerResponseOverzightFromMultipleDatesSubType {
+            public ServerResponseOverzightFromOneDate OverZichtFromThisDate { get; set; } = new ServerResponseOverzightFromOneDate();
+            public DateTime DateOfOverzight { get; set; }
+        }
 
         public class ServerRequestTekenInOfUit : IKnow
         {

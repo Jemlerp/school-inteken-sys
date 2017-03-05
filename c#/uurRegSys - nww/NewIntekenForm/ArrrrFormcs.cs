@@ -152,7 +152,7 @@ namespace NewIntekenForm {
                         ///--
 
                         dataGridView1.Columns[0].Width=130;
-                        dataGridView1.Columns[1].Width=130;
+                        dataGridView1.Columns[1].Width=158;
                         dataGridView1.Columns[4].Width=dataGridView1.Width-dataGridView1.Columns[0].Width-dataGridView1.Columns[1].Width-dataGridView1.Columns[2].Width-dataGridView1.Columns[3].Width-3-20;
                         _TimerReloadOverzicht.Start();
                     }
@@ -213,6 +213,8 @@ namespace NewIntekenForm {
 
         private void ArrrrFormcs_FormClosing(object sender, FormClosingEventArgs e) {
             _Serialport.Close();
+            _TimerCleanUserInfoScreen.Stop();
+            _TimerReloadOverzicht.Stop();
         }
     }
 }

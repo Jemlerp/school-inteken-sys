@@ -123,12 +123,22 @@ namespace NewAdmin {
         void enableOrDisableInputs() {
             if (!_InUpdate) {
                 //disable
-
-                checkBoxUurenHeeftIngetekend.Enabled = false;
-                checkBoxUurenIsAanwezig.Enabled = false;
                 dateTimePickerUurenTijdIn.Enabled = false;
                 dateTimePickerUurenTijdUit.Enabled = false;
+                comboBoxUurenAfwezighijdreden.Enabled = false;
 
+                //enable
+                if (checkBoxUurenVermeldAfwezig.Checked) {
+                    comboBoxUurenAfwezighijdreden.Enabled = true;
+                }
+
+                if (checkBoxUurenHeeftIngetekend.Checked) {
+                    dateTimePickerUurenTijdIn.Enabled = true;
+
+                    if (!checkBoxUurenIsAanwezig.Checked) {
+                        dateTimePickerUurenTijdUit.Enabled = true;
+                    }
+                }
             }
         }
 
@@ -278,10 +288,38 @@ namespace NewAdmin {
             updateUurenDataGrid();
         }
 
+        private void buttonUurenGetAndSaveOverzivghty_Click(object sender, EventArgs e) {
+            //get from server
+            NetComunicationTypesAndFunctions.ServerRequestOverzightFromMultipleDates request = new NetComunicationTypesAndFunctions.ServerRequestOverzightFromMultipleDates();
+            request.getForExUsers = checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Checked;
+            request.FromAndWithThisDate = dateTimePickerUurenGetOverzightMoreDatuemsFrom.Value;
+            request.TotEnMetDezeDatum = dateTimePickerUurenGetOverzightMoreDatuemsThru.Value;
+
+            NetComunicationTypesAndFunctions.ServerResponseOverzightFromMultipleDatesSubType theResponse;
+
+            NetComunicationTypesAndFunctions.ServerResponse response = webbbbrrrrrry(request);
+            if (response.IsErrorOccurred) {
+                throw new Exception(response.ErrorInfo.ErrorMessage);
+            } else {
+                theResponse = JsonConvert.DeserializeObject<NetComunicationTypesAndFunctions.ServerResponseOverzightFromMultipleDatesSubType>(JsonConvert.SerializeObject(response.Response));
+            }
+
+            //format to and export as....... exel :<
+            //just txt for now....
+
+
+            //save file dialog...
+
+        }
+
         #endregion
 
         // edit user
         void MakeEditUserTabUseable() {
+
+        }
+
+        private void IrrrrForm_FormClosing(object sender, FormClosingEventArgs e) {
 
         }
 

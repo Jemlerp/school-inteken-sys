@@ -12,13 +12,16 @@ namespace NewApi.NETCore
     public class FuncsVController
     {
 
-        public 
-
-        static DatabaseObjects _DatabaseObjects = new DatabaseObjects();
+        public static DatabaseObjects _DatabaseObjects = new DatabaseObjects();
 
         public static DateTime GetDateTimeFromSqlDatabase()
         {
             return FuncsVSQL.GetDateTimeFromSQLServer();
+        }
+
+        public static IEnumerable<DateTime> ElkeDatumTussenTweDatums(DateTime from, DateTime thru) {
+            for (var day = from.Date; day.Date <= thru.Date; day = day.AddDays(1))
+                yield return day;
         }
 
         public static NetComObjects.ServerResponseInteken inteken(DatabaseObjects.AcountTableEntry _userAcount, NetComObjects.ServerRequestTekenInOfUit _request)
@@ -141,6 +144,26 @@ namespace NewApi.NETCore
             return toReturn;
         }
 
+        public static NetComObjects.ServerResponseOverzightFromMultipleDates compleetOverzightVanTussenTweDatums(DatabaseObjects.AcountTableEntry _userAcount, NetComObjects.ServerRequestOverzightFromMultipleDates _request) {
+            NetComObjects.ServerResponseOverzightFromMultipleDates toReturn = new NetComObjects.ServerResponseOverzightFromMultipleDates();
+
+            foreach(DateTime dag in ElkeDatumTussenTweDatums(_request.FromAndWithThisDate, _request.TotEnMetDezeDatum)) {
+
+                NetComObjects.ServerResponseOverzightFromMultipleDatesSubType toAddToList = new NetComObjects.ServerResponseOverzightFromMultipleDatesSubType();
+                toAddToList.DateOfOverzight = dag;
+
+                NetComObjects.ServerRequestOverzightFromOneDate moreRequest = new NetComObjects.ServerRequestOverzightFromOneDate();
+                moreRequest.alsoReturnExUsers = _request.getForExUsers;
+                moreRequest.useToday = false;
+                moreRequest.dateToGetOverzightFrom = dag;
+
+                toAddToList.OverZichtFromThisDate = overzight(_userAcount, moreRequest);
+
+                toReturn.allesDatJeNodigHebt.Add(toAddToList);
+            }
+            return toReturn;
+        }
+
         public static NetComObjects.ServerResponseChangeRegistratieTable ChangeRegistatieTable(DatabaseObjects.AcountTableEntry _MasterRightsEntry, NetComObjects.ServerRequestChangeRegistratieTable _Request)
         {
             NetComObjects.ServerResponseChangeRegistratieTable _toReturn = new NetComObjects.ServerResponseChangeRegistratieTable();
@@ -150,7 +173,7 @@ namespace NewApi.NETCore
             if (_Request.isNieuwEntry)
             {
                 if (_Request.newEntryDateIsToday)
-                { //date is getdate()
+                { 
                     _commamd.CommandText = $"insert into {DatabaseObjects.RegistratieTableNames.RegistratieTableName} ({DatabaseObjects.RegistratieTableNames.IDOfUserRelated}, {DatabaseObjects.RegistratieTableNames.Date}, {DatabaseObjects.RegistratieTableNames.TimeInteken}, {DatabaseObjects.RegistratieTableNames.TimeUitteken}, {DatabaseObjects.RegistratieTableNames.HeeftIngetekend}, {DatabaseObjects.RegistratieTableNames.IsAanwezig}, {DatabaseObjects.RegistratieTableNames.IsZiek}, {DatabaseObjects.RegistratieTableNames.IsFlexibelverlof}, {DatabaseObjects.RegistratieTableNames.IsStudieverlof}, {DatabaseObjects.RegistratieTableNames.IsExcursie},{DatabaseObjects.RegistratieTableNames.IsLaat}, {DatabaseObjects.RegistratieTableNames.Opmerking}, {DatabaseObjects.RegistratieTableNames.Verwachtetijdvanaanwezighijd}) values ({_Request.deEntry.IDOfUserRelated}, cast(getdate() as date), cast('{_Request.deEntry.TimeInteken}' as time), cast('{_Request.deEntry.TimeUitteken}' as time), cast('{_Request.deEntry.HeeftIngetekend}' as bit), cast('{_Request.deEntry.IsAanwezig}' as bit), cast('{_Request.deEntry.IsZiek}' as bit),cast('{_Request.deEntry.IsFlexiebelverlof}' as bit), cast('{_Request.deEntry.IsStudieverlof}' as bit), cast('{_Request.deEntry.IsExcurtie}' as bit), cast('{_Request.deEntry.IsLaat}' as bit), @andered, cast(@verwachtetijdvana as time))";
                 }
                 else
@@ -169,7 +192,9 @@ namespace NewApi.NETCore
             }
             else
             {
-                _commamd.CommandText = $"update {DatabaseObjects.RegistratieTableNames.RegistratieTableName} set {DatabaseObjects.RegistratieTableNames.IDOfUserRelated} = {_Request.deEntry.IDOfUserRelated}, {DatabaseObjects.RegistratieTableNames.Date} = cast('{_Request.deEntry.Date.ToString("yyyy\\/MM\\/dd")}' as date), {DatabaseObjects.RegistratieTableNames.TimeInteken} = cast('{_Request.deEntry.TimeInteken}' as time), {DatabaseObjects.RegistratieTableNames.TimeUitteken} = cast('{_Request.deEntry.TimeUitteken}' as time), {DatabaseObjects.RegistratieTableNames.HeeftIngetekend} = cast('{_Request.deEntry.HeeftIngetekend}' as bit), {DatabaseObjects.RegistratieTableNames.IsZiek} = cast('{_Request.deEntry.IsZiek}' as bit), {DatabaseObjects.RegistratieTableNames.IsFlexibelverlof} = cast('{_Request.deEntry.IsFlexiebelverlof}' as bit), {DatabaseObjects.RegistratieTableNames.IsStudieverlof} = cast('{_Request.deEntry.IsStudieverlof}' as bit), {DatabaseObjects.RegistratieTableNames.IsExcursie} = cast('{_Request.deEntry.IsExcurtie}' as bit), {DatabaseObjects.RegistratieTableNames.IsLaat} = cast('{_Request.deEntry.IsLaat}' as bit), {DatabaseObjects.RegistratieTableNames.Opmerking} = @andered, {DatabaseObjects.RegistratieTableNames.Verwachtetijdvanaanwezighijd} = cast(@verwachtetijdvana as time) where {DatabaseObjects.RegistratieTableNames.ID} = {_Request.deEntry.ID}";
+
+                _commamd.CommandText = $@"update {DatabaseObjects.RegistratieTableNames.RegistratieTableName} set {DatabaseObjects.RegistratieTableNames.IDOfUserRelated} = {_Request.deEntry.IDOfUserRelated}, {DatabaseObjects.RegistratieTableNames.Date} = cast('{_Request.deEntry.Date.ToString("yyyy\\/MM\\/dd")}' as date), {DatabaseObjects.RegistratieTableNames.TimeInteken} = cast('{_Request.deEntry.TimeInteken}' as time), {DatabaseObjects.RegistratieTableNames.TimeUitteken} = cast('{_Request.deEntry.TimeUitteken}' as time), {DatabaseObjects.RegistratieTableNames.IsAanwezig} = cast('{_Request.deEntry.IsAanwezig}' as bit), {DatabaseObjects.RegistratieTableNames.HeeftIngetekend} = cast('{_Request.deEntry.HeeftIngetekend}' as bit), {DatabaseObjects.RegistratieTableNames.IsZiek} = cast('{_Request.deEntry.IsZiek}' as bit), {DatabaseObjects.RegistratieTableNames.IsFlexibelverlof} = cast('{_Request.deEntry.IsFlexiebelverlof}' as bit), {DatabaseObjects.RegistratieTableNames.IsStudieverlof} = cast('{_Request.deEntry.IsStudieverlof}' as bit), {DatabaseObjects.RegistratieTableNames.IsExcursie} = cast('{_Request.deEntry.IsExcurtie}' as bit), {DatabaseObjects.RegistratieTableNames.IsLaat} = cast('{_Request.deEntry.IsLaat}' as bit), {DatabaseObjects.RegistratieTableNames.Opmerking} = @andered, {DatabaseObjects.RegistratieTableNames.Verwachtetijdvanaanwezighijd} = cast(@verwachtetijdvana as time) where {DatabaseObjects.RegistratieTableNames.ID} = {_Request.deEntry.ID}";
+
                 if (FuncsVSQL.SQLNonQuery(_commamd) > 0)
                 {
                     //_toReturn.deEntry=_Request.deEntry;

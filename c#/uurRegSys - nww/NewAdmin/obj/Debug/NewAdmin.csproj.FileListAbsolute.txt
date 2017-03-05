@@ -24,3 +24,7 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewCrossFunctions.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.Form2.resources
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.exe.manifest
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\bin\Debug\NewAdmin.application
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.exe.manifest
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewAdmin\obj\Debug\NewAdmin.application

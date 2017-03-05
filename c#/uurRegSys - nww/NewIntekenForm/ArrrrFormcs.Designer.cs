@@ -76,7 +76,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.Size = new System.Drawing.Size(636, 665);
+            this.dataGridView1.Size = new System.Drawing.Size(636, 729);
             this.dataGridView1.TabIndex = 4;
             // 
             // label2
@@ -93,7 +93,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
             this.panel1.Controls.Add(this.labelNaam);
             this.panel1.Controls.Add(this.labelInOfUitGetekend);
-            this.panel1.Location = new System.Drawing.Point(705, 284);
+            this.panel1.Location = new System.Drawing.Point(639, 264);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(339, 255);
             this.panel1.TabIndex = 9;
@@ -121,7 +121,7 @@
             // buttonDisableNoodMode
             // 
             this.buttonDisableNoodMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDisableNoodMode.Location = new System.Drawing.Point(708, 143);
+            this.buttonDisableNoodMode.Location = new System.Drawing.Point(642, 123);
             this.buttonDisableNoodMode.Name = "buttonDisableNoodMode";
             this.buttonDisableNoodMode.Size = new System.Drawing.Size(339, 255);
             this.buttonDisableNoodMode.TabIndex = 11;
@@ -135,7 +135,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1120, 665);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.buttonDisableNoodMode);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);

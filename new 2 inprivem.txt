@@ -1,4 +1,63 @@
+loging
 
+table rows: /
+
+varchar^json : actieDetails : actie die gedaan is door user
+
+int : relatedAcountId : primary key van user acount
+varchar : relatedAcountName : naam van user die actie gedaan heefd
+
+bit : isCalledByIntekenApp : easyer searthing in table 
+bit : isCalledByAanspeekpuntApp : ...
+
+bit : isManualEntryChange : easyer searthing for cheaters // alle admin dingen zitten hier ook in
+bit : isLoginOrLogout : kijken hoelang mensen met die dingen bezig zijn
+
+\
+
+#region een
+
+class logTosaveToDatabase{
+	public ActionLogEvent [get;set;]
+
+
+}
+
+class ActionLogEvent{
+ enum Action{
+	inofuiteken,
+	manualdataedit,
+	
+ }
+	
+ class Wraping : Iknowing{
+	Action deaction {get;set;}
+	object Objeect {get;set;}
+	int logginVersion {get;set;}
+ }
+
+ interface IKnowing{
+ public Action {get;set;}
+ }
+
+ public TInOfUiteken{
+	for user x:
+	time inteken 
+ }
+
+
+
+}
+#endregion
+
+
+
+
+
+
+
+
+# oud >
 mogilike langduuurige werking.
 overzigtelijk.
 compackt.

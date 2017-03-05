@@ -111,7 +111,7 @@
             // 
             this.labelAchterNaam.AutoSize = true;
             this.labelAchterNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAchterNaam.Location = new System.Drawing.Point(51, 204);
+            this.labelAchterNaam.Location = new System.Drawing.Point(40, 179);
             this.labelAchterNaam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAchterNaam.Name = "labelAchterNaam";
             this.labelAchterNaam.Size = new System.Drawing.Size(151, 25);
@@ -122,7 +122,7 @@
             // 
             this.labelVoorNaam.AutoSize = true;
             this.labelVoorNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVoorNaam.Location = new System.Drawing.Point(51, 159);
+            this.labelVoorNaam.Location = new System.Drawing.Point(40, 135);
             this.labelVoorNaam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelVoorNaam.Name = "labelVoorNaam";
             this.labelVoorNaam.Size = new System.Drawing.Size(92, 25);
@@ -133,7 +133,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 184);
+            this.label5.Location = new System.Drawing.Point(8, 159);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 20);
@@ -144,7 +144,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 139);
+            this.label3.Location = new System.Drawing.Point(21, 115);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 20);
@@ -154,7 +154,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 801);
+            this.label2.Location = new System.Drawing.Point(17, 697);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 13);
             this.label2.TabIndex = 23;
@@ -164,7 +164,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 59);
+            this.label1.Location = new System.Drawing.Point(8, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 20);
             this.label1.TabIndex = 22;
@@ -173,7 +173,7 @@
             // textBoxZoekOp
             // 
             this.textBoxZoekOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxZoekOp.Location = new System.Drawing.Point(13, 85);
+            this.textBoxZoekOp.Location = new System.Drawing.Point(11, 75);
             this.textBoxZoekOp.Name = "textBoxZoekOp";
             this.textBoxZoekOp.Size = new System.Drawing.Size(97, 26);
             this.textBoxZoekOp.TabIndex = 20;
@@ -203,14 +203,14 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.Size = new System.Drawing.Size(637, 827);
+            this.dataGridView1.Size = new System.Drawing.Size(637, 729);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // buttonTekenIn
             // 
             this.buttonTekenIn.Enabled = false;
-            this.buttonTekenIn.Location = new System.Drawing.Point(20, 261);
+            this.buttonTekenIn.Location = new System.Drawing.Point(12, 207);
             this.buttonTekenIn.Name = "buttonTekenIn";
             this.buttonTekenIn.Size = new System.Drawing.Size(106, 64);
             this.buttonTekenIn.TabIndex = 1;
@@ -220,7 +220,7 @@
             // 
             // buttonTekenUit
             // 
-            this.buttonTekenUit.Location = new System.Drawing.Point(132, 261);
+            this.buttonTekenUit.Location = new System.Drawing.Point(121, 207);
             this.buttonTekenUit.Name = "buttonTekenUit";
             this.buttonTekenUit.Size = new System.Drawing.Size(106, 64);
             this.buttonTekenUit.TabIndex = 0;
@@ -239,7 +239,7 @@
             "StudieVerlof",
             "FlexibelVerlof",
             "Excursie"});
-            this.comboBoxRedenAfwezig.Location = new System.Drawing.Point(12, 192);
+            this.comboBoxRedenAfwezig.Location = new System.Drawing.Point(10, 182);
             this.comboBoxRedenAfwezig.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxRedenAfwezig.Name = "comboBoxRedenAfwezig";
             this.comboBoxRedenAfwezig.Size = new System.Drawing.Size(224, 37);
@@ -260,7 +260,7 @@
             // textBoxOpmerking
             // 
             this.textBoxOpmerking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOpmerking.Location = new System.Drawing.Point(12, 310);
+            this.textBoxOpmerking.Location = new System.Drawing.Point(12, 294);
             this.textBoxOpmerking.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxOpmerking.Multiline = true;
             this.textBoxOpmerking.Name = "textBoxOpmerking";
@@ -271,7 +271,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 290);
+            this.label9.Location = new System.Drawing.Point(11, 274);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 18);
@@ -284,7 +284,7 @@
             this.checkBoxSeUserTodayAsDate.Checked = true;
             this.checkBoxSeUserTodayAsDate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSeUserTodayAsDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxSeUserTodayAsDate.Location = new System.Drawing.Point(7, 101);
+            this.checkBoxSeUserTodayAsDate.Location = new System.Drawing.Point(7, 91);
             this.checkBoxSeUserTodayAsDate.Name = "checkBoxSeUserTodayAsDate";
             this.checkBoxSeUserTodayAsDate.Size = new System.Drawing.Size(93, 24);
             this.checkBoxSeUserTodayAsDate.TabIndex = 27;
@@ -301,7 +301,7 @@
             this.panel1.Controls.Add(this.checkBoxSeUserTodayAsDate);
             this.panel1.Location = new System.Drawing.Point(145, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(197, 135);
+            this.panel1.Size = new System.Drawing.Size(197, 117);
             this.panel1.TabIndex = 28;
             // 
             // checkBoxSeShowExUsers
@@ -319,7 +319,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 40);
+            this.label6.Location = new System.Drawing.Point(3, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 20);
             this.label6.TabIndex = 29;
@@ -329,7 +329,7 @@
             // 
             this.dateTimePickerSeDateToListTo.Enabled = false;
             this.dateTimePickerSeDateToListTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerSeDateToListTo.Location = new System.Drawing.Point(3, 69);
+            this.dateTimePickerSeDateToListTo.Location = new System.Drawing.Point(3, 59);
             this.dateTimePickerSeDateToListTo.Name = "dateTimePickerSeDateToListTo";
             this.dateTimePickerSeDateToListTo.Size = new System.Drawing.Size(181, 26);
             this.dateTimePickerSeDateToListTo.TabIndex = 28;
@@ -363,9 +363,9 @@
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.dateTimePickerTijdIn);
             this.panel7.Controls.Add(this.dateTimePickerTimeUit);
-            this.panel7.Location = new System.Drawing.Point(16, 351);
+            this.panel7.Location = new System.Drawing.Point(11, 277);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(326, 447);
+            this.panel7.Size = new System.Drawing.Size(326, 417);
             this.panel7.TabIndex = 26;
             // 
             // buttonClearInEnUitTeken
@@ -383,7 +383,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 231);
+            this.label10.Location = new System.Drawing.Point(9, 221);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(204, 18);
@@ -394,7 +394,7 @@
             // 
             this.dateTimePickerVerwachteTijdVanAankomst.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerVerwachteTijdVanAankomst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerVerwachteTijdVanAankomst.Location = new System.Drawing.Point(12, 252);
+            this.dateTimePickerVerwachteTijdVanAankomst.Location = new System.Drawing.Point(12, 242);
             this.dateTimePickerVerwachteTijdVanAankomst.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
             this.dateTimePickerVerwachteTijdVanAankomst.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
             this.dateTimePickerVerwachteTijdVanAankomst.Name = "dateTimePickerVerwachteTijdVanAankomst";
@@ -403,7 +403,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(13, 381);
+            this.buttonSave.Location = new System.Drawing.Point(12, 352);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(114, 52);
             this.buttonSave.TabIndex = 27;
@@ -423,6 +423,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.buttonDisableNoodMode);
             this.panel2.Controls.Add(this.labelTimeToNextUpdate);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.label3);
@@ -438,12 +439,12 @@
             this.panel2.Controls.Add(this.buttonTekenIn);
             this.panel2.Location = new System.Drawing.Point(643, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(345, 817);
+            this.panel2.Size = new System.Drawing.Size(345, 725);
             this.panel2.TabIndex = 30;
             // 
             // buttonDisableNoodMode
             // 
-            this.buttonDisableNoodMode.Location = new System.Drawing.Point(656, 249);
+            this.buttonDisableNoodMode.Location = new System.Drawing.Point(35, 196);
             this.buttonDisableNoodMode.Name = "buttonDisableNoodMode";
             this.buttonDisableNoodMode.Size = new System.Drawing.Size(294, 166);
             this.buttonDisableNoodMode.TabIndex = 31;
@@ -455,7 +456,7 @@
             // labelTimeToNextUpdate
             // 
             this.labelTimeToNextUpdate.AutoSize = true;
-            this.labelTimeToNextUpdate.Location = new System.Drawing.Point(173, 801);
+            this.labelTimeToNextUpdate.Location = new System.Drawing.Point(173, 697);
             this.labelTimeToNextUpdate.Name = "labelTimeToNextUpdate";
             this.labelTimeToNextUpdate.Size = new System.Drawing.Size(134, 13);
             this.labelTimeToNextUpdate.TabIndex = 30;
@@ -465,12 +466,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 827);
-            this.Controls.Add(this.buttonDisableNoodMode);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ErrrrForm";
             this.Text = "ErrrrForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ErrrrForm_FormClosing);
             this.Load += new System.EventHandler(this.ErrrrForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

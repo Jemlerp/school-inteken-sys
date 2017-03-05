@@ -27,3 +27,7 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewInteke
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.csproj.GenerateResource.Cache
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.exe
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.pdb
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.exe.manifest
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.application
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.exe.manifest
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.application

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="NewAdmin.exe" version="1.0.0.0" publicKeyToken="6e71c08c7b650aec" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="NewAdmin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="NewAdmin.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewAanspreekpuntForm.exe" size="32256">
+      <assemblyIdentity name="NewAanspreekpuntForm" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ywzrvn/nXyO5plvXRlED/Ct2XHpWQdwI7w6fM0lUVz0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewAdmin.exe" size="42984">
+      <assemblyIdentity name="NewAdmin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>GJyp4+fYtpsOxJEZeN6sFf1wphFVLTM1k/oeRbx9oG0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewCrossFunctions.dll" size="24064">
+      <assemblyIdentity name="NewCrossFunctions" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Lzmm3eIBNVOVGpwEHhb5LIRNZh+G0vQvzFkKOQsX1I4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="526336">
+      <assemblyIdentity name="Newtonsoft.Json" version="9.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>V14w+Y5OpCyeUW7ci7sprYtQsXOj5rNrW6OeEzzOlAY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="NewAdmin.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-RAR7FQP\Ichigo" issuerKeyHash="99bdecfe75103c66cf1f9805cdc73823aff9e4fd" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>s4GTw/G9R+rCveSvFJv2TZ7mD5amLnVY4E4b1K3/AYI=</DigestValue></Reference></SignedInfo><SignatureValue>czIuJs/xosDF9MlTcnwdTU5tmwFeDXPjcMVss2YY33VPmKiByYwosGvAFGRjwOIRenx3Kndv6H5J4aKQSpmKQG7qdqkp5x0KV3KzZG+T+AeeVis9EYZQgh5XIK5joOVadmv+oaXPhr+zV89x9HiYa59K/TFPZYzotZitru46cdo=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>uH6ph1eSCCgG3TpPKRToiwVYtM2O8QkKUYS2bJQ7TMYzf0Qqg/JKqJ0rtjQtR/egCndtp3C+tugJiiZUdct0Es9rbBK0nDteVKQrMhOoJFGYIcDEZTmt0diwK38YhFAz1ZnCq1rThSphLssMvimN/sw8BRJwHIIszoNMfV/FqDM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="8201ffadd41b4ee058752ea6960fe69e4df69b14afe4bdc2ea47bdf1c39381b3" Description="" Url=""><as:assemblyIdentity name="NewAdmin.exe" version="1.0.0.0" publicKeyToken="6e71c08c7b650aec" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-RAR7FQP\Ichigo</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>lSCiWRekbvbcHL3iwA41xkXgI6sGp/MbwXntR4GFfS4=</DigestValue></Reference></SignedInfo><SignatureValue>BO5SkmuDxADQIcBaxvkDynT0WLQM4bhju8nj13pKO/D3J6TkkZJXQ/37RXJln0EgFLn1hFNmeBRzMdgZ/JXU+2KSQZeVeL1POX7KXXqGnQQtiVD5ngDRV6M3pgED6A7k/jjL3g8xMeCc1D4mid+tBT/ueederwc4gtS3lNrrIxQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>uH6ph1eSCCgG3TpPKRToiwVYtM2O8QkKUYS2bJQ7TMYzf0Qqg/JKqJ0rtjQtR/egCndtp3C+tugJiiZUdct0Es9rbBK0nDteVKQrMhOoJFGYIcDEZTmt0diwK38YhFAz1ZnCq1rThSphLssMvimN/sw8BRJwHIIszoNMfV/FqDM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQQb24YkoiNZRHBCP1LPaplzANBgkqhkiG9w0BAQsFADA3MTUwMwYDVQQDHiwARABFAFMASwBUAE8AUAAtAFIAQQBSADcARgBRAFAAXABJAGMAaABpAGcAbzAeFw0xNzAzMDUyMzIzNThaFw0xODAzMDYwNTIzNThaMDcxNTAzBgNVBAMeLABEAEUAUwBLAFQATwBQAC0AUgBBAFIANwBGAFEAUABcAEkAYwBoAGkAZwBvMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4fqmHV5IIKAbdOk8pFOiLBVi0zY7xCQpRhLZslDtMxjN/RCqD8kqonSu2NC1H96AKd22ncL626AmKJlR1y3QSz2tsErScO15UpCsyE6gkUZghwMRlOa3R2LArfxiEUDPVmcKrWtOFKmEuywy+KY3+zDwFEnAcgizOg0x9X8WoMwIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAK5lxf+Wx+7gELBCwsk0JAVo06sz/Ey0RLdU9VTfXZ2SrfVdZVuTGKQK9zyZiKS4b/jc6se1L/pPwK7B7Y3yfyMEwQr7a7rmrMYIhAJGrvY9ItGb9P4n/FhLjQuaM/btgzLPz0EGMUy7xqDqwK1M9nLJMgIprTlf4DbvGZ7PYjpr</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -14,9 +14,10 @@ using System.Reflection;
 
 namespace NewAanspreekpuntForm {
     public partial class ErrrrForm : Form {
-        public ErrrrForm(string _password, string _username, string _apiadrres) {
+        public ErrrrForm(string _password, string _username, string _apiadrres, bool _startInWindow) {
             InitializeComponent();
             _Password = _password;
+            _Fullscreen = !_startInWindow;
             _Username = _username;
             _ApiAddres = _apiadrres;
         }
@@ -30,6 +31,7 @@ namespace NewAanspreekpuntForm {
         Timer _TimerReloadOverzicht = new Timer();
         Timer _TimerShowWhenNextReloadOverzichtHappens = new Timer();
 
+        bool _Fullscreen;
         string _Password = "";
         string _Username = "";
         string _ApiAddres = "";
@@ -67,6 +69,11 @@ namespace NewAanspreekpuntForm {
         }
 
         private void ErrrrForm_Load(object sender, EventArgs e) {
+            if (_Fullscreen) {
+                FormBorderStyle = FormBorderStyle.None;
+                WindowState = FormWindowState.Maximized;
+            }
+
             _TimerReloadOverzicht.Interval = 4000;
             _TimerReloadOverzicht.Tick += new EventHandler(ReloadOverzight_Event);
 
@@ -488,6 +495,11 @@ namespace NewAanspreekpuntForm {
 
         private void buttonDisableNoodMode_Click(object sender, EventArgs e) {
             disableNoodModus();
+        }
+
+        private void ErrrrForm_FormClosing(object sender, FormClosingEventArgs e) {
+            _TimerReloadOverzicht.Stop();
+            _TimerShowWhenNextReloadOverzichtHappens.Stop();
         }
     }
 }

@@ -60,6 +60,9 @@ namespace NewApi.NETCore.Controllers
                     case NetComObjects.WhatIsThisEnum.RChangeRegTable:
                         toReturn.Response = FuncsVController.ChangeRegistatieTable(usingUser, Deserialise<NetComObjects.ServerRequestChangeRegistratieTable>(param));
                         break;
+                    case NetComObjects.WhatIsThisEnum.RMultiDateRegiOverzight:
+                        toReturn.Response = FuncsVController.compleetOverzightVanTussenTweDatums(usingUser, Deserialise<NetComObjects.ServerRequestOverzightFromMultipleDates>(param));
+                            break;
                 }
                 return toReturn;
                 throw new Exception("ahodashi");

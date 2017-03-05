@@ -35,7 +35,7 @@ namespace NewAanspreekpuntForm {
 
             //do
             try {
-                ErrrrForm form = new ErrrrForm(textBoxPassword.Text, textBoxUserName.Text, textBoxApiAddres.Text);
+                ErrrrForm form = new ErrrrForm(textBoxPassword.Text, textBoxUserName.Text, textBoxApiAddres.Text, checkBox1.Checked);
                 Visible=false;
                 form.ShowDialog();
             } catch (Exception ex) {

@@ -166,7 +166,7 @@
             this.textBoxApiAddres.Name = "textBoxApiAddres";
             this.textBoxApiAddres.Size = new System.Drawing.Size(270, 29);
             this.textBoxApiAddres.TabIndex = 0;
-            this.textBoxApiAddres.Text = "http://localhost:52453/api/values";
+            this.textBoxApiAddres.Text = "http://10./api/values";
             // 
             // checkBoxStartWindowed
             // 
