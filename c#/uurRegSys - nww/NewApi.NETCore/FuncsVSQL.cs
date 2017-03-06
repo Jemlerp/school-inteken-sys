@@ -9,8 +9,8 @@ using System.Data;
 namespace NewApi.NETCore {
     public static class FuncsVSQL {
 
-        public static string _ConnectionString = "Server=DESKTOP-RAR7FQP\\SQLEXPRESS; Database=IntekenSysteem; User Id=sa; password=kanker;";
-        //public static string _ConnectionString = "Server=SHISHIDOU-PC\\SQLEXPRESS; Database=IntekenSysteem; User Id=sa; password=kanker;";
+        //public static string _ConnectionString = "Server=DESKTOP-RAR7FQP\\SQLEXPRESS; Database=IntekenSysteem; User Id=sa; password=kanker;";
+        public static string _ConnectionString = "Server=SHISHIDOU-PC\\SQLEXPRESS; Database=IntekenSysteem; User Id=sa; password=kanker;";
 
         public static int SQLNonQuery(string _command) {
             SqlCommand command = new SqlCommand();
@@ -221,6 +221,9 @@ namespace NewApi.NETCore {
                         }
                         if (fields.Contains(DatabaseObjects.RegistratieTableNames.IsLaat)) {
                             entry.IsLaat = ReadFromReader<bool>((IDataRecord)_reader, DatabaseObjects.RegistratieTableNames.IsLaat);
+                        }
+                        if (fields.Contains(DatabaseObjects.RegistratieTableNames.IsToegestaanAfwezig)) {
+                            entry.IsToegestaalAfwezig = ReadFromReader<bool>((IDataRecord)_reader, DatabaseObjects.RegistratieTableNames.IsToegestaanAfwezig);
                         }
                         if (fields.Contains(DatabaseObjects.RegistratieTableNames.Opmerking)) {
                             entry.Opmerking = ReadFromReader<string>((IDataRecord)_reader, DatabaseObjects.RegistratieTableNames.Opmerking);

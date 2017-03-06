@@ -169,6 +169,7 @@ namespace NewCrossFunctions.NETCore {
             public static string IsStudieverlof = "IsStudieverlof";
             public static string IsExcursie = "IsExursie";
             public static string IsLaat = "IsLaat";
+            public static string IsToegestaanAfwezig = "IsToegestaanAfwezig";
             public static string Opmerking = "Opmerking";
             public static string Verwachtetijdvanaanwezighijd = "VerwachtetijdVanaanwezighijd";
         }
@@ -186,6 +187,7 @@ namespace NewCrossFunctions.NETCore {
             public bool IsStudieverlof { get; set; } = false;
             public bool IsExcurtie { get; set; } = false;
             public bool IsLaat { get; set; } = false;
+            public bool IsToegestaalAfwezig { get; set; } = false;
             public string Opmerking { get; set; } = "";
             public TimeSpan Verwachtetijdvanaanwezighijd { get; set; }
         }

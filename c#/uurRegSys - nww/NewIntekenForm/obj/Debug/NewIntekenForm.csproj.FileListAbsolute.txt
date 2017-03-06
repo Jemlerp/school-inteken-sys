@@ -14,6 +14,8 @@ C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewInteken
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewCrossFunctions.dll
 C:\Users\SEELE\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewCrossFunctions.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.exe.config
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.exe.manifest
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.application
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.exe
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.pdb
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewCrossFunctions.dll
@@ -25,9 +27,7 @@ C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewInteke
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.Form1.resources
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.Properties.Resources.resources
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.csproj.GenerateResource.Cache
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.exe
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.pdb
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.exe.manifest
-C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\bin\Debug\NewIntekenForm.application
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.exe.manifest
 C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.application
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.exe
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewIntekenForm\obj\Debug\NewIntekenForm.pdb

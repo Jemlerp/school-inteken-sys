@@ -53,6 +53,9 @@ namespace NewCrossFunctions {
                     if (entry.RegE.IsLaat) {
                         watAfwezig="Laat : "+entry.RegE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss");
                     }
+                    if (entry.RegE.IsToegestaalAfwezig) {
+                        watAfwezig="TgstAfwzg" + " " + entry.RegE.Opmerking;
+                    }
                     if (watAfwezig!="") {
                         erIsEenAfwezigNotatie=true;
                         row[TijdIn]=watAfwezig;

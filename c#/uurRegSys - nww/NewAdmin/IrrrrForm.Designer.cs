@@ -34,6 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageUuren = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers = new System.Windows.Forms.CheckBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru = new System.Windows.Forms.DateTimePicker();
+            this.buttonUurenGetAndSaveOverzivghty = new System.Windows.Forms.Button();
             this.buttonUurenRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
@@ -126,15 +133,9 @@
             this.dataGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportPrintableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers = new System.Windows.Forms.CheckBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru = new System.Windows.Forms.DateTimePicker();
-            this.buttonUurenGetAndSaveOverzivghty = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageUuren.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUuren)).BeginInit();
             this.tabPageEditUsers.SuspendLayout();
@@ -146,7 +147,6 @@
             this.panelEditAcounts1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEditAcounts)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -178,6 +178,86 @@
             this.tabPageUuren.TabIndex = 2;
             this.tabPageUuren.Text = "Uuren ";
             this.tabPageUuren.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Info;
+            this.panel2.Controls.Add(this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers);
+            this.panel2.Controls.Add(this.label35);
+            this.panel2.Controls.Add(this.label38);
+            this.panel2.Controls.Add(this.dateTimePickerUurenGetOverzightMoreDatuemsFrom);
+            this.panel2.Controls.Add(this.dateTimePickerUurenGetOverzightMoreDatuemsThru);
+            this.panel2.Controls.Add(this.buttonUurenGetAndSaveOverzivghty);
+            this.panel2.Location = new System.Drawing.Point(36, 448);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(165, 214);
+            this.panel2.TabIndex = 45;
+            // 
+            // checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers
+            // 
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.AutoSize = true;
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Location = new System.Drawing.Point(12, 16);
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Name = "checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers";
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Size = new System.Drawing.Size(119, 17);
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.TabIndex = 39;
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Text = "include ex members";
+            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(10, 87);
+            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(80, 13);
+            this.label35.TabIndex = 38;
+            this.label35.Text = "tot en met deze";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(10, 42);
+            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(72, 13);
+            this.label38.TabIndex = 37;
+            this.label38.Text = "van deze dag";
+            // 
+            // dateTimePickerUurenGetOverzightMoreDatuemsFrom
+            // 
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Location = new System.Drawing.Point(10, 58);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Name = "dateTimePickerUurenGetOverzightMoreDatuemsFrom";
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Size = new System.Drawing.Size(138, 20);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.TabIndex = 35;
+            // 
+            // dateTimePickerUurenGetOverzightMoreDatuemsThru
+            // 
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Location = new System.Drawing.Point(10, 103);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Name = "dateTimePickerUurenGetOverzightMoreDatuemsThru";
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Size = new System.Drawing.Size(138, 20);
+            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.TabIndex = 36;
+            // 
+            // buttonUurenGetAndSaveOverzivghty
+            // 
+            this.buttonUurenGetAndSaveOverzivghty.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUurenGetAndSaveOverzivghty.Location = new System.Drawing.Point(9, 143);
+            this.buttonUurenGetAndSaveOverzivghty.Name = "buttonUurenGetAndSaveOverzivghty";
+            this.buttonUurenGetAndSaveOverzivghty.Size = new System.Drawing.Size(140, 42);
+            this.buttonUurenGetAndSaveOverzivghty.TabIndex = 33;
+            this.buttonUurenGetAndSaveOverzivghty.Text = "Get And Save As";
+            this.buttonUurenGetAndSaveOverzivghty.UseVisualStyleBackColor = true;
+            this.buttonUurenGetAndSaveOverzivghty.Click += new System.EventHandler(this.buttonUurenGetAndSaveOverzivghty_Click);
             // 
             // buttonUurenRefresh
             // 
@@ -349,7 +429,8 @@
             "Ziek",
             "StudieVerlof",
             "FlexibelVerlof",
-            "Excursie"});
+            "Excursie",
+            "Toegestaan Afwezig"});
             this.comboBoxUurenAfwezighijdreden.Location = new System.Drawing.Point(11, 164);
             this.comboBoxUurenAfwezighijdreden.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxUurenAfwezighijdreden.Name = "comboBoxUurenAfwezighijdreden";
@@ -1182,86 +1263,6 @@
             this.reloadToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.reloadToolStripMenuItem.Text = "Reload Local";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Info;
-            this.panel2.Controls.Add(this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers);
-            this.panel2.Controls.Add(this.label35);
-            this.panel2.Controls.Add(this.label38);
-            this.panel2.Controls.Add(this.dateTimePickerUurenGetOverzightMoreDatuemsFrom);
-            this.panel2.Controls.Add(this.dateTimePickerUurenGetOverzightMoreDatuemsThru);
-            this.panel2.Controls.Add(this.buttonUurenGetAndSaveOverzivghty);
-            this.panel2.Location = new System.Drawing.Point(36, 448);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(165, 214);
-            this.panel2.TabIndex = 45;
-            // 
-            // checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers
-            // 
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.AutoSize = true;
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Location = new System.Drawing.Point(12, 16);
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Name = "checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers";
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Size = new System.Drawing.Size(119, 17);
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.TabIndex = 39;
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.Text = "include ex members";
-            this.checkBoxUurenGetOverzightMoreDatuemsIncludeExMemers.UseVisualStyleBackColor = true;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(10, 87);
-            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(80, 13);
-            this.label35.TabIndex = 38;
-            this.label35.Text = "tot en met deze";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(10, 42);
-            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(72, 13);
-            this.label38.TabIndex = 37;
-            this.label38.Text = "van deze dag";
-            // 
-            // dateTimePickerUurenGetOverzightMoreDatuemsFrom
-            // 
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Location = new System.Drawing.Point(10, 58);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Name = "dateTimePickerUurenGetOverzightMoreDatuemsFrom";
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.Size = new System.Drawing.Size(138, 20);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsFrom.TabIndex = 35;
-            // 
-            // dateTimePickerUurenGetOverzightMoreDatuemsThru
-            // 
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Location = new System.Drawing.Point(10, 103);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Name = "dateTimePickerUurenGetOverzightMoreDatuemsThru";
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.Size = new System.Drawing.Size(138, 20);
-            this.dateTimePickerUurenGetOverzightMoreDatuemsThru.TabIndex = 36;
-            // 
-            // buttonUurenGetAndSaveOverzivghty
-            // 
-            this.buttonUurenGetAndSaveOverzivghty.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUurenGetAndSaveOverzivghty.Location = new System.Drawing.Point(9, 143);
-            this.buttonUurenGetAndSaveOverzivghty.Name = "buttonUurenGetAndSaveOverzivghty";
-            this.buttonUurenGetAndSaveOverzivghty.Size = new System.Drawing.Size(140, 42);
-            this.buttonUurenGetAndSaveOverzivghty.TabIndex = 33;
-            this.buttonUurenGetAndSaveOverzivghty.Text = "Get And Save As";
-            this.buttonUurenGetAndSaveOverzivghty.UseVisualStyleBackColor = true;
-            this.buttonUurenGetAndSaveOverzivghty.Click += new System.EventHandler(this.buttonUurenGetAndSaveOverzivghty_Click);
-            // 
             // IrrrrForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1278,6 +1279,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageUuren.ResumeLayout(false);
             this.tabPageUuren.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUuren)).EndInit();
@@ -1297,8 +1300,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEditAcounts)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

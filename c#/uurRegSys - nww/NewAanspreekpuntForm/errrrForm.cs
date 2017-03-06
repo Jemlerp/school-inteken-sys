@@ -208,8 +208,7 @@ namespace NewAanspreekpuntForm {
                                             break;
                                         }
                                     }
-                                } 
-                                catch (Exception ex) { string kanker = ex.Message; _ALLOWCLEARINPUTSONRELOAD = true; }
+                                } catch (Exception ex) { string kanker = ex.Message; _ALLOWCLEARINPUTSONRELOAD = true; }
                                 #endregion
 
                             }
@@ -253,7 +252,9 @@ namespace NewAanspreekpuntForm {
                         }
                         ///--
                         dataGridView1.Columns[0].Width = 130;
-                        dataGridView1.Columns[1].Width = 130;
+                        dataGridView1.Columns[1].Width = 140;
+                        dataGridView1.Columns[2].Width = 130;
+                        dataGridView1.Columns[3].Width = 130;
                         dataGridView1.Columns[4].Width = dataGridView1.Width - dataGridView1.Columns[0].Width - dataGridView1.Columns[1].Width - dataGridView1.Columns[2].Width - dataGridView1.Columns[3].Width - 3 - 20;
                         _TimerReloadOverzicht.Start();
                     }
@@ -309,12 +310,17 @@ namespace NewAanspreekpuntForm {
                     if (selectedUserData.RegE.IsLaat) {
                         comboBoxRedenAfwezig.SelectedItem = comboBoxRedenAfwezig.Items[0];
                         dateTimePickerVerwachteTijdVanAankomst.Value = Convert.ToDateTime(selectedUserData.RegE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss"));
+                    } else
+                    if (selectedUserData.RegE.IsToegestaalAfwezig) {
+                        comboBoxRedenAfwezig.SelectedItem = comboBoxRedenAfwezig.Items[5];
                     } else {
                         erIsEenAfwezigNotatie = false;
                     }
+
                     if (erIsEenAfwezigNotatie) {
                         checkBoxHeefAfwezigReden.Checked = true;
                     }
+
                     if (selectedUserData.RegE.HeeftIngetekend) {
                         buttonClearInEnUitTeken.Enabled = true;
                         dateTimePickerTijdIn.Enabled = true;
@@ -393,7 +399,7 @@ namespace NewAanspreekpuntForm {
         }
 
         private void buttonSave_Click(object sender, EventArgs e) {
-            if(_CurrentlySelectedUser.UsE == null) { return; }
+            if (_CurrentlySelectedUser.UsE == null) { return; }
             if (!_NOODMODUSENABLED) {
                 NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
                 //set all control values back in errr object
@@ -418,6 +424,7 @@ namespace NewAanspreekpuntForm {
                 request.deEntry.IsStudieverlof = false;
                 request.deEntry.IsFlexiebelverlof = false;
                 request.deEntry.IsExcurtie = false;
+                request.deEntry.IsToegestaalAfwezig = false;
                 if (checkBoxHeefAfwezigReden.Checked) {
                     switch (comboBoxRedenAfwezig.SelectedItem.ToString()) {
                         case "Laat":
@@ -435,6 +442,9 @@ namespace NewAanspreekpuntForm {
                             break;
                         case "Excursie":
                             request.deEntry.IsExcurtie = true;
+                            break;
+                        case "Toegestaan Afwezig":
+                            request.deEntry.IsToegestaalAfwezig = true;
                             break;
                     }
                 }

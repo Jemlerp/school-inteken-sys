@@ -1,0 +1,7 @@
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Release\NewCrossFunctions.dll.config
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Release\NewCrossFunctions.dll
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Release\NewCrossFunctions.pdb
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Release\Newtonsoft.Json.dll
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\bin\Release\Newtonsoft.Json.xml
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\obj\Release\NewCrossFunctions.dll
+C:\Users\Ichigo\Documents\GitHub\school-inteken-sys\c#\uurRegSys - nww\NewCrossFunctions\obj\Release\NewCrossFunctions.pdb

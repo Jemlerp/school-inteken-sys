@@ -216,6 +216,10 @@ namespace NewAdmin {
                     comboBoxUurenAfwezighijdreden.SelectedItem = comboBoxUurenAfwezighijdreden.Items[3];
                     checkBoxUurenVermeldAfwezig.Checked = true;
                 }
+                if (_CurrentlySelectedUurensUser.RegE.IsToegestaalAfwezig) {
+                    comboBoxUurenAfwezighijdreden.SelectedItem = comboBoxUurenAfwezighijdreden.Items[4];
+                    checkBoxUurenVermeldAfwezig.Checked = true;
+                }
             }
 
             _InUpdate = false;
@@ -251,6 +255,7 @@ namespace NewAdmin {
             request.deEntry.TimeInteken = dateTimePickerUurenTijdIn.Value.TimeOfDay;
             request.deEntry.TimeUitteken = dateTimePickerUurenTijdUit.Value.TimeOfDay;
             request.deEntry.Opmerking = textBoxUurenOpmerking.Text;
+            request.deEntry.IDOfUserRelated = _CurrentlySelectedUurensUser.UsE.ID;
 
             if (checkBoxUurenVermeldAfwezig.Checked) {
                 switch (comboBoxUurenAfwezighijdreden.SelectedItem.ToString()) {
@@ -265,6 +270,9 @@ namespace NewAdmin {
                         break;
                     case "Excursie":
                         request.deEntry.IsExcurtie = true;
+                        break;
+                    case "Toegestaan Afwezig":
+                        request.deEntry.IsToegestaalAfwezig = true;
                         break;
                 }
             }

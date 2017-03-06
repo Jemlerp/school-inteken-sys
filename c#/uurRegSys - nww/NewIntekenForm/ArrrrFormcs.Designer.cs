@@ -121,7 +121,7 @@
             // buttonDisableNoodMode
             // 
             this.buttonDisableNoodMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDisableNoodMode.Location = new System.Drawing.Point(642, 123);
+            this.buttonDisableNoodMode.Location = new System.Drawing.Point(657, 91);
             this.buttonDisableNoodMode.Name = "buttonDisableNoodMode";
             this.buttonDisableNoodMode.Size = new System.Drawing.Size(339, 255);
             this.buttonDisableNoodMode.TabIndex = 11;

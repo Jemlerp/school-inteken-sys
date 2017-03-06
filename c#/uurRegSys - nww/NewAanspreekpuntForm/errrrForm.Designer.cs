@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerTimeUit = new System.Windows.Forms.DateTimePicker();
@@ -185,14 +185,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -203,7 +203,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.Size = new System.Drawing.Size(637, 729);
+            this.dataGridView1.Size = new System.Drawing.Size(654, 729);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -238,7 +238,8 @@
             "Ziek",
             "StudieVerlof",
             "FlexibelVerlof",
-            "Excursie"});
+            "Excursie",
+            "Toegestaan Afwezig"});
             this.comboBoxRedenAfwezig.Location = new System.Drawing.Point(10, 182);
             this.comboBoxRedenAfwezig.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxRedenAfwezig.Name = "comboBoxRedenAfwezig";
@@ -274,9 +275,9 @@
             this.label9.Location = new System.Drawing.Point(11, 274);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 18);
+            this.label9.Size = new System.Drawing.Size(183, 18);
             this.label9.TabIndex = 14;
-            this.label9.Text = "Opmerking:";
+            this.label9.Text = "Opmerking / Omschrijving:";
             // 
             // checkBoxSeUserTodayAsDate
             // 
@@ -437,14 +438,14 @@
             this.panel2.Controls.Add(this.buttonTekenUit);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.buttonTekenIn);
-            this.panel2.Location = new System.Drawing.Point(643, 4);
+            this.panel2.Location = new System.Drawing.Point(660, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(345, 725);
             this.panel2.TabIndex = 30;
             // 
             // buttonDisableNoodMode
             // 
-            this.buttonDisableNoodMode.Location = new System.Drawing.Point(35, 196);
+            this.buttonDisableNoodMode.Location = new System.Drawing.Point(35, 175);
             this.buttonDisableNoodMode.Name = "buttonDisableNoodMode";
             this.buttonDisableNoodMode.Size = new System.Drawing.Size(294, 166);
             this.buttonDisableNoodMode.TabIndex = 31;
