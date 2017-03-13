@@ -511,5 +511,11 @@ namespace NewAanspreekpuntForm {
             _TimerReloadOverzicht.Stop();
             _TimerShowWhenNextReloadOverzichtHappens.Stop();
         }
+
+        private void closeProgramToolStripMenuItem_Click(object sender, EventArgs e) {
+            _TimerReloadOverzicht.Stop();
+            _TimerReloadOverzicht.Stop();
+            Close();
+        }
     }
 }

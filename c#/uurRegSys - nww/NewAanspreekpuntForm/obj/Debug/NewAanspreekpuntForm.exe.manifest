@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewAanspreekpuntForm.exe" size="33768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewAanspreekpuntForm.exe" size="34792">
       <assemblyIdentity name="NewAanspreekpuntForm" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Edr7UB8sR3tqfSkmPPzcmDwdxjh6+eqjz7vHTR79IOo=</dsig:DigestValue>
+        <dsig:DigestValue>qzIyoHaai+fy+3mYLi9bO3aPmqXssAeGR+zXH9BWe9I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mV/ENRC4skScd+GtnwQfasfxIorSrMBoOawqp8d2I/Q=</dsig:DigestValue>
+        <dsig:DigestValue>tguBcLCN7uQxpmd+sRHrPZm5SM1RnYDBAep4dMXMOpA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

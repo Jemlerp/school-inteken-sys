@@ -216,5 +216,20 @@ namespace NewIntekenForm {
             _TimerCleanUserInfoScreen.Stop();
             _TimerReloadOverzicht.Stop();
         }
+
+        private void closeProgramToolStripMenuItem_Click(object sender, EventArgs e) {
+            _TimerCleanUserInfoScreen.Stop();
+            _TimerReloadOverzicht.Stop();
+            Close();
+        }
+
+        private void reconnectSensorToolStripMenuItem_Click(object sender, EventArgs e) {
+            try {
+                _Serialport.Close();
+            } catch {}
+            try {
+                _Serialport.Open();
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
+        }
     }
 }

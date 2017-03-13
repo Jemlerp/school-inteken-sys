@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerTimeUit = new System.Windows.Forms.DateTimePicker();
@@ -50,17 +50,21 @@
             this.checkBoxHeefAfwezigReden = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.buttonClearInEnUitTeken = new System.Windows.Forms.Button();
+            this.labelTimeToNextUpdate = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePickerVerwachteTijdVanAankomst = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonDisableNoodMode = new System.Windows.Forms.Button();
-            this.labelTimeToNextUpdate = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.banaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -154,7 +158,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 697);
+            this.label2.Location = new System.Drawing.Point(12, 407);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 13);
             this.label2.TabIndex = 23;
@@ -185,17 +189,17 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -203,7 +207,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.Size = new System.Drawing.Size(654, 729);
+            this.dataGridView1.Size = new System.Drawing.Size(654, 705);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -352,7 +356,9 @@
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.Info;
             this.panel7.Controls.Add(this.buttonClearInEnUitTeken);
+            this.panel7.Controls.Add(this.labelTimeToNextUpdate);
             this.panel7.Controls.Add(this.label10);
+            this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.dateTimePickerVerwachteTijdVanAankomst);
             this.panel7.Controls.Add(this.buttonSave);
             this.panel7.Controls.Add(this.label7);
@@ -366,7 +372,7 @@
             this.panel7.Controls.Add(this.dateTimePickerTimeUit);
             this.panel7.Location = new System.Drawing.Point(11, 277);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(326, 417);
+            this.panel7.Size = new System.Drawing.Size(326, 428);
             this.panel7.TabIndex = 26;
             // 
             // buttonClearInEnUitTeken
@@ -379,6 +385,15 @@
             this.buttonClearInEnUitTeken.Text = "Clear In/Uitteken";
             this.buttonClearInEnUitTeken.UseVisualStyleBackColor = true;
             this.buttonClearInEnUitTeken.Click += new System.EventHandler(this.buttonClearInEnUitTeken_Click);
+            // 
+            // labelTimeToNextUpdate
+            // 
+            this.labelTimeToNextUpdate.AutoSize = true;
+            this.labelTimeToNextUpdate.Location = new System.Drawing.Point(171, 407);
+            this.labelTimeToNextUpdate.Name = "labelTimeToNextUpdate";
+            this.labelTimeToNextUpdate.Size = new System.Drawing.Size(134, 13);
+            this.labelTimeToNextUpdate.TabIndex = 30;
+            this.labelTimeToNextUpdate.Text = "label Time To Next Update";
             // 
             // label10
             // 
@@ -424,11 +439,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.buttonDisableNoodMode);
-            this.panel2.Controls.Add(this.labelTimeToNextUpdate);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.labelVoorNaam);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label5);
@@ -438,14 +450,14 @@
             this.panel2.Controls.Add(this.buttonTekenUit);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.buttonTekenIn);
-            this.panel2.Location = new System.Drawing.Point(660, 4);
+            this.panel2.Location = new System.Drawing.Point(660, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(345, 725);
+            this.panel2.Size = new System.Drawing.Size(345, 705);
             this.panel2.TabIndex = 30;
             // 
             // buttonDisableNoodMode
             // 
-            this.buttonDisableNoodMode.Location = new System.Drawing.Point(35, 175);
+            this.buttonDisableNoodMode.Location = new System.Drawing.Point(734, 150);
             this.buttonDisableNoodMode.Name = "buttonDisableNoodMode";
             this.buttonDisableNoodMode.Size = new System.Drawing.Size(294, 166);
             this.buttonDisableNoodMode.TabIndex = 31;
@@ -454,22 +466,41 @@
             this.buttonDisableNoodMode.Visible = false;
             this.buttonDisableNoodMode.Click += new System.EventHandler(this.buttonDisableNoodMode_Click);
             // 
-            // labelTimeToNextUpdate
+            // menuStrip1
             // 
-            this.labelTimeToNextUpdate.AutoSize = true;
-            this.labelTimeToNextUpdate.Location = new System.Drawing.Point(173, 697);
-            this.labelTimeToNextUpdate.Name = "labelTimeToNextUpdate";
-            this.labelTimeToNextUpdate.Size = new System.Drawing.Size(134, 13);
-            this.labelTimeToNextUpdate.TabIndex = 30;
-            this.labelTimeToNextUpdate.Text = "label Time To Next Update";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.banaanToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip1.TabIndex = 31;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // banaanToolStripMenuItem
+            // 
+            this.banaanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeProgramToolStripMenuItem});
+            this.banaanToolStripMenuItem.Name = "banaanToolStripMenuItem";
+            this.banaanToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.banaanToolStripMenuItem.Text = "File";
+            // 
+            // closeProgramToolStripMenuItem
+            // 
+            this.closeProgramToolStripMenuItem.Name = "closeProgramToolStripMenuItem";
+            this.closeProgramToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.closeProgramToolStripMenuItem.Text = "Exit";
+            this.closeProgramToolStripMenuItem.Click += new System.EventHandler(this.closeProgramToolStripMenuItem_Click);
             // 
             // ErrrrForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.buttonDisableNoodMode);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ErrrrForm";
             this.Text = "ErrrrForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ErrrrForm_FormClosing);
@@ -481,7 +512,10 @@
             this.panel7.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -519,6 +553,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerVerwachteTijdVanAankomst;
         private System.Windows.Forms.Button buttonClearInEnUitTeken;
         private System.Windows.Forms.Label labelTimeToNextUpdate;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem banaanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeProgramToolStripMenuItem;
     }
 }
 
