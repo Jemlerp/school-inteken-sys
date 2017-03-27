@@ -8,6 +8,17 @@ using System.Threading.Tasks;
 namespace NewCrossFunctions {
     public class ForFormHelperFunctions {
 
+        public static bool CanConnectToServer(string ip) {
+            NetComunicationTypesAndFunctions.ServerRequest request = new NetComunicationTypesAndFunctions.ServerRequest();
+            request.Request = new NetComunicationTypesAndFunctions.ServerRequestSqlDateTime();
+            try {
+                NetComunicationTypesAndFunctions.ServerResponse response = NetComunicationTypesAndFunctions.WebRequest(request, ip);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
         public static string SerialReadToNormal(string read) {
             string eetEenUi = "";
             char[] nummbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };

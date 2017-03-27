@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 namespace NewCrossFunctions {
     public class NetComunicationTypesAndFunctions {
 
-        private static ServerResponse WebRequest(ServerRequest _request, string _apiAddres) {
+        public static ServerResponse WebRequest(ServerRequest _request, string _apiAddres) {
             using (HttpClient client = new HttpClient()) {
                 HttpResponseMessage response = client.PostAsync(_apiAddres, new StringContent(JsonConvert.SerializeObject(_request), Encoding.UTF8, "application/json")).Result;
                 Task<string> result = response.Content.ReadAsStringAsync();
@@ -64,8 +64,8 @@ namespace NewCrossFunctions {
             RInteken,
             ROneDateRegiOverzight,
             RMultiDateRegiOverzight,
-            RChangeRegTable,               
-        }
+            RChangeRegTable
+        }        
 
         public class ServerRequestSqlDateTime : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RSqlServerDateTime; } }

@@ -27,7 +27,7 @@ namespace NewAanspreekpuntForm {
         private delegate void updateOverzichtDelegate();
         List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> _LastRecivedOverzight = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>(); // to compair with new one en als current selected veranderd is input clearen
         DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry _CurrentlySelectedUser = new DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry();
-        bool _NOODMODUSENABLED = false;
+        bool _NoConnectionMode = false;
         Timer _TimerReloadOverzicht = new Timer();
         Timer _TimerShowWhenNextReloadOverzichtHappens = new Timer();
 
@@ -36,17 +36,16 @@ namespace NewAanspreekpuntForm {
         string _Username = "";
         string _ApiAddres = "";
 
-        void enableNoodModus() {
-            _NOODMODUSENABLED = true;
-            buttonDisableNoodMode.Visible = true;
+
+        void enableNoConnectionMode() {
+            _NoConnectionMode = true;
             panel2.Visible = false;
             this.BackColor = Color.Red;
             _TimerReloadOverzicht.Stop();
         }
 
-        void disableNoodModus() {
-            _NOODMODUSENABLED = false;
-            buttonDisableNoodMode.Visible = false;
+        void disableNoConnectionMode() {
+            _NoConnectionMode = false;
             panel2.Visible = true;
             this.BackColor = Color.Yellow; //times are outdated
             panel2.BackColor = Color.Yellow;
@@ -119,7 +118,7 @@ namespace NewAanspreekpuntForm {
         }
 
         void ReloadOverzight(bool reloadFromServer) {
-            if (!_NOODMODUSENABLED) {
+            if (!_NoConnectionMode) {
                 try {
                     _TimerReloadOverzicht.Stop();
                     NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate request = new NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate();
@@ -139,12 +138,12 @@ namespace NewAanspreekpuntForm {
                         response = webbbbrrrrrry(request);
                         label2.Text = sw.ElapsedMilliseconds.ToString();
                     } catch { // als server down is (als school in brand staat...)
-                        if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                            enableNoodModus();
-                        } else {
-                            this.BackColor = Color.Yellow;//times are outdated
-                            panel2.BackColor = Color.Yellow;
-                        }
+                              //   if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                        enableNoConnectionMode();
+                        //   } else {
+                        //       this.BackColor = Color.Yellow;//times are outdated
+                        //       panel2.BackColor = Color.Yellow;
+                        //   }
                         _TimerReloadOverzicht.Start();
                         return;
                     }
@@ -262,6 +261,12 @@ namespace NewAanspreekpuntForm {
                     MessageBox.Show(ex.Message);
                     _TimerReloadOverzicht.Start();
                 }
+            } else {
+                if (ForFormHelperFunctions.CanConnectToServer(_ApiAddres)) {
+                    disableNoConnectionMode();
+                    this.BackColor = Color.Yellow;//still outdated
+                    panel2.BackColor = Color.Yellow;
+                }
             }
         }
 
@@ -360,18 +365,17 @@ namespace NewAanspreekpuntForm {
         }
 
         private void tekenInOfUit(object sender, EventArgs e) {
-            if (!_NOODMODUSENABLED) {
+            if (!_NoConnectionMode) {
                 NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit request = new NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit();
                 request.NFCCode = _CurrentlySelectedUser.UsE.NFCID;
                 NetComunicationTypesAndFunctions.ServerResponse response;
+
                 try {
                     response = webbbbrrrrrry(request);
                 } catch {
-                    if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                        enableNoodModus();
-                    }
-                    return;
+                    enableNoConnectionMode();
                 }
+
                 if (response.IsErrorOccurred) {
                     MessageBox.Show(response.ErrorInfo.ErrorMessage);
                 } else {
@@ -395,12 +399,11 @@ namespace NewAanspreekpuntForm {
             } else {
                 dateTimePickerVerwachteTijdVanAankomst.Enabled = false;
             }
-
         }
 
         private void buttonSave_Click(object sender, EventArgs e) {
             if (_CurrentlySelectedUser.UsE == null) { return; }
-            if (!_NOODMODUSENABLED) {
+            if (!_NoConnectionMode) {
                 NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
                 //set all control values back in errr object
                 if (_CurrentlySelectedUser.hasTodayRegEntry) {
@@ -455,7 +458,7 @@ namespace NewAanspreekpuntForm {
                     response = webbbbrrrrrry(request);
                 } catch {
                     if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                        enableNoodModus();
+                        enableNoConnectionMode();
                     }
                     return;
                 }
@@ -464,6 +467,7 @@ namespace NewAanspreekpuntForm {
                     MessageBox.Show(response.ErrorInfo.ErrorMessage);
                 }
                 ReloadOverzight();
+
             }
         }
 
@@ -472,7 +476,7 @@ namespace NewAanspreekpuntForm {
         }
 
         private void buttonClearInEnUitTeken_Click(object sender, EventArgs e) {
-            if (!_NOODMODUSENABLED) {
+            if (!_NoConnectionMode) {
                 DialogResult dialogResult = MessageBox.Show("Verwijder In En Uit Tijden", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (dialogResult == DialogResult.Yes) {
                     NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable request = new NetComunicationTypesAndFunctions.ServerRequestChangeRegistratieTable();
@@ -487,9 +491,9 @@ namespace NewAanspreekpuntForm {
                     try {
                         response = webbbbrrrrrry(request);
                     } catch {
-                        if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                            enableNoodModus();
-                        }
+                        //if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                        enableNoConnectionMode();
+                        // }
                         return;
                     }
 
@@ -500,11 +504,8 @@ namespace NewAanspreekpuntForm {
                 } else if (dialogResult == DialogResult.No) {
 
                 }
-            }
-        }
 
-        private void buttonDisableNoodMode_Click(object sender, EventArgs e) {
-            disableNoodModus();
+            }
         }
 
         private void ErrrrForm_FormClosing(object sender, FormClosingEventArgs e) {

@@ -39,7 +39,7 @@ namespace NewCrossFunctions.NETCore
             RInteken,
             ROneDateRegiOverzight,
             RMultiDateRegiOverzight,
-            RChangeRegTable,
+            RChangeRegTable
         }
 
         public class ServerRequestSqlDateTime : IKnow

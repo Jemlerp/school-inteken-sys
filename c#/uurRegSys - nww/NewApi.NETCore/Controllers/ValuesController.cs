@@ -11,9 +11,8 @@ namespace NewApi.NETCore.Controllers {
     [Route("api/[controller]")]
     public class ValuesController : Controller {
 
-
         [HttpGet]
-        public string tieYOU() {
+        public string tieYOU(string inpout) {
             //NetComObjects.ServerResponse toReturn = new NetComObjects.ServerResponse();
             //toReturn.Response = FuncsVController.GetDateTimeFromSqlDatabase();
 
@@ -99,6 +98,7 @@ namespace NewApi.NETCore.Controllers {
                     case NetComObjects.WhatIsThisEnum.RMultiDateRegiOverzight:
                         toReturn.Response = FuncsVController.compleetOverzightVanTussenTweDatums(usingUser, Deserialise<NetComObjects.ServerRequestOverzightFromMultipleDates>(param));
                         break;
+
                 }
                 return toReturn;
                 throw new Exception("ahodashi");

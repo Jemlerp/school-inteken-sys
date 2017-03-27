@@ -56,7 +56,6 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonDisableNoodMode = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.banaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -455,17 +454,6 @@
             this.panel2.Size = new System.Drawing.Size(345, 705);
             this.panel2.TabIndex = 30;
             // 
-            // buttonDisableNoodMode
-            // 
-            this.buttonDisableNoodMode.Location = new System.Drawing.Point(734, 150);
-            this.buttonDisableNoodMode.Name = "buttonDisableNoodMode";
-            this.buttonDisableNoodMode.Size = new System.Drawing.Size(294, 166);
-            this.buttonDisableNoodMode.TabIndex = 31;
-            this.buttonDisableNoodMode.Text = "Disable Nood Mode";
-            this.buttonDisableNoodMode.UseVisualStyleBackColor = true;
-            this.buttonDisableNoodMode.Visible = false;
-            this.buttonDisableNoodMode.Click += new System.EventHandler(this.buttonDisableNoodMode_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -496,7 +484,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.buttonDisableNoodMode);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
@@ -548,7 +535,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button buttonDisableNoodMode;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePickerVerwachteTijdVanAankomst;
         private System.Windows.Forms.Button buttonClearInEnUitTeken;
