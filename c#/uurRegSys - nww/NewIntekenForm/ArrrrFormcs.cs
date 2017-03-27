@@ -25,7 +25,7 @@ namespace NewIntekenForm {
             _WINDWEDMODUSENABLED=_startInWindowMode;
         }
 
-        bool _NOODMODUSENABLED = false;
+        bool _NoConnectionMode = false;
         bool _WINDWEDMODUSENABLED = false;
 
         string _Username;
@@ -37,18 +37,16 @@ namespace NewIntekenForm {
         private delegate void handelTextDelegate(string read);
         private delegate void updateOverzichtDelegate();
 
-        void enableNoodModus() {
-            _NOODMODUSENABLED=true;
-            buttonDisableNoodMode.Visible=true;
+        void enableNoConnectionMode() {
+            _NoConnectionMode=true;
             panel1.Visible=false;
             this.BackColor=Color.Red;
             _TimerCleanUserInfoScreen.Stop();
             _TimerReloadOverzicht.Stop();
         }
 
-        void disableNoodModus() {
-            _NOODMODUSENABLED=false;
-            buttonDisableNoodMode.Visible=false;
+        void disableNoConnectionMode() {
+            _NoConnectionMode=false;
             panel1.Visible=true;
             this.BackColor=Color.Yellow; //times are outdated
             _TimerCleanUserInfoScreen.Start();
@@ -88,7 +86,7 @@ namespace NewIntekenForm {
         }
 
         void updateOverzight() {
-            if (!_NOODMODUSENABLED) {
+            if (!_NoConnectionMode) {
                 try {
                     _TimerReloadOverzicht.Stop();
                     NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate request = new NetComunicationTypesAndFunctions.ServerRequestOverzightFromOneDate();
@@ -104,11 +102,11 @@ namespace NewIntekenForm {
 
                         label2.Text=sw.ElapsedMilliseconds.ToString();
                     } catch { // als server down is (als school in brand staat...)
-                        if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
-                            enableNoodModus();
-                        } else {
-                            this.BackColor=Color.Yellow;
-                        }
+                       // if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
+                            enableNoConnectionMode();
+                        //} else {
+                            //this.BackColor=Color.Yellow;
+                        //}
                         _TimerReloadOverzicht.Start();
                         return;
                     }
@@ -160,6 +158,11 @@ namespace NewIntekenForm {
                     MessageBox.Show(ex.Message);
                     _TimerReloadOverzicht.Start();
                 }
+            } else {
+                if (ForFormHelperFunctions.CanConnectToServer(_ApiAddres)) {
+                    disableNoConnectionMode();
+                    this.BackColor = Color.Yellow;//still outdated
+                }
             }
         }
 
@@ -168,7 +171,7 @@ namespace NewIntekenForm {
         }
 
         void HandelNfcScan(string _read) {
-            if (!_NOODMODUSENABLED) {
+            if (!_NoConnectionMode) {
                 _TimerCleanUserInfoScreen.Stop();
                 NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit request = new NetComunicationTypesAndFunctions.ServerRequestTekenInOfUit();
                 request.NFCCode=_read;
@@ -178,11 +181,11 @@ namespace NewIntekenForm {
                 try {
                     response=webbbbrrrrrry(request);
                 } catch {
-                    if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
-                        enableNoodModus();
-                    } else {
-                        this.BackColor=Color.Yellow;
-                    }
+                    //if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes) {
+                        enableNoConnectionMode();
+                   // } else {
+                   //     this.BackColor=Color.Yellow;
+                    //}
                     return;
                 }
 
@@ -205,10 +208,6 @@ namespace NewIntekenForm {
         void readReadFromSerial(object _ebjec, object _tokdekmak) {
             string Read = _Serialport.ReadLine();
             BeginInvoke(new handelTextDelegate(HandelNfcScan), ForFormHelperFunctions.SerialReadToNormal(Read));
-        }
-
-        private void buttonDisableNoodMode_Click(object sender, EventArgs e) {
-            disableNoodModus();
         }
 
         private void ArrrrFormcs_FormClosing(object sender, FormClosingEventArgs e) {

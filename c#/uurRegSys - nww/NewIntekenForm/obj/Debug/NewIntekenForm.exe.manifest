@@ -49,19 +49,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GCh3AAEnZU0QtaeTA+45Zaw4CXVfKVJqZHATZTRAnO8=</dsig:DigestValue>
+        <dsig:DigestValue>L2I17cLENfBfY0O09mHgffEBiYaeXi5DZ7vyA84A+40=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewIntekenForm.exe" size="23528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewIntekenForm.exe" size="23016">
       <assemblyIdentity name="NewIntekenForm" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>H8pw/shzvHNGYDCKh5Rxd9M1cE5czjmyHZaVp2PE8GI=</dsig:DigestValue>
+        <dsig:DigestValue>hcBAy1ZBYeUkpX7ASOI+vPo0Apib2yLD0vODVg6lm88=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

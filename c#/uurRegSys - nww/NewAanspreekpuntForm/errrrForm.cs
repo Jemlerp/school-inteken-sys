@@ -265,7 +265,7 @@ namespace NewAanspreekpuntForm {
                 if (ForFormHelperFunctions.CanConnectToServer(_ApiAddres)) {
                     disableNoConnectionMode();
                     this.BackColor = Color.Yellow;//still outdated
-                    panel2.BackColor = Color.Yellow;
+                    panel2.BackColor = Color.Yellow;//why?
                 }
             }
         }
@@ -374,6 +374,7 @@ namespace NewAanspreekpuntForm {
                     response = webbbbrrrrrry(request);
                 } catch {
                     enableNoConnectionMode();
+                    return;
                 }
 
                 if (response.IsErrorOccurred) {
@@ -457,9 +458,9 @@ namespace NewAanspreekpuntForm {
                 try {
                     response = webbbbrrrrrry(request);
                 } catch {
-                    if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                   // if (MessageBox.Show("Kan Niet Verbinden Met Server", "Ga Naar Alarm Modus?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                         enableNoConnectionMode();
-                    }
+                   // }
                     return;
                 }
 
