@@ -158,5 +158,29 @@ namespace NewCrossFunctions {
         }
         #endregion
 
+        #region mod
+
+        public class ModifierTableNames {
+            public static string ModifierTableName = "ModifierTable";
+            public static string ID = "ID";
+            public static string DateVanafEnMet = "DateVanafEnMet";
+            public static string DateTotEnMet = "DateTotEnMet";
+            public static string DaysOfEffect = "DaysOfEffect"; //json
+            public static string UserIDs = "RelatedUserids"; //json
+            public static string HoursToAdd = "HoursToAdd";
+            public static string Omschrijving = "Omschrijving";
+        }
+
+        public class ModifierTableEntry {
+            public int ID { get; set; }
+            public DateTime DateVanafEnMet { get; set; }
+            public DateTime DateTotEnMet { get; set; }
+            public bool[] DaysOfEffect { get; set; }
+            public int[] UserIDs { get; set; }
+            public TimeSpan HoursToAdd { get; set; }
+            public string omschrijveing { get; set; }
+        }
+        #endregion
+
     }
 }

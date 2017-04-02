@@ -96,9 +96,27 @@ namespace NewApi.NETCore.Controllers {
                         toReturn.Response = FuncsVController.ChangeRegistatieTable(usingUser, Deserialise<NetComObjects.ServerRequestChangeRegistratieTable>(param));
                         break;
                     case NetComObjects.WhatIsThisEnum.RMultiDateRegiOverzight:
-                        toReturn.Response = FuncsVController.compleetOverzightVanTussenTweDatums(usingUser, Deserialise<NetComObjects.ServerRequestOverzightFromMultipleDates>(param));
+                        toReturn.Response = FuncsVController.alleDagOverzightenVanTussenTweDatums(usingUser, Deserialise<NetComObjects.ServerRequestOverzightFromMultipleDates>(param));
                         break;
-
+                        //newr
+                    case NetComObjects.WhatIsThisEnum.GetUserTable:
+                        toReturn.Response = FuncsVController.GetUserTable(usingUser, Deserialise<NetComObjects.ServerRequestGetUserTable>(param));
+                        break;
+                    case NetComObjects.WhatIsThisEnum.ChangeUserTable:
+                        toReturn.Response = FuncsVController.ChangeUserTable(usingUser, Deserialise<NetComObjects.ServerRequestChangeUserTable>(param));
+                        break;
+                    case NetComObjects.WhatIsThisEnum.GetModTable:
+                        toReturn.Response = FuncsVController.GetModtable(usingUser, Deserialise<NetComObjects.ServerRequestGetModTable>(param));
+                        break;
+                    case NetComObjects.WhatIsThisEnum.ChangeModTable:
+                        toReturn.Response = FuncsVController.ChangeModtable(usingUser, Deserialise<NetComObjects.ServerRequestChangeModTable>(param));
+                        break;
+                    case NetComObjects.WhatIsThisEnum.GetAcountsTable:
+                        toReturn.Response = FuncsVController.GetAcountTable(usingUser, Deserialise<NetComObjects.ServerRequestGetAcountsTable>(param));
+                        break;
+                    case NetComObjects.WhatIsThisEnum.ChangeAcountTable:
+                        toReturn.Response = FuncsVController.ChangeAcountTable(usingUser, Deserialise<NetComObjects.ServerRequestChangeAcountTable>(param));
+                        break;
                 }
                 return toReturn;
                 throw new Exception("ahodashi");

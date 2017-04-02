@@ -264,5 +264,35 @@ namespace NewCrossFunctions.NETCore {
         }
         */
         #endregion
+
+        #region mod
+
+        public class ModifierTableNames {
+            public static string ModifierTableName = "ModifierTable";
+            public static string ID = "ID";
+            public static string DateVanafEnMet = "DateVanafEnMet";
+            public static string DateTotEnMet = "DateTotEnMet";
+            public static string DaysOfEffect = "DaysOfEffect"; //json
+            public static string UserIDs = "RelatedUserids"; //json
+            public static string HoursToAdd = "HoursToAdd";
+            public static string Omschrijving = "Omschrijving";
+            public static string isStudiever = "isStudieVerlof";
+            public static string isExur = "isExursie";
+            public static string isflexy = "isFlexibolelelverlof";
+        }
+
+        public class ModifierTableEntry {
+            public int ID { get; set; }
+            public DateTime DateVanafEnMet { get; set; }
+            public DateTime DateTotEnMet { get; set; }
+            public bool[] DaysOfEffect { get; set; }
+            public int[] UserIDs { get; set; }
+            public TimeSpan HoursToAdd { get; set; }
+            public string omschrijveing { get; set; }
+            public bool isStudieVerlof { get; set; } = false;
+            public bool isExurtie { get; set; } = false;
+            public bool isFlexibelverlofoeorfsjklcghiur { get; set; } = false;
+        }
+        #endregion
     }
 }

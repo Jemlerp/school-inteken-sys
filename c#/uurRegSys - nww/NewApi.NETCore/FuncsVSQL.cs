@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using NewCrossFunctions.NETCore;
 using System.Data;
+using Newtonsoft.Json;
 
 namespace NewApi.NETCore {
     public static class FuncsVSQL {
@@ -119,7 +120,7 @@ namespace NewApi.NETCore {
                     }
                 }
             } catch (Exception ex) {
-                throw new Exception($"ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
+                throw new Exception($"(ATFromReader)ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
             }
             return toReturn;
         }
@@ -157,7 +158,7 @@ namespace NewApi.NETCore {
                     }
                 }
             } catch (Exception ex) {
-                throw new Exception($"ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
+                throw new Exception($"(UTFromReader)ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
             }
 
             return toReturn;
@@ -235,12 +236,52 @@ namespace NewApi.NETCore {
                     }
                 }
             } catch (Exception ex) {
-                throw new Exception($"ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
+                throw new Exception($"(RTFromReader)ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
             }
 
             return toReturn;
         }
+
+        public static List<DatabaseObjects.ModifierTableEntry> GetListMTFromReader(string _command) {
+            SqlCommand command = new SqlCommand();
+            command.CommandText = _command;
+            return GetListMTFromReader(command);
+        }
+
+        //if (fields.Contains(DatabaseObjects)) { entry = ReadFromReader<>((IDataRecord)_reader, DatabaseObjects); }
+
+        public static List<DatabaseObjects.ModifierTableEntry> GetListMTFromReader(SqlCommand _command) {
+            List<DatabaseObjects.ModifierTableEntry> toReturn = new List<DatabaseObjects.ModifierTableEntry>();
+            try {
+                using (SqlConnection connection = new SqlConnection(_ConnectionString)) {
+                    _command.Connection = connection;
+                    connection.Open();
+                    SqlDataReader _reader = _command.ExecuteReader();
+
+                    List<string> fields = new List<string>();
+                    for (int i = 0; i < _reader.FieldCount; i++) {
+                        fields.Add(_reader.GetName(i));
+                    }
+                    while (_reader.Read()) {
+                        DatabaseObjects.ModifierTableEntry entry = new DatabaseObjects.ModifierTableEntry();
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.ID)) { entry.ID = ReadFromReader<Int32>((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.ID); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.DateTotEnMet)) { entry.DateTotEnMet = ReadDateTimeFromReader((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.DateTotEnMet); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.DateVanafEnMet)) { entry.DateVanafEnMet = ReadDateTimeFromReader((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.DateVanafEnMet); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.DaysOfEffect)) { entry.DaysOfEffect = JsonConvert.DeserializeObject<bool[]>(ReadFromReader<string>((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.DaysOfEffect)); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.UserIDs)) { entry.UserIDs = JsonConvert.DeserializeObject<int[]>(ReadFromReader<string>((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.UserIDs)); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.HoursToAdd)) { entry.HoursToAdd = ReadDateTimeFromReader((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.HoursToAdd).TimeOfDay; }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.Omschrijving)) { entry.omschrijveing = ReadFromReader<string>((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.Omschrijving); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.isStudiever)) { entry.isStudieVerlof = ReadFromReader<bool>((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.isStudiever); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.isExur)) { entry.isExurtie = ReadFromReader<bool>((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.isExur); }
+                        if (fields.Contains(DatabaseObjects.ModifierTableNames.isflexy)) { entry.isFlexibelverlofoeorfsjklcghiur = ReadFromReader<bool>((IDataRecord)_reader, DatabaseObjects.ModifierTableNames.isflexy); }
+                        toReturn.Add(entry);
+                    }
+                }
+            } catch (Exception ex) {
+                throw new Exception($"(MTFromReader)ERROR @ SQL Command: {_command.CommandText} | Message: {ex.Message}");
+            }
+            return toReturn;
+        }
+
     }
-
 }
-
