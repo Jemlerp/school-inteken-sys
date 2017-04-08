@@ -4,9 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO.Ports;
 
 namespace NewCrossFunctions {
     public class ForFormHelperFunctions {
+
+        public static bool testSerialPort(string port) {
+            try {
+                SerialPort porrt = new SerialPort(port, 9600);
+                porrt.Open();
+                porrt.Close();
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        public static T Requestion<T>(object request, string _UserName, string _Password, string _Address) {
+            NetComunicationTypesAndFunctions.ServerResponse response = NetComunicationTypesAndFunctions.WebRequest(request, _UserName, _Password, _Address);
+            if (response.IsErrorOccurred) {
+                throw new Exception(response.ErrorInfo.ErrorMessage);
+            }
+            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(response.Response));
+        }
 
         public static bool CanConnectToServer(string ip) {
             NetComunicationTypesAndFunctions.ServerRequest request = new NetComunicationTypesAndFunctions.ServerRequest();
@@ -24,7 +45,7 @@ namespace NewCrossFunctions {
             char[] nummbers = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };
             foreach (char x in read) {
                 foreach (char y in nummbers) {
-                    if (y==x) { eetEenUi+=x; break; }
+                    if (y == x) { eetEenUi += x; break; }
                 }
             }
             return eetEenUi.Trim();
@@ -44,51 +65,51 @@ namespace NewCrossFunctions {
             string Totaal = "Totaal";
             foreach (var entry in _UserAndRegEntrys) {
                 DataRow row = ToReturn.NewRow();
-                row[Voornaam]=entry.UsE.VoorNaam;
-                row[Achternaam]=entry.UsE.AchterNaam;
+                row[Voornaam] = entry.UsE.VoorNaam;
+                row[Achternaam] = entry.UsE.AchterNaam;
                 if (entry.hasTodayRegEntry) {
                     string watAfwezig = "";
                     bool erIsEenAfwezigNotatie = false;
                     if (entry.RegE.IsZiek) {
-                        watAfwezig="Z";
+                        watAfwezig = "Z";
                     }
                     if (entry.RegE.IsFlexiebelverlof) {
-                        watAfwezig="FV";
+                        watAfwezig = "FV";
                     }
                     if (entry.RegE.IsStudieverlof) {
-                        watAfwezig="SF";
+                        watAfwezig = "SF";
                     }
                     if (entry.RegE.IsExcurtie) {
-                        watAfwezig="EX";
+                        watAfwezig = "EX";
                     }
                     if (entry.RegE.IsLaat) {
-                        watAfwezig="Laat : "+entry.RegE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss");
+                        watAfwezig = "Laat : " + entry.RegE.Verwachtetijdvanaanwezighijd.ToString("hh\\:mm\\:ss");
                     }
                     if (entry.RegE.IsToegestaalAfwezig) {
-                        watAfwezig="TgstAfwzg" + " " + entry.RegE.Opmerking;
+                        watAfwezig = "TgstAfwzg" + " " + entry.RegE.Opmerking;
                     }
-                    if (watAfwezig!="") {
-                        erIsEenAfwezigNotatie=true;
-                        row[TijdIn]=watAfwezig;
-                        row[TijdUit]=watAfwezig;
-                        row[Totaal]=watAfwezig;
+                    if (watAfwezig != "") {
+                        erIsEenAfwezigNotatie = true;
+                        row[TijdIn] = watAfwezig;
+                        row[TijdUit] = watAfwezig;
+                        row[Totaal] = watAfwezig;
                     } else {
                         if (!entry.RegE.HeeftIngetekend) {
-                            row[TijdIn]=entry.RegE.Opmerking;
-                            row[TijdUit]=entry.RegE.Opmerking;
-                            row[Totaal]=entry.RegE.Opmerking;
+                            row[TijdIn] = entry.RegE.Opmerking;
+                            row[TijdUit] = entry.RegE.Opmerking;
+                            row[Totaal] = entry.RegE.Opmerking;
                         }
                     }
                     if (entry.RegE.HeeftIngetekend) {
-                        row[TijdIn]=entry.RegE.TimeInteken.ToString("hh\\:mm");
+                        row[TijdIn] = entry.RegE.TimeInteken.ToString("hh\\:mm");
                         if (entry.RegE.IsAanwezig) {
                             if (!erIsEenAfwezigNotatie) {
-                                row[Totaal]=_CurrentSQlDateTime.TimeOfDay.Subtract(entry.RegE.TimeInteken).ToString("hh\\:mm\\:ss\\.fff");
+                                row[Totaal] = _CurrentSQlDateTime.TimeOfDay.Subtract(entry.RegE.TimeInteken).ToString("hh\\:mm\\:ss\\.fff");
                             }
                         } else {
-                            row[TijdUit]=entry.RegE.TimeUitteken.ToString("hh\\:mm");
+                            row[TijdUit] = entry.RegE.TimeUitteken.ToString("hh\\:mm");
                             if (!erIsEenAfwezigNotatie) {
-                                row[Totaal]=entry.RegE.TimeUitteken.Subtract(entry.RegE.TimeInteken).ToString("hh\\:mm\\:ss\\.fff");
+                                row[Totaal] = entry.RegE.TimeUitteken.Subtract(entry.RegE.TimeInteken).ToString("hh\\:mm\\:ss\\.fff");
                             }
                         }
                     }
@@ -97,7 +118,6 @@ namespace NewCrossFunctions {
             }
             return ToReturn;
         }
-
 
     }
 }

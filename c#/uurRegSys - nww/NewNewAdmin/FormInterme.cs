@@ -14,7 +14,6 @@ namespace NewNewAdmin {
             InitializeComponent();
             _UserName = _username;
             _Password = _password;
-            _UserName = _username;
             _DateToday = _dateToday;
             _Address = _address;
         }
@@ -23,5 +22,25 @@ namespace NewNewAdmin {
         string _Password = "";
         string _Address = "";
         string _UserName = "";
+
+        void staret(Form x) {
+            try {
+                x.ShowDialog();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Eroer");
+            }
+        }
+
+        private void Acounts_Click(object sender, EventArgs e) {
+            staret(new FormAcounts(_UserName, _Password, _Address));
+        }
+
+        private void Users_Click(object sender, EventArgs e) {
+
+        }
+
+        private void uitzon_Click(object sender, EventArgs e) {
+
+        }
     }
 }

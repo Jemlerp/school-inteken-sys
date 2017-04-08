@@ -47,14 +47,7 @@ namespace NewIntekenForm {
         }
 
         private bool testSerialPort(string port) {
-            try {
-                SerialPort porrt = new SerialPort(port, 9600);
-                porrt.Open();
-                porrt.Close();
-                return true;
-            } catch {
-                return false;
-            }
+            return ForFormHelperFunctions.testSerialPort(port);
         }
 
         private void Form1_Load(object sender, EventArgs e) {

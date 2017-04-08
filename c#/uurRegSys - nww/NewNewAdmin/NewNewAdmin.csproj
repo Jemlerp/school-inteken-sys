@@ -56,19 +56,46 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAcounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAcounts.Designer.cs">
+      <DependentUpon>FormAcounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInterme.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormInterme.Designer.cs">
       <DependentUpon>FormInterme.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsers.Designer.cs">
+      <DependentUpon>FormUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsersConnectNFCReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsersConnectNFCReader.Designer.cs">
+      <DependentUpon>FormUsersConnectNFCReader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAcounts.resx">
+      <DependentUpon>FormAcounts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInterme.resx">
       <DependentUpon>FormInterme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsers.resx">
+      <DependentUpon>FormUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsersConnectNFCReader.resx">
+      <DependentUpon>FormUsersConnectNFCReader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

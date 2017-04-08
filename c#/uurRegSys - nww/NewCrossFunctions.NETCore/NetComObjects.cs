@@ -121,6 +121,7 @@ namespace NewCrossFunctions.NETCore {
         public class ServerRequestChangeUserTable : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ChangeUserTable; } }
             public bool IsNewUser { get; set; } = false;
+            public bool DeleteEntry { get; set; } = false;
             public DatabaseObjects.UserTableTableEntry deEntry { get; set; }
         }
 
@@ -143,6 +144,7 @@ namespace NewCrossFunctions.NETCore {
         public class ServerRequestChangeModTable : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ChangeModTable; } }
             public bool IsNewEntry { get; set; } = false;
+            public bool DeleteEntry { get; set; } = false;
             public DatabaseObjects.ModifierTableEntry deEntry { get; set; } = new DatabaseObjects.ModifierTableEntry();
         }
 
@@ -163,6 +165,7 @@ namespace NewCrossFunctions.NETCore {
         public class ServerRequestChangeAcountTable : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ChangeAcountTable; } }
             public bool IsNewEntry { get; set; } = false;
+            public bool DeleteEntry { get; set; } = false;
             public DatabaseObjects.AcountTableEntry deEntry { get; set; }
         }
 

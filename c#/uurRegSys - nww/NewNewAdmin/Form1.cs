@@ -38,7 +38,7 @@ namespace NewNewAdmin {
             }
 
             try {
-                formInterme form = new formInterme(JsonConvert.DeserializeObject<DateTime>(JsonConvert.SerializeObject(response.Response)), textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
+                FormInterme form = new FormInterme(JsonConvert.DeserializeObject<DateTime>(JsonConvert.SerializeObject(response.Response)), textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
                 Visible = false;
                 form.ShowDialog();
             } catch (Exception ex) {

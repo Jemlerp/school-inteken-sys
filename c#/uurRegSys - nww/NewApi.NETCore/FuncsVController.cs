@@ -192,35 +192,46 @@ namespace NewApi.NETCore {
         public static NetComObjects.ServerResponseChangeUserTable ChangeUserTable(DatabaseObjects.AcountTableEntry _MasterRightsEnty, NetComObjects.ServerRequestChangeUserTable _request) {
             NetComObjects.ServerResponseChangeUserTable toReturn = new NetComObjects.ServerResponseChangeUserTable();
             SqlCommand command = new SqlCommand();
-            bool baylife = false;
-
-            if (!_request.IsNewUser) {
+            
+            if (!_request.IsNewUser || _request.DeleteEntry) {
                 command.Parameters.AddWithValue("@ID", _request.deEntry.ID);
             }
-            command.Parameters.AddWithValue("@Voornaam", _request.deEntry.VoorNaam);
-            command.Parameters.AddWithValue("@Achternaam", _request.deEntry.AchterNaam);
-            command.Parameters.AddWithValue("@NFCID", _request.deEntry.NFCID);
-            command.Parameters.AddWithValue("@DateJoined", _request.deEntry.DateJoined);
-            command.Parameters.AddWithValue("@IsActive", _request.deEntry.IsActiveUser);
-            try {
-                command.Parameters.AddWithValue("@DateLeft", _request.deEntry.DateLeft);
-            } catch { baylife = true; }
 
-
-            if (_request.IsNewUser) {
-                if (baylife) {
-                    command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}, {DatabaseObjects.UserTableNames.DateLeft} ) values (@Voornaam, @Achteraan, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit), cast(@DateLeft as date))";
-                } else {
-                    command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}) values (@Voornaam, @Achteraan, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit))";
-                }
+            if (_request.DeleteEntry) {
+                command.CommandText = $"delete from {DatabaseObjects.UserTableNames.UserTableName} where {DatabaseObjects.UserTableNames.ID} = @ID";
             } else {
-                if (baylife) {
-                    command.CommandText = $"update {DatabaseObjects.UserTableNames.UserTableName} set {DatabaseObjects.UserTableNames.VoorNaam} = @Voornaam, {DatabaseObjects.UserTableNames.AchterNaam} = @Achternaam, {DatabaseObjects.UserTableNames.NFCID} = @NFCID, {DatabaseObjects.UserTableNames.DateJoined} = cast(@DateJoined as date), {DatabaseObjects.UserTableNames.IsActiveUser} = cast(@IsActive as bit), {DatabaseObjects.UserTableNames.DateLeft} = cast(@DateLeft as date) where {DatabaseObjects.UserTableNames.ID} == @ID";
+
+                bool baylife = false;
+
+                command.Parameters.AddWithValue("@Voornaam", _request.deEntry.VoorNaam);
+                command.Parameters.AddWithValue("@Achternaam", _request.deEntry.AchterNaam);
+                command.Parameters.AddWithValue("@NFCID", _request.deEntry.NFCID);
+                command.Parameters.AddWithValue("@DateJoined", _request.deEntry.DateJoined);
+                command.Parameters.AddWithValue("@IsActive", _request.deEntry.IsActiveUser);
+
+                try {
+
+                    command.Parameters.AddWithValue("@DateLeft", _request.deEntry.DateLeft);
+
+                } catch { baylife = true; }
+
+                if (_request.IsNewUser) {
+                    if (baylife) {
+                        command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}, {DatabaseObjects.UserTableNames.DateLeft} ) values (@Voornaam, @Achteraan, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit), cast(@DateLeft as date))";
+                    } else {
+                        command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}) values (@Voornaam, @Achteraan, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit))";
+                    }
                 } else {
-                    command.CommandText = $"update {DatabaseObjects.UserTableNames.UserTableName} set {DatabaseObjects.UserTableNames.VoorNaam} = @Voornaam, {DatabaseObjects.UserTableNames.AchterNaam} = @Achternaam, {DatabaseObjects.UserTableNames.NFCID} = @NFCID, {DatabaseObjects.UserTableNames.DateJoined} = cast(@DateJoined as date), {DatabaseObjects.UserTableNames.IsActiveUser} = cast(@IsActive as bit) where {DatabaseObjects.UserTableNames.ID} == @ID";
+                    if (baylife) {
+                        command.CommandText = $"update {DatabaseObjects.UserTableNames.UserTableName} set {DatabaseObjects.UserTableNames.VoorNaam} = @Voornaam, {DatabaseObjects.UserTableNames.AchterNaam} = @Achternaam, {DatabaseObjects.UserTableNames.NFCID} = @NFCID, {DatabaseObjects.UserTableNames.DateJoined} = cast(@DateJoined as date), {DatabaseObjects.UserTableNames.IsActiveUser} = cast(@IsActive as bit), {DatabaseObjects.UserTableNames.DateLeft} = cast(@DateLeft as date) where {DatabaseObjects.UserTableNames.ID} = @ID";
+                    } else {
+                        command.CommandText = $"update {DatabaseObjects.UserTableNames.UserTableName} set {DatabaseObjects.UserTableNames.VoorNaam} = @Voornaam, {DatabaseObjects.UserTableNames.AchterNaam} = @Achternaam, {DatabaseObjects.UserTableNames.NFCID} = @NFCID, {DatabaseObjects.UserTableNames.DateJoined} = cast(@DateJoined as date), {DatabaseObjects.UserTableNames.IsActiveUser} = cast(@IsActive as bit) where {DatabaseObjects.UserTableNames.ID} = @ID";
+                    }
                 }
             }
-            FuncsVSQL.SQLNonQuery(command);
+            if(FuncsVSQL.SQLNonQuery(command) != 1) {
+                toReturn.OK = false;
+            }
             return toReturn;
         }
 
@@ -235,21 +246,32 @@ namespace NewApi.NETCore {
         public static NetComObjects.ServerResponseChangeModTable ChangeModtable(DatabaseObjects.AcountTableEntry _MasterRightsEnty, NetComObjects.ServerRequestChangeModTable _request) {
             NetComObjects.ServerResponseChangeModTable toReturn = new NetComObjects.ServerResponseChangeModTable();
             SqlCommand command = new SqlCommand();
-            command.Parameters.AddWithValue("@dateVan", _request.deEntry.DateVanafEnMet);
-            command.Parameters.AddWithValue("@dateTot", _request.deEntry.DateTotEnMet);
-            command.Parameters.AddWithValue("@daysOfEffect", _request.deEntry.DaysOfEffect);
-            command.Parameters.AddWithValue("@users", _request.deEntry.UserIDs);
-            command.Parameters.AddWithValue("@hoursToAdd", _request.deEntry.HoursToAdd);
-            command.Parameters.AddWithValue("@omschrij", _request.deEntry.omschrijveing);
-            command.Parameters.AddWithValue("@isStudiev", _request.deEntry.isStudieVerlof);
-            command.Parameters.AddWithValue("@isExcur", _request.deEntry.isExurtie);
-            command.Parameters.AddWithValue("@isFlexy", _request.deEntry.isFlexibelverlofoeorfsjklcghiur);
-            if (_request.IsNewEntry) {
-                command.CommandText = $"insert into {DatabaseObjects.ModifierTableNames.ModifierTableName} ({DatabaseObjects.ModifierTableNames.DateVanafEnMet}, {DatabaseObjects.ModifierTableNames.DateTotEnMet}, {DatabaseObjects.ModifierTableNames.DaysOfEffect}, {DatabaseObjects.ModifierTableNames.UserIDs}, {DatabaseObjects.ModifierTableNames.HoursToAdd}, {DatabaseObjects.ModifierTableNames.Omschrijving}, {DatabaseObjects.ModifierTableNames.isStudiever}, {DatabaseObjects.ModifierTableNames.isExur}, {DatabaseObjects.ModifierTableNames.isflexy}) values (cast(@dateVan as date), cast(@dateTot as date), @daysOfEffect, @users, @hoursToAdd, @omschrij, @isStudiev, @isExcur, @isFlexy)";
-            } else {
-                command.CommandText = $"update {DatabaseObjects.ModifierTableNames.ModifierTableName} set {DatabaseObjects.ModifierTableNames.DateVanafEnMet} = cast(@dateVan as date), {DatabaseObjects.ModifierTableNames.DateTotEnMet} = @dateTot, {DatabaseObjects.ModifierTableNames.DaysOfEffect} = @daysOfEffect, {DatabaseObjects.ModifierTableNames.UserIDs} = @users, {DatabaseObjects.ModifierTableNames.HoursToAdd} = @hoursToAdd,  {DatabaseObjects.ModifierTableNames.Omschrijving} = @omschrij, {DatabaseObjects.ModifierTableNames.isStudiever} = @isStudiev, {DatabaseObjects.ModifierTableNames.isExur} = @isStudiev, {DatabaseObjects.ModifierTableNames.isflexy} = @isFlexy";
+
+            if(!_request.IsNewEntry || _request.DeleteEntry) {
+                command.Parameters.AddWithValue("@ID", _request.deEntry.ID);
             }
-            FuncsVSQL.SQLNonQuery(command);
+
+            if (_request.DeleteEntry) {
+                command.CommandText = $"delete from {DatabaseObjects.ModifierTableNames.ModifierTableName} where {DatabaseObjects.ModifierTableNames.ID} = @ID";
+            } else {
+                command.Parameters.AddWithValue("@dateVan", _request.deEntry.DateVanafEnMet);
+                command.Parameters.AddWithValue("@dateTot", _request.deEntry.DateTotEnMet);
+                command.Parameters.AddWithValue("@daysOfEffect", _request.deEntry.DaysOfEffect);
+                command.Parameters.AddWithValue("@users", _request.deEntry.UserIDs);
+                command.Parameters.AddWithValue("@hoursToAdd", _request.deEntry.HoursToAdd);
+                command.Parameters.AddWithValue("@omschrij", _request.deEntry.omschrijveing);
+                command.Parameters.AddWithValue("@isStudiev", _request.deEntry.isStudieVerlof);
+                command.Parameters.AddWithValue("@isExcur", _request.deEntry.isExurtie);
+                command.Parameters.AddWithValue("@isFlexy", _request.deEntry.isFlexibelverlofoeorfsjklcghiur);
+                if (_request.IsNewEntry) {
+                    command.CommandText = $"insert into {DatabaseObjects.ModifierTableNames.ModifierTableName} ({DatabaseObjects.ModifierTableNames.DateVanafEnMet}, {DatabaseObjects.ModifierTableNames.DateTotEnMet}, {DatabaseObjects.ModifierTableNames.DaysOfEffect}, {DatabaseObjects.ModifierTableNames.UserIDs}, {DatabaseObjects.ModifierTableNames.HoursToAdd}, {DatabaseObjects.ModifierTableNames.Omschrijving}, {DatabaseObjects.ModifierTableNames.isStudiever}, {DatabaseObjects.ModifierTableNames.isExur}, {DatabaseObjects.ModifierTableNames.isflexy}) values (cast(@dateVan as date), cast(@dateTot as date), @daysOfEffect, @users, @hoursToAdd, @omschrij, @isStudiev, @isExcur, @isFlexy)";
+                } else {
+                    command.CommandText = $"update {DatabaseObjects.ModifierTableNames.ModifierTableName} set {DatabaseObjects.ModifierTableNames.DateVanafEnMet} = cast(@dateVan as date), {DatabaseObjects.ModifierTableNames.DateTotEnMet} = @dateTot, {DatabaseObjects.ModifierTableNames.DaysOfEffect} = @daysOfEffect, {DatabaseObjects.ModifierTableNames.UserIDs} = @users, {DatabaseObjects.ModifierTableNames.HoursToAdd} = @hoursToAdd,  {DatabaseObjects.ModifierTableNames.Omschrijving} = @omschrij, {DatabaseObjects.ModifierTableNames.isStudiever} = @isStudiev, {DatabaseObjects.ModifierTableNames.isExur} = @isStudiev, {DatabaseObjects.ModifierTableNames.isflexy} = @isFlexy where {DatabaseObjects.ModifierTableNames.ID} = @ID";
+                }
+            }
+            if (FuncsVSQL.SQLNonQuery(command) != 1) {
+                toReturn.OK = false;
+            }
             return toReturn;
         }
 
@@ -263,18 +285,39 @@ namespace NewApi.NETCore {
         public static NetComObjects.ServerResponseChangeAcountTable ChangeAcountTable(DatabaseObjects.AcountTableEntry _MasterRightsEnty, NetComObjects.ServerRequestChangeAcountTable _request) {
             NetComObjects.ServerResponseChangeAcountTable toReturn = new NetComObjects.ServerResponseChangeAcountTable();
             SqlCommand command = new SqlCommand();
-            command.Parameters.AddWithValue("@aansprBevoeg", _request.deEntry.AanspreekpuntBevoegdhijd);
-            command.Parameters.AddWithValue("@adminBevoeg", _request.deEntry.AdminBevoegdhijd);
-            command.Parameters.AddWithValue("@inlogNaam", _request.deEntry.InlogNaam);
-            command.Parameters.AddWithValue("@pw", _request.deEntry.InlogWachtwoord);
-            command.Parameters.AddWithValue("@naam", _request.deEntry.Naam);
-            if (_request.IsNewEntry) {
-                command.CommandText = $"insert into {DatabaseObjects.AcountsTableNames.AcountsTableName} ({DatabaseObjects.AcountsTableNames.Naam}, {DatabaseObjects.AcountsTableNames.InlogNaam}, {DatabaseObjects.AcountsTableNames.InlogWachtwoord}, {DatabaseObjects.AcountsTableNames.AanspreekpuntBevoegthijdLvl}, {DatabaseObjects.AcountsTableNames.AdminBevoegdhijd}) values (@naam, @inlogNaam, @pw, @inlogWachtwoord, @aansprBevoeg, @adminBevoeg)";
-            } else {
+
+            if (!_request.IsNewEntry || _request.DeleteEntry) {
+
                 command.Parameters.AddWithValue("@ID", _request.deEntry.ID);
-                command.CommandText = $"update {DatabaseObjects.AcountsTableNames.AcountsTableName} set {DatabaseObjects.AcountsTableNames.Naam}= @naam, {DatabaseObjects.AcountsTableNames.InlogNaam} = @inlogNaam, {DatabaseObjects.AcountsTableNames.InlogWachtwoord} = @pw, {DatabaseObjects.AcountsTableNames.AanspreekpuntBevoegthijdLvl} = @aansprBevoeg, {DatabaseObjects.AcountsTableNames.AdminBevoegdhijd} = @adminBevoeg where {DatabaseObjects.AcountsTableNames.ID} = @ID";
             }
-            FuncsVSQL.SQLNonQuery(command);
+
+            if (_request.DeleteEntry) {
+
+                command.CommandText = $"delete from {DatabaseObjects.AcountsTableNames.AcountsTableName} where {DatabaseObjects.AcountsTableNames.ID} = @ID";
+
+            } else {
+                command.Parameters.AddWithValue("@aansprBevoeg", _request.deEntry.AanspreekpuntBevoegdhijd);
+                command.Parameters.AddWithValue("@adminBevoeg", _request.deEntry.AdminBevoegdhijd);
+                command.Parameters.AddWithValue("@inlogNaam", _request.deEntry.InlogNaam);
+                command.Parameters.AddWithValue("@pw", _request.deEntry.InlogWachtwoord);
+                command.Parameters.AddWithValue("@naam", _request.deEntry.Naam);
+
+                if (_request.IsNewEntry) {
+
+                    command.CommandText = $"insert into {DatabaseObjects.AcountsTableNames.AcountsTableName} ({DatabaseObjects.AcountsTableNames.Naam}, {DatabaseObjects.AcountsTableNames.InlogNaam}, {DatabaseObjects.AcountsTableNames.InlogWachtwoord}, {DatabaseObjects.AcountsTableNames.AanspreekpuntBevoegthijdLvl}, {DatabaseObjects.AcountsTableNames.AdminBevoegdhijd}) values (@naam, @inlogNaam, @pw, @inlogWachtwoord, @aansprBevoeg, @adminBevoeg)";
+
+                } else {
+
+                    command.CommandText = $"update {DatabaseObjects.AcountsTableNames.AcountsTableName} set {DatabaseObjects.AcountsTableNames.Naam}= @naam, {DatabaseObjects.AcountsTableNames.InlogNaam} = @inlogNaam, {DatabaseObjects.AcountsTableNames.InlogWachtwoord} = @pw, {DatabaseObjects.AcountsTableNames.AanspreekpuntBevoegthijdLvl} = @aansprBevoeg, {DatabaseObjects.AcountsTableNames.AdminBevoegdhijd} = @adminBevoeg where {DatabaseObjects.AcountsTableNames.ID} = @ID";
+
+                }
+            }
+
+            if (FuncsVSQL.SQLNonQuery(command) != 1) {
+
+                toReturn.OK = false;
+            }
+
             return toReturn;
         }
     }

@@ -33,9 +33,9 @@ namespace NewCrossFunctions {
 
         public static ServerResponse WebRequest(object request, string _Username, string _Password, string _ApiAddres) {
             ServerRequest reques = new ServerRequest();
-            reques.UserName=_Username;
-            reques.Password=_Password;
-            reques.Request=request;
+            reques.UserName = _Username;
+            reques.Password = _Password;
+            reques.Request = request;
             return WebRequest(reques, _ApiAddres);
         }
 
@@ -56,16 +56,20 @@ namespace NewCrossFunctions {
         }
 
         public interface IKnow {
-            WhatIsThisEnum WatIsDit { get; }                 
+            WhatIsThisEnum WatIsDit { get; }
         }
-        
+
         public enum WhatIsThisEnum {
             RSqlServerDateTime,
             RInteken,
             ROneDateRegiOverzight,
             RMultiDateRegiOverzight,
-            RChangeRegTable
-        }        
+            RChangeRegTable,
+
+            GetUserTable, ChangeUserTable,
+            GetModTable, ChangeModTable,
+            GetAcountsTable, ChangeAcountTable
+        }
 
         public class ServerRequestSqlDateTime : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RSqlServerDateTime; } }
@@ -74,6 +78,7 @@ namespace NewCrossFunctions {
         public class serverResponseSqlDateTime {
             public DateTime SqlDateTime { get; set; }
         }
+
 
         public class ServerRequestOverzightFromMultipleDates : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RMultiDateRegiOverzight; } }
@@ -92,7 +97,8 @@ namespace NewCrossFunctions {
             public DateTime DateOfOverzight { get; set; }
         }
 
-        public class ServerRequestTekenInOfUit : IKnow{
+
+        public class ServerRequestTekenInOfUit : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RInteken; } }
             public string NFCCode { get; set; }
         }
@@ -104,6 +110,7 @@ namespace NewCrossFunctions {
             public bool uitekenengeanuleerd { get; set; }
         }
 
+
         public class ServerRequestOverzightFromOneDate : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ROneDateRegiOverzight; } }
             public bool useToday { get; set; } = false;
@@ -112,9 +119,10 @@ namespace NewCrossFunctions {
         }
 
         public class ServerResponseOverzightFromOneDate {
-           public List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; } = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
-           public DateTime SQlDateTime { get;set; }
+            public List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry> EtList { get; set; } = new List<DatabaseTypesAndFunctions.CombineerUserEntryRegEntryAndAfwezigEntry>();
+            public DateTime SQlDateTime { get; set; }
         }
+
 
         public class ServerRequestChangeRegistratieTable : IKnow {
             public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.RChangeRegTable; } }
@@ -125,6 +133,74 @@ namespace NewCrossFunctions {
 
         public class ServerResponseChangeRegistratieTable {
             //public DatabaseTypesAndFunctions.RegistratieTableTableEntry deEntry { get; set; } // voor DatabaseTypesAndFunctions.RegistratieTableTableEntry.ID als het nietuw as //SCOPE_IDENTITY() wwerrk nie
+        }
+
+        // newR
+
+        //user
+        public class ServerRequestGetUserTable : IKnow {
+            public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.GetUserTable; } }
+            public bool aleenDieNogOpSchoolZitten { get; set; } = true;
+        }
+
+        public class ServerResponseGetUserTable {
+            public List<DatabaseTypesAndFunctions.UserTableTableEntry> deEntrys { get; set; } = new List<DatabaseTypesAndFunctions.UserTableTableEntry>();
+        }
+
+
+        public class ServerRequestChangeUserTable : IKnow {
+            public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ChangeUserTable; } }
+            public bool IsNewUser { get; set; } = false;
+            public bool DeleteEntry { get; set; } = false;
+            public DatabaseTypesAndFunctions.UserTableTableEntry deEntry { get; set; }
+        }
+
+        public class ServerResponseChangeUserTable {
+            public bool OK { get; set; } = true;
+        }
+
+        //mod
+        public class ServerRequestGetModTable : IKnow {
+            public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.GetModTable; } }
+            public DateTime AllesWaarvanErEffectIsTussenDeze { get; set; }
+            public DateTime EnDezeDatums { get; set; }
+        }
+
+        public class ServerResponseGetModTable {
+            public List<DatabaseTypesAndFunctions.ModifierTableEntry> deEntrys { get; set; } = new List<DatabaseTypesAndFunctions.ModifierTableEntry>();
+        }
+
+
+        public class ServerRequestChangeModTable : IKnow {
+            public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ChangeModTable; } }
+            public bool IsNewEntry { get; set; } = false;
+            public bool DeleteEntry { get; set; } = false;
+            public DatabaseTypesAndFunctions.ModifierTableEntry deEntry { get; set; } = new DatabaseTypesAndFunctions.ModifierTableEntry();
+        }
+
+        public class ServerResponseChangeModTable {
+            public bool OK { get; set; } = true;
+        }
+
+        //acount
+        public class ServerRequestGetAcountsTable : IKnow {
+            public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.GetAcountsTable; } }
+        }
+
+        public class ServerResponseGetAcountTable {
+            public List<DatabaseTypesAndFunctions.AcountTableEntry> deEntrys { get; set; } = new List<DatabaseTypesAndFunctions.AcountTableEntry>();
+        }
+
+
+        public class ServerRequestChangeAcountTable : IKnow {
+            public WhatIsThisEnum WatIsDit { get { return WhatIsThisEnum.ChangeAcountTable; } }
+            public bool IsNewEntry { get; set; } = false;
+            public bool DeleteEntry { get; set; } = false;
+            public DatabaseTypesAndFunctions.AcountTableEntry deEntry { get; set; }
+        }
+
+        public class ServerResponseChangeAcountTable {
+            public bool OK { get; set; } = true;
         }
 
     }
