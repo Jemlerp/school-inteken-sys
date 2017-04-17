@@ -49,31 +49,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8RNY+hDtkyiSmopT65Zj7+e1In1FOmA+Xz3WqVAMLKE=</dsig:DigestValue>
+        <dsig:DigestValue>0h3gHFGPuCuQi5aufxT4VzgmOSZl4dDRrQvggNdSy2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewAdmin.exe" size="42984">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewAdmin.exe" size="43496">
       <assemblyIdentity name="NewAdmin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yqP+z7g3VC4TJV/qqh+ZtpCLQl1fekBrySllabluxRM=</dsig:DigestValue>
+        <dsig:DigestValue>KyjRrFuCIUcfyfy/SjpO1RwgebSmLHbS3KdeMWqmLvE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewCrossFunctions.dll" size="26112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NewCrossFunctions.dll" size="31232">
       <assemblyIdentity name="NewCrossFunctions" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/SUDxj0dOZaN8Xel2h5KLXBC8zTVvEzmMRVLK1s/hxs=</dsig:DigestValue>
+        <dsig:DigestValue>iYKrqzkAvgMyPVB0Pk0rRBB47Drw+mvCV8GCKR7tRyY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

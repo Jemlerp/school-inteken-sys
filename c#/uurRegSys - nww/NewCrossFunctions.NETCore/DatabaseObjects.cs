@@ -67,7 +67,7 @@ namespace NewCrossFunctions.NETCore {
             public static string Naam = "Naam";
             public static string InlogNaam = "InlogNaam";
             public static string InlogWachtwoord = "InlogWachtwoord";
-            public static string AanspreekpuntBevoegthijdLvl = "AanspreekpuntBeoegdhijd";
+            public static string AanspreekpuntBevoegthijdLvl = "AanspreekpuntBevoegdhijd";
             public static string AdminBevoegdhijd = "AdminBevoegdhijd";
         }
 
@@ -283,10 +283,10 @@ namespace NewCrossFunctions.NETCore {
 
         public class ModifierTableEntry {
             public int ID { get; set; }
-            public DateTime DateVanafEnMet { get; set; }
-            public DateTime DateTotEnMet { get; set; }
-            public bool[] DaysOfEffect { get; set; }
-            public int[] UserIDs { get; set; }
+            public DateTime DateVanafEnMet { get; set; } = new DateTime();
+            public DateTime DateTotEnMet { get; set; } = new DateTime();
+            public bool[] DaysOfEffect { get; set; } = new bool[4];
+            public List<int> UserIDs { get; set; } = new List<int>();
             public TimeSpan HoursToAdd { get; set; }
             public string omschrijveing { get; set; }
             public bool isStudieVerlof { get; set; } = false;

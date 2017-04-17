@@ -68,6 +68,12 @@
     <Compile Include="FormInterme.Designer.cs">
       <DependentUpon>FormInterme.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifier.Designer.cs">
+      <DependentUpon>FormModifier.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInterme.resx">
       <DependentUpon>FormInterme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifier.resx">
+      <DependentUpon>FormModifier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>

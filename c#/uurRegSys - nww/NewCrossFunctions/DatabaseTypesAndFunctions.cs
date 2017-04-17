@@ -21,7 +21,7 @@ namespace NewCrossFunctions {
             public static string Naam = "Naam";
             public static string inlogNaam = "InlogNaam";
             public static string inlogWachtwoord = "InlogWachtwoord";
-            public static string aanspreekpuntBevoegthijdLvl = "AanspreekpuntBeoegdhijd";
+            public static string aanspreekpuntBevoegthijdLvl = "AanspreekpuntBevoegdhijd";
             public static string adminBevoegdhijd = "AdminBevoegdhijd";
         }
 
@@ -169,16 +169,22 @@ namespace NewCrossFunctions {
             public static string UserIDs = "RelatedUserids"; //json
             public static string HoursToAdd = "HoursToAdd";
             public static string Omschrijving = "Omschrijving";
+            public static string isStudiever = "isStudieVerlof";
+            public static string isExur = "isExursie";
+            public static string isflexy = "isFlexibolelelverlof";
         }
 
         public class ModifierTableEntry {
             public int ID { get; set; }
-            public DateTime DateVanafEnMet { get; set; }
-            public DateTime DateTotEnMet { get; set; }
-            public bool[] DaysOfEffect { get; set; }
-            public int[] UserIDs { get; set; }
+            public DateTime DateVanafEnMet { get; set; } = new DateTime();
+            public DateTime DateTotEnMet { get; set; } = new DateTime();
+            public bool[] DaysOfEffect { get; set; } = new bool[4];
+            public List<int> UserIDs { get; set; } = new List<int>();
             public TimeSpan HoursToAdd { get; set; }
             public string omschrijveing { get; set; }
+            public bool isStudieVerlof { get; set; } = false;
+            public bool isExurtie { get; set; } = false;
+            public bool isFlexibelverlofoeorfsjklcghiur { get; set; } = false;
         }
         #endregion
 

@@ -44,6 +44,18 @@ namespace NewNewAdmin {
         }
 
         private void FormUsers_Load(object sender, EventArgs e) {
+            //.Format = DateTimePickerFormat.Custom;
+
+            dateTimePickerNewDateJoined.Format = DateTimePickerFormat.Custom;
+            dateTimePickerNewDateJoined.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNewDateLeft.Format = DateTimePickerFormat.Custom;
+            dateTimePickerNewDateLeft.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerUpdateDateJoined.Format = DateTimePickerFormat.Custom;
+            dateTimePickerUpdateDateJoined.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerUpdateDateLeft.Format = DateTimePickerFormat.Custom;
+            dateTimePickerUpdateDateLeft.CustomFormat = "dd/MM/yyyy";
+
+            refreshList();
 
         }
 
@@ -61,24 +73,26 @@ namespace NewNewAdmin {
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e) {
-            try {
+            if (dataGridView1.SelectedRows.Count > 0) {
+                try {
 
-                DatabaseTypesAndFunctions.UserTableTableEntry deEntry = alleDeEntrys.Where(entr => entr.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())).FirstOrDefault();
+                    DatabaseTypesAndFunctions.UserTableTableEntry deEntry = alleDeEntrys.Where(entr => entr.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())).FirstOrDefault();
 
-                textBoxUpdateID.Text = deEntry.ID.ToString();
-                textBoxUpdateVoornaam.Text = deEntry.VoorNaam;
-                textBoxUpdateAchternaam.Text = deEntry.AchterNaam;
-                textBoxUpdateNFCID.Text = deEntry.NFCID;
+                    textBoxUpdateID.Text = deEntry.ID.ToString();
+                    textBoxUpdateVoornaam.Text = deEntry.VoorNaam;
+                    textBoxUpdateAchternaam.Text = deEntry.AchterNaam;
+                    textBoxUpdateNFCID.Text = deEntry.NFCID;
 
-                dateTimePickerUpdateDateJoined.Value = deEntry.DateJoined;
+                    dateTimePickerUpdateDateJoined.Value = deEntry.DateJoined;
 
-                checkBoxUpdateZitNogOpSchool.Checked = deEntry.IsActiveUser;
-                if (deEntry.IsActiveUser) {
-                    dateTimePickerUpdateDateLeft.Value = deEntry.DateLeft;
+                    checkBoxUpdateZitNogOpSchool.Checked = deEntry.IsActiveUser;
+                    if (!deEntry.IsActiveUser) {
+                        dateTimePickerUpdateDateLeft.Value = deEntry.DateLeft;
+                    }
+
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message, "dit had niet moeten gebeuren");
                 }
-
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "dit had niet moeten gebeuren");
             }
         }
 
@@ -103,12 +117,13 @@ namespace NewNewAdmin {
             string dateJoined = "DateJoined";
             string dateLeft = "DateLeft";
 
-            dieWeSet.Rows.Add(ID);
-            dieWeSet.Rows.Add(Vnaam);
-            dieWeSet.Rows.Add(aNaam);
-            dieWeSet.Rows.Add(nfcid);
-            dieWeSet.Rows.Add(dateJoined);
-            dieWeSet.Rows.Add(dateLeft);
+            dieWeSet.Columns.Add(ID);
+            dieWeSet.Columns.Add(Vnaam);
+            dieWeSet.Columns.Add(aNaam);
+            dieWeSet.Columns.Add(nfcid);
+            dieWeSet.Columns.Add(zitnogopschool);
+            dieWeSet.Columns.Add(dateJoined);
+            dieWeSet.Columns.Add(dateLeft);
 
             foreach (var i in alleDeEntrys.Where(vnaam => vnaam.VoorNaam.Contains(searth) || vnaam.AchterNaam.Contains(searth))) {
                 DataRow row = dieWeSet.NewRow();
@@ -117,9 +132,11 @@ namespace NewNewAdmin {
                 row[aNaam] = i.AchterNaam;
                 row[nfcid] = i.NFCID;
                 row[zitnogopschool] = i.IsActiveUser.ToString();
-                row[dateJoined] = i.DateJoined.ToString();
+                row[dateJoined] = i.DateJoined.Date.ToString("yyyy-MM-dd");
                 if (!i.IsActiveUser) {
-                    row[dateLeft] = i.DateLeft.ToString();
+                    row[dateLeft] = i.DateLeft.Date.ToString("yyyy-MM-dd");
+                } else {
+                    row[dateLeft] = "NULL";
                 }
                 dieWeSet.Rows.Add(row);
             }
@@ -170,7 +187,7 @@ namespace NewNewAdmin {
                         if (deEntry.IsActiveUser) {
                             deEntry.DateLeft = dateTimePickerUpdateDateLeft.Value;
                         }
-                    }                    
+                    }
                 }
 
                 request.deEntry = deEntry;
@@ -193,7 +210,7 @@ namespace NewNewAdmin {
         }
 
         private void checkBoxUpdateZitNogOpSchool_CheckedChanged(object sender, EventArgs e) {
-            dateTimePickerUpdateDateLeft.Enabled = checkBoxUpdateZitNogOpSchool.Checked;
+            dateTimePickerUpdateDateLeft.Enabled = !checkBoxUpdateZitNogOpSchool.Checked;
         }
 
         private void checkBoxNewZitNogOpSchool_CheckedChanged(object sender, EventArgs e) {
@@ -213,6 +230,14 @@ namespace NewNewAdmin {
                 if (MessageBox.Show("Weet Je Het Echt Heel Zeker?", "DELETE USER", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop) == DialogResult.OK) {
                     push(false, true);
                 }
+            }
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e) {
+            if (textBox1.Text != "") {
+                refreshList(textBox1.Text);
+            } else {
+                refreshList("");
             }
         }
     }

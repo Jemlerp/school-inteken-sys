@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using NewCrossFunctions.NETCore;
 using System.Data.SqlClient;
 using System.Data;
+using Newtonsoft.Json;
 
 
 namespace NewApi.NETCore {
@@ -217,9 +218,9 @@ namespace NewApi.NETCore {
 
                 if (_request.IsNewUser) {
                     if (baylife) {
-                        command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}, {DatabaseObjects.UserTableNames.DateLeft} ) values (@Voornaam, @Achteraan, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit), cast(@DateLeft as date))";
+                        command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}, {DatabaseObjects.UserTableNames.DateLeft} ) values (@Voornaam, @Achternaam, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit), cast(@DateLeft as date))";
                     } else {
-                        command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}) values (@Voornaam, @Achteraan, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit))";
+                        command.CommandText = $"insert into {DatabaseObjects.UserTableNames.UserTableName} ({DatabaseObjects.UserTableNames.VoorNaam}, {DatabaseObjects.UserTableNames.AchterNaam}, {DatabaseObjects.UserTableNames.NFCID}, {DatabaseObjects.UserTableNames.DateJoined}, {DatabaseObjects.UserTableNames.IsActiveUser}) values (@Voornaam, @Achternaam, @NFCID, cast(@DateJoined as date), cast(@IsActive as bit))";
                     }
                 } else {
                     if (baylife) {
@@ -236,7 +237,6 @@ namespace NewApi.NETCore {
         }
 
         //mod
-
         public static NetComObjects.ServerResponseGetModTable GetModtable(DatabaseObjects.AcountTableEntry _MasterRightsEnty, NetComObjects.ServerRequestGetModTable _request) {
             NetComObjects.ServerResponseGetModTable toReturn = new NetComObjects.ServerResponseGetModTable();
             toReturn.deEntrys = FuncsVSQL.GetListMTFromReader($"select * from {DatabaseObjects.ModifierTableNames.ModifierTableName}");
@@ -256,8 +256,8 @@ namespace NewApi.NETCore {
             } else {
                 command.Parameters.AddWithValue("@dateVan", _request.deEntry.DateVanafEnMet);
                 command.Parameters.AddWithValue("@dateTot", _request.deEntry.DateTotEnMet);
-                command.Parameters.AddWithValue("@daysOfEffect", _request.deEntry.DaysOfEffect);
-                command.Parameters.AddWithValue("@users", _request.deEntry.UserIDs);
+                command.Parameters.AddWithValue("@daysOfEffect",  JsonConvert.SerializeObject(_request.deEntry.DaysOfEffect));
+                command.Parameters.AddWithValue("@users", JsonConvert.SerializeObject(_request.deEntry.UserIDs));
                 command.Parameters.AddWithValue("@hoursToAdd", _request.deEntry.HoursToAdd);
                 command.Parameters.AddWithValue("@omschrij", _request.deEntry.omschrijveing);
                 command.Parameters.AddWithValue("@isStudiev", _request.deEntry.isStudieVerlof);
@@ -304,7 +304,7 @@ namespace NewApi.NETCore {
 
                 if (_request.IsNewEntry) {
 
-                    command.CommandText = $"insert into {DatabaseObjects.AcountsTableNames.AcountsTableName} ({DatabaseObjects.AcountsTableNames.Naam}, {DatabaseObjects.AcountsTableNames.InlogNaam}, {DatabaseObjects.AcountsTableNames.InlogWachtwoord}, {DatabaseObjects.AcountsTableNames.AanspreekpuntBevoegthijdLvl}, {DatabaseObjects.AcountsTableNames.AdminBevoegdhijd}) values (@naam, @inlogNaam, @pw, @inlogWachtwoord, @aansprBevoeg, @adminBevoeg)";
+                    command.CommandText = $"insert into {DatabaseObjects.AcountsTableNames.AcountsTableName} ({DatabaseObjects.AcountsTableNames.Naam}, {DatabaseObjects.AcountsTableNames.InlogNaam}, {DatabaseObjects.AcountsTableNames.InlogWachtwoord}, {DatabaseObjects.AcountsTableNames.AanspreekpuntBevoegthijdLvl}, {DatabaseObjects.AcountsTableNames.AdminBevoegdhijd}) values (@naam, @inlogNaam, @pw, @aansprBevoeg, @adminBevoeg)";
 
                 } else {
 

@@ -56,6 +56,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.buttonDeleteUser = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,25 +86,26 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowCellErrors = false;
             this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.Size = new System.Drawing.Size(571, 661);
+            this.dataGridView1.Size = new System.Drawing.Size(665, 661);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // buttonRefresh
             // 
             this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefresh.Location = new System.Drawing.Point(564, 24);
+            this.buttonRefresh.Location = new System.Drawing.Point(671, 27);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(69, 27);
             this.buttonRefresh.TabIndex = 85;
             this.buttonRefresh.Text = "Reload";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // textBoxUpdateID
             // 
             this.textBoxUpdateID.Enabled = false;
             this.textBoxUpdateID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUpdateID.Location = new System.Drawing.Point(631, 64);
+            this.textBoxUpdateID.Location = new System.Drawing.Point(738, 67);
             this.textBoxUpdateID.Name = "textBoxUpdateID";
             this.textBoxUpdateID.Size = new System.Drawing.Size(124, 26);
             this.textBoxUpdateID.TabIndex = 73;
@@ -111,7 +114,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(761, 64);
+            this.label9.Location = new System.Drawing.Point(868, 67);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 20);
             this.label9.TabIndex = 72;
@@ -120,9 +123,8 @@
             // textBoxUpdateNFCID
             // 
             this.textBoxUpdateNFCID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUpdateNFCID.Location = new System.Drawing.Point(631, 160);
+            this.textBoxUpdateNFCID.Location = new System.Drawing.Point(738, 163);
             this.textBoxUpdateNFCID.Name = "textBoxUpdateNFCID";
-            this.textBoxUpdateNFCID.PasswordChar = '♫';
             this.textBoxUpdateNFCID.Size = new System.Drawing.Size(124, 26);
             this.textBoxUpdateNFCID.TabIndex = 68;
             // 
@@ -130,7 +132,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(761, 160);
+            this.label5.Location = new System.Drawing.Point(868, 163);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 20);
             this.label5.TabIndex = 67;
@@ -139,7 +141,7 @@
             // buttonUopdate
             // 
             this.buttonUopdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUopdate.Location = new System.Drawing.Point(631, 303);
+            this.buttonUopdate.Location = new System.Drawing.Point(738, 306);
             this.buttonUopdate.Name = "buttonUopdate";
             this.buttonUopdate.Size = new System.Drawing.Size(87, 33);
             this.buttonUopdate.TabIndex = 65;
@@ -150,7 +152,7 @@
             // textBoxUpdateAchternaam
             // 
             this.textBoxUpdateAchternaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUpdateAchternaam.Location = new System.Drawing.Point(631, 128);
+            this.textBoxUpdateAchternaam.Location = new System.Drawing.Point(738, 131);
             this.textBoxUpdateAchternaam.Name = "textBoxUpdateAchternaam";
             this.textBoxUpdateAchternaam.Size = new System.Drawing.Size(124, 26);
             this.textBoxUpdateAchternaam.TabIndex = 64;
@@ -158,7 +160,7 @@
             // textBoxUpdateVoornaam
             // 
             this.textBoxUpdateVoornaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUpdateVoornaam.Location = new System.Drawing.Point(631, 96);
+            this.textBoxUpdateVoornaam.Location = new System.Drawing.Point(738, 99);
             this.textBoxUpdateVoornaam.Name = "textBoxUpdateVoornaam";
             this.textBoxUpdateVoornaam.Size = new System.Drawing.Size(124, 26);
             this.textBoxUpdateVoornaam.TabIndex = 63;
@@ -167,7 +169,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(761, 96);
+            this.label7.Location = new System.Drawing.Point(868, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 20);
             this.label7.TabIndex = 62;
@@ -177,7 +179,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(761, 128);
+            this.label8.Location = new System.Drawing.Point(868, 131);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 20);
             this.label8.TabIndex = 61;
@@ -189,7 +191,7 @@
             this.connectReaderToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1020, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1131, 24);
             this.menuStrip1.TabIndex = 86;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -212,7 +214,7 @@
             // 
             this.checkBoxUpdateZitNogOpSchool.AutoSize = true;
             this.checkBoxUpdateZitNogOpSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxUpdateZitNogOpSchool.Location = new System.Drawing.Point(631, 193);
+            this.checkBoxUpdateZitNogOpSchool.Location = new System.Drawing.Point(738, 196);
             this.checkBoxUpdateZitNogOpSchool.Name = "checkBoxUpdateZitNogOpSchool";
             this.checkBoxUpdateZitNogOpSchool.Size = new System.Drawing.Size(145, 24);
             this.checkBoxUpdateZitNogOpSchool.TabIndex = 87;
@@ -223,30 +225,30 @@
             // dateTimePickerUpdateDateJoined
             // 
             this.dateTimePickerUpdateDateJoined.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUpdateDateJoined.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUpdateDateJoined.Location = new System.Drawing.Point(631, 223);
+            this.dateTimePickerUpdateDateJoined.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerUpdateDateJoined.Location = new System.Drawing.Point(738, 226);
             this.dateTimePickerUpdateDateJoined.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerUpdateDateJoined.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerUpdateDateJoined.MinDate = new System.DateTime(2000, 2, 19, 0, 0, 0, 0);
             this.dateTimePickerUpdateDateJoined.Name = "dateTimePickerUpdateDateJoined";
-            this.dateTimePickerUpdateDateJoined.Size = new System.Drawing.Size(201, 29);
+            this.dateTimePickerUpdateDateJoined.Size = new System.Drawing.Size(201, 26);
             this.dateTimePickerUpdateDateJoined.TabIndex = 88;
             // 
             // dateTimePickerUpdateDateLeft
             // 
             this.dateTimePickerUpdateDateLeft.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUpdateDateLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerUpdateDateLeft.Location = new System.Drawing.Point(631, 258);
+            this.dateTimePickerUpdateDateLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerUpdateDateLeft.Location = new System.Drawing.Point(738, 261);
             this.dateTimePickerUpdateDateLeft.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerUpdateDateLeft.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerUpdateDateLeft.MinDate = new System.DateTime(2000, 2, 19, 0, 0, 0, 0);
             this.dateTimePickerUpdateDateLeft.Name = "dateTimePickerUpdateDateLeft";
-            this.dateTimePickerUpdateDateLeft.Size = new System.Drawing.Size(201, 29);
+            this.dateTimePickerUpdateDateLeft.Size = new System.Drawing.Size(201, 26);
             this.dateTimePickerUpdateDateLeft.TabIndex = 89;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(838, 230);
+            this.label1.Location = new System.Drawing.Point(945, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 90;
@@ -256,7 +258,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(838, 265);
+            this.label2.Location = new System.Drawing.Point(945, 268);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 91;
@@ -266,7 +268,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(838, 563);
+            this.label3.Location = new System.Drawing.Point(945, 566);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 20);
             this.label3.TabIndex = 105;
@@ -276,7 +278,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(838, 528);
+            this.label4.Location = new System.Drawing.Point(945, 531);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 104;
@@ -285,30 +287,30 @@
             // dateTimePickerNewDateLeft
             // 
             this.dateTimePickerNewDateLeft.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNewDateLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNewDateLeft.Location = new System.Drawing.Point(631, 556);
+            this.dateTimePickerNewDateLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerNewDateLeft.Location = new System.Drawing.Point(738, 559);
             this.dateTimePickerNewDateLeft.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerNewDateLeft.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerNewDateLeft.MinDate = new System.DateTime(2000, 2, 19, 0, 0, 0, 0);
             this.dateTimePickerNewDateLeft.Name = "dateTimePickerNewDateLeft";
-            this.dateTimePickerNewDateLeft.Size = new System.Drawing.Size(201, 29);
+            this.dateTimePickerNewDateLeft.Size = new System.Drawing.Size(201, 26);
             this.dateTimePickerNewDateLeft.TabIndex = 103;
             // 
             // dateTimePickerNewDateJoined
             // 
             this.dateTimePickerNewDateJoined.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNewDateJoined.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNewDateJoined.Location = new System.Drawing.Point(631, 521);
+            this.dateTimePickerNewDateJoined.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerNewDateJoined.Location = new System.Drawing.Point(738, 524);
             this.dateTimePickerNewDateJoined.MaxDate = new System.DateTime(4200, 4, 20, 0, 0, 0, 0);
-            this.dateTimePickerNewDateJoined.MinDate = new System.DateTime(2016, 3, 19, 0, 0, 0, 0);
+            this.dateTimePickerNewDateJoined.MinDate = new System.DateTime(2000, 2, 19, 0, 0, 0, 0);
             this.dateTimePickerNewDateJoined.Name = "dateTimePickerNewDateJoined";
-            this.dateTimePickerNewDateJoined.Size = new System.Drawing.Size(201, 29);
+            this.dateTimePickerNewDateJoined.Size = new System.Drawing.Size(201, 26);
             this.dateTimePickerNewDateJoined.TabIndex = 102;
             // 
             // checkBoxNewZitNogOpSchool
             // 
             this.checkBoxNewZitNogOpSchool.AutoSize = true;
             this.checkBoxNewZitNogOpSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxNewZitNogOpSchool.Location = new System.Drawing.Point(631, 491);
+            this.checkBoxNewZitNogOpSchool.Location = new System.Drawing.Point(738, 494);
             this.checkBoxNewZitNogOpSchool.Name = "checkBoxNewZitNogOpSchool";
             this.checkBoxNewZitNogOpSchool.Size = new System.Drawing.Size(145, 24);
             this.checkBoxNewZitNogOpSchool.TabIndex = 101;
@@ -319,9 +321,8 @@
             // textBoxNewNfcid
             // 
             this.textBoxNewNfcid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNewNfcid.Location = new System.Drawing.Point(631, 458);
+            this.textBoxNewNfcid.Location = new System.Drawing.Point(738, 461);
             this.textBoxNewNfcid.Name = "textBoxNewNfcid";
-            this.textBoxNewNfcid.PasswordChar = '♫';
             this.textBoxNewNfcid.Size = new System.Drawing.Size(124, 26);
             this.textBoxNewNfcid.TabIndex = 98;
             // 
@@ -329,7 +330,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(761, 458);
+            this.label10.Location = new System.Drawing.Point(868, 461);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 20);
             this.label10.TabIndex = 97;
@@ -338,7 +339,7 @@
             // buttonSaveNew
             // 
             this.buttonSaveNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveNew.Location = new System.Drawing.Point(631, 601);
+            this.buttonSaveNew.Location = new System.Drawing.Point(738, 604);
             this.buttonSaveNew.Name = "buttonSaveNew";
             this.buttonSaveNew.Size = new System.Drawing.Size(87, 33);
             this.buttonSaveNew.TabIndex = 96;
@@ -349,7 +350,7 @@
             // textBoxNewAchternaam
             // 
             this.textBoxNewAchternaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNewAchternaam.Location = new System.Drawing.Point(631, 426);
+            this.textBoxNewAchternaam.Location = new System.Drawing.Point(738, 429);
             this.textBoxNewAchternaam.Name = "textBoxNewAchternaam";
             this.textBoxNewAchternaam.Size = new System.Drawing.Size(124, 26);
             this.textBoxNewAchternaam.TabIndex = 95;
@@ -357,7 +358,7 @@
             // textBoxNewvoornaam
             // 
             this.textBoxNewvoornaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNewvoornaam.Location = new System.Drawing.Point(631, 394);
+            this.textBoxNewvoornaam.Location = new System.Drawing.Point(738, 397);
             this.textBoxNewvoornaam.Name = "textBoxNewvoornaam";
             this.textBoxNewvoornaam.Size = new System.Drawing.Size(124, 26);
             this.textBoxNewvoornaam.TabIndex = 94;
@@ -366,7 +367,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(761, 394);
+            this.label11.Location = new System.Drawing.Point(868, 397);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 20);
             this.label11.TabIndex = 93;
@@ -376,7 +377,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(761, 426);
+            this.label12.Location = new System.Drawing.Point(868, 429);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 20);
             this.label12.TabIndex = 92;
@@ -385,7 +386,7 @@
             // buttonDeleteUser
             // 
             this.buttonDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDeleteUser.Location = new System.Drawing.Point(823, 303);
+            this.buttonDeleteUser.Location = new System.Drawing.Point(930, 306);
             this.buttonDeleteUser.Name = "buttonDeleteUser";
             this.buttonDeleteUser.Size = new System.Drawing.Size(123, 33);
             this.buttonDeleteUser.TabIndex = 106;
@@ -393,11 +394,29 @@
             this.buttonDeleteUser.UseVisualStyleBackColor = true;
             this.buttonDeleteUser.Click += new System.EventHandler(this.buttonDeleteUser_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(826, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 107;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(927, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 108;
+            this.label6.Text = "Search ";
+            // 
             // FormUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 685);
+            this.ClientSize = new System.Drawing.Size(1131, 685);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonDeleteUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -474,5 +493,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonDeleteUser;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

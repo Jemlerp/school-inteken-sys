@@ -37,13 +37,13 @@ namespace NewNewAdmin {
                 return;
             }
 
-            try {
+            //try {
                 FormInterme form = new FormInterme(JsonConvert.DeserializeObject<DateTime>(JsonConvert.SerializeObject(response.Response)), textBoxUserName.Text, textBoxPassword.Text, textBoxApiAddres.Text);
                 Visible = false;
                 form.ShowDialog();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message, "dit had niet moeten gebeuren...");
-            }
+           // } catch (Exception ex) {
+           //     MessageBox.Show(ex.Message, "dit had niet moeten gebeuren...");
+           // }
         }
     }
 }

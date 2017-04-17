@@ -131,12 +131,14 @@ namespace NewNewAdmin {
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e) {
             try {
-                textBoxUpdateID.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                textBoxUpdateNaam.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                textBoxUpdateInlogNaam.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                textBoxUpdateAnsprlvl.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                textBoxUpdateAdminlvl.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                textBoxNewInlogWachtwoord.Text = alleDeEntrys.Find(entry => entry.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())).inlogWachtwoord.ToString();
+                if (dataGridView1.SelectedRows.Count > 0) {
+                    textBoxUpdateID.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    textBoxUpdateNaam.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    textBoxUpdateInlogNaam.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    textBoxUpdateAnsprlvl.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                    textBoxUpdateAdminlvl.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                    textBoxUpdateInlogWachtwoord.Text = alleDeEntrys.Find(entry => entry.ID == Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())).inlogWachtwoord.ToString();
+                }
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "dit had niet moeten gebeuren");
             }

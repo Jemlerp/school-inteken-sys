@@ -12,6 +12,7 @@ namespace NewCrossFunctions {
 
         public static ServerResponse WebRequest(ServerRequest _request, string _apiAddres) {
             using (HttpClient client = new HttpClient()) {
+                string teststststsst = JsonConvert.SerializeObject(_request);
                 HttpResponseMessage response = client.PostAsync(_apiAddres, new StringContent(JsonConvert.SerializeObject(_request), Encoding.UTF8, "application/json")).Result;
                 Task<string> result = response.Content.ReadAsStringAsync();
                 //string banana = JsonConvert.DeserializeObject<string>(result.Result);
