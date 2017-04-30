@@ -64,8 +64,12 @@ namespace NewNewAdmin {
                 d.isFlexibelverlofoeorfsjklcghiur = checkBoxIsFlexiebelverlof.Checked;
                 d.DaysOfEffect[0] = checkBoxMo.Checked;
                 d.DaysOfEffect[1] = checkBoxDi.Checked;
-                d.DaysOfEffect[2] = checkBoxDo.Checked;
-                d.DaysOfEffect[3] = checkBoxVr.Checked;
+                d.DaysOfEffect[2] = checkBoxWo.Checked;
+                d.DaysOfEffect[3] = checkBoxDo.Checked;
+                d.DaysOfEffect[4] = checkBoxVr.Checked;
+                d.DaysOfEffect[5] = checkBoxZa.Checked;
+                d.DaysOfEffect[6] = checkBoxZo.Checked;
+
                 d.UserIDs = selectedUsers.Select(i => i.ID).ToList();
             }
             request.deEntry = d; // request.deEntry in the firstplcae
@@ -89,8 +93,11 @@ namespace NewNewAdmin {
             textBoxOpmerking.Text = "";
             checkBoxMo.Checked = false;
             checkBoxDi.Checked = false;
+            checkBoxWo.Checked = false;
             checkBoxDo.Checked = false;
             checkBoxVr.Checked = false;
+            checkBoxZa.Checked = false;
+            checkBoxZo.Checked = false;
             checkBoxIsExcurtie.Checked = false;
             checkBoxIsFlexiebelverlof.Checked = false;
             checkBoxIsStudiVerlof.Checked = false;
@@ -211,8 +218,11 @@ namespace NewNewAdmin {
                     textBoxOpmerking.Text = entry.omschrijveing;
                     checkBoxMo.Checked = entry.DaysOfEffect[0];
                     checkBoxDi.Checked = entry.DaysOfEffect[1];
-                    checkBoxDo.Checked = entry.DaysOfEffect[2];
-                    checkBoxVr.Checked = entry.DaysOfEffect[3];
+                    checkBoxWo.Checked = entry.DaysOfEffect[2];
+                    checkBoxDo.Checked = entry.DaysOfEffect[3];
+                    checkBoxVr.Checked = entry.DaysOfEffect[4];
+                    checkBoxZa.Checked = entry.DaysOfEffect[5];
+                    checkBoxZo.Checked = entry.DaysOfEffect[6];
                     checkBoxIsExcurtie.Checked = entry.isExurtie;
                     checkBoxIsFlexiebelverlof.Checked = entry.isFlexibelverlofoeorfsjklcghiur;
                     checkBoxIsStudiVerlof.Checked = entry.isStudieVerlof;

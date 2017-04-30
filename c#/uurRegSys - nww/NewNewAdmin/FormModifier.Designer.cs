@@ -53,6 +53,9 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonSaveNew = new System.Windows.Forms.Button();
+            this.checkBoxWo = new System.Windows.Forms.CheckBox();
+            this.checkBoxZo = new System.Windows.Forms.CheckBox();
+            this.checkBoxZa = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelecetedUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModEntrys)).BeginInit();
@@ -179,7 +182,7 @@
             // checkBoxIsStudiVerlof
             // 
             this.checkBoxIsStudiVerlof.AutoSize = true;
-            this.checkBoxIsStudiVerlof.Location = new System.Drawing.Point(724, 445);
+            this.checkBoxIsStudiVerlof.Location = new System.Drawing.Point(727, 537);
             this.checkBoxIsStudiVerlof.Name = "checkBoxIsStudiVerlof";
             this.checkBoxIsStudiVerlof.Size = new System.Drawing.Size(90, 17);
             this.checkBoxIsStudiVerlof.TabIndex = 68;
@@ -189,7 +192,7 @@
             // checkBoxIsFlexiebelverlof
             // 
             this.checkBoxIsFlexiebelverlof.AutoSize = true;
-            this.checkBoxIsFlexiebelverlof.Location = new System.Drawing.Point(724, 491);
+            this.checkBoxIsFlexiebelverlof.Location = new System.Drawing.Point(727, 583);
             this.checkBoxIsFlexiebelverlof.Name = "checkBoxIsFlexiebelverlof";
             this.checkBoxIsFlexiebelverlof.Size = new System.Drawing.Size(102, 17);
             this.checkBoxIsFlexiebelverlof.TabIndex = 69;
@@ -199,7 +202,7 @@
             // checkBoxIsExcurtie
             // 
             this.checkBoxIsExcurtie.AutoSize = true;
-            this.checkBoxIsExcurtie.Location = new System.Drawing.Point(724, 468);
+            this.checkBoxIsExcurtie.Location = new System.Drawing.Point(727, 560);
             this.checkBoxIsExcurtie.Name = "checkBoxIsExcurtie";
             this.checkBoxIsExcurtie.Size = new System.Drawing.Size(68, 17);
             this.checkBoxIsExcurtie.TabIndex = 70;
@@ -279,7 +282,7 @@
             // checkBoxDo
             // 
             this.checkBoxDo.AutoSize = true;
-            this.checkBoxDo.Location = new System.Drawing.Point(724, 371);
+            this.checkBoxDo.Location = new System.Drawing.Point(724, 394);
             this.checkBoxDo.Name = "checkBoxDo";
             this.checkBoxDo.Size = new System.Drawing.Size(40, 17);
             this.checkBoxDo.TabIndex = 97;
@@ -299,7 +302,7 @@
             // checkBoxVr
             // 
             this.checkBoxVr.AutoSize = true;
-            this.checkBoxVr.Location = new System.Drawing.Point(724, 394);
+            this.checkBoxVr.Location = new System.Drawing.Point(724, 417);
             this.checkBoxVr.Name = "checkBoxVr";
             this.checkBoxVr.Size = new System.Drawing.Size(36, 17);
             this.checkBoxVr.TabIndex = 99;
@@ -372,11 +375,44 @@
             this.buttonSaveNew.UseVisualStyleBackColor = true;
             this.buttonSaveNew.Click += new System.EventHandler(this.buttonSaveNew_Click);
             // 
+            // checkBoxWo
+            // 
+            this.checkBoxWo.AutoSize = true;
+            this.checkBoxWo.Location = new System.Drawing.Point(724, 371);
+            this.checkBoxWo.Name = "checkBoxWo";
+            this.checkBoxWo.Size = new System.Drawing.Size(43, 17);
+            this.checkBoxWo.TabIndex = 107;
+            this.checkBoxWo.Text = "Wo";
+            this.checkBoxWo.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxZo
+            // 
+            this.checkBoxZo.AutoSize = true;
+            this.checkBoxZo.Location = new System.Drawing.Point(724, 463);
+            this.checkBoxZo.Name = "checkBoxZo";
+            this.checkBoxZo.Size = new System.Drawing.Size(39, 17);
+            this.checkBoxZo.TabIndex = 109;
+            this.checkBoxZo.Text = "Zo";
+            this.checkBoxZo.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxZa
+            // 
+            this.checkBoxZa.AutoSize = true;
+            this.checkBoxZa.Location = new System.Drawing.Point(724, 440);
+            this.checkBoxZa.Name = "checkBoxZa";
+            this.checkBoxZa.Size = new System.Drawing.Size(39, 17);
+            this.checkBoxZa.TabIndex = 108;
+            this.checkBoxZa.Text = "Za";
+            this.checkBoxZa.UseVisualStyleBackColor = true;
+            // 
             // FormModifier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 699);
+            this.Controls.Add(this.checkBoxZo);
+            this.Controls.Add(this.checkBoxZa);
+            this.Controls.Add(this.checkBoxWo);
             this.Controls.Add(this.buttonSaveNew);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
@@ -444,5 +480,8 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonSaveNew;
+        private System.Windows.Forms.CheckBox checkBoxWo;
+        private System.Windows.Forms.CheckBox checkBoxZo;
+        private System.Windows.Forms.CheckBox checkBoxZa;
     }
 }

@@ -178,7 +178,7 @@ namespace NewCrossFunctions {
             public int ID { get; set; }
             public DateTime DateVanafEnMet { get; set; } = new DateTime();
             public DateTime DateTotEnMet { get; set; } = new DateTime();
-            public bool[] DaysOfEffect { get; set; } = new bool[4];
+            public bool[] DaysOfEffect { get; set; } = new bool[7];
             public List<int> UserIDs { get; set; } = new List<int>();
             public TimeSpan HoursToAdd { get; set; }
             public string omschrijveing { get; set; }
